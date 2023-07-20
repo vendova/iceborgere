@@ -365,7 +365,7 @@ async def mentionall(event):
         return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ !__")
 
     if event.pattern_match.group(1) and event.is_reply:
-        return await event.respond("__ɢɪᴠᴇ ᴍᴇ ᴏɴᴇ ᴀʀɢᴜᴍᴇɴᴛ ʙᴀʙʏ!__")
+        return await event.respond("__ɢɪᴠᴇ ᴍᴇ ᴏɴᴇ ᴀʀɢᴜᴍᴇɴᴛ!__")
     elif event.pattern_match.group(1):
         mode = "text_on_cmd"
         msg = event.pattern_match.group(1)
@@ -392,12 +392,15 @@ async def mentionall(event):
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{msg}\n{usrtxt}"
-                await abishnoi.send_message(chat_id, txt)
+                sent_msg = await abishnoi.send_message(chat_id, txt)
             elif mode == "text_on_reply":
-                await msg.reply(usrtxt)
+                sent_msg = await msg.reply(usrtxt)
             await asyncio.sleep(3)
             usrnum = 0
             usrtxt = ""
+
+            await asyncio.sleep(300) # wait 5 minutes
+            await sent_msg.delete()
     try:
         spam_chats.remove(chat_id)
     except:
