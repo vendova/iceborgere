@@ -230,14 +230,14 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"ᴍʏ ᴅᴀʀʟɪɴɢ ʜᴀꜱ ᴄᴏᴍᴇ ᴛᴏ ᴛʜɪꜱ ɢʀᴏᴜᴘ ꜰᴏʀ ᴍᴀᴋᴇ ᴛʜᴇᴇ ᴄʜɪʟᴅ ᴡɪᴛʜ ᴍᴇ"
+                    f"My darling has come to this group for make thee child with me"
                 )
                 continue
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "ᴡʜᴏᴀ! ᴛʜᴇ ᴅᴇꜱᴛʀᴏʏᴇʀꜱ ᴊᴜꜱᴛ ᴀʀʀɪᴠᴇᴅ!",
+                    "Whoa! The destroyers just arrived!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -245,7 +245,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
                 update.effective_message.reply_text(
-                    "ʜᴜʜ! ꜱʜᴀᴅᴏᴡ ꜱʟᴀʏᴇʀ ᴊᴜꜱᴛ ᴊᴏɪɴᴇᴅ! ꜱᴛᴀʏ ᴀʟᴇʀᴛ!",
+                    "Huh! Shadow slayer just joined! Stay alert!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -253,7 +253,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome Support
             elif new_mem.id in DEMONS:
                 update.effective_message.reply_text(
-                    "ʜᴜʜ! ꜱᴏᴍᴇᴏɴᴇ ᴡɪᴛʜ ɢᴜʀᴅɪᴀɴ ᴊᴜꜱᴛ ᴊᴏɪɴᴇᴅ!",
+                    "Huh! Someone with gurdian just joined!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -261,14 +261,14 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome SARDEGNA_USERS
             elif new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                    "ᴏᴏꜰ! ᴀ ᴠɪʟʟᴀɪɴ ᴜꜱᴇʀ ᴊᴜꜱᴛ ᴊᴏɪɴᴇᴅ!", reply_to_message_id=reply
+                    "Oof! A villain user just joined!", reply_to_message_id=reply
                 )
                 continue
 
             # Welcome yourself
             elif new_mem.id == bot.id:
                 update.effective_message.reply_text(
-                    f"ᴛʜᴀɴᴋꜱ ꜰᴏʀ ᴀᴅᴅɪɴɢ ᴍᴇ! ᴊᴏɪɴ @{AbishnoiMF} ꜰᴏʀ ꜱᴜᴘᴘᴏʀᴛ.",
+                    f"Thanks for adding me! \n\nJoin @werewolfquicker for support.",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -578,14 +578,14 @@ def check_not_bot(
 
         try:
             bot.edit_message_text(
-                "*ᴋɪᴄᴋꜱ ᴛʜᴇ ᴜꜱᴇʀ*\nᴛʜᴇʏ ᴄᴀɴ ᴀʟᴡᴀʏꜱ ʀᴇᴊᴏɪɴ ᴀɴᴅ ᴛʀʏ.",
+                "*Kicks the user*\nthey can always rejoin and try.",
                 chat_id=chat_id,
                 message_id=message_id,
             )
         except TelegramError:
             bot.delete_message(chat_id=chat_id, message_id=message_id)
             bot.send_message(
-                "{} ᴡᴀꜱ ᴋɪᴄᴋᴇᴅ ᴀꜱ ᴛʜᴇʏ ꜰᴀɪʟᴇᴅ ᴛᴏ ᴠᴀʀɪꜰʏ ᴛʜᴇᴍꜱᴇʟᴠᴇꜱ".format(
+                "{} Was kicked as they failed to verify themselves.".format(
                     mention_html(member.id, member.first_name)
                 ),
                 chat_id=chat_id,
@@ -633,14 +633,14 @@ def left_member(update: Update, context: CallbackContext):  # sourcery no-metric
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "ꜱᴇᴇ ʏᴏᴜ ᴀᴛ ʜᴏᴍᴇ ᴍʏ ᴅᴀʀʟɪɴɢ :(", reply_to_message_id=reply
+                    "See you at home my darling :(", reply_to_message_id=reply
                 )
                 return
 
             # Give the devs a special goodbye
             elif left_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "ꜱᴇᴇ ʏᴏᴜ ʟᴀᴛᴇʀ ᴀᴛ ᴛʜᴇ ꜱᴜᴋᴜʀᴀ ᴇᴍᴘɪʀᴇ",
+                    "See you later at the sukura empire",
                     reply_to_message_id=reply,
                 )
                 return
@@ -711,8 +711,8 @@ def welcome(update: Update, context: CallbackContext):
         noformat = True
         pref, welcome_m, cust_content, welcome_type = sql.get_welc_pref(chat.id)
         update.effective_message.reply_text(
-            f"ᴛʜɪꜱ ᴄʜᴀᴛ ʜᴀꜱ ɪᴛ's ᴡᴇʟᴄᴏᴍᴇ ꜱᴇᴛᴛɪɴɢ ꜱᴇᴛ ᴛᴏ : `{pref}`.\n"
-            f"*ᴛʜᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ (ɴᴏᴛ ꜰɪʟʟɪɴɢ ᴛʜᴇ {{}}) ɪꜱ:*",
+            f"This chat has it's welcome setting set to : `{pref}`.\n"
+            f"*The welcome message (not filling the {{}}) is:*",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -760,12 +760,12 @@ def welcome(update: Update, context: CallbackContext):
         elif args[0].lower() in ("off", "no"):
             sql.set_welc_preference(str(chat.id), False)
             update.effective_message.reply_text(
-                "ɪ'ʟʟ ɢᴏ ʟᴏᴀꜰ ᴀʀʀᴏᴜɴᴅ ᴀɴᴅ ɴᴏᴛ ᴡᴇʟᴄᴏᴍᴇ ᴀɴʏᴏɴᴇ ᴛʜᴇɴ."
+                "I'll go loaf arround and not welcome anyone then."
             )
 
         else:
             update.effective_message.reply_text(
-                "ɪ ᴜɴᴅᴇʀꜱᴛᴀɴᴅ 'on/yes' ᴏʀ 'off/no' ᴏɴʟʏ!"
+                "I understand 'on/yes' or 'off/no' only!"
             )
 
 
@@ -779,8 +779,8 @@ def goodbye(update: Update, context: CallbackContext):
         noformat = True
         pref, goodbye_m, goodbye_type = sql.get_gdbye_pref(chat.id)
         update.effective_message.reply_text(
-            f"ᴛʜɪꜱ ᴄʜᴀᴛ ʜᴀꜱ ɪᴛ's ɢᴏᴏᴅʙʏᴇ ꜱᴇᴛᴛɪɴɢ ꜱᴇᴛ ᴛᴏ : `{pref}`.\n"
-            f"*ᴛʜᴇᴇ ɢᴏᴏᴅʙʏᴇ ᴍᴇꜱꜱᴀɢᴇ  (ɴᴏᴛ ꜰᴇᴇʟɪɴɢ ᴛʜᴇ {{}}) ɪꜱ:*",
+            f"This chat has it's goodbye setting set to : `{pref}`.\n"
+            f"*Thee goodbye message (not feeling the {{}}) is:*",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -836,17 +836,17 @@ def set_welcome(update: Update, context: CallbackContext) -> str:
     text, data_type, content, buttons = get_welcome_type(msg)
 
     if data_type is None:
-        msg.reply_text("ʏᴏᴜ ᴅɪᴅɴ'ᴛ ꜱᴘᴇᴄɪꜰʏ ᴡʜᴀᴛ ᴛᴏ ʀᴇᴘʟʏ ᴡɪᴛʜ!")
+        msg.reply_text("You didn't specify what to reply with!")
         return ""
 
     sql.set_custom_welcome(chat.id, content, text, data_type, buttons)
-    msg.reply_text("ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇᴛ ᴄᴜꜱᴛᴏᴍ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ!")
+    msg.reply_text("Successfully set custom welcome message!")
 
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#SET_WELCOME\n"
         f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"ꜱᴇᴛ ᴛʜᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ."
+        f"Set the welcome message."
     )
 
 
@@ -861,14 +861,14 @@ def reset_welcome(update: Update, context: CallbackContext) -> str:
         chat.id, None, random.choice(sql.DEFAULT_WELCOME_MESSAGES), sql.Types.TEXT
     )
     update.effective_message.reply_text(
-        "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇꜱᴇᴛ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴅᴇꜰᴀᴜʟᴛ!"
+        "Successfully reset welcome message to default!"
     )
 
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#RESET_WELCOME\n"
         f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"ʀᴇꜱᴇᴛ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴅᴇꜰᴀᴜʟᴛ."
+        f"Reset welcome message to default."
     )
 
 
@@ -882,7 +882,7 @@ def set_goodbye(update: Update, context: CallbackContext) -> str:
     text, data_type, content, buttons = get_welcome_type(msg)
 
     if data_type is None:
-        msg.reply_text("ʏᴏᴜ ᴅɪᴅɴ'ᴛ ꜱᴘᴇᴄɪꜰʏ ᴡʜᴀᴛ ᴛᴏ ʀᴇᴘʟʏ ᴡɪᴛʜ!")
+        msg.reply_text("You didn't specify what to reply with!")
         return ""
 
     sql.set_custom_gdbye(chat.id, content or text, data_type, buttons)
@@ -891,7 +891,7 @@ def set_goodbye(update: Update, context: CallbackContext) -> str:
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#SET_GOODBYE\n"
         f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"ꜱᴇᴛ ᴛʜᴇ ɢᴏᴏᴅʙʏᴇ ᴍᴇꜱꜱᴀɢᴇ."
+        f"Set the goodbye message."
     )
 
 
@@ -906,14 +906,14 @@ def reset_goodbye(update: Update, context: CallbackContext) -> str:
         chat.id, random.choice(sql.DEFAULT_GOODBYE_MESSAGES), sql.Types.TEXT
     )
     update.effective_message.reply_text(
-        "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇꜱᴇᴛ ɢᴏᴏᴅʙʏᴇ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴅᴇꜰᴀᴜʟᴛ!"
+        "Successfully reset goodbye message to default!"
     )
 
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#RESET_GOODBYE\n"
         f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"ʀᴇꜱᴇᴛ ᴛʜᴇ ɢᴏᴏᴅʙʏᴇ ᴍᴇꜱꜱᴀɢᴇ."
+        f"Reset the goodbye message."
     )
 
 
@@ -929,29 +929,29 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
     if len(args) >= 1:
         if args[0].lower() in ("off", "no"):
             sql.set_welcome_mutes(chat.id, False)
-            msg.reply_text("ɪ ᴡɪʟʟ ɴᴏ ʟᴏɴɢᴇʀ ᴍᴜᴛᴇ ᴘᴇᴏᴘʟᴇ ᴏɴ ᴊᴏɪɴɪɴɢ!")
+            msg.reply_text("I will no longer mute people on joining!")
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
                 f"<b>• ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-                f"ʜᴀꜱ ᴛᴏɢɢʟᴇᴅ ᴡᴇʟᴄᴏᴍᴇ ᴍᴜᴛᴇ ᴛᴏ  <b>OFF</b>."
+                f"Has toggled welcome mute to <b>OFF</b>."
             )
         elif args[0].lower() in ["soft"]:
             sql.set_welcome_mutes(chat.id, "soft")
             msg.reply_text(
-                "ɪ ᴡɪʟʟ ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ' ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏ ꜱᴇɴᴅ ᴍᴇᴅɪᴀ ꜰᴏʀ 24 ʜᴏᴜʀꜱ."
+                "I will restrict users' permission to send media for 24 hours."
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
                 f"<b>• ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-                f"ʜᴀꜱ ᴛᴏɢɢʟᴇᴅ ᴡᴇʟᴄᴏᴍᴇ ᴍᴜᴛᴇ ᴛᴏ <b>SOFT</b>."
+                f"Has toggled welcome mute to <b>SOFT</b>."
             )
         elif args[0].lower() in ["strong"]:
             sql.set_welcome_mutes(chat.id, "strong")
             msg.reply_text(
-                "ɪ ᴡɪʟʟ ɴᴏᴡ ᴍᴜᴛᴇ ᴘᴇᴏᴘʟᴇ ᴡʜᴇɴ ᴛʜᴇʏ ᴊᴏɪɴ ᴜɴᴛɪʟ ᴛʜᴇʏ ᴘʀᴏᴠᴇ ᴛʜᴇʏ ᴀʀᴇ ɴᴏᴛ ᴀ ʙᴏᴛ.\nᴛʜᴇʏ ᴡɪʟʟ ʜᴀᴠᴇ 120 ꜱᴇᴄᴏɴᴅꜱ "
-                "before they get kicked. "
+                "I will now mute people when they join until they prove they are not a bot.\nthey will have 120 seconds "
+"before they get kicked."
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
@@ -962,8 +962,8 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
         elif args[0].lower() in ["captcha"]:
             sql.set_welcome_mutes(chat.id, "captcha")
             msg.reply_text(
-                "ɪ ᴡɪʟʟ ɴᴏᴡ ᴍᴜᴛᴇ ᴘᴇᴏᴘʟᴇ ᴡʜᴇɴ ᴛʜᴇʏ ᴊᴏɪɴ ᴜɴᴛɪʟʟ ᴛʜᴇʏ ᴘʀᴏᴠᴇ ᴛʜᴇʏ ᴀʀᴇ ɴᴏᴛ ʙᴏᴛ.\nᴛʜᴇʏ ʜᴀᴠᴇ ᴛᴏ ꜱᴏʟᴠᴇ ᴀ "
-                "ᴄᴀᴘᴛᴄʜᴀ ᴛᴏ ɢᴇᴛ ᴜɴᴍᴜᴛᴇᴅ. "
+                "I will now mute people when they join untill they prove they are not bot.\nthey have to solve a "
+"captcha to get unmuted."
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
@@ -1378,12 +1378,12 @@ def get_help(chat):
     return [
         gs(chat, "greetings_help"),
         [
-            InlineKeyboardButton(text="ᴡᴇʟᴄᴏᴍᴇᴇ ᴍᴜᴛᴇꜱ", callback_data="wlc_help_m"),
-            InlineKeyboardButton(text="ᴡᴇʟᴄᴏᴍᴇ ꜰᴏʀᴍᴀᴛᴛɪɴɢ", callback_data="wlc_help_h"),
+            InlineKeyboardButton(text="WELCOME MUTES", callback_data="wlc_help_m"),
+            InlineKeyboardButton(text="WELCOME FORMATTING", callback_data="wlc_help_h"),
         ],
     ]
 
 
 # """
 
-__mod_name__ = "𝐖ᴇʟᴄᴏᴍᴇ"
+__mod_name__ = "WELCOME"
