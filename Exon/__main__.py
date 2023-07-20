@@ -36,23 +36,23 @@ from Exon.modules.helper_funcs.misc import paginate_modules
 from Exon.modules.language import gs
 
 PM_START_TEX = """
-ʜᴇʟʟᴏ `{}`, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ʙʀᴏ . . . 
+👋
 """
 
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="❣ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ❣︎", url=f"t.me/{BOT_USERNAME}?startgroup=new"
+            text="Add me to your chat!", url=f"t.me/{BOT_USERNAME}?startgroup=new"
         ),
     ],
     [
-        InlineKeyboardButton(text=f"🚁 ʜᴇʟᴘ 🚁", callback_data="help_back"),
-        InlineKeyboardButton(text=f"🥀 sᴛᴀᴛs 🥀", callback_data="stats_callback"),
+        InlineKeyboardButton(text=f"Help", callback_data="help_back"),
+        InlineKeyboardButton(text=f"Stats", callback_data="stats_callback"),
     ],
     [
-        InlineKeyboardButton(text="🏡 ᴀʙᴏᴜᴛ 🏡", callback_data="ABG_"),
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴘᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="About", callback_data="ABG_"),
+        InlineKeyboardButton(text="Developer", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
@@ -136,7 +136,7 @@ def test(update: Update, context: CallbackContext):
     """
     # pprint(ast.literal_eval(str(update)))
     # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
-    update.effective_message.reply_text("ᴛʜɪs ᴘᴇʀsᴏɴ ᴇᴅɪᴛᴇᴅ ᴀ ᴍᴇssᴀɢᴇ")
+    update.effective_message.reply_text("This person edited a message!")
     print(update.effective_message)
 
 
@@ -196,16 +196,16 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                 elif isinstance(help_list, str):
                     help_text = help_list
                 text = (
-                    "ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
+                    "Here is the help for the *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
                         HELPABLE[mod].__mod_name__
                     )
                     + help_text
                 )
                 help_buttons.append(
                     [
-                        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
+                        InlineKeyboardButton(text="Back", callback_data="help_back"),
                         InlineKeyboardButton(
-                            text="sᴜᴘᴘᴏʀᴛ",
+                            text="Support",
                             callback_data="ABG_support",
                         ),
                     ]
@@ -238,14 +238,14 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
             lol = update.effective_message.reply_text(
                 PM_START_TEX.format(usr.first_name), parse_mode=ParseMode.MARKDOWN
             )
-            time.sleep(0.4)
+            ''' #TODO time.sleep(0.4)
             lol.edit_text("🎊")
             time.sleep(0.5)
             lol.edit_text("⚡")
             time.sleep(0.3)
             lol.edit_text("ꜱᴛᴀʀᴛɪɴɢ... ")
             time.sleep(0.4)
-            lol.delete()
+            lol.delete() '''
             update.effective_message.reply_text(
                 text=gs(chat.id, "pm_start_text").format(
                     escape_markdown(first_name),
@@ -327,15 +327,15 @@ def help_button(update: Update, context: CallbackContext):
                 help_text = help_list
                 help_buttons = []
             text = (
-                "ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
+                "Here is the help for the *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + help_text
             )
             help_buttons.append(
                 [
-                    InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
-                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", callback_data="ABG_support"),
+                    InlineKeyboardButton(text="Back", callback_data="help_back"),
+                    InlineKeyboardButton(text="Support", callback_data="ABG_support"),
                 ]
             )
             query.message.edit_text(
@@ -405,12 +405,12 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ɪɴ ᴘᴍ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴏғ {module.capitalize()}",
+                f"Contact me in PM to get help of {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="• ʜᴇʟᴘ •​",
+                                text="HELP​",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -421,12 +421,12 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            "» ᴄʜᴏᴏsᴇ ᴀɴ ᴏᴩᴛɪᴏɴ ғᴏʀ ɢᴇᴛᴛɪɴɢ ʜᴇʟᴩ.",
+            "Choose an option for getting HELP.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="• ᴏᴩᴇɴ ɪɴ ᴩʀɪᴠᴀᴛᴇ •",
+                            text="Open in private",
                             url="https://t.me/{}?start=help".format(
                                 context.bot.username
                             ),
@@ -434,7 +434,7 @@ def get_help(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="• ᴏᴩᴇɴ ʜᴇʀᴇ •",
+                            text="Open here",
                             callback_data="help_back",
                         )
                     ],
@@ -455,15 +455,15 @@ def get_help(update: Update, context: CallbackContext):
             elif isinstance(help_list, str):
                 help_text = help_list
             text = (
-                "ʜᴇʀᴇ ɪs ᴛʜᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
+                "Here is the available help for the *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + help_text
             )
             help_buttons.append(
                 [
-                    InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
-                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", callback_data="ABG_support"),
+                    InlineKeyboardButton(text="Back", callback_data="help_back"),
+                    InlineKeyboardButton(text="Support", callback_data="ABG_support"),
                 ]
             )
             send_help(
@@ -497,14 +497,14 @@ def send_settings(chat_id: int, user_id: int, user=False):
             )
             dispatcher.bot.send_message(
                 user_id,
-                "ᴛʜᴇsᴇ ᴀʀᴇ ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ sᴇᴛᴛɪɴɢs:" + "\n\n" + settings,
+                "These are your current settings:" + "\n\n" + settings,
                 parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "sᴇᴇᴍs ʟɪᴋᴇ ᴛʜᴇʀᴇ ᴀʀᴇɴ'ᴛ ᴀɴʏ ᴜsᴇʀ sᴘᴇᴄɪғɪᴄ sᴇᴛᴛɪɴɢs ᴀᴠᴀɪʟᴀʙʟᴇ :'(",
+                "Seems like there aren't any user specific settings available :'(",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -512,7 +512,7 @@ def send_settings(chat_id: int, user_id: int, user=False):
         chat_name = dispatcher.bot.getChat(chat_id).title
         dispatcher.bot.send_message(
             user_id,
-            text="ᴡʜɪᴄʜ ᴍᴏᴅᴜʟᴇ ᴡᴏᴜʟᴅ ʏᴏᴜ ʟɪᴋᴇ ᴛᴏ ᴄʜᴇᴄᴋ {}'s sᴇᴛᴛɪɴɢs ғᴏʀ?".format(
+            text="Which module would you like to check {}'s settings for?".format(
                 chat_name
             ),
             reply_markup=InlineKeyboardMarkup(
@@ -522,8 +522,8 @@ def send_settings(chat_id: int, user_id: int, user=False):
     else:
         dispatcher.bot.send_message(
             user_id,
-            "sᴇᴇᴍs ʟɪᴋᴇ ᴛʜᴇʀᴇ ᴀʀᴇɴ'ᴛ ᴀɴʏ ᴄʜᴀᴛ sᴇᴛᴛɪɴɢs ᴀᴠᴀɪʟᴀʙʟᴇ :'(\nsᴇɴᴅ ᴛʜɪs "
-            "ɪɴ ᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ ʏᴏᴜ'ʀᴇ ᴀᴅᴍɪɴ ɪɴ ᴛᴏ ғɪɴᴅ ɪᴛs ᴄᴜʀʀᴇɴᴛ sᴇᴛᴛɪɴɢs!",
+            "Seems like there aren't any chat settings available :'(\nsend this "
+            "In a group chat you're admin in to find its current settings!",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -549,7 +549,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = mod_match.group(1)
             module = mod_match.group(2)
             chat = bot.get_chat(chat_id)
-            text = "*{}* ʜᴀs ᴛʜᴇ ғᴏʟʟᴏᴡɪɴɢ sᴇᴛᴛɪɴɢs ғᴏʀ ᴛʜᴇ *{}* ᴍᴏᴅᴜʟᴇ:\n\n".format(
+            text = "*{}* Has the following settings for the *{}* module:\n\n".format(
                 escape_markdown(chat.title), CHAT_SETTINGS[module].__mod_name__
             ) + CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_text(
@@ -572,8 +572,8 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "ʜɪ ᴛʜᴇʀᴇ! ᴛʜᴇʀᴇ ᴀʀᴇ ǫᴜɪᴛᴇ ᴀ ғᴇᴡ sᴇᴛᴛɪɴɢs ғᴏʀ {} - ɢᴏ ᴀʜᴇᴀᴅ ᴀɴᴅ ᴘɪᴄᴋ ᴡʜᴀᴛ "
-                "ʏᴏᴜ'ʀᴇ ɪɴᴛᴇʀᴇsᴛᴇᴅ ɪɴ.".format(chat.title),
+                "Hi there! There are quite a few settings for {} - go ahead and pick what "
+                "you're Interested in".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -586,8 +586,8 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "ʜɪ ᴛʜᴇʀᴇ! ᴛʜᴇʀᴇ ᴀʀᴇ ǫᴜɪᴛᴇ ᴀ ғᴇᴡ sᴇᴛᴛɪɴɢs ғᴏʀ {} - ɢᴏ ᴀʜᴇᴀᴅ ᴀɴᴅ ᴘɪᴄᴋ ᴡʜᴀᴛ "
-                "ʏᴏᴜ'ʀᴇ ɪɴᴛᴇʀᴇsᴛᴇᴅ ɪɴ.".format(chat.title),
+                "Hi there! There are quite a few settings for {} - go ahead and pick what  "
+                "you're Interested in".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         next_page + 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -599,8 +599,8 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                text="ʜɪ ᴛʜᴇʀᴇ! ᴛʜᴇʀᴇ ᴀʀᴇ ǫᴜɪᴛᴇ ᴀ ғᴇᴡ sᴇᴛᴛɪɴɢs ғᴏʀ {} - ɢᴏ ᴀʜᴇᴀᴅ ᴀɴᴅ ᴘɪᴄᴋ ᴡʜᴀᴛ "
-                "ʏᴏᴜ'ʀᴇ ɪɴᴛᴇʀᴇsᴛᴇᴅ ɪɴ.".format(escape_markdown(chat.title)),
+                text="Hi there! There are quite a few settings for {} - go ahead and pick what  "
+                "you're Interested in".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
@@ -637,14 +637,14 @@ def get_settings(update: Update, context: CallbackContext):
         send_settings(chat.id, user.id, True)
 
     elif is_user_admin(update, user.id):
-        text = "ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ᴛʜɪs ᴄʜᴀᴛ sᴇᴛᴛɪɴɢs, ᴀs ᴡᴇʟʟ ᴀs ʏᴏᴜʀs."
+        text = "Click here to get this chat settings, as well as yours."
         msg.reply_text(
             text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="sᴇᴛᴛɪɴɢs",
+                            text="Settings",
                             url="t.me/{}?start=stngs_{}".format(
                                 context.bot.username, chat.id
                             ),
@@ -654,7 +654,7 @@ def get_settings(update: Update, context: CallbackContext):
             ),
         )
     else:
-        text = "ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ sᴇᴛᴛɪɴɢs."
+        text = "Click here to check your settings."
 
 
 @Exonmsg(Filters.status_update.migrate)
@@ -676,7 +676,7 @@ def migrate_chats(update: Update, context: CallbackContext):
     else:
         return
 
-    log.info("ᴍɪɢʀᴀᴛɪɴɢ ғʀᴏᴍ %s, ᴛᴏ %s", str(old_chat), str(new_chat))
+    log.info("Migrating from %s, To %s", str(old_chat), str(new_chat))
     for mod in MIGRATEABLE:
         mod.__migrate__(old_chat, new_chat)
 
@@ -691,15 +691,15 @@ def main():
                 f"@{SUPPORT_CHAT}",
                 animation="https://te.legra.ph/file/8dea393ddf4fc2e339179.gif",
                 caption=f"""
-ㅤ🥀 {dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ ✨ .....
+ㅤ{dispatcher.bot.first_name} Is ALIVE ✨ .....
 
 ━━━━━━━━━━━━━
-⍟ ᴍʏ [ᴏᴡɴᴇʀ](https://t.me/{OWNER_USERNAME})
-⍟ **ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{lver}`
-⍟ **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tver}`
-⍟ **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pver}`
-⍟ **ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{version_info[0]}.{version_info[1]}.{version_info[2]}`
-⍟ **ʙᴏᴛ ᴠᴇʀsɪᴏɴ :** `2.69``
+ᴍʏ [ᴏᴡɴᴇʀ](https://t.me/{OWNER_USERNAME})
+**ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{lver}`
+**ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tver}`
+**ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pver}`
+**ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{version_info[0]}.{version_info[1]}.{version_info[2]}`
+**ʙᴏᴛ ᴠᴇʀsɪᴏɴ :** `2.69``
 ━━━━━━━━━━━━━
 """,
                 parse_mode=ParseMode.MARKDOWN,
@@ -710,7 +710,7 @@ def main():
             log.warning(e.message)
 
     log.info(
-        f"ᴜsɪɴɢ ʟᴏɴɢ ᴘᴏʟʟɪɴɢ. ........... ᴇɴᴊᴏʏ ʏᴏᴜʀ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs →  {dispatcher.bot.first_name} "
+        f"Using long polling. ........... ᴇɴᴊᴏʏ ʏᴏᴜʀ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs →  {dispatcher.bot.first_name} "
     )
     updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
 
