@@ -54,17 +54,17 @@ async def zombies(event):
     """For .zombies command, list all the zombies in a chat."""
     con = event.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "ɴᴏ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛꜱ ꜰᴏᴜɴᴅ, ɢʀᴏᴜᴘ ɪꜱ ᴄʟᴇᴀɴ ᴇɴᴊᴏʏ."
+    del_status = "No deleted accounts found, group is clean enjoy."
 
     if con != "clean":
-        find_zombies = await event.respond("ꜱᴇᴀʀᴄʜɪɴɢ ꜰᴏʀ ᴢᴏᴍʙɪᴇꜱ...")
+        find_zombies = await event.respond("Searching for *zombies*...")
         async for user in event.client.iter_participants(event.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
-            del_status = f"ꜰᴏᴜɴᴅ **{del_u}** ᴢᴏᴍʙɪᴇꜱ ɪɴ ᴛʜɪꜱ ɢʀᴏᴜᴘ.\
-            \nᴄʟᴇᴀɴ ᴛʜᴇᴍ ʙʏ ᴜꜱɪɴɢ - `/zombies clean`"
+            del_status = f"found **{del_u}** zombies in this group.\
+            \nclean them by using - `/zombies clean`"
         await find_zombies.edit(del_status)
         return
 
@@ -79,10 +79,10 @@ async def zombies(event):
         return
 
     if not admin and not creator:
-        await event.respond("ɪ ᴀᴍ ɴᴏᴛ ᴀᴅᴍɪɴ ʜᴇʀᴇ!")
+        await event.respond("I am not admin here!")
         return
 
-    cleaning_zombies = await event.respond("ᴄʟᴇᴀɴɪɴɢ ᴢᴏᴍʙɪᴇꜱ...")
+    cleaning_zombies = await event.respond("Cleaning zombies...")
     del_u = 0
     del_a = 0
 
@@ -93,7 +93,7 @@ async def zombies(event):
                     EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                await cleaning_zombies.edit("ɪ ᴅᴏɴᴛ ʜᴀᴠᴇ ʙᴀɴ ʀɪɢʜᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.")
+                await cleaning_zombies.edit("I dont have ban right in your group.")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
@@ -102,16 +102,16 @@ async def zombies(event):
             del_u += 1
 
     if del_u > 0:
-        del_status = f"ᴄʟᴇᴀɴᴇᴅ `{del_u}` ᴢᴏᴍʙɪᴇꜱ"
+        del_status = f"cleaned `{del_u}` zombies."
 
     if del_a > 0:
-        del_status = f"ᴄʟᴇᴀɴᴇᴅ `{del_u}` ᴢᴏᴍʙɪᴇꜱ \
-        \n`{del_a}` ᴢᴏᴍʙɪᴇꜱ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛꜱ ᴀʀᴇ ɴᴏᴛ ʀᴇᴍᴏᴠᴇᴅ!"
+        del_status = f"cleaned `{del_u}` zombies \
+        \n`{del_a}` Zombies admin accounts are not removed!"
 
     await cleaning_zombies.edit(del_status)
 
 
-__mod_name__ = "𝐙ᴏᴍʙɪᴇs"
+__mod_name__ = "ZOMBIES"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
