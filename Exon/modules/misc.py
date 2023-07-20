@@ -330,7 +330,7 @@ dispatcher.add_handler(REDDIT_MEMES_HANDLER)
 dispatcher.add_handler(SYS_STATUS_HANDLER)
 dispatcher.add_handler(IP_HANDLER)
 
-__mod_name__ = "𝐄xᴛʀᴀs"
+__mod_name__ = "Extras"
 __command_list__ = ["id", "echo", "source", "rmeme", "ip", "sysinfo"]
 __handlers__ = [
     ECHO_HANDLER,
