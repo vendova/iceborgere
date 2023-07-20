@@ -404,7 +404,7 @@ def get_chat(chat_id, chat_data):
         return {"status": False, "value": False}
 
 
-__mod_name__ = "𝐁ᴀᴄᴋᴜᴘ"
+__mod_name__ = "Backup"
 
 IMPORT_HANDLER = CommandHandler(["import", "backup"], import_data, run_async=True)
 EXPORT_HANDLER = CommandHandler(
