@@ -322,4 +322,4 @@ def get_help(chat):
 
 # """
 
-__mod_name__ = "𝐀-ʀᴀɪᴅ"
+__mod_name__ = "A-Raid"
