@@ -208,7 +208,7 @@ def listmodules(update: Update, context: CallbackContext):
     message.reply_text(module_list, parse_mode=ParseMode.HTML)
 
 
-__mod_name__ = "𝐌ᴏᴅᴜʟᴇs"
+__mod_name__ = "Modules"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
