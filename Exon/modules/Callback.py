@@ -146,10 +146,7 @@ def ABG_about_callback(update, context):
             text=f"━━━━━━━ *CREDIT* ━━━━━━━"
             "\n🛡️ *credit for quickerobot robot* 🛡️"
             "\n\nhere is the developer and"
-            f"\nsponsor of [{BOT_NAME}](t.me/quickerobot)"
-            "\n\n"
-            f"\nmaking [{BOT_NAME}](t.me/{OWNER_USERNAME}) ᴀ"
-            "\nsuper group management bot",
+            f"\nsponsor of [{BOT_NAME}](t.me/quickerobot)",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
