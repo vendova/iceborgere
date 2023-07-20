@@ -241,7 +241,7 @@ dispatcher.add_handler(RESTART_HANDLER)
 dispatcher.add_handler(LEAVE_CALLBACK_HANDLER)
 dispatcher.add_handler(GITPULL_HANDLER)
 
-__mod_name__ = "𝐃ᴇᴠs"
+__mod_name__ = "Devs"
 __handlers__ = [
     LEAVE_HANDLER,
     RESTART_HANDLER,
