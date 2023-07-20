@@ -232,7 +232,7 @@ if is_module_loaded(FILENAME):
             return f"This group has all it's logs sent to: {escape_markdown(log_channel_info.title)} (`{log_channel}`)"
         return "No log channel is set for this group!"
 
-    __mod_name__ = "𝐋ᴏɢɢᴇʀ"
+    __mod_name__ = "Logger"
 
 else:
     # run anyway if module not loaded
