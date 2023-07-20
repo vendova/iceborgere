@@ -21,11 +21,9 @@ grp_start_text: "Greetings, I am ready to assist you."
 
 
 pm_help_text: |
-   ------- *HELP MENU* -------
    Please select a category below
    to view available commands.
-   ➼ Supported handlers: (/ or !)
-   ------- *HELP MENU* -------
+   Supported handlers: (/ or !)
 
 
 add_bot: "+ Add me to your group"
