@@ -12,7 +12,7 @@ class Config(object):
     API_HASH = getenv("API_HASH", None)
     ARQ_API_KEY = "PMPTTD-HOMLMF-SRBHNH-RZMWXL-ARQ"
     STRING_SESSION = getenv("STRING_SESSION", None)
-    SPAMWATCH_API = None
+    SPAMWATCH_API = 'GhWhhp5xFkqV5smfVvvSE_cLxEjlkz2D2zgMHtDUg6fatS1zeJMrFciremP5sKR_'
     TOKEN = getenv("TOKEN", None)
     OWNER_ID = int(getenv("OWNER_ID", "5938660179"))  # sᴛᴀʀᴛ @Exon_Robot ᴛʏᴘᴇ /id
     OWNER_USERNAME = getenv("OWNER_USERNAME", "Abishnoi1M")
