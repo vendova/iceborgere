@@ -1,304 +1,307 @@
-# ʟᴀɴɢᴜᴀɢᴇ ɴᴀᴍᴇ ɪɴ ᴛʜᴇɪʀ ɴᴀᴛɪᴠᴇ
-language: "𝐄ɴɢʟɪsʜ "
+# LANGUAGE NAME IN THEIR NATIVE 
+language: "English"
 
 
-# ɴᴀᴍᴇ ᴏғ ᴘᴇᴏᴘʟᴇ(s) ᴡʜᴏ ᴡᴏʀᴋᴇᴅ ᴏɴ ᴛʜɪs ᴛʀᴀɴsʟᴀᴛɪᴏɴ
-authors: "@Abishnoi1M"
+# NAME OF PERSON(S) WHO WORKED ON THIS TRANSLATION
+authors: "@iceborger"
 
-# ʟᴀɴɢᴜᴀɢᴇs
-curr_chat_lang: "ʜᴇʏ. ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ʟᴀɴɢᴜᴀɢᴇ ɪs {}, sᴇʟᴇᴄᴛ ᴛʜᴇ ᴏɴᴇ ʏᴏᴜ ᴡᴀɴᴛ ғʀᴏᴍ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ :)"
-set_chat_lang: "ɢʀᴇᴀᴛ, {} ɪᴛ ɪs ( ғʀᴏᴍ ɴᴏᴡ ᴏɴ!"
 
+# LANGUAGES
+curr_chat_lang: "Your current language is set to {}. Please select your preferred language from the buttons below."  
+set_chat_lang: "Great, I have set your language to {}!"
 
 
 pm_start_text: |
-   ʜɪ {},
-   {} ɪs ᴛʜᴇ *ᴍᴏsᴛ ᴄᴏᴍᴘʟᴇᴛᴇ* ʙᴏᴛ ᴛᴏ ʜᴇʟᴘ
-   ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ *ɢʀᴏᴜᴘs* ᴇᴀsɪʟʏ ᴀɴᴅ *sᴀғᴇʟʏ*.
-      ➣ *ᴜᴘᴛɪᴍᴇ :* {} 
-      ➣  *ᴜsᴇʀs :* 0{}
-      ➢  *ᴄʜᴀᴛs :* 0{}
-  
-  
-grp_start_text: "ʜɪ, ɪ'ᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ."
-   
-   
+   Hello {},
+   {} am *the most advanced* bot to 
+   efficiently *manage your groups* with *ease and security*.  
+      ➣ *Uptime:* {}  
+      ➣ *Users:* 0{}
+      ➣ *Chats:* 0{}
+
+      
+grp_start_text: "Greetings, I am ready to assist you."
+
+
 pm_help_text: |
-   ━━━━━━━ *ʜᴇʟᴘ* ━━━━━━━
-   ᴄʜᴏᴏsᴇ ᴏɴᴇ ᴏғ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ʙᴇʟᴏᴡ
-   ᴛᴏ sᴇᴇ ᴛʜᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs.
-   ➼ ᴜsᴇᴀʙʟᴇ ʜᴀɴᴅʟᴇʀ *:* (/ , !)
-   ━━━━━━━ *ʜᴇʟᴘ* ━━━━━━━
+   ------- *HELP MENU* -------
+   Please select a category below
+   to view available commands.
+   ➼ Supported handlers: (/ or !)
+   ------- *HELP MENU* -------
 
 
-add_bot: "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ"
-help_menu: "📚 ʜᴇʟᴘ"
-about: "🏡 ᴀʙᴏᴜᴛ"
-owner: "🥀 ᴅᴇᴠᴇʟᴏᴘᴇʀ"
+add_bot: "+ Add me to your group"
+help_menu: "📚 Help" 
+about: "🏠 About"
+owner: "🥀 Developer"
 
 
 abishnoi_help: |
-    *ᴏɴʟʏ ᴀᴅᴍɪɴs ʜᴇʟᴘ ᴍᴇɴᴜ*
+    *ADMIN-ONLY HELP*
 
 
 kingAbishnoi_help: |
-    *ᴇxᴛʀᴀ ʜᴇʟᴘ ᴍᴇɴᴜ*
- 
- 
+    *ADDITIONAL HELP*
+
+
 akboss_help: |
-    *ᴀɴᴛɪ sᴇʀᴠɪᴄᴇ ʜᴇʟᴘ ᴍᴇɴᴜ*
+    *ANTI-SERVICE HELP*
 
 
 achannel_help: |
-    *ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ*
-    ᴛɪʀᴇᴅ ᴏғ ᴛᴇʟᴇɢʀᴀᴍ's sᴛᴜᴘɪᴅɪᴛʏ? ᴡᴇʟʟ ʜᴇʀᴇ ʏᴏᴜ ɢᴏ
-    *ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:*
-    •➥ /antichannel <on/off>: ʙᴀɴs ᴀɴᴅ ᴅᴇʟᴇᴛᴇs ᴀɴʏᴏɴᴇ ᴡʜᴏ ᴛʀɪᴇs ᴛᴏ ᴛᴀʟᴋ ᴀs ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ғᴏʀᴄᴇs ᴇᴍ ᴛᴏ ᴛᴀʟᴋ ᴀs ᴛʜᴇᴍsᴇʟᴠᴇs
-    •➥ /antilinkedchan <on/off>: ᴍᴀᴋᴇs ᴇxᴏɴ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴘᴏsᴛs ғʀᴏᴍ ᴄʜᴀᴛʀᴏᴏᴍ
-    •➥ /antichannelpin <on/off>: ᴍᴀᴋᴇs ᴇxᴏɴ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴜɴᴘɪɴ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴘᴏsᴛs ғʀᴏᴍ ᴄʜᴀᴛʀᴏᴏᴍ
+    *ANTI-CHANNEL*  
+    Tired of Telegram stupidity? Here you go:
+    *Available commands:*
+    •➥ /antichannel <on/off>: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves
+    •➥ /antilinkedchan <on/off>: Automatically delete linked channel posts from chatroom
+    •➥ /antichannelpin <on/off>: Automatically unpin linked channel posts from chatroom
 
- 
+
 admin_help: |
-   •➥ /admins*:* ʟɪꜱᴛ ᴏғ ᴀᴅᴍɪɴꜱ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ.
-   *ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:* 
-   •➥ /invitelink*:* ɢᴇᴛꜱ ᴄʜᴀᴛ ɪɴᴠɪᴛᴇʟɪɴɪɴᴠɪᴛᴇʟɪɴᴋ
-   •➥ /lowpromote*:* ᴘʀᴏᴍᴏᴛᴇꜱ ᴛʜᴇ ᴜꜱᴇʀ ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴡɪᴛʜ ʟᴏᴡ ʀɪɢʜᴛ
-   •➥ /promote*:* ᴘʀᴏᴍᴏᴛᴇꜱ ᴛʜᴇ ᴜꜱᴇʀ ʀᴇᴘʟɪᴇᴅ ᴛᴏ 
-   •➥ /fullpromote*:* ᴘʀᴏᴍᴏᴛᴇꜱ ᴛʜᴇ ᴜꜱᴇʀ ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴡɪᴛʜ ғᴜʟʟ ʀɪɢʜᴛꜱ
-   •➥ /demote*:* ᴅᴇᴍᴏᴛᴇꜱ ᴛʜᴇ ᴜꜱᴇʀ ʀᴇᴘʟɪᴇᴅ ᴛᴏ
-   •➥ /title <ᴛɪᴛʟᴇ ʜᴇʀᴇ>*:* ꜱᴇᴛꜱ ᴀ ᴄᴜꜱᴛᴏᴍ ᴛɪᴛʟᴇ ғᴏʀ ᴀɴ ᴀᴅᴍɪɴ ᴛʜᴀᴛ ᴛʜᴇ ʙᴏᴛ ᴘʀᴏᴍᴏᴛᴇᴅ
-   •➥ /reload*:* ғᴏʀᴄᴇ ʀᴇғʀᴇꜱʜ ᴛʜᴇ ᴀᴅᴍɪɴꜱ ʟɪꜱᴛ 
-
+   •➥ /admins: List of admins in the chat
+   *Admins only:*
+   •➥ /invitelink: Generates chat invite link
+   •➥ /lowpromote: Promotes user replied to with low rights  
+   •➥ /promote: Promotes user replied to
+   •➥ /fullpromote: Promotes user replied to with full rights
+   •➥ /demote: Demotes user replied to
+   •➥ /title <title>: Sets custom title for promoted admin
+   •➥ /reload: Force refreshes admin list
 
 
 afk_help: |
-   •➥ /afk - ᴛʜɪs ᴡɪʟʟ sᴇᴛ ʏᴏᴜ ᴏғғʟɪɴᴇ.
-   •➥ /afk [ʀᴇᴀsᴏɴ] - ᴛʜɪs ᴡɪʟʟ sᴇᴛ ʏᴏᴜ ᴏғғʟɪɴᴇ ᴡɪᴛʜ ᴀ ʀᴇᴀsᴏɴ.
-   •➥ /afk [ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴀ sᴛɪᴄᴋᴇʀ/ᴘʜᴏᴛᴏ] - ᴛʜɪs ᴡɪʟʟ sᴇᴛ ʏᴏᴜ ᴏғғʟɪɴᴇ ᴡɪᴛʜ ᴀɴ ɪᴍᴀɢᴇ ᴏʀ sᴛɪᴄᴋᴇʀ.
-   •➥ /afk [ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴀ sᴛɪᴄᴋᴇʀ/ᴘʜᴏᴛᴏ] [ʀᴇᴀsᴏɴ] - ᴛʜɪs ᴡɪʟʟ sᴇᴛ ʏᴏᴜ ᴀғᴋ ᴡɪᴛʜ ᴀɴ ɪᴍᴀɢᴇ ᴀɴᴅ ʀᴇᴀsᴏɴ ʙᴏᴛʜ
+   •➥ /afk: Sets you as offline. 
+   •➥ /afk [reason]: Sets you as offline with a reason.
+   •➥ /afk [reply to media]: Sets you as offline using replied media as reason.
+   •➥ /afk [media] [reason]: Sets you as offline with media and reason.
 
 
 antiflood_help: |
-   •➥ *ᴀᴅᴍɪɴs ᴏɴʟʏ:*
-   •➥ /antispam <on/off/yes/no>: ᴡɪʟʟ ᴛᴏɢɢʟᴇ ᴏᴜʀ ᴀɴᴛɪsᴘᴀᴍ ᴛᴇᴄʜ ᴏʀ ʀᴇᴛᴜʀɴ ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ sᴇᴛᴛɪɴɢs.
-   ᴀɴᴛɪ-sᴘᴀᴍ, ᴜsᴇᴅ ʙʏ ʙᴏᴛ ᴅᴇᴠs ᴛᴏ ʙᴀɴ sᴘᴀᴍᴍᴇʀs ᴀᴄʀᴏss ᴀʟʟ ɢʀᴏᴜᴘs. ᴛʜɪs ʜᴇʟᴘs ᴘʀᴏᴛᴇᴄᴛ 
-   ʏᴏᴜ ᴀɴᴅ ʏᴏᴜʀ ɢʀᴏᴜᴘs ʙʏ ʀᴇᴍᴏᴠɪɴɢ sᴘᴀᴍ ғʟᴏᴏᴅᴇʀs ᴀs ǫᴜɪᴄᴋʟʏ ᴀs ᴘᴏssɪʙʟᴇ
-   ɴᴏᴛᴇ: ᴜsᴇʀs ᴄᴀɴ ᴀᴘᴘᴇᴀʟ ɢʙᴀɴs ᴏʀ ʀᴇᴘᴏʀᴛ sᴘᴀᴍᴍᴇʀs ᴀᴛ @AbishnoiMF
-   •➥ /flood: ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴀɴᴛɪғʟᴏᴏᴅ sᴇᴛᴛɪɴɢs
-   •➥ /setflood <number/off/no>: sᴇᴛ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏғ ᴍᴇssᴀɢᴇs ᴀғᴛᴇʀ ᴡʜɪᴄʜ ᴛᴏ ᴛᴀᴋᴇ ᴀᴄᴛɪᴏɴ ᴏɴ ᴀ ᴜsᴇʀ. sᴇᴛ ᴛᴏ '0', 'off', or 'no' ᴛᴏ ᴅɪsᴀʙʟᴇ.
-   •➥ /setfloodmode <ᴀᴄᴛɪᴏɴ ᴛʏᴘᴇ>: ᴄʜᴏᴏsᴇ ᴡʜɪᴄʜ ᴀᴄᴛɪᴏɴ ᴛᴏ ᴛᴀᴋᴇ ᴏɴ ᴀ ᴜsᴇʀ ᴡʜᴏ ʜᴀs ʙᴇᴇɴ ғʟᴏᴏᴅɪɴɢ. ᴏᴘᴛɪᴏɴs: ban/kick/mute/tban/tmute.
+   •➥ *Admins only:*
+   •➥ /antispam <on/off/yes/no>: Toggles antispam security. 
+   Anti-spam helps protect you and your chats by removing spam flooders as quickly as possible.
 
-  
+   Users can appeal gbans or report spammers at @notoscam
+
+   •➥ /flood: Get the current flood settings
+   •➥ /setflood <integer/'no'/'off'>: Set the number of messages after which to take action on a user. set to '0' or 'off' to disable.
+   •➥ /setfloodmode <action type>: Choose which action to take on a user who has been flooding. Options: ban/kick/mute/tban/tmute
+
+
 approve_help: |
-   •➥ *ꜱᴏᴍᴇᴛɪᴍᴇꜱ, ʏᴏᴜ ᴍɪɢʜᴛ ᴛʀᴜꜱᴛ ᴀ ᴜꜱᴇʀ ɴᴏᴛ ᴛᴏ ꜱᴇɴᴅ ᴜɴᴡᴀɴᴛᴇᴅ ᴄᴏɴᴛᴇɴᴛ. ᴍᴀʏʙᴇ ɴᴏᴛ ᴇɴᴏᴜɢʜ ᴛᴏ ᴍᴀᴋᴇ ᴛʜᴇᴍ ᴀᴅᴍɪɴ, ʙᴜᴛ ʏᴏᴜ ᴍɪɢʜᴛ ʙᴇ ᴏᴋ ᴡɪᴛʜ ʟᴏᴄᴋꜱ ʙʟᴀᴄᴋʟɪꜱᴛꜱ, ᴀɴᴅ ᴀɴᴛɪғʟᴏᴏᴅ ɴᴏᴛ ᴀᴘᴘʟʏɪɴɢ ᴛᴏ ᴛʜᴇᴍ*
-       ᴛʜᴀᴛ ᴡʜᴀᴛ ᴀᴘᴘʀᴏᴠᴀʟꜱ ᴀʀᴇ ғᴏʀ - ᴀᴘᴘʀᴏᴠᴇ ᴏғ ᴛʀᴜꜱᴛᴡᴏʀᴛʜʏ . ᴜꜱᴇʀꜱ ᴛᴏ ᴀʟʟᴏᴡ ᴛʜᴇᴍ ᴛᴏ ꜱᴇɴᴅ
-       *ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ:*
-   •➥ /approval*:* ᴄʜᴇᴄᴋ ᴀ ᴜꜱᴇʀ ᴀᴘᴘʀᴏᴠᴀʟ ꜱᴛᴀᴛᴜꜱ ɪɴ ᴛʜɪꜱ ᴄʜᴀᴛ.
-   •➥ /approve*:* ᴀᴘᴘʀᴏᴠᴇ ᴏғ ᴀ ᴜꜱᴇʀ. ʟᴏᴄᴋꜱ, ʙʟᴀᴄᴋʟɪꜱᴛꜱ, ᴀɴᴅ ᴀɴᴛɪғʟᴏᴏᴅ ᴡᴏɴ'ᴛ ᴀᴘᴘʟʏ ᴛᴏ ᴛʜᴇᴍ ᴀɴʏᴍᴏʀᴇ.
-   •➥ /unapprove*:* ᴜɴᴀᴘᴘʀᴏᴠᴇ ᴏғ ᴀ ᴜꜱᴇʀ. ᴛʜᴇʏ ᴡɪʟʟ ɴᴏᴡ ʙᴇ ꜱᴜʙᴊᴇᴄᴛ to ʟᴏᴄᴋꜱ, ʙʟᴀᴄᴋʟɪsᴛs, ᴀɴᴅ ᴀɴᴛɪғʟᴏᴏᴅ ᴀɢᴀɪɴ.
-   •➥ /approved*:* ʟɪꜱᴛ ᴀʟʟ ᴀᴘᴘʀᴏᴠᴇᴅ ᴜꜱᴇʀꜱ
-   •➥ /unapproveall*:* ᴜɴᴀᴘᴘʀᴏᴠᴇ *ᴀʟʟ* ᴜꜱᴇʀꜱ ɪɴ a ᴄʜᴀᴛ. ᴛʜɪꜱ ᴄᴀɴɴᴏᴛ ʙᴇ ᴜɴᴅᴏɴᴇ.
+   •➥ *Sometimes you might trust a user not to send unwanted content. Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.*
 
- 
+       That's what approvals are for - approve of trustworthy users to allow them to send 
+       *Admin commands:*
+   •➥ /approval: Check a user's approval status in this chat.
+   •➥ /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
+   •➥ /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
+   •➥ /approved: List all approved users.
+   •➥ /unapproveall: Unapprove *ALL* users in a chat. This cannot be undone.
+
+
 antispam_help: |
-   •➥ *ᴀᴅᴍɪɴs ᴏɴʟʏ:*
-   •➥ /antispam <on/off/yes/no>: ᴡɪʟʟ ᴛᴏɢɢʟᴇ ᴏᴜʀ ᴀɴᴛɪsᴘᴀᴍ ᴛᴇᴄʜ ᴏʀ ʀᴇᴛᴜʀɴ ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ    sᴇᴛᴛɪɴɢs.
-   ᴀɴᴛɪ-sᴘᴀᴍ, ᴜsᴇᴅ ʙʏ ʙᴏᴛ ᴅᴇᴠs ᴛᴏ ʙᴀɴ sᴘᴀᴍᴍᴇʀs ᴀᴄʀᴏss ᴀʟʟ ɢʀᴏᴜᴘs. ᴛʜɪs ʜᴇʟᴘs ᴘʀᴏᴛᴇᴄᴛ \
-   ʏᴏᴜ ᴀɴᴅ ʏᴏᴜʀ ɢʀᴏᴜᴘs ʙʏ ʀᴇᴍᴏᴠɪɴɢ sᴘᴀᴍ ғʟᴏᴏᴅᴇʀs ᴀs ǫᴜɪᴄᴋʟʏ ᴀs ᴘᴏssɪʙʟᴇ
-   
-   ɴᴏᴛᴇ: ᴜsᴇʀs ᴄᴀɴ ᴀᴘᴘᴇᴀʟ ɢʙᴀɴs ᴏʀ ʀᴇᴘᴏʀᴛ sᴘᴀᴍᴍᴇʀs ᴀᴛ @AbishnoiMF
+   •➥ *Admins only:*
+   •➥ /antispam <on/off/yes/no>: Enable/disable antispam security.
+   Anti-spam helps protect you and your chats by removing spam flooders as quickly as possible.
+
+   Users can appeal gbans or report spammers at @username
 
 
 backup_help: |
-    *ᴀᴅᴍɪɴ ᴏɴʟʏ:*
-    •➥ /import: ʀᴇᴘʟʏ ᴛᴏ ᴀ group ʙᴜᴛʟᴇʀ ʙᴀᴄᴋᴜᴘ ғɪʟᴇ ᴛᴏ ɪᴍᴘᴏʀᴛ ᴀs ᴍᴜᴄʜ ᴀs ᴘᴏssɪʙʟᴇ, ᴍᴀᴋɪɴɢ ᴛʜᴇ ᴛʀᴀɴsғᴇʀ sᴜᴘᴇʀ sɪᴍᴘʟᴇ! ɴᴏᴛᴇ \
-       ᴛʜᴀᴛ ғɪʟᴇs/ᴘʜᴏᴛᴏs ᴄᴀɴ'ᴛ ʙᴇ ɪᴍᴘᴏʀᴛᴇᴅ ᴅᴜᴇ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴍ ʀᴇsᴛʀɪᴄᴛɪᴏɴs.
-    •➥ /export: ᴇxᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴅᴀᴛᴀ, ᴡʜɪᴄʜ ᴡɪʟʟ ʙᴇ ᴇxᴘᴏʀᴛᴇᴅ ᴀʀᴇ: ʀᴜʟᴇs, ɴᴏᴛᴇs (ᴅᴏᴄᴜᴍᴇɴᴛs, ɪᴍᴀɢᴇs, ᴍᴜsɪᴄ, ᴠɪᴅᴇᴏ, ᴀᴜᴅɪᴏ, ᴠᴏɪᴄᴇ, ᴛᴇxᴛ, ᴛᴇxᴛ ʙᴜᴛᴛᴏɴs)
-
+    *Admin only:* 
+    •➥ /import: Reply to a group backup file to import as much as possible, making the transfer super simple! Note \
+       that files/photos can't be imported due to telegram restrictions.
+    •➥ /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons)
 
 
 bans_help: |
-   •➥/kickme*:* ᴋɪᴄᴋꜱ ᴛʜᴇ ᴜꜱᴇʀ ᴡʜᴏ ɪꜱꜱᴜᴇᴅ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ
-    *ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:*
-   •➥ /ban <userhandle>*:* ʙᴀɴꜱ ᴀ ᴜꜱᴇʀ. (ᴠɪᴀ ʜᴀɴᴅʟᴇ, ᴏʀ ʀᴇᴘʟʏ)
-   •➥ /sban <userhandle>*:* ꜱɪʟᴇɴᴛʟʏ ʙᴀɴ ᴀ ᴜꜱᴇʀ. ᴅᴇʟᴇᴛᴇꜱ ᴄᴏᴍᴍᴀɴᴅ, ʀᴇᴘʟɪᴇᴅ ᴍᴇꜱꜱᴀɢᴇ ᴀɴᴅ ᴅᴏᴇꜱɴ'ᴛ ʀᴇᴘʟʏ. (ᴠɪᴀ ʜᴀɴᴅʟᴇ, ᴏʀ ʀᴇᴘʟʏ)
-   •➥ /tban <userhandle> x(m/h/d)*:* ʙᴀɴꜱ ᴀ ᴜꜱᴇʀ ғᴏʀ x ᴛɪᴍᴇ. (ᴠɪᴀ ʜᴀɴᴅʟᴇ, ᴏʀ ʀᴇᴘʟʏ). ᴍ =ᴍɪɴᴜᴛᴇꜱ, h = ʜᴏᴜʀꜱ, d = ᴅᴀʏꜱ.
-   •➥ /unban <userhandle>*:* ᴜɴʙᴀɴꜱ ᴀ ᴜꜱᴇʀ. (ᴠɪᴀ ʜᴀɴᴅʟᴇ, ᴏʀ rʏeply)
-   •➥ /kick <userhandle>*:* ᴋɪᴄᴋꜱ ᴀ ᴜꜱᴇʀ ᴏᴜᴛ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ, (ᴠɪᴀ ʜᴀɴᴅʟᴇ, ᴏʀ ʀᴇᴘʟʏ)
+   •➥/kickme: Kicks the user who issued the command
+   *Admins only:*
+   •➥ /ban <userhandle>: Bans a user. (via handle, or reply)
+   •➥ /sban <userhandle>: Silently ban a user. Deletes command, replied message and doesn't reply. (via handle, or reply)
+   •➥ /tban <userhandle> x(m/h/d): Bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+   •➥ /unban <userhandle>: Unbans a user. (via handle, or reply)
+   •➥ /kick <userhandle>: Kicks a user from the group. (via handle, or reply)
 
 
 buser_help: |
-   *ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs*
-   •➥ /ignore: ʙʟᴀᴄᴋʟɪsᴛs ᴀ ᴜsᴇʀ ғʀᴏᴍ ᴜsɪɴɢ ᴛʜᴇ ʙᴏᴛ ᴇɴᴛɪʀᴇʟʏ.
-   •➥ /lockdown <ᴏғғ/ᴏɴ>: ᴛᴏɢɢʟᴇs ʙᴏᴛ ᴀᴅᴅɪɴɢ ᴛᴏ ɢʀᴏᴜᴘs.
-   •➥ /ignoredlist: Lists ɪɢɴᴏʀᴇᴅ ᴜsᴇʀs.   
-   •➥ /notice: ʀᴇᴍᴏᴠᴇs ᴜsᴇʀ ғʀᴏᴍ ʙʟᴀᴄᴋʟɪsᴛ   
-   
+   *Sudo users only*  
+   •➥ /ignore: Blacklists a user from using the bot entirely.
+   •➥ /lockdown <on/off>: Toggles bot adding to groups.
+   •➥ /ignoredlist: Lists ignored users.   
+   •➥ /notice: Removes user from blacklist.
+
+
 dbbackup_help: |
-   *ᴏɴʟʏ ғᴏʀ ᴅᴇᴠs*
+   *Devs only*
 
 
 blacklist_help_bse: |
-   *ʙʟᴀᴄᴋʟɪsᴛ ʜᴇʟᴘ ᴍᴇɴᴜ*
+   *BLACKLIST HELP*
 
 
 dbclean_help: |
-   *ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ*
-   •➥ /dbcleanup: ʀᴇᴍᴏᴠᴇs ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄs ᴀɴᴅ ɢʀᴏᴜᴘs ғʀᴏᴍ ᴅʙ.
+   *Sudo only*
+   •➥ /dbcleanup: Removes deleted accounts and groups from database.
 
 
 debug_help: |
-   *ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ*
-   •➥ /debug <on/off>*:* ʟᴏɢs ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴜᴘᴅᴀᴛᴇs.ᴛxᴛ.
-   •➥ /logs: ʀᴜɴ ᴛʜɪs ɪɴ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴛᴏ ɢᴇᴛ ʟᴏɢs ɪɴ ᴘᴍ.
+   *Sudo only*
+   •➥ /debug <on/off>: Logs commands to updates.txt.
+   •➥ /logs: Send logs in support group.
 
 
 devs_help: |
-   *ᴏɴʟʏ ғᴏʀ ᴅᴇᴠs*
-   •➥ /groups: ʟɪsᴛ ᴛʜᴇ ɢʀᴏᴜᴘs ᴡɪᴛʜ ɴᴀᴍᴇ, ID, ᴍᴇᴍʙᴇʀs ᴄᴏᴜɴᴛ ᴀs ᴀ ᴛxᴛ.
-   •➥ /leave <ID>: ʟᴇᴀᴠᴇ ᴛʜᴇ ɢʀᴏᴜᴘ, ID ᴍᴜsᴛ ʜᴀᴠᴇ ʜʏᴘʜᴇɴ(-)
-   •➥ /stats: sʜᴏᴡs ᴏᴠᴇʀᴀʟʟ ʙᴏᴛ sᴛᴀᴛs.
-   •➥ /ginfo ᴜsᴇʀɴᴀᴍᴇ/ʟɪɴᴋ/ɪᴅ: ᴘᴜʟʟs ɪɴғᴏ ᴘᴀɴᴇʟ ғᴏʀ ᴇɴᴛɪʀᴇ ɢʀᴏᴜᴘ.
-   
-   
+   *Devs only*
+   •➥ /groups: Lists groups with their ID, member count, etc.
+   •➥ /leave <ID>: Leave the group. ID must have hyphen.
+   •➥ /stats: Bot usage stats.
+   •➥ /ginfo <username/link/ID>: Fetches info panel for entire group.
+
+
 owner_help: |
-   *ᴏɴʟʏ ғᴏʀ ʙᴏᴛ ᴏᴡɴᴇʀ*
-   •➥ /
-  
+   *Owner only*
+   •➥ / 
+
+
 blacklist_help: |
-   •➥ʙʟᴀᴄᴋʟɪꜱᴛꜱ ᴀʀᴇ ᴜꜱᴇᴅ ᴛᴏ ꜱᴛᴏᴘ ᴄᴇʀᴛᴀɪɴ ᴛʀɪɢɢᴇʀꜱ ғʀᴏᴍ ʙᴇɪɴɢ ꜱᴀɪᴅ ɪɴ ᴀ ɢʀᴏᴜᴘ. ᴀɴʏ ᴛɪᴍᴇ ᴛʜᴇ ᴛʀɪɢɢᴇʀ ɪꜱ ᴍᴇɴᴛɪᴏɴᴇᴅ, ᴛʜᴇ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʏ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ. ᴀ ɢᴏᴏᴅ ᴄᴏᴍʙᴏ ɪs sᴏᴍᴇᴛɪᴍᴇs ᴛᴏ ᴘᴀɪʀ ᴛʜɪs ᴜᴘ ᴡɪᴛʜ ᴡᴀʀɴ ғɪʟᴛᴇʀs!
-  
-   ɴᴏᴛᴇ: ʙʟᴀᴄᴋʟɪsᴛs ᴅᴏ ɴᴏᴛ ᴀғғᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴs
-   •➥ /blacklist : ᴠɪᴇᴡ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴡᴏʀᴅs.
-    ᴀᴅᴍɪɴ ᴏɴʟʏ:
-   •➥ /addblacklist <ᴛʀɪɢɢᴇʀs> : ᴀᴅᴅ ᴀ ᴛʀɪɢɢᴇʀ ᴛᴏ ᴛʜᴇ ʙʟᴀᴄᴋʟɪsᴛ. ᴇᴀᴄʜ ʟɪɴᴇ is ᴄᴏɴsɪᴅᴇʀᴇᴅ ᴏɴᴇ ᴛʀɪɢɢᴇʀ, sᴏ ᴜsɪɴɢ ᴅɪғғᴇʀᴇɴᴛ ʟɪɴᴇs ᴡɪʟʟ ᴀʟʟᴏᴡ ʏᴏᴜ ᴛᴏ ᴀᴅᴅ ᴍᴜʟᴛɪᴘʟᴇ ᴛʀɪɢɢᴇʀs.
-   •➥ /unblacklist <ᴛʀɪɢɢᴇʀs> : ʀᴇᴍᴏᴠᴇ ᴛʀɪɢɢᴇʀs ғʀᴏᴍ ᴛʜᴇ ʙʟᴀᴄᴋʟɪsᴛ. sᴀᴍᴇ ɴᴇᴡʟɪɴᴇ ʟᴏɢɪᴄ ᴀᴘᴘʟɪᴇs ʜᴇʀᴇ, sᴏ ʏᴏᴜ ᴄᴀɴ ʀᴇᴍᴏᴠᴇ ᴍᴜʟᴛɪᴘʟᴇ ᴛʀɪɢɢᴇʀs ᴀᴛ ᴏɴᴄᴇ.
-   •➥ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute> : ᴀᴄᴛɪᴏɴ ᴛᴏ ᴘᴇʀғᴏʀᴍ ᴡʜᴇɴ sᴏᴍᴇᴏɴᴇ sᴇɴᴅs ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴡᴏʀᴅs.
-    ʀʙʟᴀᴄᴋʟɪsᴛ sᴛɪᴄᴋᴇʀ ɪs ᴜsᴇᴅ ᴛᴏ sᴛᴏᴘ ᴄᴇʀᴛᴀɪɴ sᴛɪᴄᴋᴇʀs ᴡʜᴇɴᴇᴠᴇʀ ᴀ sᴛɪᴄᴋᴇʀ ɪs sᴇɴᴛ, ᴛʜᴇ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʏ
+   •➥ Blacklists prevent triggers from being said in a group. Whenever a blacklisted word is mentioned, the message will be deleted immediately. Good combo with warn filters!
+
+   Note: Blacklists do not affect group admins.
+   •➥ /blacklist: View current blacklisted words.
+
+   *Admin only:*
+   •➥ /addblacklist <triggers>: Add triggers to blacklist. Each line is considered one trigger, allowing multiple triggers to be added.
+   •➥ /unblacklist <triggers>: Remove triggers from blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
+   •➥ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
 
 
 cinfo_help: |
-   •➥ /cinfo*:* ᴜsᴀɢᴇe:**cinfo ᴄʜᴀᴛ ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ
-   •➥ /uinfo*:* ɢᴇᴛ ᴜsᴇʀ ᴛɢ ɪɴғᴏʀᴍᴀᴛɪᴏɴ
-   •➥ /info*:* ɢᴇᴛ ᴜsᴇʀ ᴛɢ ɪɴғᴏʀᴍᴀᴛɪᴏɴ
+   •➥ /cinfo <chat ID/username>: Fetch info about the chat. 
+   •➥ /uinfo: Fetch user info.
+   •➥ /info: Same as /uinfo
 
 
 cleaner_help: |
-   •➥ ʙʟᴜᴇ ᴛᴇxᴛ ᴄʟᴇᴀɴᴇʀ ʀᴇᴍᴏᴠᴇᴅ ᴀɴʏ ᴍᴀᴅᴇ ᴜᴘ ᴄᴏᴍᴍᴀɴᴅꜱ ᴛʜᴀᴛ ᴘᴇᴏᴘʟᴇ ꜱᴇɴᴅ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ.
-   •➥ /cleanblue <on/off/yes/no>*:* ᴄʟᴇᴀɴ ᴄᴏᴍᴍᴀɴᴅꜱ ᴀғᴛᴇʀ ꜱᴇɴᴅɪɴɢ
-   •➥ /ignoreblue <word>*:* ᴘʀᴇᴠᴇɴᴛ ᴀᴜᴛᴏ ᴄʟᴇᴀɴɪɴɢ ᴏғ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ
-   •➥ /unignoreblue <word>*:* ʀᴇᴍᴏᴠᴇ ᴘʀᴇᴠᴇɴᴛ ᴀᴜᴛᴏ ᴄʟᴇᴀɴɪɴɢ ᴏғ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ
-   •➥ /listblue*:* ʟɪꜱᴛ ᴄᴜʀʀᴇɴᴛʟʏ ᴡʜɪᴛᴇʟɪꜱᴛᴇᴅ ᴄᴏᴍᴍᴀɴᴅꜱ
-    *ғᴏʟʟᴏᴡɪɴɢ ᴀʀᴇ ᴅɪꜱᴀꜱᴛᴇʀꜱ ᴏɴʟʏ ᴄᴏᴍᴍᴀɴᴅꜱ, ᴀᴅᴍɪɴꜱ 𝚌𝚊𝚗𝚗𝚘𝚝 ᴜꜱᴇ ᴛʜᴇꜱᴇ:*
-   •➥ /gignoreblue <word>*:* ɢʟᴏʙᴀʟʟʏ ɪɢɴᴏʀᴇᴀ ʙʟᴜᴇᴛᴇxᴛ ᴄʟᴇᴀɴɪɴɢ ᴏғ ꜱᴀᴠᴇᴅ ᴡᴏʀᴅ ᴀᴄʀᴏꜱꜱ      ꜱᴀɪᴛᴀᴍᴀ.
-   •➥ /ungignoreblue <word>*:* ʀᴇᴍᴏᴠᴇ ꜱᴀɪᴅ ᴄᴏᴍᴍᴀɴᴅ ғʀᴏᴍ ɢʟᴏʙᴀʟ ᴄʟᴇᴀɴɪɴɢ ʟɪꜱᴛ
+   •➥ The blue text cleaner removes fake commands not recognized by this bot.
+   •➥ /cleanblue <on/off/yes/no>: Clean commands after sending
+   •➥ /ignoreblue <word>: Prevent auto-clean of the command
+   •➥ /unignoreblue <word>: Remove cleaning prevention
+   •➥ /listblue: List currently whitelisted commands
+
+   *Disasters only:*
+   •➥ /gignoreblue <word>: Globally ignore blue text cleaning of the saved word across Saitama.
+   •➥ /ungignoreblue <word>: Remove cleaning ignore
 
 
 connections_help: |
-   •➥ *sᴏᴍᴇᴛɪᴍᴇs, ʏᴏᴜ ᴊᴜsᴛ ᴡᴀɴᴛ ᴛᴏ ᴀᴅᴅ sᴏᴍᴇ ɴᴏᴛᴇs ᴀɴᴅ ғɪʟᴛᴇʀs ᴛᴏ ᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ, ʙᴜᴛ ʏᴏᴜ ᴅᴏɴ'ᴛ ᴡᴀɴᴛ ᴇᴠᴇʀʏᴏɴᴇ ᴛᴏ sᴇᴇ; ᴛʜɪs ɪs ᴡʜᴇʀᴇ ᴄᴏɴɴᴇᴄᴛɪᴏɴs ᴄᴏᴍᴇ ɪɴ...
-     ᴛʜɪs ᴀʟʟᴏᴡs ʏᴏᴜ ᴛᴏ ᴄᴏɴɴᴇᴄᴛ ᴛᴏ ᴀ ᴄʜᴀᴛ's ᴅᴀᴛᴀʙᴀsᴇ, ᴀɴᴅ ᴀᴅᴅ ᴛʜɪɴɢs ᴛᴏ ɪᴛ ᴡɪᴛʜᴏᴜᴛ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴘᴘᴇᴀʀɪɴɢ ɪɴ ᴄʜᴀᴛ! ғᴏʀ ᴏʙᴠɪᴏᴜs ʀᴇᴀsᴏɴs, ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴀᴅᴅ ᴛʜɪɴɢs; ʙᴜᴛ ᴀɴʏ ᴍᴇᴍʙᴇʀ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴀɴ ᴠɪᴇᴡ ʏᴏᴜʀ ᴅᴀᴛᴀ.*
-   •➥ /connect: ᴄᴏɴɴᴇᴄᴛꜱ ᴛᴏ ᴄʜᴀᴛ (ᴄᴀɴ ʙᴇ ᴅᴏɴᴇ ɪɴ ᴀ ɢʀᴏᴜᴘ ʙʏ /connect ᴏʀ /connect<chatid> ɪɴ ᴘᴍ)
-   •➥ /connection: ʟɪꜱᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴄʜᴀᴛꜱ
-   •➥ /disconnect: ᴅɪꜱᴄᴏɴɴᴇᴄᴛ ғʀᴏᴍ ᴀ ᴄʜᴀᴛ
-   •➥ /helpconnect: ʟɪꜱᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ᴛʜᴀᴛ ᴄᴀɴ ʙᴇ ᴜꜱᴇᴅ ʀᴇᴍᴏᴛᴇʟʏ
-   *ᴀᴅᴍɪɴ ᴏɴʟʏ:*
-   •➥ /allowconnect <yes/no>: ᴀʟʟᴏᴡ ᴀ ᴜꜱᴇʀ ᴛᴏ ᴄᴏɴɴᴇᴄᴛ ᴛᴏ ᴀ ᴄʜᴀᴛ
+   •➥ *Sometimes you just want to add notes and filters to a group chat, but you don't want everyone to see the commands. This is where connections come in...*
+     This allows you to connect to a chat's database, and add things to it without the commands appearing in chat! For obvious reasons, you need to be an admin to add things; but any member can view your data.
+   •➥ /connect: Connects to chat (can be done in a group by /connect or /connect <chat id> in PM)
+   •➥ /connection: List connected chats
+   •➥ /disconnect: Disconnects from chat
+   •➥ /helpconnect: Lists available commands that can be used remotely
+   *Admin only:*
+   •➥ /allowconnect <yes/no>: Allow user to connect to a chat 
 
 
 cust_filters_help: |
-  •➥ /filters*:* ʟɪꜱᴛ ᴀʟʟ ᴀᴄᴛɪᴠᴇ ғɪʟᴛᴇʀꜱ ꜱᴀᴠᴇᴅ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ
-    *ᴀᴅᴍɪɴ ᴏɴʟʏ:*
-   •➥ /filter <keyword> <reply message>*:* ᴀᴅᴅ a ғɪʟᴛᴇʀ ᴛᴏ ᴛʜɪꜱ chat. ᴛʜᴇ ʙᴏᴛ ᴡɪʟʟ ɴᴏᴡ ʀᴇᴘʟʏ ᴛʜᴀᴛ ᴍᴇꜱꜱᴀɢᴇ ᴡʜᴇɴᴇᴠᴇʀ 'ᴋᴇʏᴡᴏʀᴅ ɪꜱ ᴍᴇɴᴛɪᴏɴᴇᴅ. ɪғ ʏᴏᴜ ʀᴇᴘʟʏ ᴛᴏ ᴀ ꜱᴛɪᴄᴋᴇʀ ᴡɪᴛʜ ᴀ ᴋᴇʏᴡᴏʀᴅ, ᴛʜᴇ ʙᴏᴛ ᴡɪʟʟ ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛʜᴀᴛ ꜱᴛɪᴄᴋᴇʀ. ɴᴏᴛᴇ: ᴀʟʟ ғɪʟᴛᴇʀ ᴋᴇʏᴡᴏʀᴅꜱ ᴀʀᴇ ɪɴ  ʟᴏᴡᴇʀᴄᴀꜱᴇ. ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʏᴏᴜʀ ᴋᴇʏᴡᴏʀᴅ ᴛᴏ ʙᴇ ᴀ ꜱᴇɴᴛᴇɴᴄᴇꜱ, ᴜꜱᴇ ϙᴜᴏᴛᴇꜱ
-   
-    ᴇɢ : /filter "hey there" How you  doin?
-    ꜱᴇᴘᴀʀᴀᴛᴇ ᴅɪғғ ʀᴇᴘʟɪᴇꜱ ʙʏ %%% ᴛᴏ ɢᴇᴛ ʀᴀɴᴅᴏᴍ ʀᴇᴘʟɪᴇꜱ
-     *ᴇxᴀᴍᴘʟᴇ:*   /filter "filtername"
-     Reply 1
-     %%%
-     Reply 2
-     %%%
-     Reply 3
-   •➥ /stop <filter keyword>*:* ꜱᴛᴏᴘ ᴛʜᴀᴛ ғɪʟᴛᴇʀ
-     *ᴄʜᴀᴛ creator only:*
-   •➥ /removeallfilters*:* ʀᴇᴍᴏᴠᴇ ᴀʟʟ ᴄʜᴀᴛ ғɪʟᴛᴇʀꜱ ᴀᴛ ᴏɴᴄᴇ.
-     *ɴᴏᴛᴇ*: ғɪʟᴛᴇʀꜱ ᴀʟꜱᴏ ꜱᴜᴘᴘᴏʀᴛ ᴍᴀʀᴋᴅᴏᴡɴ formatters like: {first}, {last} ᴇᴛᴄ.. ᴀɴᴅ ʙᴜᴛᴛᴏɴꜱ.
-      ᴄʜᴇᴄᴋ /markdownhelp ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ!
+  •➥ /filters: Lists all active filters in the chat
 
+   *Admin only:*
+   •➥ /filter <keyword> <reply message>: Adds a filter to the chat. Bot will reply with that message whenever 'keyword' is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker.
+   
+   Note: All filter keywords are in lowercase. To set a sentence as a filter, enclose it in quotes. 
+   
+   Ex: /filter "very angry" This is an angry user
+
+   Separate different replies by %%% to get random replies.   
+
+   Ex: /filter "filtername" 
+   Reply 1
+   %%%
+   Reply 2
+   %%% 
+   Reply 3
+
+   •➥ /stop <filter keyword>: Stop that filter
+   *Chat creator only:*
+   •➥ /removeallfilters: Remove all chat filters at once.
+
+   Note: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
+   Check /markdownhelp for more info!
 
 
 disable_help: |
-   •➥ /cmds*:* ᴄʜᴇᴄᴋ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ꜱᴛᴀᴛᴜꜱ ᴏғ ᴅɪꜱᴀʙʟᴇᴅ ᴄᴏᴍᴍᴀɴᴅꜱ
-    *ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:*
-   •➥ /enable <ᴄᴍᴅ ɴᴀᴍᴇ>*:* ᴇɴᴀʙʟᴇ ᴛʜᴀᴛ ᴄᴏᴍᴍᴀɴᴅ
-   •➥ /disable <ᴄᴍᴅ ɴᴀᴍᴇ>*:* ᴅɪꜱᴀʙʟᴇ ᴛʜᴀᴛ ᴄᴏᴍᴍᴀɴᴅ
-   •➥ /enablemodule <ᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ>*:* ᴇɴᴀʙʟᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ɪɴ ᴛʜᴀᴛ ᴍᴏᴅᴜʟᴇ
-   •➥ /disablemodule <ᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ>*:* ᴅɪꜱᴀʙʟᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ ɪɴ ᴛʜᴀᴛ ᴍᴏᴅᴜʟᴇ
-   •➥ /listcmds*:* ʟɪꜱᴛ ᴀʟʟ ᴘᴏꜱꜱɪʙʟᴇ ᴛᴏɢɢʟᴇᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ
+   •➥ /cmds: Check the current status of disabled commands
+   
+   *Admins only:*
+   •➥ /enable <cmd name>: Enable that command
+   •➥ /disable <cmd name>: Disable that command
+   •➥ /enablemodule <module name>: Enable all commands in that module
+   •➥ /disablemodule <module name>: Disable all commands in that module
+   •➥ /listcmds: List all possible toggleable commands
 
 
 group_help: |
-    *ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:*
-    •➥ /setdesc*:* sᴇᴛs ɴᴇᴡ ᴄʜᴀᴛ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ɪɴ ɢʀᴏᴜᴘ.
-    •➥ /setsticker*:* ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ sᴏᴍᴇ sᴛɪᴄᴋᴇʀ ᴛᴏ sᴇᴛ ɪᴛ ᴀs ɢʀᴏᴜᴘ sᴛɪᴄᴋᴇʀ sᴇᴛ.
-    •➥ /setgpic*:* ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ғɪʟᴇ ᴏʀ ᴘʜᴏᴛᴏ ᴛᴏ sᴇᴛ ɢʀᴏᴜᴘ ᴘʀᴏғɪʟᴇ ᴘɪᴄ.
-    •➥ /delgpic*:* sᴀᴍᴇ ᴀs ᴀʙᴏᴠᴇ ʙᴜᴛ ᴛᴏ ʀᴇᴍᴏᴠᴇ ɢʀᴏᴜᴘ ᴘʀᴏғɪʟᴇ ᴘɪᴄ.
-    •➥ /setgtitle*:* sᴇᴛs ɴᴇᴡ ᴄʜᴀᴛ ᴛɪᴛʟᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
+   *Admins only:*
+   •➥ /setdesc: Sets a new group description
+   •➥ /setsticker: Set the replied sticker as group sticker set
+   •➥ /setgpic: Set the replied image/photo as group profile pic
+   •➥ /delgpic: Same as above, but to remove group profile pic
    
-   
+   •➥ /setgtitle: Sets a new chat title
+
+
 feds_help: |
-    Eᴠᴇʀʏᴛʜɪɴɢ ɪs ғᴜɴ, ᴜɴᴛɪʟ ᴀ sᴘᴀᴍᴍᴇʀ sᴛᴀʀᴛs ᴇɴᴛᴇʀɪɴɢ ʏᴏᴜʀ ɢʀᴏᴜᴘ, ᴀɴᴅ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʙʟᴏᴄᴋ ɪᴛ. Tʜᴇɴ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ sᴛᴀʀᴛ ʙᴀɴɴɪɴɢ ᴍᴏʀᴇ, ᴀɴᴅ ᴍᴏʀᴇ, ᴀɴᴅ ɪᴛ ʜᴜʀᴛs.
-    Bᴜᴛ ᴛʜᴇɴ ʏᴏᴜ ʜᴀᴠᴇ ᴍᴀɴʏ ɢʀᴏᴜᴘs, ᴀɴᴅ ʏᴏᴜ ᴅᴏɴ'ᴛ ᴡᴀɴᴛ ᴛʜɪs sᴘᴀᴍᴍᴇʀ ᴛᴏ ʙᴇ ɪɴ ᴏɴᴇ ᴏғ ʏᴏᴜʀ ɢʀᴏᴜᴘs - ʜᴏᴡ ᴄᴀɴ ʏᴏᴜ ᴅᴇᴀʟ? Dᴏ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴍᴀɴᴜᴀʟʟʏ ʙʟᴏᴄᴋ ɪᴛ, ɪɴ ᴀʟʟ ʏᴏᴜʀ ɢʀᴏᴜᴘs?
-    *Nᴏ ʟᴏɴɢᴇʀ!* Wɪᴛʜ Fᴇᴅᴇʀᴀᴛɪᴏɴ, ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ᴀ ʙᴀɴ ɪɴ ᴏɴᴇ ᴄʜᴀᴛ ᴏᴠᴇʀʟᴀᴘ ᴡɪᴛʜ ᴀʟʟ ᴏᴛʜᴇʀ ᴄʜᴀᴛs.
-    Yᴏᴜ ᴄᴀɴ ᴇᴠᴇɴ ᴅᴇsɪɢɴᴀᴛᴇ ғᴇᴅᴇʀᴀᴛɪᴏɴ ᴀᴅᴍɪɴs, sᴏ ʏᴏᴜʀ ᴛʀᴜsᴛᴇᴅ ᴀᴅᴍɪɴ ᴄᴀɴ ʙᴀɴ ᴀʟʟ ᴛʜᴇ sᴘᴀᴍᴍᴇʀs ғʀᴏᴍ ᴄʜᴀᴛs ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ.
-    
-    *Cʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴛᴏ ʟᴇᴀʀɴ ɪɴ ᴅᴇᴘᴛʜ ᴀʙᴏᴜᴛ ᴀʟʟ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs.*
+    Spammers and disruptive users can be very annoying with multiple groups. Thankfully federations allow you to connect groups and ban or take unified action on the spammers across all your groups for a smooth experience!
+
+    *The buttons below will open the help menu sections for admins and users respectively. Tap on them to learn more.*
 
 
-
-FED_OWNER_HELP: | 
-    *ғᴇᴅ ᴏᴡɴᴇʀ ᴏɴʟʏ:*
-    •➥ `/newfed <ғᴇᴅ_ɴᴀᴍᴇ>`*:* Cʀᴇᴀᴛᴇs ᴀ Fᴇᴅᴇʀᴀᴛɪᴏɴ, Oɴᴇ ᴀʟʟᴏᴡᴇᴅ ᴘᴇʀ ᴜsᴇʀ
-    •➥ `/renamefed <ғᴇᴅ_ɪᴅ> <ɴᴇᴡ_ғᴇᴅ_ɴᴀᴍᴇ>`*:* Rᴇɴᴀᴍᴇs ᴛʜᴇ ғᴇᴅ ɪᴅ ᴛᴏ ᴀ ɴᴇᴡ ɴᴀᴍᴇ
-    •➥ `/delfed <ғᴇᴅ_ɪᴅ>`*:* Dᴇʟᴇᴛᴇ ᴀ Fᴇᴅᴇʀᴀᴛɪᴏɴ, ᴀɴᴅ ᴀɴʏ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ɪᴛ. Wɪʟʟ ɴᴏᴛ ᴄᴀɴᴄᴇʟ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs
-    •➥ `/fpromote <ᴜsᴇʀ>`*:* Assɪɢɴs ᴛʜᴇ ᴜsᴇʀ ᴀs ᴀ ғᴇᴅᴇʀᴀᴛɪᴏɴ ᴀᴅᴍɪɴ. Eɴᴀʙʟᴇs ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴛʜᴇ ᴜsᴇʀ ᴜɴᴅᴇʀ `Fᴇᴅ Aᴅᴍɪɴs`
-    •➥ `/fdemote <ᴜsᴇʀ>`*:* Dʀᴏᴘs ᴛʜᴇ Usᴇʀ ғʀᴏᴍ ᴛʜᴇ ᴀᴅᴍɪɴ Fᴇᴅᴇʀᴀᴛɪᴏɴ ᴛᴏ ᴀ ɴᴏʀᴍᴀʟ Usᴇʀ
-    •➥ `/subfed <ғᴇᴅ_ɪᴅ>`*:* Sᴜʙsᴄʀɪʙᴇs ᴛᴏ ᴀ ɢɪᴠᴇɴ ғᴇᴅ ID, ʙᴀɴs ғʀᴏᴍ ᴛʜᴀᴛ sᴜʙsᴄʀɪʙᴇᴅ ғᴇᴅ ᴡɪʟʟ ᴀʟsᴏ ʜᴀᴘᴘᴇɴ ɪɴ ʏᴏᴜʀ ғᴇᴅ
-    •➥ `/unsubfed <ғᴇᴅ_ɪᴅ>`*:* Uɴsᴜʙsᴄʀɪʙᴇs ᴛᴏ ᴀ ɢɪᴠᴇɴ ғᴇᴅ ID
-    •➥ `/setfedlog <ғᴇᴅ_ɪᴅ>`*:* Sᴇᴛs ᴛʜᴇ ɢʀᴏᴜᴘ ᴀs ᴀ ғᴇᴅ ʟᴏɢ ʀᴇᴘᴏʀᴛ ʙᴀsᴇ ғᴏʀ ᴛʜᴇ ғᴇᴅᴇʀᴀᴛɪᴏɴ
-    •➥ `/unsetfedlog <ғᴇᴅ_ɪᴅ>`*:* Rᴇᴍᴏᴠᴇᴅ ᴛʜᴇ ɢʀᴏᴜᴘ ᴀs ᴀ ғᴇᴅ ʟᴏɢ ʀᴇᴘᴏʀᴛ ʙᴀsᴇ ғᴏʀ ᴛʜᴇ ғᴇᴅᴇʀᴀᴛɪᴏɴ
-    •➥ `/fbroadcast <ᴍᴇssᴀɢᴇ>`*:* Bʀᴏᴀᴅᴄᴀsᴛs ᴀ ᴍᴇssᴀɢᴇs ᴛᴏ ᴀʟʟ ɢʀᴏᴜᴘs ᴛʜᴀᴛ ʜᴀᴠᴇ ᴊᴏɪɴᴇᴅ ʏᴏᴜʀ ғᴇᴅ
-    •➥ `/fedsubs`*:* Sʜᴏᴡs ᴛʜᴇ ғᴇᴅs ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪs sᴜʙsᴄʀɪʙᴇᴅ ᴛᴏ `(ʙʀᴏᴋᴇɴ ʀɴ)`
+FED_OWNER_HELP: |
+    *Federation owner only:*
+    •➥ `/newfed <fed_name>`: Create a federation, one allowed per user
+    •➥ `/renamefed <fed_id> <new_fed_name>`: Renames the fed id to a new name
+    •➥ `/delfed <fed_id>`: Delete a federation, and any information related to it. Will not cancel blocked users
+    •➥ `/fpromote <user>`: Assigns the user as a federation admin. Enables all commands for the user under `Fed Admins`
+    •➥ `/fdemote <user>`: Drops the user from the admin federation to a normal user
+    •➥ `/subfed <fed_id>`: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed
+    •➥ `/unsubfed <fed_id>`: Unsubscribes to a given fed ID
+    •➥ `/setfedlog <fed_id>`: Sets the group as a fed log report base for the federation
+    •➥ `/unsetfedlog <fed_id>`: Removed the group as a fed log report base for the federation
+    •➥ `/fbroadcast <message>`: Broadcasts a messages to all groups that have joined your fed
+    •➥ `/fedsubs`: Shows the feds your group is subscribed to `(broken rn)`
 
 
 FED_ADMIN_HELP: |
-    *Fᴇᴅ Aᴅᴍɪɴs:*
-    •➥ /fban <ᴜsᴇʀ> <ʀᴇᴀsᴏɴ>*:* Fᴇᴅ ʙᴀɴs ᴀ ᴜsᴇʀ
-    •➥ /unfban <ᴜsᴇʀ> <ʀᴇᴀsᴏɴ>*:* Rᴇᴍᴏᴠᴇs ᴀ ᴜsᴇʀ ғʀᴏᴍ ᴀ ғᴇᴅ ʙᴀɴ
-    •➥ /fedinfo <ғᴇᴅ_ɪᴅ>*:* Iɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴛʜᴇ sᴘᴇᴄɪғɪᴇᴅ Fᴇᴅᴇʀᴀᴛɪᴏɴ
-    •➥ /joinfed <ғᴇᴅ_ɪᴅ>*:* Jᴏɪɴ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴄʜᴀᴛ ᴛᴏ ᴛʜᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ. Oɴʟʏ ᴄʜᴀᴛ ᴏᴡɴᴇʀs ᴄᴀɴ ᴅᴏ ᴛʜɪs. Eᴠᴇʀʏ ᴄʜᴀᴛ ᴄᴀɴ ᴏɴʟʏ ʙᴇ ɪɴ ᴏɴᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ
-    •➥ /leavefed <ғᴇᴅ_ɪᴅ>*:* Lᴇᴀᴠᴇ ᴛʜᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ ɢɪᴠᴇɴ. Oɴʟʏ ᴄʜᴀᴛ ᴏᴡɴᴇʀs ᴄᴀɴ ᴅᴏ ᴛʜɪs
-    •➥ /setfrules <ʀᴜʟᴇs>*:* Aʀʀᴀɴɢᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ ʀᴜʟᴇs
-    •➥ /fedadmins *:* Sʜᴏᴡ Fᴇᴅᴇʀᴀᴛɪᴏɴ ᴀᴅᴍɪɴ
-    •➥ /fbanlist *:* Dɪsᴘʟᴀʏs ᴀʟʟ ᴜsᴇʀs ᴡʜᴏ ᴀʀᴇ ᴠɪᴄᴛɪᴍɪᴢᴇᴅ ᴀᴛ ᴛʜᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ ᴀᴛ ᴛʜɪs ᴛɪᴍᴇ
-    •➥ /fedchats *:* Gᴇᴛ ᴀʟʟ ᴛʜᴇ ᴄʜᴀᴛs ᴛʜᴀᴛ ᴀʀᴇ ᴄᴏɴɴᴇᴄᴛᴇᴅ ɪɴ ᴛʜᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ
-    •➥ /chatfed *:* Sᴇᴇ ᴛʜᴇ Fᴇᴅᴇʀᴀᴛɪᴏɴ ɪɴ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴄʜᴀᴛ
+    *Federation admin commands:*
+    •➥ `/fban <user> <reason>`: Fed bans a user
+    •➥ `/unfban <user> <reason>`: Removes a user from a fed ban
+    •➥ `/fedinfo <fed_id>`: Information about the specified federation
+    •➥ `/joinfed <fed_id>`: Join the current chat to the federation. Only chat owners can do this. Every chat can only be in one federation
+    •➥ `/leavefed <fed_id>`: Leave the given federation. Only chat owners can do this
+    •➥ `/setfrules <rules>`: Arrange federation rules
+    •➥ `/fedadmins`: Show federation admin
+    •➥ `/fbanlist`: Displays all users who are victimized at the federation at this time
+    •➥ `/fedchats`: Get all the chats that are connected in the federation
+    •➥ `/chatfed`: See the federation in the current chat
 
 
-FED_USER_HELP: | 
-   •➥ᴇᴠᴇʀʏᴛʜɪɴɢ ɪs ғᴜɴ, ᴜɴᴛɪʟ ᴀ sᴘᴀᴍᴍᴇʀ sᴛᴀʀᴛs ᴇɴᴛᴇʀɪɴɢ ʏᴏᴜʀ ɢʀᴏᴜᴘ, ᴀɴᴅ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʙʟᴏᴄᴋ ɪᴛ. ᴛʜᴇɴ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ sᴛᴀʀᴛ ʙᴀɴɴɪɴɢ ᴍᴏʀᴇ, ᴀɴᴅ ᴍᴏʀᴇ, ᴀɴᴅ ɪᴛ ʜᴜʀᴛs.
-    ʙᴜᴛ ᴛʜᴇɴ ʏᴏᴜ ʜᴀᴠᴇ ᴍᴀɴʏ ɢʀᴏᴜᴘs, ᴀɴᴅ ʏᴏᴜ ᴅᴏɴ'ᴛ  ᴡᴀɴᴛ ᴛʜɪs sᴘᴀᴍᴍᴇʀ ᴛᴏ ʙᴇ ɪɴ ᴏɴᴇ ᴏғ ʏᴏᴜʀ ɢʀᴏᴜᴘs - ʜᴏᴡ ᴄᴀɴ ʏᴏᴜ ᴅᴇᴀʟ? ᴅᴏ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴍᴀɴᴜᴀʟʟʏ ʙʟᴏᴄᴋ ɪᴛ, in ᴀʟʟ ʏᴏᴜʀ        ɢʀᴏᴜᴘs?\n
-    *ɴᴏ ʟᴏɴɢᴇʀ!* ᴡɪᴛʜ ғᴇᴅᴇʀᴀᴛɪᴏɴ, ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ᴀ ʙᴀɴ ɪɴ ᴏɴᴇ ᴄʜᴀᴛ ᴏᴠᴇʀʟᴀᴘ ᴡɪᴛʜ ᴀʟʟ ᴏᴛʜᴇʀ ᴄʜᴀᴛs.\n
-    ʏᴏᴜ ᴄᴀɴ ᴇᴠᴇɴ ᴅᴇsɪɢɴᴀᴛᴇ ғᴇᴅᴇʀᴀᴛɪᴏɴ ᴀᴅᴍɪɴs, sᴏ ʏᴏᴜʀ ᴛʀᴜsᴛᴇᴅ ᴀᴅᴍɪɴ ᴄᴀɴ ʙᴀɴ ᴀʟʟ ᴛʜᴇ sᴘᴀᴍᴍᴇʀs ғʀᴏᴍ ᴄʜᴀᴛs ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ.\n
-    *ᴄᴏᴍᴍᴀɴᴅs:*
-    ғᴇᴅs ᴀʀᴇ ɴᴏᴡ ᴅɪᴠɪᴅᴇᴅ ɪɴᴛᴏ 3 sᴇᴄᴛɪᴏɴs ғᴏʀ ʏᴏᴜʀ ᴇᴀsᴇ.
-   •➥ /fedownerhelp *:* ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ for fed ᴄʀᴇᴀᴛɪᴏɴ ᴀɴᴅ ᴏᴡɴᴇʀ ᴏɴʟʏ ᴄᴏᴍᴍᴀɴᴅs
-   •➥ /fedadminhelp *:* ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ for fed ᴀᴅᴍɪɴɪsᴛʀᴀᴛɪᴏɴ ᴄᴏᴍᴍᴀɴᴅs
-   •➥ /feduserhelp *:* ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ ғᴏʀ ᴄᴏᴍᴍᴀɴᴅs ᴀɴʏᴏɴᴇ ᴄᴀɴ ᴜsᴇ
+FED_USER_HELP: |
+   •➥ Spammers and disruptive users can be very annoying with multiple groups. Thankfully federations allow you to connect groups and take unified action on the spammers across all your groups for a smooth experience!
+
+   *Commands:*.   Federations are now divided into 3 sections for your ease.
+   •➥ /fedownerhelp: Provides help for fed creation and owner only commands
+   •➥ /fedadminhelp: Provides help for fed administration commands
+   •➥ /feduserhelp: Provides help for commands anyone can use
 
 
 md_help: |
     <b>Markdown Formatting</b>
-      You can format your message using *bold*, _italics_, -underline-, and much more. Go ahead and experiment!
+      You can format your message using <i>bold</i>, <i>italics</i>, <u>underline</u>, and much more. Go ahead and experiment!
       <b>Supported markdown</b>:
       - <code>`code words`</code>: Backticks are used for monospace fonts. Shows as: <code>code words</code>.
       - <code>_italic words_</code>: Underscores are used for italic fonts. Shows as: <i>italic words</i>.
@@ -306,17 +309,21 @@ md_help: |
       - <code>~strikethrough~</code>: Tildes are used for strikethrough. Shows as: <strike>strikethrough</strike>.
       - <code>[hyperlink](example.com)</code>: This is the formatting used for hyperlinks. Shows as: <a href="https://example.com/">hyperlink</a>.
       - <code>[My Button](buttonurl://example.com)</code>: This is the formatting used for creating buttons. This example will create a button named "My button" which opens <code>example.com</code> when clicked.
+      
       If you would like to send buttons on the same row, use the <code>:same</code> formatting.
+      
       <b>Example:</b>
       <code>[button 1](buttonurl://example.com)</code>
       <code>[button 2](buttonurl://example.com:same)</code>
       <code>[button 3](buttonurl://example.com)</code>
       This will show button 1 and 2 on the same line, with 3 underneath.
+
+
 filling_help: |
       <b>Fillings</b>
       You can also customise the contents of your message with contextual data. For example, you could mention a user by name in the welcome message, or mention them in a filter!
       You can use these to mention a user in notes too!
-      <b>Supported fillings:</b>
+      <b>Supported fillings:</b>  
       - <code>{first}</code>: The user's first name.
       - <code>{last}</code>: The user's last name.
       - <code>{fullname}</code>: The user's full name.
@@ -327,302 +334,283 @@ filling_help: |
 
 
 gcast_help: |
-   •➥ /broadcastall: ʙʀᴏᴀᴅᴄᴀsᴛs ᴇᴠᴇʀʏᴡʜᴇʀᴇ.
-   •➥ /broadcastusers: ʙʀᴏᴀᴅᴄᴀsᴛs ᴛᴏᴏ ᴀʟʟ ᴜsᴇʀs.
-   •➥ /broadcastgroups: ʙʀᴏᴀᴅᴄᴀsᴛs ᴛᴏᴏ ᴀʟʟ ɢʀᴏᴜᴘs.
+   •➥ /broadcastall: Broadcasts everywhere
+   •➥ /broadcastusers: Broadcasts to all users
+   •➥ /broadcastgroups: Broadcasts to all groups
 
 
 gtranslate_help: |
-   •➥ *ᴜsᴇ ᴛʜɪs ᴍᴏᴅᴜʟᴇ ᴛᴏ ᴛʀᴀɴsʟᴀᴛᴇ sᴛᴜғғ!*
-   •➥ /tl (or /tr): ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ, ᴛʀᴀɴsʟᴀᴛᴇs ɪᴛ ᴛᴏ ᴇɴɢʟɪsʜ.
-   •➥ /tl <lang>: ᴛʀᴀɴsʟᴀᴛᴇs ᴛᴏ <lang>
-    *ᴇɢ:* /tl ja: ᴛʀᴀɴsʟᴀᴛᴇs ᴛᴏ ᴊᴀᴘᴀɴᴇsᴇ.
-   •➥ /tl <source>//<dest>: ᴛʀᴀɴsʟᴀᴛᴇs ғʀᴏᴍ <source> ᴛᴏ <lang>.
-    ᴇɢ:  /tl ja//en: ᴛʀᴀɴsʟᴀᴛᴇs ғʀᴏᴍ ᴊᴀᴘᴀɴᴇsᴇ ᴛᴏ ᴇɴɢʟɪsʜ.
-   •➥ /langs: ɢᴇᴛ ᴀ ʟɪsᴛ of sᴜᴘᴘᴏʀᴛᴇᴅ ʟᴀɴɢᴜᴀɢᴇs ғᴏʀ ᴛʀᴀɴsʟᴀᴛɪᴏɴ.
-    *ɪ ᴄᴀɴ ᴄᴏɴᴠᴇʀᴛ ᴛᴇxᴛ to ᴠᴏɪᴄᴇ and ᴠᴏɪᴄᴇ ᴛᴏ ᴛᴇxᴛ..*
-   •➥ /tts <lang code>*:* ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇssᴀɢᴇ ᴛᴏ ɢᴇᴛ ᴛᴇxᴛ ᴛᴏ sᴘᴇᴇᴄʜ ᴏᴜᴛᴘᴜᴛ
-   •➥ /stt*:* ᴛʏᴘᴇ ɪɴ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴠᴏɪᴄᴇ ᴍᴇssᴀɢᴇ(sᴜᴘᴘᴏʀᴛ ᴇɴɢʟɪsʜ ᴏɴʟʏ) ᴛᴏ ᴇxᴛʀᴀᴄᴛ ᴛᴇxᴛ ғʀᴏᴍ ɪᴛ.
-    *ʟᴀɴɢᴜᴀɢᴇ ᴄᴏᴅᴇs*
-     https://te.legra.ph/ɪᴛs-ᴍᴇ-𒆜-Aʙɪsʜɴᴏɪ-07-30-2
-
+   •➥ *Use this module to translate stuff!*
+   •➥ /tl (or /tr): As a reply to a message, translates it to English.
+   •➥ /tl <lang>: Translates to <lang>
+    *Ex:* /tl ja: Translates to Japanese.
+   •➥ /tl <source>//<dest>: Translates from <source> to <lang>.
+    Eg:  /tl ja//en: Translates from Japanese to English.
+   •➥ /langs: Get a list of supported languages for translation.
+   
+   *I can convert text to voice and voice to text..*
+   •➥ /tts <lang code>: Reply to any message to get text to speech output
+   •➥ /stt: Type in reply to a voice message(support English only) to extract text from it.
+   
+   *Language codes*:
+   https://telegra.ph/ITS-ME--ABISHNOI-07-30-2
 
 fsub_help: |
-   *ғᴏʀᴄᴇ ꜱᴜʙꜱᴄʀɪʙᴇ:*
+   *Force Subscribe:*
 
-   •➥ *ᴇxᴏɴ ᴄᴀɴ ᴍᴜᴛᴇ ᴍᴇᴍʙᴇʀꜱ ᴡʜᴏ ᴀʀᴇ ɴᴏᴛ ꜱᴜʙꜱᴄʀɪʙᴇᴅ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴜɴᴛɪʟ ᴛʜᴇʏ ꜱᴜʙꜱᴄʀɪʙᴇ*
-   •➥ ᴡʜᴇɴ ᴇɴᴀʙʟᴇᴅ ɪ ᴡɪʟʟ ᴍᴜᴛᴇ ᴜɴꜱᴜʙꜱᴄʀɪʙᴇᴅ ᴍᴇᴍʙᴇʀꜱ ᴀɴᴅ ꜱʜᴏᴡ ᴛʜᴇᴍ ᴀ ᴜɴᴍᴜᴛᴇ ʙᴜᴛᴛᴏɴ. ᴡʜᴇɴ ᴛʜᴇʏ ᴘʀᴇꜱꜱᴇᴅ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ɪ ᴡɪʟʟ ᴜɴᴍᴜᴛᴇ ᴛʜᴇᴍ
+   •➥ *Exon can mute members who are not subscribed your channel until they subscribe*
+   •➥ When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them.
 
-   •➥ *ꜱᴇᴛᴜᴘ*
-   •➥ [ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀꜱ ᴀᴅᴍɪɴ](https://t.me/Exon_Robot?startgroup=new)
-   •➥ [ᴀᴅᴅ ᴍᴇ ɪɴ your ᴄʜᴀɴɴᴇʟ ᴀꜱ ᴀᴅᴍɪɴ](https://t.me/Exon_Robot?startgroup=new)
- 
-    *ᴄᴏᴍᴍᴍᴀɴᴅꜱ*
-   •➥ /fsub channel username - ᴛᴏ ᴛᴜʀɴ ᴏɴ ᴀɴᴅ sᴇᴛᴜᴘ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ.
-   •➥ /fsub off - ᴛᴏ ᴛᴜʀɴ ᴏғ ғᴏʀᴄᴇꜱᴜʙꜱᴄʀɪʙᴇ..
-   💡 ɪғ ʏᴏᴜ ᴅɪꜱᴀʙʟᴇ ғꜱᴜʙ, ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ꜱᴇᴛ ᴀɢᴀɪɴ ғᴏʀ ᴡᴏʀᴋɪɴɢ /fsub channel username
- 
+   •➥ *Setup* 
+   •➥ Add me in your group as admin
+   •➥ Add me in your channel as admin
+
+   *Commands*  
+   •➥ /fsub <channel username> - To turn on and setup the channel. 
+   •➥ /fsub off - To turn off force subscribe.
+   💡 If you disable fsub, you need to set again for working /fsub <channel username>
 
 locks_help: |
-   •➥ /locktypes*:* ʟɪꜱᴛꜱ ᴀʟʟ ᴘᴏꜱꜱɪʙʟᴇ ʟᴏᴄᴋᴛʏᴘᴇꜱ
-   *ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:*
-   •➥ /lock <type>*:* ʟᴏᴄᴋ ɪᴛᴇᴍꜱ ᴏғ ᴀ ᴄᴇʀᴛᴀɪɴ ɴype (ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ)
-   •➥ /unlock <type>*:* ᴜɴʟᴏᴄᴋ ɪᴛᴇᴍꜱ ᴏғ ᴀ ᴄᴇʀᴛᴀɪɴ ᴛʏᴘᴇ (ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ)
-   •➥ /locks*:* ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ list ᴏғ ʟᴏᴄᴋꜱ ɪɴ ᴛʜɪꜱ ᴄʜᴀᴛ.
-   ʟᴏᴄᴋꜱ ᴄᴀɴ ʙᴇ ᴜꜱᴇᴅ ᴛᴏ ʀᴇꜱᴛʀɪᴄᴛ ᴀ ɢʀᴏᴜᴘ ᴜꜱᴇʀꜱ.
-   Locking ᴜʀʟs ᴡɪʟʟ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴍᴇssᴀɢᴇs ᴡɪᴛʜ ᴜʀʟs, ʟᴏᴄᴋɪɴɢ sᴛɪᴄᴋᴇʀs ᴡɪʟʟ ʀᴇsᴛʀɪᴄᴛ     ᴀʟʟ
-   ɴᴏɴ-ᴀᴅᴍɪɴ users ғʀᴏᴍ sᴇɴᴅɪɴɢ sᴛɪᴄᴋᴇʀs, ᴇᴛᴄ.
-   ʟᴏᴄᴋɪɴɢ ʙᴏᴛs ᴡɪʟʟ sᴛᴏᴘ ɴᴏɴ-ᴀᴅᴍɪɴs  ғʀᴏᴍ ᴀᴅᴅɪɴɢ ʙᴏᴛs ᴛᴏ ᴛʜᴇ ᴄʜᴀᴛ.
-   *ɴᴏᴛᴇ:*
-   •➥ ᴜɴʟᴏᴄᴋɪɴɢ ᴘᴇʀᴍɪssɪᴏɴ *ɪɴғᴏ* ᴡɪʟʟ ᴀʟʟᴏᴡ ᴍᴇᴍʙᴇʀs (ɴᴏɴ-ᴀᴅᴍɪɴs) ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ ɢʀᴏᴜᴘ.ɪɴғᴏʀᴍᴀᴛɪᴏɴ, sᴜᴄʜ ᴀs ᴛʜᴇ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴏʀ ᴛʜᴇ ɢʀᴏᴜᴘ ɴᴀᴍᴇ
-   •➥ ᴜɴʟᴏᴄᴋɪɴɢ ᴘᴇʀᴍɪssɪᴏɴ *ᴘɪɴ* ᴡɪʟʟ ᴀʟʟᴏᴡ ᴍᴇᴍʙᴇʀs (ɴᴏɴ-ᴀᴅᴍɪɴs) ᴛᴏ ᴘɪɴɴᴇᴅ ᴀ ᴍᴇssᴀɢᴇ ɪɴ ᴀ ɢʀᴏᴜᴘ
+   •➥ /locktypes: Lists all possible locktypes
+   *Admins only:*
+   •➥ /lock <type>: Lock items of a certain type (not available in private)
+   •➥ /unlock <type>: Unlock items of a certain type (not available in private)
+   •➥ /locks: The current list of locks in this chat.
+   Locks can be used to restrict a group's users.
+   Eg: Locking urls will auto-delete all messages with urls, locking stickers will restrict non-admin users from sending stickers, etc.
+   Locking bots will stop non-admins from adding bots to the chat.
 
+   *Note:*  
+   •➥ Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
+   •➥ Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
 
 log_help: |
-   •➥ /logchannel*:* ɢᴇᴛ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ɪɴғᴏ.
-   •➥ /setlog*:* sᴇᴛ ᴛʜᴇ log ᴄʜᴀɴɴᴇʟ.
-   •➥ /unsetlog*:* ᴜɴsᴇᴛ ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ.
+   •➥ /logchannel: Get log channel info
+   •➥ /setlog: Set the log channel.
+   •➥ /unsetlog: Unset the log channel.
    •➥ /logsettings
-   *sᴇᴛᴛɪɴɢ ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ɪs ᴅᴏɴᴇ ʙʏ* 
-   ➩ ᴀᴅᴅɪɴɢ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴛʜᴇ ᴅᴇsɪʀᴇᴅ ᴄʜᴀɴɴᴇʟ (ᴀs ᴀɴ ᴀᴅᴍɪɴ!)
-   ➩ sᴇɴᴅɪɴɢ /setlog ɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ
-   ➩ ғᴏʀᴡᴀʀᴅɪɴɢ ᴛʜᴇ /setlog ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ
+
+   *Setting the log channel is done by:*
+   ➩ Adding the bot to the desired channel (as an admin!) 
+   ➩ Sending /setlog in the channel
+   ➩ Forwarding the /setlog to the group
 
 
-misc_help: |
-      •➥ /id: get the current group id. If used by replying to a message, gets that user's id.
-      •➥ /gifid: reply to a gif to me to tell you its file ID.
-      •➥ /info: get information about a user.
-      •➥ /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
+misc_help: |  
+      •➥ /id: Get the current group id. If used by replying to a message, gets that user's id.
+      •➥ /gifid: Reply to a gif to me to tell you its file ID.
+      •➥ /info: Get information about a user.
+      •➥ /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
       •➥ /ud <word>: Type the word or expression you want to search use.
       •➥ /urban <word>: Same as /ud
-      •➥ /paste - Do a paste at `nekobin.com`
-      •➥ /cash : currency converter
+      •➥ /paste: Do a paste at nekobin.com
+      •➥ /cash: Currency converter
         example syntax: /cash 1 USD INR
-      •➥ /getid : ɢᴇᴛ ɪᴅs ᴏғ ᴄʜᴀᴛ, ᴜsᴇʀ ᴀɴᴅ ᴄʜᴀᴛ ᴍᴇssᴀɢᴇ.
-
+      •➥ /getid: GET IDs of chat, user and chat message.
 
 modules_help: |
-   •➥ /listmodules*:* ᴘʀɪɴᴛs ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴛʜᴇɪʀ ɴᴀᴍᴇs.
-   •➥ /unload <ɴᴀᴍᴇ>*:* ᴜɴʟᴏᴀᴅs ᴍᴏᴅᴜʟᴇ ᴅʏɴᴀᴍɪᴄᴀʟʟʏ.
-   •➥ /load <ɴᴀᴍᴇ>*:* ʟᴏᴀᴅs ᴍᴏᴅᴜʟᴇ
+   •➥ /listmodules: Lists all modules loaded by the bot
+   •➥ /unload <name>: Unloads a module
+   •➥ /load <name>: Loads a module
 
 muting_help: |
-   •➥*ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:*
-   •➥ /mute <userhandle>*:* ꜱɪʟᴇɴᴄᴇꜱ ᴀ ᴜꜱᴇʀ. ᴄᴀɴ ᴀʟꜱᴏ ʙᴇ ᴜꜱᴇᴅ as a ʀᴇᴘʟʏ, ᴍᴜᴛɪɴɢ ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴜꜱᴇʀ.
-   •➥ /dmute <userhandle>*:*  ᴅᴇʟᴇᴛᴇ ᴍᴀssᴀɢᴇ + ᴍᴜᴛᴇ ᴀ ᴜsᴇʀ
-   •➥ /smute <userhandle>*:* ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇ + ᴅᴇʟᴇᴛᴇ ᴄᴏᴍᴍᴀɴᴅ + ᴍᴜᴛᴇ ᴀ ᴜsᴇʀ 
-   •➥ /tmute <userhandle> x(m/h/)*:* ᴍᴜᴛᴇꜱ ᴀ ᴜꜱᴇʀ ғᴏʀ x ᴛɪᴍᴇ. (ᴠɪᴀ ʜᴀɴᴅʟᴇ, ᴏʀ ʀᴇᴘʟʏ). m   = ᴍɪɴᴜᴛᴇꜱ, h = ʜᴏᴜʀꜱ, d = ᴅᴀʏꜱ.
-   •➥ /unmute <userhandle>*:* ᴜɴᴍᴜᴛᴇꜱ ᴀ ᴜꜱᴇʀ. ᴄᴀɴ ᴀʟꜱᴏ ʙᴇ ᴜꜱᴇᴅ ᴀꜱ ᴀ ʀᴇᴘʟʏ, ᴍᴜᴛɪɴɢ ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴜꜱᴇʀ.
-
+   •➥*Admins only:*
+   •➥ /mute <userhandle>: Mute a user. Can also be used as reply, muting the replied to user.
+   •➥ /dmute <userhandle>: Delete message + Mute a user
+   •➥ /smute <userhandle>: Delete message + Delete bot message + Mute a user
+   •➥ /tmute <userhandle> x(m/h): Mutes a user for x time. (via handle, or reply). m = minutes, h = hours.
+   •➥ /unmute <userhandle>: Unmute a user. Can also be used as reply, muting the replied to user.
 
 notes_help: |
-   •➥ /get <ɴᴏᴛᴇɴᴀᴍᴇ>*:* ɢᴇᴛ ᴛʜᴇ ɴᴏᴛᴇ ᴡɪᴛʜ this ɴᴏᴛᴇɴᴀᴍᴇ
-   •➥ #<notename>*:* same as /get
-   •➥ /notes or /saved*:* ʟɪsᴛ ᴀʟʟ sᴀᴠᴇᴅ ɴᴏᴛᴇs ɪɴ ᴛʜɪs ᴄʜᴀᴛ
-   •➥ /number *:* ᴡɪʟʟ ᴘᴜʟʟ ᴛʜᴇ ɴᴏᴛᴇ ᴏғ ᴛʜᴀᴛ ɴᴜᴍʙᴇʀ ɪɴ ᴛʜᴇ ʟɪsᴛ
-    ɪғ ʏᴏᴜ ᴡᴏᴜʟᴅ ʟɪᴋᴇ ᴛᴏ ʀᴇᴛʀɪᴇᴠᴇ ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛs ᴏғ ᴀ ɴᴏᴛᴇ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ғᴏʀᴍᴀᴛᴛɪɴɢ,ᴜsᴇ /  get <notename> ɴᴏғᴏʀᴍᴀᴛ. ᴛʜɪs ᴄᴀɴ \
-    ʙᴇ ᴜsᴇғᴜʟ ᴡʜᴇɴ ᴜᴘᴅᴀᴛɪɴɢ ᴀ ᴄᴜʀʀᴇɴᴛ ɴᴏᴛᴇ
-    
-    *ᴀᴅᴍɪɴꜱ ᴏɴʟʏ:*
-   •➥ /save <notename> <notedata>*:* ꜱᴀᴠᴇꜱ ɴᴏᴛᴇᴅᴀᴛᴀ ᴀꜱ ᴀ ɴᴏᴛᴇ ᴡɪᴛʜ ɴᴀᴍᴇ ɴᴏᴛᴇɴᴀᴍᴇ
-    A ʙᴜᴛᴛᴏɴ ᴄᴀɴ ʙᴇ ᴀᴅᴅᴇᴅ ᴛᴏ ᴀ ɴᴏᴛᴇ ʙʏ ᴜꜱɪɴɢ ꜱᴛᴀɴᴅᴀʀᴅ ᴍᴀʀᴋᴅᴏᴡɴ ʟɪɴᴋ ꜱʏɴᴛᴀx ᴛʜᴇ ʟɪɴᴋ ꜱʜᴏᴜʟᴅ ᴊᴜꜱᴛ ʙᴇ ᴘʀᴇᴘᴇɴᴅᴇᴅ ᴡɪᴛʜ ᴀ\n
-    buttonurl: ꜱᴇᴄᴛɪᴏɴ, ᴀꜱ ꜱᴜᴄʜ: [somelink](buttonurl:example.com). ᴄʜᴇᴄᴋ ᴍᴀʀᴋᴅᴏᴡɴʜᴇʟᴘ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ
-   •➥ /save <notename>*:* ꜱᴀᴠᴇ ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴍᴇꜱꜱᴀɢᴇ ᴀꜱ ᴀ ɴᴏᴛᴇ ᴡɪᴛʜ ɴᴀᴍᴇ ɴᴏᴛᴇɴᴀᴍᴇ
-    ꜱᴇᴘᴀʀᴀᴛᴇ ᴅɪғғ ʀᴇᴘʟɪᴇꜱ ʙʏ %%% ᴛᴏ ɢᴇᴛ ʀᴀɴᴅᴏᴍ ɴᴏᴛᴇꜱ
-    *ᴇxᴀᴍᴘʟᴇ:*
-    /save notename
-    Reply 1
-    %%%
-    Reply 2
-    %%%
-    Reply 3
-   •➥ /clear <notename>*:* ᴄʟᴇᴀʀ ɴᴏᴛᴇ ᴡɪᴛʜ ᴛʜɪꜱ ɴᴀᴍᴇ
-   •➥ /removeallnotes*:* ʀᴇᴍᴏᴠᴇꜱ ᴀʟʟ ɴᴏᴛᴇꜱ ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ
-    *ɴᴏᴛᴇ:* ɴᴏᴛᴇ ɴᴀᴍᴇꜱ ᴀʀᴇ ᴄᴀꜱᴇ--ꜱᴇɴꜱɪᴛɪᴠᴇ, ᴀɴᴅ ᴛʜᴇʏ ᴀʀᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴄᴏɴᴠᴇʀᴛᴇᴅ  ᴛᴏ ʟᴏᴡᴇʀᴄᴀꜱᴇ ʙᴇғᴏʀᴇ ɢᴇᴛᴛɪɴɢ ꜱᴀᴠᴇᴅ.
+   •➥ /get <notename>: Get the note with this notename
+   •➥ #<notename>: Same as /get
+   •➥ /notes or /saved: Lists all saved notes in this chat
+   •➥ /number: Will pull the note of that number in the list
+   
+   If you would like to retrieve the contents of a note without any formatting, use /get <notename> noformat. This can \
+   be useful when updating a current note.
+   
+   *Admins only:*
+   •➥ /save <notename> <notedata>: Saves notedata as a note with name notename
+   A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a \n 
+   buttonurl: section, as such: [somelink](buttonurl:example.com). See /markdownhelp for more info.
+   •➥ /save <notename>: Save the replied message as a note with name notename
+   
+   Separate different replies by %%% to get random notes.
+   
+   Ex: 
+   /save notename
+   Reply 1
+   %%%
+   Reply 2
+   %%%
+   Reply 3
+   
+   •➥ /clear <notename>: Clear note with this name
+   •➥ /removeallnotes: Removes all notes from the group
+   
+   *Note:* Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
 
-
-nmode_help: | 
-   *ɴɪɢʜᴛ ᴍᴏᴅᴇ ʜᴇʟᴘ ᴍᴇɴᴜ*
-
+nmode_help: |
+   *Night Mode Help*
 
 purge_help: |
-    •➥ /purge *:* ʀᴇᴘʟʏ ᴡɪᴛʜ ᴍᴇssᴀɢᴇ ғʀᴏᴍ ᴡʜᴇʀᴇ ᴀʟʟ ᴍᴇssᴀɢᴇs sʜᴏᴜʟᴅ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ
-    •➥ /del *:* ᴅᴇʟᴇᴛᴇ ᴀ ʀᴇᴘʟʏᴇᴅ ᴍᴇssᴀɢᴇ 
-
+    •➥ /purge: Reply to a message to delete all messages from that point
+    •➥ /del: Delete the replied to message
 
 pins_help: |
-   •➥ /pin*:* sɪʟᴇɴᴛʟʏ ᴘɪɴs ᴛʜᴇ ᴍᴇssᴀɢᴇ ʀᴇᴘʟɪᴇᴅ ᴛᴏ - ᴀᴅᴅ 'loud' ᴏʀ 'notify' ᴛᴏ ɢɪᴠᴇ ɴᴏᴛɪғs ᴛᴏ ᴜsᴇʀs.
-   •➥ /unpin*:* ᴜɴᴘɪɴs ᴛʜᴇ ᴄᴜʀʀᴇɴᴛʟʏ ᴘɪɴɴᴇᴅ ᴍᴇssᴀɢᴇ.
-   •➥ /pinned*:* ᴛᴏ ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴘɪɴɴᴇᴅ ᴍᴇssᴀɢᴇ.
-   
-   
-quotly_help: |
-   •➥ /q → ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇssᴀɢᴇ 
-   •➥ /q r → ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ ʀᴇᴘʟʏ
-   
-   
-reports_help: |
-   •➥ /report <reason>*:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ʀᴇᴘᴏʀᴛ ɪᴛ ᴛᴏ ᴀᴅᴍɪɴꜱ.
-   •➥ @admin*:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ʀᴇᴘᴏʀᴛ ɪᴛ ᴛᴏ ᴀᴅᴍɪɴs.
-    *ɴᴏᴛᴇ:* ɴᴇɪᴛʜᴇʀ ᴏғ ᴛʜᴇꜱᴇ ᴡɪʟʟ ɢᴇᴛ ᴛʀɪɢɢᴇʀᴇᴅ ɪғ ᴜsᴇs ʙʏ ᴀᴅᴍɪɴs.
-   •➥ /reports <on/off>*:* ᴄʜᴀɴɢᴇ ʀᴇᴘᴏʀᴛ sᴇᴛᴛɪɴɢ, ᴏʀ ᴠɪᴇᴡ ᴄᴜʀʀᴇɴᴛ ꜱᴛᴀᴛᴜꜱ.
-   •➥ ɪғ ᴅᴏɴᴇ ɪɴ ᴘᴍ, ᴛᴏɢɢʟᴇꜱ ʏᴏᴜʀ ꜱᴛᴀᴛᴜꜱ.
-   •➥ ɪғ ɪɴ ɢʀᴏᴜᴘ, ᴛᴏɢɢʟᴇꜱ ᴛʜᴀᴛ ɢʀᴏᴜᴘꜱ ꜱᴛᴀᴛᴜꜱ
+   •➥ /pin: Silently pins the message replied to - add 'loud' or 'notify' to give notifs to users
+   •➥ /unpin: Unpins the currently pinned message.
+   •➥ /pinned: Get the current pinned message.
 
+quotly_help: |
+   •➥ /q: Create a quote from the message
+   •➥ /q r: Create a quote from the message with reply
+
+reports_help: |
+   •➥ /report <reason>: Reply to a message to report it to admins.
+   •➥ @admin: Reply to a message to report it to admins.
+   
+   *Note:* Neither of these will get triggered if used by admins.
+
+   •➥ /reports <on/off>: Change report settings, or view current status.
+   •➥ If done in pm, toggles your status.
+   •➥ If in group, toggles that groups's status.   
 
 rcmds_help: |
-   *ᴏɴʟʏ ғᴏʀ ᴅᴇᴠs*
-   •➥ /rban ᴜsᴇʀ ɢʀᴏᴜᴘ: ʀᴇᴍᴏᴛᴇ ʙᴀɴ.
-   •➥ /runban ᴜsᴇʀ ɢʀᴏᴜᴘ: ʀᴇᴍᴏᴛᴇ ᴜɴ-ʙᴀɴ.
-   •➥ /rkick ᴜsᴇʀ ɢʀᴏᴜᴘ: ʀᴇᴍᴏᴛᴇ ᴋɪᴄᴋ.
-   •➥ /rmute ᴜsᴇʀ ɢʀᴏᴜᴘ: ʀᴇᴍᴏᴛᴇ ᴍᴜᴛᴇ.
-   •➥/runmute ᴜsᴇʀ ɢʀᴏᴜᴘ: ʀᴇᴍᴏᴛᴇ ᴜɴ-ᴍᴜᴛᴇ
-
+   *For devs only*
+   •➥ /rban user group: Remote ban
+   •➥ /runban user group: Remote un-ban
+   •➥ /rkick user group: Remote kick
+   •➥ /rmute user group: Remote mute
+   •➥/runmute user group: Remote un-mute
 
 rules_help: |
-  •➥ /rules*:* ɢᴇᴛ the ʀᴜʟᴇꜱ for ᴛʜɪꜱ ᴄʜᴀᴛ
-  •➥ /setrules <your rules here>*:* set the 𝚛𝚞𝚕𝚎𝚜 ғᴏʀ ᴛʜɪꜱ ᴄʜᴀᴛ.
-  •➥ /clearrules*:* ᴄʟᴇᴀʀ ᴛʜᴇ ʀᴜʟᴇꜱ ғᴏʀ ᴛʜɪꜱ ᴄʜᴀᴛ
-
-
+  •➥ /rules: Get the rules for this chat.
+  •➥ /setrules <rules>: Set rules for this chat.
+  •➥ /clearrules: Clear the rules for this chat.
 
 topics_help: |
-    ᴛᴇʟᴇɢʀᴀᴍ ɪɴᴛʀᴏᴜᴅᴜᴄᴇᴅ ɴᴇᴡ ᴡᴀʏ ᴏғ ᴍᴀɴᴀɢɪɴɢ ʏᴏᴜʀ ᴄʜᴀᴛ ᴄᴀʟʟᴇᴅ ғᴏʀᴜᴍs(ᴛᴏᴘɪᴄs)
+    Telegram introduced new way of managing your chat called topics(forums). 
 
-    ᴀs ᴀ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ɪ ʜᴀᴠᴇ sᴏᴍᴇ ᴜsᴇғᴜʟ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ
-    ᴄʀᴇᴀᴛᴇ, ᴅᴇʟᴇᴛᴇ, ᴄʟᴏsᴇ ᴀɴᴅ ʀᴇᴏᴘᴇɴ ᴛᴏᴘɪᴄs ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ
+    As a group management bot I have some useful commands to help you 
+    create, delete, close and reopen topics in your chat!
 
-    •➥ /topicnew: ᴄʀᴇᴀᴛᴇ ɴᴇᴡ ᴛᴏᴘɪᴄ, ʀᴇǫᴜɪʀᴇs ᴛᴏᴘɪᴄ ɴᴀᴍᴇ ᴛᴏ ᴄʀᴇᴀᴛᴇ.
-    •➥ /topicdel: ᴅᴇʟᴇᴛᴇ ᴀɴ ᴇxɪsᴛɪɴɢ ᴛᴏᴘɪᴄ, ʀᴇǫᴜɪʀᴇs ᴛᴏᴘɪᴄ ID ᴛᴏ ᴅᴇʟᴇᴛᴇ.  
-    •➥ /topicclose: Close an existing topic, ʀᴇǫᴜɪʀᴇs topic ɪᴅ ᴛᴏ ᴄʟᴏsᴇ.
-    •➥ /topicopen: ᴏᴘᴇɴ ᴀɴ ᴀʟʀᴇᴀᴅʏ ᴄʟᴏsᴇᴅ ᴛᴏᴘɪᴄ, ʀᴇǫᴜɪʀᴇs ᴛᴏᴘɪᴄ ɪᴅ ᴛᴏ ᴏᴘᴇɴ
-
+    •➥ /topicnew: Creates a new topic, requires topic name to create.
+    •➥ /topicdel: Deletes an existing topic, requires topic ID to delete.   
+    •➥ /topicclose: Close an existing topic, requires topic ID to close.
+    •➥ /topicopen: Open an already closed topic, requires topic ID to open.
 
 tags_help: |
-    •➥ /tagall ᴏʀ @all (ʀᴇᴘʟʏ ᴛᴏ ᴍᴇssᴀɢᴇ ᴏʀ ᴀᴅᴅ ᴀɴᴏᴛʜᴇʀ ᴍᴇssᴀɢᴇ) ᴛᴏ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ ᴍᴇᴍʙᴇʀs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ, ᴡɪᴛʜᴏᴜᴛ ᴇxᴄᴇᴘᴛɪᴏɴ
-    •➥ /cancel : ғᴏʀ ᴄᴀɴᴄᴇʟɪɴɢ ᴛʜᴇ ᴍᴇɴᴛɪᴏɴ-ᴀʟʟ.
-    •➥ /tagalert : ᴏɴ/ᴏғғ
-
+    •➥ /tagall or @all: Mention all members in your group, without exception.
+    •➥ /cancel: For canceling the mention-all.
+    •➥ /tagalert: Turn on/off tag alerts.
 
 userinfo_help: |
-      •➥ /setbio <ᴛᴇxᴛ>: ᴡʜɪʟᴇ ʀᴇᴘʟʏɪɴɢ, ᴡɪʟʟ sᴀᴠᴇ ᴀɴᴏᴛʜᴇʀ ᴜsᴇᴅ's ʙɪᴏ
-      •➥ /bio: ᴡɪʟʟ ɢᴇᴛ your ᴏʀ ᴀɴᴏᴛʜᴇʀ ᴜsᴇʀ's ʙɪᴏ. ᴛʜɪs ᴄᴀɴɴᴏᴛ ʙᴇ sᴇᴛ ʙʏ ʏᴏᴜʀsᴇʟғ.
-      •➥ /setme <text>: ᴡɪʟʟ sᴇᴛ ʏᴏᴜʀ ɪɴғᴏ
-      •➥ /me: ᴡɪʟʟ ɢᴇᴛ ʏᴏᴜʀ ᴏʀ ᴀɴᴏᴛʜᴇʀ ᴜsᴇʀ ɪɴғᴏ
-
+      •➥ /setbio <text>: While replying, will save another user's bio 
+      •➥ /bio: Will get your or another user's bio. This cannot be set by yourself.
+      •➥ /setme <text>: Will set your info
+      •➥ /me: Will get your or another user's info
 
 warns_help: |
-   •➥ /warns <ᴜsᴇʀʜᴀɴᴅʟᴇ>: ɢᴇᴛ ᴀ ᴜsᴇʀ's ɴᴜᴍʙᴇʀ, ᴀɴᴅ ʀᴇᴀsᴏɴ, ᴏғ ᴡᴀʀɴs.
-   •➥ /warnliat : ʟɪsᴛ ᴏғ ᴀʟʟ ᴄᴜʀʀᴇɴᴛ ᴡᴀʀɴɪɴɢ ғɪʟᴛᴇʀs
-   •➥ /warn <ᴜsᴇʀʜᴀɴᴅʟᴇ>: ᴡᴀʀɴ ᴀ ᴜsᴇʀ. ᴀғᴛᴇʀ 3 ᴡᴀʀɴs, ᴛʜᴇ ᴜsᴇʀ ᴡɪʟʟ ʙᴇ ʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ. ᴄᴀɴ ᴀʟsᴏ ʙᴇ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ
-   •➥ /dwarn <ᴜsᴇʀʜᴀɴᴅʟᴇ>: ᴡᴀʀɴ ᴀ ᴜsᴇʀ ᴀɴᴅ ᴅᴇʟᴇᴛᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ. ᴀғᴛᴇʀ 3 ᴡᴀʀɴs, ᴛʜᴇ ᴜsᴇʀ ᴡɪʟʟ ʙᴇ ʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ. ᴄᴀɴ ᴀʟsᴏ ʙᴇ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ.
-   •➥ /resetwarn <ᴜsᴇʀʜᴀɴᴅʟᴇ>: ʀᴇsᴇᴛ ᴛʜᴇ ᴡᴀʀɴs ғᴏʀ ᴀ ᴜsᴇʀ. ᴄᴀɴ ᴀʟsᴏ ʙᴇ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ.
-   •➥ /addwarn <ᴋᴇʏᴡᴏʀᴅ> <ʀᴇᴘʟʏ ᴍᴇssᴀɢᴇ>: sᴇᴛ ᴀ ᴡᴀʀɴɪɴɢ ғɪʟᴛᴇʀ ᴏɴ ᴀ ᴄᴇʀᴛᴀɪɴ ᴋᴇʏᴡᴏʀᴅ. ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʏᴏᴜʀ ᴋᴇʏᴡᴏʀᴅ ᴛᴏ ʙᴇ ᴀ sᴇɴᴛᴇɴᴄᴇ, ᴇɴᴄᴏᴍᴘᴀss ɪᴛ ᴡɪᴛʜ ϙᴜᴏᴛᴇs, ᴀs sᴜᴄʜ: /ᴀᴅᴅᴡᴀʀɴ "ᴠᴇʀʏ ᴀɴɢʀʏ" ᴛʜɪs ɪs ᴀɴ ᴀɴɢʀʏ ᴜsᴇʀ.
-   •➥ /nowarn <ᴋᴇʏᴡᴏʀᴅ>: sᴛᴏᴘ ᴀ ᴡᴀʀɴɪɴɢ ғɪʟᴛᴇʀ
-   •➥ /warnlimit <ɴᴜᴍ>: sᴇᴛ ᴛʜᴇ ᴡᴀʀɴɪɴɢ ʟɪᴍɪᴛ
-   •➥ /strongwarn  <ᴏɴ/ʏᴇs/ᴏғғ/ɴᴏ>: ɪғ sᴇᴛ ᴛᴏ ᴏɴ, ᴇxᴄᴇᴇᴅɪɴɢ ᴛʜᴇ ᴡᴀʀɴ ʟɪᴍɪᴛ ᴡɪʟʟ ʀᴇsᴜʟᴛ ɪɴ ᴀ ʙᴀɴ. ᴇʟsᴇ, ᴡɪʟʟ ᴊᴜsᴛ ᴘᴜɴᴄʜ.
-
+   •➥ /warns <userhandle>: Get a user's number, and reason, of warns.
+   •➥ /warnlist: List of all current warning filters
+   •➥ /warn <userhandle>: Warn a user. After 3 warns, the user will be banned from the group. Can also be used as reply.
+   •➥ /dwarn <userhandle>: Warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as reply.
+   •➥ /resetwarn <userhandle>: Reset the warnings for a user. Can also be used as reply.
+   •➥ /addwarn <keyword> <reply message>: Set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user. 
+   •➥ /nowarn <keyword>: Stop a warning filter
+   •➥ /warnlimit <num>: Set the warning limit.
+   •➥ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 
 greetings_help: |
-   •➥ /welcome <ᴏɴ/ᴏғғ>*:* ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs.
-   •➥ /welcome *:* sʜᴏᴡs ᴄᴜʀʀᴇɴᴛ ᴡᴇʟᴄᴏᴍᴇ sᴇᴛᴛɪɴɢs.
-   •➥ /welcome noformat *:* sʜᴏᴡs ᴄᴜʀʀᴇɴᴛ ᴡᴇʟᴄᴏᴍᴇ sᴇᴛᴛɪɴɢs, ᴡɪᴛʜᴏᴜᴛ ᴛʜᴇ ғᴏʀᴍᴀᴛᴛɪɴɢ ᴜsᴇғᴜʟ ᴛᴏ ʀᴇᴄʏᴄʟᴇ ʏᴏᴜʀ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs!
-   •➥ /goodbye *:* sᴀᴍᴇ ᴜsᴀɢᴇ ᴀɴᴅ ᴀʀɢs ᴀs /ᴡᴇʟᴄᴏᴍᴇ.
-   •➥ /setwelcome  <sᴏᴍᴇᴛᴇxᴛ>*:* sᴇᴛ ᴀ ᴄᴜsᴛᴏᴍ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ. ɪғ ᴜsᴇᴅ ʀᴇᴘʟʏɪɴɢ ᴛᴏ ᴍᴇᴅɪᴀ, ᴜsᴇs ᴛʜᴀᴛ ᴍᴇᴅɪᴀ.
-   •➥ /setgoodbye <sᴏᴍᴇᴛᴇxᴛ>*:* sᴇᴛ ᴀ ᴄᴜsᴛᴏᴍ ɢᴏᴏᴅʙʏᴇ ᴍᴇssᴀɢᴇ. ɪғ ᴜsᴇᴅ ʀᴇᴘʟʏɪɴɢ ᴛᴏ ᴍᴇᴅɪᴀ, ᴜsᴇs ᴛʜᴀᴛ ᴍᴇᴅɪᴀ.
-   •➥ /resetwelcome *:* ʀᴇsᴇᴛ ᴛᴏ ᴛʜᴇ ᴅᴇғᴀᴜʟᴛ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ.
-   •➥ /resetgoodbye *:* ʀᴇsᴇᴛ ᴛᴏ ᴛʜᴇ ᴅᴇғᴀᴜʟᴛ ɢᴏᴏᴅʙʏᴇ ᴍᴇssᴀɢᴇ.
-   •➥ /cleanwelcome  <ᴏɴ/ᴏғғ>*:* ᴏɴ ɴᴇᴡ ᴍᴇᴍʙᴇʀ, ᴛʀʏ ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜs ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ ᴛᴏ ᴀᴠᴏɪᴅ sᴘᴀᴍᴍɪɴɢ ᴛʜᴇ ᴄʜᴀᴛ
-   •➥ /welcomemutehelp *:* ɢɪᴠᴇs ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴡᴇʟᴄᴏᴍᴇ ᴍᴜᴛᴇs.
-   •➥ /cleanservice <ᴏɴ/ᴏғғ*:* ᴅᴇʟᴇᴛᴇs ᴛᴇʟᴇɢʀᴀᴍs ᴡᴇʟᴄᴏᴍᴇ/ʟᴇғᴛ sᴇʀᴠɪᴄᴇ ᴍᴇssᴀɢᴇs.
-    *ᴇxᴀᴍᴘʟᴇ:*
-    ᴜsᴇʀ ᴊᴏɪɴᴇᴅ ᴄʜᴀᴛ, ᴜsᴇʀ ʟᴇғᴛ ᴄʜᴀᴛ
-    *ᴡᴇʟᴄᴏᴍᴇ ᴍᴀʀᴋᴅᴏᴡɴ:*
-    •➥ /welcomehelp*:* ᴠɪᴇᴡ ᴍᴏʀᴇ ғᴏʀᴍᴀᴛᴛɪɴɢ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ғᴏʀ ᴄᴜsᴛᴏᴍ ᴡᴇʟᴄᴏᴍᴇ/ɢᴏᴏᴅʙʏᴇ ᴍᴇssᴀɢᴇs.
- 
+   •➥ /welcome <on/off>: Enable/disable welcome messages.
+   •➥ /welcome: Shows current welcome settings.
+   •➥ /welcome noformat: Shows current welcome settings, without the formatting - useful to recycle your welcome messages!
+   •➥ /goodbye: Same usage and args as /welcome.
+   •➥ /setwelcome <sometext>: Set a custom welcome message. If used replying to media, uses that media.
+   •➥ /setgoodbye <sometext>: Set a custom goodbye message. If used replying to media, uses that media. 
+   •➥ /resetwelcome: Reset to the default welcome message.
+   •➥ /resetgoodbye: Reset to the default goodbye message.
+   •➥ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
+   •➥ /welcomemutehelp: Gives information about welcome mutes.
+   •➥ /cleanservice <on/off>: Deletes the service message (like user joined/left) automatically.
+   
+       *Welcome markdown:* 
+   •➥ /welcomehelp: View more formatting information for custom welcome/goodbye messages.
 
 welcome_mutes: |
-    ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴍᴜᴛᴇ ɴᴇᴡ ᴘᴇᴏᴘʟᴇ ᴡʜᴏ ᴊᴏɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ʜᴇɴᴄᴇ ᴘʀᴇᴠᴇɴᴛ sᴘᴀᴍʙᴏᴛs ғʀᴏᴍ ғʟᴏᴏᴅɪɴɢ ʏᴏᴜʀ ɢʀᴏᴜᴘ. 
+    You can get the bot to mute new people who join your group and hence prevent spambots from flooding your group.  
     
-    ᴛʜᴇ ғᴏʟʟᴏᴡɪɴɢ ᴏᴘᴛɪᴏɴs ᴀʀᴇ ᴘᴏssɪʙʟᴇ:
+    The following options are possible:
+    •➥ /welcomemute soft: Restricts new members from sending media for 24 hours.
+    •➥ /welcomemute strong: Mutes new members till they tap on a button, thereby verifying they're human.
+    •➥ /welcomemute captcha:  Mutes new members till they solve a button captcha, thereby verifying they're human.
+    •➥ /welcomemute off: Turns off welcomemute.
     
-    × /welcomemute soft *:* ʀᴇsᴛʀɪᴄᴛs ɴᴇᴡ ᴍᴇᴍʙᴇʀs ғʀᴏᴍ sᴇɴᴅɪɴɢ ᴍᴇᴅɪᴀ ғᴏʀ 24 ʜᴏᴜʀs.\n
-    × /welcomemute strong*:* ᴍᴜᴛᴇs ɴᴇᴡ ᴍᴇᴍʙᴇʀs ᴛɪʟʟ they ᴛᴀᴘ ᴏɴ a ʙᴜᴛᴛᴏɴ ᴛʜᴇʀᴇʙʏ ᴠᴇʀɪғʏɪɴɢ ᴛʜᴇʏ'ʀᴇ ʜᴜᴍᴀɴ.
-    × /welcomemute captcha*:*  ᴍᴜᴛᴇs ɴᴇᴡ ᴍᴇᴍʙᴇʀs ᴛɪʟʟ ᴛʜᴇʏ sᴏʟᴠᴇ a ʙᴜᴛᴛᴏɴ ᴄᴀᴘᴛᴄʜᴀ ᴛʜᴇʀᴇʙʏ ᴠᴇʀɪғʏɪɴɢ ᴛʜᴇʏ'ʀᴇ ʜᴜᴍᴀɴ
-    × /welcomemute off*:* ᴛᴜʀɴs ᴏғғ ᴡᴇʟᴄᴏᴍᴇᴍᴜᴛᴇ.
-    
-    *ɴᴏᴛᴇ:* sᴛʀᴏɴɢ ᴍᴏᴅᴇ ᴋɪᴄᴋs ᴀ ᴜsᴇʀ ғʀᴏᴍ ᴛʜᴇ ᴄʜᴀᴛ ɪғ ᴛʜᴇʏ ᴅᴏɴ'ᴛ ᴠᴇʀɪғʏ ɪɴ 120sᴇᴄᴏɴᴅs. ᴛʜᴇʏ ᴄᴀɴ ᴀʟᴡᴀʏs ʀᴇᴊᴏɪɴ ᴛʜᴏᴜɢʜ
+    *Note:* Strong mode kicks a user from the chat if they dont verify in 120seconds. They can always rejoin though.
 
 welcome_help: |
-    ʏᴏᴜʀ ɢʀᴏᴜᴘ's ᴡᴇʟᴄᴏᴍᴇ/ɢᴏᴏᴅʙʏᴇ ᴍᴇssᴀɢᴇs ᴄᴀɴ ʙᴇ ᴘᴇʀsᴏɴᴀʟɪsᴇᴅ ɪɴ ᴍᴜʟᴛɪᴘʟᴇ ᴡᴀʏs. ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜᴇ ᴍᴇssᴀɢᴇs ᴛᴏ ʙᴇ ɪɴᴅɪᴠɪᴅᴜᴀʟʟʏ ɢᴇɴᴇʀᴀᴛᴇᴅ, ʟɪᴋᴇ ᴛʜᴇ ᴅᴇғᴀᴜʟᴛ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ ɪs, ʏᴏᴜ ᴄᴀɴ ᴜsᴇ *ᴛʜᴇsᴇ* ᴠᴀʀɪᴀʙʟᴇs:
+    Your group's welcome/goodbye messages can be personalized in multiple ways. If you want the messages to be individually generated, like the default welcome message is, you can use *these* variables:
     
-     × {first}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ ᴜsᴇʀ's *ғɪʀsᴛ* ɴᴀᴍᴇ     
-     × {last}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ ᴜsᴇʀ's *ʟᴀsᴛ* ɴᴀᴍᴇ. ᴅᴇғᴀᴜʟᴛs ᴛᴏ *ғɪʀsᴛ ɴᴀᴍᴇ* ɪғ ᴜsᴇʀ ʜᴀs ɴᴏ  ʟᴀsᴛ ɴᴀᴍᴇ.
-     × {fullname}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ ᴜsᴇʀ's *ғᴜʟʟ* ɴᴀᴍᴇ. ᴅᴇғᴀᴜʟᴛs ᴛᴏ *ғɪʀsᴛ ɴᴀᴍᴇ* ɪғ ᴜsᴇʀ ʜᴀs ɴᴏ ʟᴀsᴛ ɴᴀᴍᴇ.
-     × {username}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ ᴜsᴇʀ's *ᴜsᴇʀɴᴀᴍᴇ*. ᴅᴇғᴀᴜʟᴛs ᴛᴏ ᴀ *ᴍᴇɴᴛɪᴏɴ* ᴏғ ᴛʜᴇ ᴜsᴇʀ's ғɪʀsᴛ ɴᴀᴍᴇ ɪғ ʜᴀs ɴᴏ ᴜsᴇʀɴᴀᴍᴇ. 
-     × {mention}*:* ᴛʜɪs sɪᴍᴘʟʏ *ᴍᴇɴᴛɪᴏɴs* ᴀ ᴜsᴇʀ - ᴛᴀɢɢɪɴɢ ᴛʜᴇᴍ ᴡɪᴛʜ ᴛʜᴇɪʀ ғɪʀsᴛ ɴᴀᴍᴇ.
-     × {id}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ ᴜsᴇʀ's *ɪᴅ*
-     × {count}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ ᴜsᴇʀ's *ᴍᴇᴍʙᴇʀ ɴᴜᴍʙᴇʀ*.
-     × {chatname}*:* ᴛʜɪs ʀᴇᴘʀᴇsᴇɴᴛs ᴛʜᴇ *ᴄᴜʀʀᴇɴᴛ ᴄʜᴀᴛ ɴᴀᴍᴇ*.
-     ᴇᴀᴄʜ ᴠᴀʀɪᴀʙʟᴇ MUST ʙᴇ sᴜʀʀᴏᴜɴᴅᴇᴅ ʙʏ {} ᴛᴏ ʙᴇ ʀᴇᴘʟᴀᴄᴇᴅ.
-    ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs ᴀʟᴅᴏ sᴜᴘᴘᴏʀᴛ ᴍᴀʀᴋᴅᴏᴡɴ, sᴏ ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ᴀɴʏ ᴇʟᴇᴍᴇɴᴛs ʙᴏʟᴅ/ɪᴛᴀʟɪᴄ/ᴄᴏᴅᴇ/ʟɪɴᴋs. 
-    
-    ʙᴜᴛᴛᴏɴs ᴀʀᴇ ᴀʟsᴏ sᴜᴘᴘᴏʀᴛᴇᴅ, sᴏ ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴡᴇʟᴄᴏᴍᴇs ʟᴏᴏᴋ ᴀᴡᴇsᴏᴍᴇ ᴡɪᴛʜ sᴏᴍᴇ ɴɪᴄᴇ ɪɴᴛʀᴏ ʙᴜᴛᴛᴏɴs.
-    ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ʙᴜᴛᴛᴏɴ ʟɪɴᴋɪɴɢ ᴛᴏ ʏᴏᴜʀ ʀᴜʟᴇs, ᴜsᴇ ᴛʜɪs: [ʀᴜʟᴇs](buttonurl://t.me/{exon.bot.username}?start=group_id)
-    sɪᴍᴘʟʏ ʀᴇᴘʟᴀᴄᴇ group_id ᴡɪᴛʜ ʏᴏᴜʀ ɢʀᴏᴜᴘ's ɪᴅ, ᴡʜɪᴄʜ ᴄᴀɴ ʙᴇ ᴏʙᴛᴀɪɴᴇᴅ ᴠɪᴀ /id, ᴀɴᴅ ʏᴏᴜ'ʀᴇ ɢᴏᴏᴅ ᴛᴏ ɢᴏᴛ
-     *ɴᴏᴛᴇ* ᴛʜᴀᴛ ɢʀᴏᴜᴘ ɪᴅs ᴀʀᴇ ᴜsᴜᴀʟʟʏ ᴘʀᴇᴄᴇᴅᴇᴅ ʙʏ ᴀ - sɪɢɴ; ᴛʜɪs ɪs ʀᴇǫᴜɪʀᴇᴅ, sᴏ ᴘʟᴇᴀsᴇ ᴅᴏɴ'ᴛ ʀᴇᴍᴏᴠᴇ ɪᴛ.
-    ʏᴏᴜ ᴄᴀɴ ᴇᴠᴇɴ sᴇᴛ ɪᴍᴀɢᴇs/ɢɪғs/ᴠɪᴅᴇᴏs/ᴠᴏɪᴄᴇ ᴍᴇssᴀɢᴇs ᴀs ᴛʜᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ ʙʏ 
-    ʀᴇᴘʟʏɪɴɢ ᴛᴏ ᴛʜᴇ ᴅᴇsɪʀᴇᴅ ᴍᴇᴅɪᴀ, ᴀɴᴅ ᴄᴀʟʟɪɴɢ /setwelcome
+    •➥ {first}: This represents the user's *first* name.
+    •➥ {last}: This represents the user's *last* name. Defaults to *first name* if user has no last name.
+    •➥ {fullname}: This represents the user's *full* name. Defaults to *first name* if user has no last name.
+    •➥ {username}: This represents the user's *username*. Defaults to a *mention* of the user's first name if has no username.
+    •➥ {mention}: This simply *mentions* a user - tagging them with their first name.
+    •➥ {id}: This represents the user's *id*
+    •➥ {count}: This represents the user's *member number*.
+    •➥ {chatname}: This represents the *current chat name*.
 
+    Each variable MUST be surrounded by `{}` to be replaced.  
+    Messages also support markdown, so you can make any elements bold/italic/code/links.
+    Buttons are also supported, so you can make your welcomes look awesome with some nice intro buttons.
+
+    To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{exon.bot.username}?start=group_id)`. 
+    Simply replace group_id with your group's id, which can be obtained via /id. Be sure to mention the bot's username after the t.me.
+
+    You can even set images/gifs/videos/voice messages as the welcome message by 
+    replying to the desired media, and calling /setwelcome.
 
 sticker_help: |
-   •➥ /stickerid *:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ꜱᴛɪᴄᴋᴇʀ ᴛᴏ ᴍᴇ ᴛᴏ ᴛᴇʟʟ ʏᴏᴜ ɪᴛꜱ ғɪʟᴇ ɪᴅ.
-   •➥ /getsticker *:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ꜱᴛɪᴄᴋᴇʀ ᴛᴏ ᴍᴇ ᴛᴏ ᴜᴘʟᴏᴀᴅ ɪᴛꜱ ʀᴀᴡ ᴘɴɢ ғɪʟᴇ.
-   •➥ /kang *:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ꜱᴛɪᴄᴋᴇʀ ᴛᴏ ᴀᴅᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ᴘᴀᴄᴋ. [ ɪᴍɢ, ɢɪғ, ᴘʜᴏᴛᴏ]
-   •➥ /delsticker *:* ʀᴇᴘʟʏ ᴛᴏ ʏᴏᴜʀ ᴀɴɪᴍᴇ ᴇxɪꜱᴛ ꜱᴛɪᴄᴋᴇʀ ᴛᴏ ʏᴏᴜʀ ᴘᴀᴄᴋ ᴛᴏ ᴅᴇʟᴇᴛᴇ ɪᴛ.
-   •➥ /stickers *:* ғɪɴᴅ ꜱᴛɪᴄᴋᴇʀꜱ ғᴏʀ ɢɪᴠᴇɴ ᴛᴇʀᴍ ᴏɴ ᴄᴏᴍʙᴏᴛ ꜱᴛɪᴄᴋᴇʀ ᴄᴀᴛᴀʟᴏɢᴜᴇ
-   •➥ /mmf <ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛᴇxᴛ> *:* ᴛᴏ ᴅʀᴀᴡ a ᴛᴇxᴛ ғᴏʀ ꜱᴛɪᴄᴋᴇʀ 
-
-
+   •➥ /stickerid: Reply to a sticker to me to tell you its file ID.
+   •➥ /getsticker: Reply to a sticker to me to upload its raw PNG file.
+   •➥ /kang: Reply to a sticker to add it to your pack.
+   •➥ /delsticker: Reply to a sticker in your pack to delete it.
+   •➥ /stickers: Find stickers for given term on Combot sticker catalogue
+   •➥ /mmf <reply with text>: To draw a text for sticker
 
 sticker_blacklist_help: |
-       **ᴏɴʟʏ ᴀᴅᴍɪɴ:**
-         •➥ /addblsticker <sᴛɪᴄᴋᴇʀ ʟɪɴᴋ>**:** Aᴅᴅ ᴛʜᴇ sᴛɪᴄᴋᴇʀ ᴛʀɪɢɢᴇʀ ᴛᴏ ᴛʜᴇ ʙʟᴀᴄᴋ ʟɪsᴛ. Cᴀɴ ʙᴇ ᴀᴅᴅᴇᴅ ᴠɪᴀ ʀᴇᴘʟʏ sᴛɪᴄᴋᴇʀ
-         •➥ /unblsticker <sᴛɪᴄᴋᴇʀ ʟɪɴᴋ>**:** Rᴇᴍᴏᴠᴇ ᴛʀɪɢɢᴇʀs ғʀᴏᴍ ʙʟᴀᴄᴋʟɪsᴛ. Tʜᴇ sᴀᴍᴇ ɴᴇᴡʟɪɴᴇ ʟᴏɢɪᴄ ᴀᴘᴘʟɪᴇs ʜᴇʀᴇ, sᴏ ʏᴏᴜ ᴄᴀɴ ᴅᴇʟᴇᴛᴇ ᴍᴜʟᴛɪᴘʟᴇ ᴛʀɪɢɢᴇʀs ᴀᴛ ᴏɴᴄᴇ
-         •➥ /rmblsticker <sᴛɪᴄᴋᴇʀ ʟɪɴᴋ>**:** Sᴀᴍᴇ ᴀs ᴀʙᴏᴠᴇ
-         •➥ /blstickermode <ᴅᴇʟᴇᴛᴇ/ʙᴀɴ/ᴛʙᴀɴ/ᴍᴜᴛᴇ/ᴛᴍᴜᴛᴇ>**:** sᴇᴛs ᴜᴘ ᴀ ᴅᴇғᴀᴜʟᴛ ᴀᴄᴛɪᴏɴ ᴏɴ ᴡʜᴀᴛ ᴛᴏ ᴅᴏ ɪғ ᴜsᴇʀs ᴜsᴇ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ sᴛɪᴄᴋᴇʀs
-         
-         ɴᴏᴛᴇ:
-         •➥ sᴛɪᴄᴋᴇʀ ʟɪɴᴋ ᴄᴀɴ ʙᴇ `https://t.me/addstickers/<sticker>` ᴏʀ ᴊᴜsᴛ `<sᴛɪᴄᴋᴇʀ>` ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴛʜᴇ sᴛɪᴄᴋᴇʀ ᴍᴇssᴀɢᴇ
-
+   *Admin only:*
+   •➥ /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker
+   •➥ /unblsticker <sticker link>: Remove triggers from blacklist. Same newline logic applies here, so you can delete multiple triggers at once.
+   •➥ /rmblsticker <sticker link>: Same as above.
+   •➥ /blstickermode <delete/ban/tban/mute/tmute>: Sets up a default action on what to do if users use blacklisted stickers.
+   
+   Note: 
+   •➥ Sticker link can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message
 
 raid_help: |
-   ᴇᴠᴇʀ ʜᴀᴅ ʏᴏᴜʀ ɢʀᴏᴜᴘ ʀᴀɪᴅᴇᴅ ʙʏ sᴘᴀᴍᴍᴇʀs ᴏʀ ʙᴏᴛs?
-   Tʜɪs ᴍᴏᴅᴜʟᴇ ᴀʟʟᴏᴡs ʏᴏᴜ ᴛᴏ ǫᴜɪᴄᴋʟʏ sᴛᴏᴘ ᴛʜᴇ ʀᴀɪᴅᴇʀs
-   Bʏ ᴇɴᴀʙʟɪɴɢ *ʀᴀɪᴅ ᴍᴏᴅᴇ* I ᴡɪʟʟ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴋɪᴄᴋ ᴇᴠᴇʀʏ ᴜsᴇʀ ᴛʜᴀᴛ ᴛʀɪᴇs ᴛᴏ ᴊᴏɪɴ
-   Wʜᴇɴ ᴛʜᴇ ʀᴀɪᴅ ɪs ᴅᴏɴᴇ ʏᴏᴜ ᴄᴀɴ ᴛᴏɢɢʟᴇ ʙᴀᴄᴋ ʟᴏᴄᴋɢʀᴏᴜᴘ ᴀɴᴅ ᴇᴠᴇʀʏᴛʜɪɴɢ ᴡɪʟʟ ʙᴇ ʙᴀᴄᴋ ᴛᴏ  ɴᴏʀᴍᴀʟ.
+   Have you ever had your group raided by spammers and bots?  
+   This module allows you to quickly stop the raiders.
+   By enabling *Raid Mode* I will automatically kick every user that tries to join
+   When the raid is done you can toggle back LockGroup and everything will be back to normal!
   
-   *Aᴅᴍɪɴs ᴏɴʟʏ!* 
-   •➥ /raid `(ᴏғғ/ᴛɪᴍᴇ ᴏᴘᴛɪᴏɴᴀʟ)` : ᴛᴏɢɢʟᴇ ᴛʜᴇ ʀᴀɪᴅ ᴍᴏᴅᴇ (ᴏɴ/ᴏғғ)
-   ɪғ ɴᴏ ᴛɪᴍᴇ ɪs ɢɪᴠᴇɴ ɪᴛ ᴡɪʟʟ ᴅᴇғᴀᴜʟᴛ ᴛᴏ 2 ʜᴏᴜʀs ᴛʜᴇɴ ᴛᴜʀɴ ᴏғғ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ
-   ʙʏ ᴇɴᴀʙʟɪɴɢ *ʀᴀɪᴅ ᴍᴏᴅᴇ* I ᴡɪʟʟ ᴋɪᴄᴋ ᴇᴠᴇʀʏ ᴜsᴇʀ ᴏɴ ᴊᴏɪɴɪɴɢ ᴛʜᴇ ɢʀᴏᴜᴘ.
-   •➥ /raidtime (ᴛɪᴍᴇ ᴏᴘᴛɪᴏɴᴀʟ) : ᴠɪᴇᴡ ᴏʀ sᴇᴛ ᴛʜᴇ ᴅᴇғᴀᴜʟᴛ ᴅᴜʀᴀᴛɪᴏɴ ғᴏʀ ʀᴀɪᴅ ᴍᴏᴅᴇ, ᴀғᴛᴇʀ  ᴛʜᴀᴛ ᴛɪᴍᴇ ғʀᴏᴍ ᴛᴏɢɢʟɪɴɢ ᴛʜᴇ ʀᴀɪᴅ ᴍᴏᴅᴇ ᴡɪʟʟ ᴛᴜʀɴ ᴏғғ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ
-   Dᴇғᴀᴜʟᴛ ɪs 6 ʜᴏᴜʀs
-   •➥ /raidactiontime `(ᴛɪᴍᴇ ᴏᴘᴛɪᴏɴᴀʟ)` : ᴠɪᴇᴡ ᴏʀ sᴇᴛ ᴛʜᴇ ᴅᴇғᴀᴜʟᴛ ᴅᴜʀᴀᴛɪᴏɴ ᴛʜᴀᴛ ᴛʜᴇ ʀᴀɪᴅ    ᴍᴏᴅᴇ ᴡɪʟʟ ᴛᴇᴍᴘʙᴀɴ ᴅᴇғᴀᴜʟᴛ ɪs 1 ʜᴏᴜʀ
+   *Admins only!*
+   •➥ /raid <on/off> (Optional time): Enable/Disable raid mode. 
+   If no time is given it will default to 2 hours then turn off automatically
+   Enabling raid mode will kick every user on joining the group.
+   •➥ /raidtime <time>: View or set default duration for raid mode, after that time from toggling raid mode will turn off automatically 
+   Default is 6 hours
+   •➥ /raidactiontime <time>: View or set default action duration for temp banned users, default is 1 hour
 
-           
 zombies_help: |
-   •➥ /zombies : ғɪɴᴅ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
-   •➥ /zombies clean : ᴄʟᴇᴀɴ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs ғʀᴏᴍ ʏᴏᴜʀ ɢʀᴏᴜᴘ
-
+   •➥ /zombies: Find and remove deleted accounts from your groups.  
+   •➥ /zombies clean: Remove deleted accounts from your groups.
 
 webss_help: |
-   •➥ /webss *:* sᴇɴᴅs ᴛʜᴇ sᴄʀᴇᴇɴsʜᴏᴛ ᴏғ ᴛʜᴇ ɢɪᴠᴇɴ ᴜʀʟ.
-
+   •➥ /webss <url>: Takes a screenshot of the website and sends it.
 
 td_help: |
-   •➥ /truth *:* sᴇɴᴅs ᴀ ʀᴀɴᴅᴏᴍ ᴛʀᴜᴛʜ sᴛʀɪɴɢ.
-   •➥ /dare *:* sᴇɴᴅs ᴀ ʀᴀɴᴅᴏᴍ ᴅᴀʀᴇ sᴛʀɪɴɢ.
-
-
+   •➥ /truth: Sends a random truth string
+   •➥ /dare: Sends a random dare string
