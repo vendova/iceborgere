@@ -429,7 +429,7 @@ async def cancel_spam(event):
         return await event.respond("__sᴛᴏᴘᴘᴇᴅ ᴍᴇɴᴛɪᴏɴ.__")
 
 
-__mod_name__ = "𝐓ᴀɢ-Aʟʟ"
+__mod_name__ = "Tag-All"
 
 from Exon.modules.language import gs
 
