@@ -12,9 +12,8 @@ set_chat_lang: "Great, I have set your language to {}!"
 
 
 pm_start_text: |
-   Hello {},
-   {} is *the most advanced* bot to 
-   efficiently *manage @werewolfquicker* with *ease and security*. 
+   "Hey there! My name is quickerobot - I'm here to help you manage @werewolfquicker!
+   "Hit /help to find out more about how to use me to my full potential.". 
 
       
 grp_start_text: "Greetings, I am ready to assist you."
