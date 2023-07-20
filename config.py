@@ -14,12 +14,12 @@ class Config(object):
     STRING_SESSION = getenv("STRING_SESSION", None)
     SPAMWATCH_API = 'GhWhhp5xFkqV5smfVvvSE_cLxEjlkz2D2zgMHtDUg6fatS1zeJMrFciremP5sKR_'
     TOKEN = getenv("TOKEN", None)
-    OWNER_ID = int(getenv("OWNER_ID", "5938660179"))  # sᴛᴀʀᴛ @Exon_Robot ᴛʏᴘᴇ /id
-    OWNER_USERNAME = getenv("OWNER_USERNAME", "Abishnoi1M")
-    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "AbishnoiMF")
+    OWNER_ID = int(getenv("OWNER_ID", None))  # sᴛᴀʀᴛ @Exon_Robot ᴛʏᴘᴇ /id
+    OWNER_USERNAME = getenv("OWNER_USERNAME", None)
+    SUPPORT_CHAT = getenv("SUPPORT_CHAT", None)
     LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1001819078701"))
     MONGO_URI = getenv("MONGO_DB_URI")
-    DB_NAME = getenv("DB_NAME", "ExonRobot")
+    DB_NAME = getenv("DB_NAME", None)
     REDIS_URL = "redis://default:wK6ZCiclq4iQKYpgfY90v6kd6WdPfEwl@redis-10186.c263.us-east-1-2.ec2.cloud.redislabs.com:10186/default"
     DATABASE_URL = getenv("DATABASE_URL")
 
