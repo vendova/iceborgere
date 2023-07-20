@@ -597,7 +597,7 @@ def __chat_settings__(chat_id, user_id):
     return build_lock_message(chat_id)
 
 
-__mod_name__ = "𝐋ᴏᴄᴋs"
+__mod_name__ = "Locks"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
