@@ -14,10 +14,7 @@ set_chat_lang: "Great, I have set your language to {}!"
 pm_start_text: |
    Hello {},
    {} am *the most advanced* bot to 
-   efficiently *manage @werewolfquicker* with *ease and security*.  
-      ➣ *Uptime:* {}  
-      ➣ *Users:* 0{}
-      ➣ *Chats:* 0{}
+   efficiently *manage @werewolfquicker* with *ease and security*. 
 
       
 grp_start_text: "Greetings, I am ready to assist you."
