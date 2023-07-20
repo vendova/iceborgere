@@ -185,7 +185,7 @@ scheduler.add_job(job_open, trigger="cron", hour=5, minute=59)
 scheduler.start()
 
 
-__mod_name__ = "𝐍-ᴍᴏᴅᴇ"
+__mod_name__ = "N-Mode"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
