@@ -572,7 +572,7 @@ def __chat_settings__(chat_id, user_id):
     return f"There are `{len(notes)}` notes in this chat."
 
 
-__mod_name__ = "𝐍ᴏᴛᴇs "
+__mod_name__ = "Notes"
 
 GET_HANDLER = CommandHandler("get", cmd_get, run_async=True)
 HASH_GET_HANDLER = MessageHandler(
