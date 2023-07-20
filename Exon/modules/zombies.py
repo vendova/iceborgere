@@ -111,7 +111,7 @@ async def zombies(event):
     await cleaning_zombies.edit(del_status)
 
 
-__mod_name__ = "ZOMBIES"
+__mod_name__ = "Zombie"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
