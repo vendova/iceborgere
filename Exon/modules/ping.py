@@ -159,7 +159,7 @@ __command_list__ = ["ping", "pingall"]
 __handlers__ = [PING_HANDLER, PINGALL_HANDLER]
 
 
-__mod_name__ = "𝐏ɪɴɢ"
+__mod_name__ = "Ping"
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
 
