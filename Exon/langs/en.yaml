@@ -12,7 +12,7 @@ set_chat_lang: "Great, I have set your language to {}!"
 
 
 pm_start_text: |
-   Hey there! My name is quickerobot - I'm here to help you manage @werewolfquicker!
+   Hey there! My name is quickerobot - I'm here to manage @werewolfquicker!
    
    Hit /help to find out more about how to use me to my full potential.
 
