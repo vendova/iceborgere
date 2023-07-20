@@ -583,7 +583,7 @@ dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
 
-__mod_name__ = "𝐎ᴡɴᴇʀ"
+__mod_name__ = "Owner"
 
 
 __handlers__ = [
