@@ -1386,4 +1386,4 @@ def get_help(chat):
 
 # """
 
-__mod_name__ = "WELCOME"
+__mod_name__ = "Welcome"
