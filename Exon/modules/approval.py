@@ -239,7 +239,7 @@ dispatcher.add_handler(APPROVAL)
 dispatcher.add_handler(UNAPPROVEALL)
 dispatcher.add_handler(UNAPPROVEALL_BTN)
 
-__mod_name__ = "𝐀ᴘᴘʀᴏᴠᴀʟ"
+__mod_name__ = "Approval"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
