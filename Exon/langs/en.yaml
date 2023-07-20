@@ -13,7 +13,7 @@ set_chat_lang: "Great, I have set your language to {}!"
 
 pm_start_text: |
    Hello {},
-   {} am *the most advanced* bot to 
+   {} is *the most advanced* bot to 
    efficiently *manage @werewolfquicker* with *ease and security*. 
 
       
