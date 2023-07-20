@@ -675,7 +675,7 @@ def __user_info__(user_id):
     return result
 
 
-__mod_name__ = "𝐈ɴғᴏ "
+__mod_name__ = "Info "
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
