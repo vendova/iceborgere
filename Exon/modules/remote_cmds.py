@@ -559,7 +559,7 @@ def recho(update: Update, context: CallbackContext):
             )
 
 
-__mod_name__ = "𝐑-ᴄᴍᴅs"
+__mod_name__ = "R-CMDs"
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
 
