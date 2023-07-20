@@ -589,7 +589,7 @@ sticker_blacklist_help: |
 raid_help: |
    Have you ever had your group raided by spammers and bots?  
    This module allows you to quickly stop the raiders.
-   By enabling *Raid Mode* I will automatically kick every user that tries to join
+   By enabling *Raid Mode* I will automatically kick every user that tries to join.
    When the raid is done you can toggle back LockGroup and everything will be back to normal!
   
    *Admins only!*
