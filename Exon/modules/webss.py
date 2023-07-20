@@ -117,7 +117,7 @@ async def take_ss(_, message: Message):
         await m.edit(str(e))
 
 
-__mod_name__ = "𝐖ᴇʙsʜᴏᴛ"
+__mod_name__ = "Webshot"
 
 from Exon.modules.language import gs
 
