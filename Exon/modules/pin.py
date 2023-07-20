@@ -391,7 +391,7 @@ async def antichanpin_cleanlinked(c, m: Message):
     return
 
 
-__mod_name__ = "𝐏ɪɴs"
+__mod_name__ = "Pins"
 
 
 # ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
