@@ -622,7 +622,7 @@ def snipe(update: Update, context: CallbackContext):
             )
 
 
-__mod_name__ = "𝐁ᴀɴs"
+__mod_name__ = "Bans"
 
 
 BAN_HANDLER = CommandHandler(["ban", "sban", "dban"], ban, run_async=True)
