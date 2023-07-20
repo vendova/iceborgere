@@ -158,4 +158,4 @@ file_help = os.path.basename(__file__)
 file_help = file_help.replace(".py", "")
 file_helpo = file_help.replace("_", " ")
 
-__mod_name__ = "𝐓-ɢᴀᴘʜ"
+__mod_name__ = "Tools"
