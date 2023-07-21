@@ -360,9 +360,9 @@ async def mentionall(event):
         if isinstance(
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
-            is_admin = False
-    if not is_admin:
-        return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ !__")
+            is_admin = True
+   # if not is_admin:
+   #     return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ !__")
 
     if event.pattern_match.group(1) and event.is_reply:
         return await event.respond("__ɢɪᴠᴇ ᴍᴇ ᴏɴᴇ ᴀʀɢᴜᴍᴇɴᴛ!__")
@@ -398,6 +398,7 @@ async def mentionall(event):
             await asyncio.sleep(3)
             usrnum = 0
             usrtxt = ""
+            await sent_msg.delete() 
 
     try:
         spam_chats.remove(chat_id)
@@ -419,8 +420,8 @@ async def cancel_spam(event):
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
             is_admin = True
-    if not is_admin:
-        return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴇxᴇᴄᴜᴛᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!__")
+   # if not is_admin:
+     #   return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴇxᴇᴄᴜᴛᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!__")
 
     else:
         try:
