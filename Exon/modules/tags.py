@@ -361,8 +361,8 @@ async def mentionall(event):
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
             is_admin = True
-   # if not is_admin:
-   #     return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ !__")
+   #if not is_admin:
+        return await event.respond("__TAGGING EVERYONE IN THIS GROUP!__")
 
     if event.pattern_match.group(1) and event.is_reply:
         return await event.respond("__ɢɪᴠᴇ ᴍᴇ ᴏɴᴇ ᴀʀɢᴜᴍᴇɴᴛ!__")
@@ -421,14 +421,14 @@ async def cancel_spam(event):
         ):
             is_admin = True
    # if not is_admin:
-     #   return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴇxᴇᴄᴜᴛᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!__")
+        return await event.respond("__ !__")
 
-    else:
-        try:
-            spam_chats.remove(event.chat_id)
-        except:
-            pass
-        return await event.respond("__sᴛᴏᴘᴘᴇᴅ ᴍᴇɴᴛɪᴏɴ.__")
+        else:
+            try:
+                spam_chats.remove(event.chat_id)
+            except:
+                pass
+            return await event.respond("__sᴛᴏᴘᴘᴇᴅ ᴍᴇɴᴛɪᴏɴ.__")
 
 
 __mod_name__ = "Tag-All"
