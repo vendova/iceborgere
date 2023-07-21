@@ -360,7 +360,7 @@ async def mentionall(event):
         if isinstance(
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
-            is_admin = True
+            is_admin = False
     if not is_admin:
         return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ !__")
 
@@ -399,8 +399,6 @@ async def mentionall(event):
             usrnum = 0
             usrtxt = ""
 
-            await asyncio.sleep(300) # wait 5 minutes
-            await sent_msg.delete()
     try:
         spam_chats.remove(chat_id)
     except:
