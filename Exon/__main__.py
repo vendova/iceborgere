@@ -48,10 +48,6 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text=f"Help", callback_data="help_back"),
-        InlineKeyboardButton(text=f"Stats", callback_data="stats_callback"),
-    ],
-    [
-        InlineKeyboardButton(text="About", callback_data="ABG_"),
         InlineKeyboardButton(text="Developer", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
