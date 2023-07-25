@@ -229,7 +229,7 @@ async def active_afk(_, message: Message):
     ]
     
     await message.reply_sticker(random.choice(sticker_ids))
-    await message.reply_text(f"{message.from_user.first_name} ɪs ɴᴏᴡ ᴀғᴋ!")
+    await message.reply_text(f"{message.from_user.first_name} is now afk!")
 
 
 __mod_name__ = "Afk"
