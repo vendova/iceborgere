@@ -108,7 +108,7 @@ async def get_users(show):
         return
     info = await bot.get_entity(show.chat_id)
     title = info.title if info.title else "this chat"
-    mentions = "ᴜsᴇʀs ɪɴ {}: \n".format(title)
+    mentions = "Users in {}: \n".format(title)
     async for user in bot.iter_participants(show.chat_id):
         if not user.deleted:
             mentions += f"\n[{user.first_name}](tg://user?id={user.id}) {user.id}"
@@ -134,25 +134,25 @@ def set_sticker(update: Update, context: CallbackContext):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("ʏᴏᴜ'ʀᴇ ᴍɪssɪɴɢ ʀɪɢʜᴛs ᴛᴏ ᴄʜᴀɴɢᴇ ᴄʜᴀᴛ ɪɴғᴏ!")
+        return msg.reply_text("You don't have chatInfo rights!")
 
     if msg.reply_to_message:
         if not msg.reply_to_message.sticker:
             return msg.reply_text(
-                "ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ sᴏᴍᴇ sᴛɪᴄᴋᴇʀ ᴛᴏ sᴇᴛ ᴄʜᴀᴛ sᴛɪᴄᴋᴇʀ sᴇᴛ!"
+                "Reply to some sticker to set xhat sticker set!"
             )
         stkr = msg.reply_to_message.sticker.set_name
         try:
             context.bot.set_chat_sticker_set(chat.id, stkr)
-            msg.reply_text(f"sᴜᴄᴄᴇssғᴜʟʟʏ sᴇᴛ ɴᴇᴡ ɢʀᴏᴜᴘ sᴛɪᴄᴋᴇʀs ɪɴ {chat.title}!")
+            msg.reply_text(f"Set new groupStickers in {chat.title}!")
         except BadRequest as excp:
             if excp.message == "Participants_too_few":
                 return msg.reply_text(
-                    "sᴏʀʀʏ, ᴅᴜᴇ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴍ ʀᴇsᴛʀɪᴄᴛɪᴏɴs ᴄʜᴀᴛ ɴᴇᴇᴅs ᴛᴏ ʜᴀᴠᴇ ᴍɪɴɪᴍᴜᴍ 100 ᴍᴇᴍʙᴇʀs ʙᴇғᴏʀᴇ ᴛʜᴇʏ ᴄᴀɴ ʜᴀᴠᴇ ɢʀᴏᴜᴘ sᴛɪᴄᴋᴇʀs!"
+                    "Telegram says: Not enough users(100) in the group! No stickers!"
                 )
             msg.reply_text(f"ᴇʀʀᴏʀ! {excp.message}.")
     else:
-        msg.reply_text("ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ sᴏᴍᴇ sᴛɪᴄᴋᴇʀ ᴛᴏ sᴇᴛ ᴄʜᴀᴛ sᴛɪᴄᴋᴇʀ sᴇᴛ!")
+        msg.reply_text("Reply to some sticker to set xhat sticker set!")
 
 
 @bot_admin
@@ -163,7 +163,7 @@ def setchatpic(update: Update, context: CallbackContext):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("ʏᴏᴜ ᴀʀᴇ ᴍɪssɪɴɢ ʀɪɢʜᴛ ᴛᴏ ᴄʜᴀɴɢᴇ ɢʀᴏᴜᴘ ɪɴғᴏ!")
+        msg.reply_text("You are missing rights to change groupInfo!")
         ʀᴇᴛᴜʀɴ
 
     if msg.reply_to_message:
@@ -172,15 +172,15 @@ def setchatpic(update: Update, context: CallbackContext):
         elif msg.reply_to_message.document:
             pic_id = msg.reply_to_message.document.file_id
         else:
-            msg.reply_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ sᴇᴛ sᴏᴍᴇ ᴘʜᴏᴛᴏ ᴀs ᴄʜᴀᴛ ᴘɪᴄ!")
+            msg.reply_text("You can only set a photo into chatPic!")
             return
-        dlmsg = msg.reply_text("ᴊᴜsᴛ ᴀ sᴇᴄ......")
+        dlmsg = msg.reply_text("otw......")
         tpic = context.bot.get_file(pic_id)
         tpic.download("gpic.png")
         try:
             with open("gpic.png", "rb") as chatp:
                 context.bot.set_chat_photo(int(chat.id), photo=chatp)
-                msg.reply_text("sᴜᴄᴄᴇssғᴜʟʟʏ sᴇᴛ ɴᴇᴡ ᴄʜᴀᴛᴘɪᴄ!")
+                msg.reply_text("set new chatPic success!")
         except BadRequest as excp:
             msg.reply_text(f"ᴇʀʀᴏʀ! {excp.message}")
         finally:
@@ -188,7 +188,7 @@ def setchatpic(update: Update, context: CallbackContext):
             if os.path.isfile("gpic.png"):
                 os.remove("gpic.png")
     else:
-        msg.reply_text("ʀᴇᴘʟʏ ᴛᴏ sᴏᴍᴇ ᴘʜᴏᴛᴏ ᴏʀ ғɪʟᴇ ᴛᴏ sᴇᴛ ɴᴇᴡ ᴄʜᴀᴛ ᴘɪᴄ!")
+        msg.reply_text("Reply to a photo\/file to set chatPic!")
 
 
 @bot_admin
@@ -274,21 +274,21 @@ def promote(update: Update, context: CallbackContext) -> Optional[str]:
     bot, args = context.bot, context.args
 
     if user_can_promote(chat, user, bot.id) is False:
-        message.reply_text("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ᴛᴏ ᴘʀᴏᴍᴏᴛᴇ sᴏᴍᴇᴏɴᴇ!")
+        message.reply_text("You don't have enough rights to promote!")
         return ""
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("ᴍᴇɴᴛɪᴏɴ ᴏɴᴇ.... 🤷🏻‍♂.")
+        message.reply_text("Mention one.... 🤷🏻‍♂.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status in ["administrator", "creator"]:
-        message.reply_text("ᴛʜɪs ᴘᴇʀsᴏɴ ɪs ᴀʟʀᴇᴀᴅʏ ᴀɴ ᴀᴅᴍɪɴ...!")
+        message.reply_text("This user is already an administrator...!")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I ʜᴏᴘᴇ, ɪғ ɪ ᴄᴏᴜʟᴅ ᴘʀᴏᴍᴏᴛᴇ ᴍʏsᴇʟғ!")
+        message.reply_text("Maybe-one-day! 🐶")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -319,24 +319,24 @@ def promote(update: Update, context: CallbackContext) -> Optional[str]:
 
         except BadRequest:
             message.reply_text(
-                "I ᴄᴀɴ'ᴛ sᴇᴛ ᴄᴜsᴛᴏᴍ ᴛɪᴛʟᴇ ғᴏʀ ᴀᴅᴍɪɴs ᴛʜᴀᴛ I ᴅɪᴅɴ'ᴛ ᴘʀᴏᴍᴏᴛᴇ!"
+                "I can't set custom titles to those i haven't promoted!"
             )
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="⏬ ᴅᴇᴍᴏᴛᴇ",
+                    text="Demote",
                     callback_data="demote_({})".format(user_member.user.id),
                 ),
-                InlineKeyboardButton(text="ᴄʟᴏsᴇ ⛔", callback_data="close2"),
+                InlineKeyboardButton(text="Close", callback_data="close2"),
             ]
         ]
     )
     message.reply_text(
-        f"♔ {chat.title} ᴇᴠᴇɴᴛ!\n"
-        f"• ᴀ ɴᴇᴡ ᴀᴅᴍɪɴ ʜᴀs ʙᴇᴇɴ ᴀᴘᴘᴏɪɴᴛᴇᴅ!\n"
-        f"• ʟᴇᴛ's ᴀʟʟ ᴡᴇʟᴄᴏᴍᴇ {mention_html(user_member.user.id, user_member.user.first_name)}",
+        f"{chat.title} Event!\n"
+        f"A new admin has been appointed!\n"
+        f"Let's all welcome {mention_html(user_member.user.id, user_member.user.first_name)}",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML,
     )
@@ -358,7 +358,7 @@ def promote(update: Update, context: CallbackContext) -> Optional[str]:
 
 
 close_keyboard = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🔄 ᴄᴀᴄʜᴇ", callback_data="close2")]]
+    [[InlineKeyboardButton("Cache", callback_data="close2")]]
 )
 
 
@@ -629,7 +629,7 @@ def pin(update: Update, context: CallbackContext) -> str:
     prev_message = update.effective_message.reply_to_message
 
     if prev_message is None:
-        msg.reply_text("ʀᴇᴘʟʏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ᴘɪɴ ɪᴛ!")
+        msg.reply_text("Reply a msg to pin!")
         return
 
     is_silent = True

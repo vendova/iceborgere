@@ -45,8 +45,8 @@ from Exon.modules.no_sql.karma_db import (
     update_karma,
 )
 
-regex_upvote = r"^((?i)\+|\+\+|\+1|\++|\+69|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|thankyou|love|pro)$"
-regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|kid|shit|mf)$"
+regex_upvote = r"^((?i)\+|\+\+|\+1|\++|\+69|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|seer|ch|👍|baby|thankyou|love|pro)$"
+regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|fool|weak|fuck off|nub|gey|kid|shit|mf)$"
 
 karma_positive_group = 3
 karma_negative_group = 4
@@ -70,7 +70,7 @@ async def upvote(_, message):
     if not message.from_user:
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
-        await message.reply_text("ʜᴏᴡ sᴏ ᴘʀᴏ ?")
+        await message.reply_text("How so PRO ?")
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -86,7 +86,7 @@ async def upvote(_, message):
     new_karma = {"karma": karma}
     await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
     await message.reply_text(
-        f"ɪɴᴄʀᴇᴍᴇɴᴛᴇᴅ ᴋᴀʀᴍᴀ ᴏғ {user_mention} ʙʏ 1.\n**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}"
+        f"Increased karma of {user_mention} by 1.\n**Total points :** {karma}"
     )
 
 
@@ -108,7 +108,7 @@ async def downvote(_, message):
     if not message.from_user:
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
-        await message.reply_text("ɪ ᴋɴᴏᴡ ʜɪᴍ, sᴏ ɪ'ᴍ ɴᴏᴛ ɢᴏɴɴᴀ ᴅᴏ ᴛʜᴀᴛ ʙᴀʙʏ.")
+        await message.reply_text("😐.")
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -123,7 +123,7 @@ async def downvote(_, message):
     new_karma = {"karma": karma}
     await update_karma(message.chat.id, await int_to_alpha(user_id), new_karma)
     await message.reply_text(
-        f"ᴅᴇᴄʀᴇᴍᴇɴᴛᴇᴅ ᴋᴀʀᴍᴀ ᴏғ {user_mention} ʙʏ 1.\n**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}"
+        f"Decreased karma of {user_mention} by 1.\n**Total points :** {karma}"
     )
 
 
@@ -132,10 +132,10 @@ async def downvote(_, message):
 async def command_karma(_, message):
     chat_id = message.chat.id
     if not message.reply_to_message:
-        m = await message.reply_text("ɢᴇᴛᴛɪɴɢ ᴋᴀʀᴍᴀ ʟɪsᴛ ᴏғ ᴛᴏᴘ 10 ᴜsᴇʀs ᴡᴀɪᴛ...")
+        m = await message.reply_text("Top karma points ...")
         karma = await get_karmas(chat_id)
         if not karma:
-            await m.edit("ɴᴏ ᴋᴀʀᴍᴀ ɪɴ ᴅʙ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ.")
+            await m.edit("No Karma in database.")
             return
         msg = f"🏆 **ᴋᴀʀᴍᴀ ʟɪsᴛ ᴏғ {message.chat.title}**\n"
         limit = 0
@@ -152,7 +152,7 @@ async def command_karma(_, message):
                 )
             )
         if not karma_dicc:
-            await m.edit("ɴᴏ ᴋᴀʀᴍᴀ ɪɴ ᴅʙ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ.")
+            await m.edit("No Karma in database..")
             return
         for user_idd, karma_count in karma_arranged.items():
             if limit > 9:

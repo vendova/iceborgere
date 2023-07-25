@@ -53,39 +53,39 @@ async def active_afk(_, message: Message):
             seenago = get_readable_time((int(time.time() - timeafk)))
             if afktype == "text":
                 send = await message.reply_text(
-                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
+                    f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     disable_web_page_preview=True,
                 )
             if afktype == "text_reason":
                 send = await message.reply_text(
-                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                    f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
             if afktype == "animation":
                 if str(reasonafk) == "None":
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
                 else:
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
         except Exception:
             send = await message.reply_text(
-                f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ",
+                f"**{message.from_user.first_name}** is back online.",
                 disable_web_page_preview=True,
             )
 
@@ -229,7 +229,7 @@ async def active_afk(_, message: Message):
     ]
     
     await message.reply_sticker(random.choice(sticker_ids))
-    await message.reply_text(f"{message.from_user.first_name} ɪs ɴᴏᴡ ᴀғᴋ!")
+    await message.reply_text(f"{message.from_user.first_name} is now afk!")
 
 
 __mod_name__ = "Afk"
