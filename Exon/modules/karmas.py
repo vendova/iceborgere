@@ -45,8 +45,8 @@ from Exon.modules.no_sql.karma_db import (
     update_karma,
 )
 
-regex_upvote = r"^((?i)\+|\+\+|\+1|\++|\+69|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|ch|👍|baby|thankyou|love|pro)$"
-regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|kid|shit|mf)$"
+regex_upvote = r"^((?i)\+|\+\+|\+1|\++|\+69|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|seer|ch|👍|baby|thankyou|love|pro)$"
+regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|fool|weak|fuck off|nub|gey|kid|shit|mf)$"
 
 karma_positive_group = 3
 karma_negative_group = 4
