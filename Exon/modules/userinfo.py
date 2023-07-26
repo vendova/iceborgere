@@ -484,61 +484,6 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @Exoncmd(command="stats", can_disable=True)
 @sudo_plus
-def stats(update, context):
-    db_size = SESSION.execute(
-        "SELECT pg_size_pretty(pg_database_size(current_database()))"
-    ).scalar_one_or_none()
-    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
-    botuptime = get_readable_time((time.time() - StartTime))
-    status = "*╒═══「 ꜱʏꜱᴛᴇᴍ ꜱᴛᴀᴛɪᴄꜱ: 」*\n\n"
-    status += "*× ꜱʏꜱᴛᴇᴍ ꜱᴛᴀʀᴛ ᴛɪᴍᴇ:* " + str(uptime) + "\n"
-    uname = platform.uname()
-    status += "*× ꜱʏꜱᴛᴇᴍ:* " + str(uname.system) + "\n"
-    status += "*× ɴᴏᴅᴇ ɴᴀᴍᴇ:* " + escape_markdown(str(uname.node)) + "\n"
-    status += "*× ʀᴇʟᴇᴀꜱᴇ:* " + escape_markdown(str(uname.release)) + "\n"
-    status += "*× ᴍᴀᴄʜɪɴᴇ:* " + escape_markdown(str(uname.machine)) + "\n"
-
-    mem = virtual_memory()
-    cpu = cpu_percent()
-    disk = disk_usage("/")
-    status += "*× ᴄᴘᴜ:* " + str(cpu) + " %\n"
-    status += "*× ʀᴀᴍ:* " + str(mem[2]) + " %\n"
-    status += "*× ꜱᴛᴏʀᴀɢᴇ:* " + str(disk[3]) + " %\n\n"
-    status += "*× ᴘʏᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ:* " + python_version() + "\n"
-    status += "*× ᴘʏᴛʜᴏɴ-ᴛᴇʟᴇɢʀᴀᴍ-ʙᴏᴛ:* " + str(ptbver) + "\n"
-    status += "*× ᴜᴘᴛɪᴍᴇ:* " + str(botuptime) + "\n"
-    status += "*× ᴅʙ ꜱɪᴢᴇ:* " + str(db_size) + "\n"
-    kb = [[InlineKeyboardButton("Ping", callback_data="pingCB")]]
-    # repo = git.Repo(search_parent_directories=True)
-    # sha = repo.head.object.hexsha
-    # status += f"*× ᴄᴏᴍᴍɪᴛ*: {sha[0:9]}\n"
-    try:
-        update.effective_message.reply_text(
-            status
-            + "\n*Bot statistics*:\n"
-            + "\n".join([mod.__stats__() for mod in STATS])
-            + "\n\n[⍙ ɢɪᴛʜᴜʙ](https://github.com/Abishnoi69/ExonRobot) | ⍚\n\n "
-            + "╘══「 by [ᴀʙɪsʜɴᴏɪ](github.com/Abishnoi69) 」\n",
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(kb),
-            disable_web_page_preview=True,
-        )
-    except BaseException:
-        update.effective_message.reply_text(
-            (
-                (
-                    (
-                        "\n*Bot statistics*:\n"
-                        + "\n".join(mod.__stats__() for mod in STATS)
-                    )
-                    + "\n\n⍙ [ɢɪᴛʜᴜʙ](https://github.com/Abishnoi69/ExonRobot) | ⍚ \n\n"
-                )
-                + "╘══「 by [ᴅʏɴᴀᴍɪᴄ](github.com/Abishnoi69) 」\n"
-            ),
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(kb),
-            disable_web_page_preview=True,
-        )
 
 
 @Exoncallback(pattern=r"^pingCB")
@@ -548,7 +493,7 @@ def pingCallback(update: Update, context: CallbackContext):
     requests.get("https://api.telegram.org")
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
-    query.answer("ᴘᴏɴɢ 🌺! {}ms".format(ping_time))
+    query.answer("ᴘᴏɴɢ ! {}ms".format(ping_time))
 
 
 @Exoncmd(command="bio")
