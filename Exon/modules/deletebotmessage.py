@@ -19,7 +19,7 @@ def handle_messages(update: Update, context):
             # Schedule the message for deletion
             context.job_queue.run_once(delete_message, 0, context={'chat_id': message.chat_id, 'message_id': message.message_id})
   
-updater = Updater(token='TOKEN', use_context=True)
+updater = Updater(token='6371531037:AAGzG0LMfv8cpm-lbpRYo_8VdyHREjEZMbk', use_context=True)
 dp = updater.dispatcher
 dp.add_handler(MessageHandler(filters.all, handle_messages))
 updater.start_polling()
