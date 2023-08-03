@@ -15,7 +15,7 @@ def handle_messages(update: Update, context):
     # Check if the message is from the bot with the provided ID
     if message.from_user.id == 63715310370:
         # Check if the message is older than 10 minutes
-        if message.date < datetime.now() - timedelta(minutes=10):
+        if message.date < datetime.now() - timedelta(minutes=1):
             # Schedule the message for deletion
             context.job_queue.run_once(delete_message, 0, context={'chat_id': message.chat_id, 'message_id': message.message_id})
   
