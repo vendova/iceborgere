@@ -21,6 +21,6 @@ def handle_messages(update: Update, context):
 
 updater = Updater(token='6371531037:AAGzG0LMfv8cpm-lbpRYo_8VdyHREjEZMbk', use_context=True)
 dp = updater.dispatcher
-dp.add_handler(MessageHandler(filters.update, handle_messages))
+dp.add_handler(MessageHandler(filters.Update, handle_messages))
 updater.start_polling()
 updater.idle()
