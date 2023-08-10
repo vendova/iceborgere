@@ -13,7 +13,7 @@ emoji
 feedparser
 ffmpeg-python
 future
-git+https://github.com/python-telegram-bot/ptbcontrib.git ↗
+git+https://github.com/python-telegram-bot/ptbcontrib.git
 gitpython
 markdown2
 multicolorcaptcha
