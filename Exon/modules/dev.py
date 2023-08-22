@@ -125,7 +125,7 @@ telethn.add_event_handler(callback_queries, events.CallbackQuery())
 @telethn.on(events.NewMessage(pattern=r"/getstats", from_users=OWNER_ID))
 async def getstats(event):
     await event.reply(
-        f"Exon Event Statistics\n"
+        f"Event Statistics\n"
         f"» Average messages: <code>{messages.average()}<code>/s\n"
         f"» Average Callback Queries: <code>{callback_queries.average()}<code>/s\n"
         f"» Average Inline Queries: <code>{inline_queries.average()}<code>/s",
@@ -241,7 +241,7 @@ dispatcher.add_handler(RESTART_HANDLER)
 dispatcher.add_handler(LEAVE_CALLBACK_HANDLER)
 dispatcher.add_handler(GITPULL_HANDLER)
 
-__mod_name__ = "Devs"
+##__mod_name__ = "Devs"
 __handlers__ = [
     LEAVE_HANDLER,
     RESTART_HANDLER,
