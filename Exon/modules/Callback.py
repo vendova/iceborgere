@@ -121,21 +121,21 @@ def ABG_about_callback(update, context):
         )
     elif query.data == "ABG_support":
         query.message.edit_text(
-            text=f"*{BOT_NAME} SUPPORT CHATS*"
-            "\njoin my support ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ for see or report a problem on quickerobot",
+            text=f"*Support chats*"
+            "\n\njoin my support group/channel to see or report a problem on quickerobot",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="SUPPORT", url=f"t.me/{SUPPORT_CHAT}"
+                            text="Support", url=f"t.me/{SUPPORT_CHAT}"
                         ),
                         InlineKeyboardButton(
-                            text="UPDATES", url="https://t.me/werewolfquicker"
+                            text="Updates", url="https://t.me/werewolfquicker"
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="GO BACK", callback_data="ABG_"),
+                        InlineKeyboardButton(text="GO BACK", callback_data="start_back"),
                     ],
                 ]
             ),
