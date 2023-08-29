@@ -135,7 +135,7 @@ def ABG_about_callback(update, context):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="GO BACK", callback_data="start_back"),
+                        InlineKeyboardButton(text="home", callback_data="help_back"),
                     ],
                 ]
             ),
