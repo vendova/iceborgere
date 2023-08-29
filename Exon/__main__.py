@@ -192,7 +192,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                 elif isinstance(help_list, str):
                     help_text = help_list
                 text = (
-                    "Here is the help for the *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
+                    "*{}*\n\n".format(
                         HELPABLE[mod].__mod_name__
                     )
                     + help_text
