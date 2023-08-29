@@ -122,7 +122,7 @@ def ABG_about_callback(update, context):
     elif query.data == "ABG_support":
         query.message.edit_text(
             text=f"*Support chat:*"
-            "\n\nJoin the support group/channel to see or report a problem on quickers",
+            "\n\nJoin the support group/channel to see or report a problem on quickers.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
