@@ -14,7 +14,7 @@ set_chat_lang: "Great, I have set your language to {}!"
 pm_start_text: |
    Hey there! My name is quickerobot - I'm here to manage @wwquickers!
 
-   Join the <a href="https://t.me/+12vllqmdjk9mNzVl">group</a> to have exciting minutes of fun.
+   Join the [group](https://t.me/+12vllqmdjk9mNzVl) to have exciting minutes of fun.
    
    Hit /help to find out more about how to use me to my full potential.
 
@@ -23,9 +23,17 @@ grp_start_text: "Greetings, I am ready to assist you."
 
 
 pm_help_text: |
-   Please select a category below to view available commands.
+   *HELP*
+
+   Hey there! My name is quickerobot - I'm here to manage @werewolfquicker!
+   I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
    
-   Supported handlers: (/ or !)
+   *Helpful commands*:
+   - /start: Starts me! You've probably already used this.
+   - /help: Sends this message; I'll tell you more about myself!
+
+   Join the <a href="https://t.me/+12vllqmdjk9mNzVl">group</a> to have exciting minutes of fun.
+   All commands can be used with the following: / !
    
 
 
@@ -51,85 +59,92 @@ achannel_help: |
     *ANTI-CHANNEL*  
     Tired of Telegram stupidity? Here you go:
     *Available commands:*
-    •➥ /antichannel <on/off>: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves
-    •➥ /antilinkedchan <on/off>: Automatically delete linked channel posts from chatroom
-    •➥ /antichannelpin <on/off>: Automatically unpin linked channel posts from chatroom
+    - /antichannel `<on/off>`: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves.
+    - /antilinkedchan `<on/off>`: Automatically delete linked channel posts from chatroom.
+    - /antichannelpin `<on/off>`: Automatically unpin linked channel posts from chatroom.
 
 
 admin_help: |
-   •➥ /admins: List of admins in the chat
-   *Admins only:*
-   •➥ /invitelink: Generates chat invite link
-   •➥ /lowpromote: Promotes user replied to with low rights  
-   •➥ /promote: Promotes user replied to
-   •➥ /fullpromote: Promotes user replied to with full rights
-   •➥ /demote: Demotes user replied to
-   •➥ /title <title>: Sets custom title for promoted admin
-   •➥ /reload: Force refreshes admin list
+   - /admins: List of admins in the chat.
+   
+   *Admin commands:*
+   - /invitelink: Generates chat invite link.
+   - /lowpromote: Promotes user replied to with low rights. 
+   - /promote: Promotes user replied to.
+   - /fullpromote: Promotes user replied to with full rights.
+   - /demote: Demotes user replied to.
+   - /title `<title>`: Sets custom title for promoted admin.
+   - /reload: Force refreshes adminlist.
+
+   Sometimes, you promote or demote an admin manually, and quickerobot doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
+   This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /reload command; that'll force quickerobot to check who the admins are again.
 
 
 afk_help: |
-   •➥ /afk: Sets you as offline. 
-   •➥ /afk [reason]: Sets you as offline with a reason.
-   •➥ /afk [reply to media]: Sets you as offline using replied media as reason.
-   •➥ /afk [media] [reason]: Sets you as offline with media and reason.
+   - /afk: Sets you as offline. 
+   - /afk `[reason]`: Sets you as offline with a reason.
+   - /afk `[reply to media]`: Sets you as offline using replied media as reason.
+   - /afk `[media] [reason]`: Sets you as offline with media and reason.
 
 
 antiflood_help: |
-   •➥ *Admins only:*
-   •➥ /antispam <on/off/yes/no>: Toggles antispam security. 
+   *Admin commands:*
+   - /antispam `<on/off/yes/no>`: Toggles antispam security. 
    Anti-spam helps protect you and your chats by removing spam flooders as quickly as possible.
 
-   Users can appeal gbans or report spammers at @notoscam
+   Users can appeal gbans or report spammers at @SpamWatchSupport
 
-   •➥ /flood: Get the current flood settings
-   •➥ /setflood <integer/'no'/'off'>: Set the number of messages after which to take action on a user. set to '0' or 'off' to disable.
-   •➥ /setfloodmode <action type>: Choose which action to take on a user who has been flooding. Options: ban/kick/mute/tban/tmute
+   - /flood: Get the current flood settings
+   - /setflood `<integer/'no'/'off'>`: Set the number of messages after which to take action on a user. set to '0' or 'off' to disable.
+   - /setfloodmode `<action type>`: Choose which action to take on a user who has been flooding. Options: ban/kick/mute/tban/tmute
 
 
 approve_help: |
-   •➥ *Sometimes you might trust a user not to send unwanted content. Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.*
+   Sometimes you might trust a user not to send unwanted content. Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
 
-       That's what approvals are for - approve of trustworthy users to allow them to send 
-       *Admin commands:*
-   •➥ /approval: Check a user's approval status in this chat.
-   •➥ /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-   •➥ /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-   •➥ /approved: List all approved users.
-   •➥ /unapproveall: Unapprove *ALL* users in a chat. This cannot be undone.
+   That's what approvals are for - approve of trustworthy users to allow them to send 
+       
+   *Admin commands:*
+   - /approval: Check a user's approval status in this chat.
+   - /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
+   - /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
+   - /approved: List all approved users.
+   - /unapproveall: Unapprove *ALL* users in a chat. This cannot be undone.
 
 
 antispam_help: |
-   •➥ *Admins only:*
-   •➥ /antispam <on/off/yes/no>: Enable/disable antispam security.
+   *Admin commands:*
+   - /antispam `<on/off/yes/no>`: Enable/disable antispam security.
    Anti-spam helps protect you and your chats by removing spam flooders as quickly as possible.
 
-   Users can appeal gbans or report spammers at @notoscam
+   Users can appeal gbans or report spammers at @SpamWatchSupport
 
 
 backup_help: |
-    *Admin only:* 
-    •➥ /import: Reply to a group backup file to import as much as possible, making the transfer super simple! Note \
+    *Admin commands:* 
+    - /import: Reply to a group backup file to import as much as possible, making the transfer super simple! Note \
        that files/photos can't be imported due to telegram restrictions.
-    •➥ /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons)
+    - /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons)
 
 
 bans_help: |
-   •➥/kickme: Kicks the user who issued the command
-   *Admins only:*
-   •➥ /ban <userhandle>: Bans a user. (via handle, or reply)
-   •➥ /sban <userhandle>: Silently ban a user. Deletes command, replied message and doesn't reply. (via handle, or reply)
-   •➥ /tban <userhandle> x(m/h/d): Bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-   •➥ /unban <userhandle>: Unbans a user. (via handle, or reply)
-   •➥ /kick <userhandle>: Kicks a user from the group. (via handle, or reply)
+   *User commands:*
+   -/kickme: Kicks the user who issued the command.
+   
+   *Admin commands:*
+   - /ban `<userhandle>`: Bans a user. (via handle, or reply)
+   - /sban `<userhandle>`: Silently ban a user. Deletes command, replied message and doesn't reply. (via handle, or reply)
+   - /tban `<userhandle> x(m/h/d)`: Bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+   - /unban `<userhandle>`: Unbans a user. (via handle, or reply)
+   - /kick `<userhandle>`: Kicks a user from the group. (via handle, or reply)
 
 
 buser_help: |
-   *Sudo users only*  
-   •➥ /ignore: Blacklists a user from using the bot entirely.
-   •➥ /lockdown <on/off>: Toggles bot adding to groups.
-   •➥ /ignoredlist: Lists ignored users.   
-   •➥ /notice: Removes user from blacklist.
+   *Sudo users only:*  
+   - /ignore: Blacklists a user from using the bot entirely.
+   - /lockdown `<on/off>`: Toggles bot adding to groups.
+   - /ignoredlist: Lists ignored users.   
+   - /notice: Removes user from blacklist.
 
 
 dbbackup_help: |
@@ -142,74 +157,78 @@ blacklist_help_bse: |
 
 dbclean_help: |
    *Sudo only*
-   •➥ /dbcleanup: Removes deleted accounts and groups from database.
+   - /dbcleanup: Removes deleted accounts and groups from database.
 
 
 debug_help: |
    *Sudo only*
-   •➥ /debug <on/off>: Logs commands to updates.txt.
-   •➥ /logs: Send logs in support group.
+   - /debug `<on/off>`: Logs commands to updates.txt.
+   - /logs: Send logs in support group.
 
 
 devs_help: |
    *Devs only*
-   •➥ /groups: Lists groups with their ID, member count, etc.
-   •➥ /leave <ID>: Leave the group. ID must have hyphen.
-   •➥ /stats: Bot usage stats.
-   •➥ /ginfo <username/link/ID>: Fetches info panel for entire group.
+   - /groups: Lists groups with their ID, member count, etc.
+   - /leave `<ID>`: Leave the group. ID must have hyphen.
+   - /stats: Bot usage stats.
+   - /ginfo `<username/link/ID>`: Fetches info panel for entire group.
 
 
 owner_help: |
    *Owner only*
-   •➥ / 
+   - / 
 
 
 blacklist_help: |
-   •➥ Blacklists prevent triggers from being said in a group. Whenever a blacklisted word is mentioned, the message will be deleted immediately. Good combo with warn filters!
+   Blacklists prevent triggers from being said in a group. Whenever a blacklisted word is mentioned, the message will be deleted immediately. Good combo with warn filters!
 
    Note: Blacklists do not affect group admins.
-   •➥ /blacklist: View current blacklisted words.
+   - /blacklist: View current blacklisted words.
 
-   *Admin only:*
-   •➥ /addblacklist <triggers>: Add triggers to blacklist. Each line is considered one trigger, allowing multiple triggers to be added.
-   •➥ /unblacklist <triggers>: Remove triggers from blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-   •➥ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
+   *Admin commands:*
+   - /addblacklist `<triggers>`: Add triggers to blacklist. Each line is considered one trigger, allowing multiple triggers to be added.
+   - /unblacklist `<triggers>`: Remove triggers from blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
+   - /blacklistmode `<off/del/warn/ban/kick/mute/tban/tmute>`: Action to perform when someone sends blacklisted words.
 
 
 cinfo_help: |
-   •➥ /cinfo <chat ID/username>: Fetch info about the chat. 
-   •➥ /uinfo: Fetch user info.
-   •➥ /info: Same as /uinfo
+   - /cinfo `<chat ID/username>`: Fetch info about the chat. 
+   - /uinfo: Fetch user info.
+   - /info: Same as /uinfo
 
 
 cleaner_help: |
-   •➥ The blue text cleaner removes fake commands not recognized by this bot.
-   •➥ /cleanblue <on/off/yes/no>: Clean commands after sending
-   •➥ /ignoreblue <word>: Prevent auto-clean of the command
-   •➥ /unignoreblue <word>: Remove cleaning prevention
-   •➥ /listblue: List currently whitelisted commands
+   The blue text cleaner removes fake commands not recognized by this bot.
+   
+   - /cleanblue `<on/off/yes/no>`: Clean commands after sending.
+   - /ignoreblue `<word>`: Prevent auto-clean of the command.
+   - /unignoreblue `<word>`: Remove cleaning prevention.
+   - /listblue: List currently whitelisted commands.
 
    *Disasters only:*
-   •➥ /gignoreblue <word>: Globally ignore blue text cleaning of the saved word across Saitama.
-   •➥ /ungignoreblue <word>: Remove cleaning ignore
+   - /gignoreblue `<word>`: Globally ignore blue text cleaning of the saved word across the helpline.
+   - /ungignoreblue `<word>`: Remove cleaning ignore.
 
 
 connections_help: |
-   •➥ *Sometimes you just want to add notes and filters to a group chat, but you don't want everyone to see the commands. This is where connections come in...*
-     This allows you to connect to a chat's database, and add things to it without the commands appearing in chat! For obvious reasons, you need to be an admin to add things; but any member can view your data.
-   •➥ /connect: Connects to chat (can be done in a group by /connect or /connect <chat id> in PM)
-   •➥ /connection: List connected chats
-   •➥ /disconnect: Disconnects from chat
-   •➥ /helpconnect: Lists available commands that can be used remotely
-   *Admin only:*
-   •➥ /allowconnect <yes/no>: Allow user to connect to a chat 
+   Sometimes you just want to add notes and filters to a group chat, but you don't want everyone to see the commands. This is where connections come in...
+   This allows you to connect to a chat's database, and add things to it without the commands appearing in chat! For obvious reasons, you need to be an admin to add things; but any member can view your data.
+
+   *User commands:*
+   - /connect: Connects to chat (can be done in a group by /connect or /connect <chat id> in PM)
+   - /connection: List connected chats
+   - /disconnect: Disconnects from chat
+   - /helpconnect: Lists available commands that can be used remotely
+   
+   *Admin commands:*
+   - /allowconnect <yes/no>: Allow user to connect to a chat 
 
 
 cust_filters_help: |
-  •➥ /filters: Lists all active filters in the chat
+  - /filters: Lists all active filters in the chat
 
    *Admin only:*
-   •➥ /filter <keyword> <reply message>: Adds a filter to the chat. Bot will reply with that message whenever 'keyword' is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker.
+   - /filter <keyword> <reply message>: Adds a filter to the chat. Bot will reply with that message whenever 'keyword' is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker.
    
    Note: All filter keywords are in lowercase. To set a sentence as a filter, enclose it in quotes. 
    
@@ -224,33 +243,33 @@ cust_filters_help: |
    %%% 
    Reply 3
 
-   •➥ /stop <filter keyword>: Stop that filter
+   - /stop <filter keyword>: Stop that filter
    *Chat creator only:*
-   •➥ /removeallfilters: Remove all chat filters at once.
+   - /removeallfilters: Remove all chat filters at once.
 
    Note: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
    Check /markdownhelp for more info!
 
 
 disable_help: |
-   •➥ /cmds: Check the current status of disabled commands
+   - /cmds: Check the current status of disabled commands
    
-   *Admins only:*
-   •➥ /enable <cmd name>: Enable that command
-   •➥ /disable <cmd name>: Disable that command
-   •➥ /enablemodule <module name>: Enable all commands in that module
-   •➥ /disablemodule <module name>: Disable all commands in that module
-   •➥ /listcmds: List all possible toggleable commands
+   *Admin commands:*
+   - /enable <cmd name>: Enable that command
+   - /disable <cmd name>: Disable that command
+   - /enablemodule <module name>: Enable all commands in that module
+   - /disablemodule <module name>: Disable all commands in that module
+   - /listcmds: List all possible toggleable commands
 
 
 group_help: |
-   *Admins only:*
-   •➥ /setdesc: Sets a new group description
-   •➥ /setsticker: Set the replied sticker as group sticker set
-   •➥ /setgpic: Set the replied image/photo as group profile pic
-   •➥ /delgpic: Same as above, but to remove group profile pic
+   *Admin commands:*
+   - /setdesc: Sets a new group description
+   - /setsticker: Set the replied sticker as group sticker set
+   - /setgpic: Set the replied image/photo as group profile pic
+   - /delgpic: Same as above, but to remove group profile pic
    
-   •➥ /setgtitle: Sets a new chat title
+   - /setgtitle: Sets a new chat title
 
 
 feds_help: |
@@ -261,40 +280,40 @@ feds_help: |
 
 FED_OWNER_HELP: |
     *Federation owner only:*
-    •➥ `/newfed <fed_name>`: Create a federation, one allowed per user
-    •➥ `/renamefed <fed_id> <new_fed_name>`: Renames the fed id to a new name
-    •➥ `/delfed <fed_id>`: Delete a federation, and any information related to it. Will not cancel blocked users
-    •➥ `/fpromote <user>`: Assigns the user as a federation admin. Enables all commands for the user under `Fed Admins`
-    •➥ `/fdemote <user>`: Drops the user from the admin federation to a normal user
-    •➥ `/subfed <fed_id>`: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed
-    •➥ `/unsubfed <fed_id>`: Unsubscribes to a given fed ID
-    •➥ `/setfedlog <fed_id>`: Sets the group as a fed log report base for the federation
-    •➥ `/unsetfedlog <fed_id>`: Removed the group as a fed log report base for the federation
-    •➥ `/fbroadcast <message>`: Broadcasts a messages to all groups that have joined your fed
-    •➥ `/fedsubs`: Shows the feds your group is subscribed to `(broken rn)`
+    - `/newfed <fed_name>`: Create a federation, one allowed per user
+    - `/renamefed <fed_id> <new_fed_name>`: Renames the fed id to a new name
+    - `/delfed <fed_id>`: Delete a federation, and any information related to it. Will not cancel blocked users
+    - `/fpromote <user>`: Assigns the user as a federation admin. Enables all commands for the user under `Fed Admins`
+    - `/fdemote <user>`: Drops the user from the admin federation to a normal user
+    - `/subfed <fed_id>`: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed
+    - `/unsubfed <fed_id>`: Unsubscribes to a given fed ID
+    - `/setfedlog <fed_id>`: Sets the group as a fed log report base for the federation
+    - `/unsetfedlog <fed_id>`: Removed the group as a fed log report base for the federation
+    - `/fbroadcast <message>`: Broadcasts a messages to all groups that have joined your fed
+    - `/fedsubs`: Shows the feds your group is subscribed to `(broken rn)`
 
 
 FED_ADMIN_HELP: |
     *Federation admin commands:*
-    •➥ `/fban <user> <reason>`: Fed bans a user
-    •➥ `/unfban <user> <reason>`: Removes a user from a fed ban
-    •➥ `/fedinfo <fed_id>`: Information about the specified federation
-    •➥ `/joinfed <fed_id>`: Join the current chat to the federation. Only chat owners can do this. Every chat can only be in one federation
-    •➥ `/leavefed <fed_id>`: Leave the given federation. Only chat owners can do this
-    •➥ `/setfrules <rules>`: Arrange federation rules
-    •➥ `/fedadmins`: Show federation admin
-    •➥ `/fbanlist`: Displays all users who are victimized at the federation at this time
-    •➥ `/fedchats`: Get all the chats that are connected in the federation
-    •➥ `/chatfed`: See the federation in the current chat
+    - `/fban <user> <reason>`: Fed bans a user
+    - `/unfban <user> <reason>`: Removes a user from a fed ban
+    - `/fedinfo <fed_id>`: Information about the specified federation
+    - `/joinfed <fed_id>`: Join the current chat to the federation. Only chat owners can do this. Every chat can only be in one federation
+    - `/leavefed <fed_id>`: Leave the given federation. Only chat owners can do this
+    - `/setfrules <rules>`: Arrange federation rules
+    - `/fedadmins`: Show federation admin
+    - `/fbanlist`: Displays all users who are victimized at the federation at this time
+    - `/fedchats`: Get all the chats that are connected in the federation
+    - `/chatfed`: See the federation in the current chat
 
 
 FED_USER_HELP: |
-   •➥ Spammers and disruptive users can be very annoying with multiple groups. Thankfully federations allow you to connect groups and take unified action on the spammers across all your groups for a smooth experience!
+   - Spammers and disruptive users can be very annoying with multiple groups. Thankfully federations allow you to connect groups and take unified action on the spammers across all your groups for a smooth experience!
 
    *Commands:*.   Federations are now divided into 3 sections for your ease.
-   •➥ /fedownerhelp: Provides help for fed creation and owner only commands
-   •➥ /fedadminhelp: Provides help for fed administration commands
-   •➥ /feduserhelp: Provides help for commands anyone can use
+   - /fedownerhelp: Provides help for fed creation and owner only commands
+   - /fedadminhelp: Provides help for fed administration commands
+   - /feduserhelp: Provides help for commands anyone can use
 
 
 md_help: |
@@ -332,23 +351,23 @@ filling_help: |
 
 
 gcast_help: |
-   •➥ /broadcastall: Broadcasts everywhere
-   •➥ /broadcastusers: Broadcasts to all users
-   •➥ /broadcastgroups: Broadcasts to all groups
+   - /broadcastall: Broadcasts everywhere
+   - /broadcastusers: Broadcasts to all users
+   - /broadcastgroups: Broadcasts to all groups
 
 
 gtranslate_help: |
-   •➥ *Use this module to translate stuff!*
-   •➥ /tl (or /tr): As a reply to a message, translates it to English.
-   •➥ /tl <lang>: Translates to <lang>
+   - *Use this module to translate stuff!*
+   - /tl (or /tr): As a reply to a message, translates it to English.
+   - /tl <lang>: Translates to <lang>
     *Ex:* /tl ja: Translates to Japanese.
-   •➥ /tl <source>//<dest>: Translates from <source> to <lang>.
+   - /tl <source>//<dest>: Translates from <source> to <lang>.
     Eg:  /tl ja//en: Translates from Japanese to English.
-   •➥ /langs: Get a list of supported languages for translation.
+   - /langs: Get a list of supported languages for translation.
    
    *I can convert text to voice and voice to text..*
-   •➥ /tts <lang code>: Reply to any message to get text to speech output
-   •➥ /stt: Type in reply to a voice message(support English only) to extract text from it.
+   - /tts <lang code>: Reply to any message to get text to speech output
+   - /stt: Type in reply to a voice message(support English only) to extract text from it.
    
    *Language codes*:
    https://telegra.ph/ITS-ME--ABISHNOI-07-30-2
@@ -356,37 +375,37 @@ gtranslate_help: |
 fsub_help: |
    *Force Subscribe:*
 
-   •➥ *quickerobot can mute members who are not subscribed your channel until they subscribe*
-   •➥ When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them.
+   - *quickerobot can mute members who are not subscribed your channel until they subscribe*
+   - When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them.
 
-   •➥ *Setup* 
-   •➥ Add me in your group as admin
-   •➥ Add me in your channel as admin
+   - *Setup* 
+   - Add me in your group as admin
+   - Add me in your channel as admin
 
    *Commands*  
-   •➥ /fsub <channel username> - To turn on and setup the channel. 
-   •➥ /fsub off - To turn off force subscribe.
+   - /fsub <channel username> - To turn on and setup the channel. 
+   - /fsub off - To turn off force subscribe.
    💡 If you disable fsub, you need to set again for working /fsub <channel username>
 
 locks_help: |
-   •➥ /locktypes: Lists all possible locktypes
-   *Admins only:*
-   •➥ /lock <type>: Lock items of a certain type (not available in private)
-   •➥ /unlock <type>: Unlock items of a certain type (not available in private)
-   •➥ /locks: The current list of locks in this chat.
+   - /locktypes: Lists all possible locktypes
+   *Admin commands:*
+   - /lock <type>: Lock items of a certain type (not available in private)
+   - /unlock <type>: Unlock items of a certain type (not available in private)
+   - /locks: The current list of locks in this chat.
    Locks can be used to restrict a group's users.
    Eg: Locking urls will auto-delete all messages with urls, locking stickers will restrict non-admin users from sending stickers, etc.
    Locking bots will stop non-admins from adding bots to the chat.
 
    *Note:*  
-   •➥ Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
-   •➥ Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
+   - Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
+   - Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
 
 log_help: |
-   •➥ /logchannel: Get log channel info
-   •➥ /setlog: Set the log channel.
-   •➥ /unsetlog: Unset the log channel.
-   •➥ /logsettings
+   - /logchannel: Get log channel info
+   - /setlog: Set the log channel.
+   - /unsetlog: Unset the log channel.
+   - /logsettings
 
    *Setting the log channel is done by:*
    ➩ Adding the bot to the desired channel (as an admin!) 
@@ -395,44 +414,44 @@ log_help: |
 
 
 misc_help: |  
-      •➥ /id: Get the current group id. If used by replying to a message, gets that user's id.
-      •➥ /gifid: Reply to a gif to me to tell you its file ID.
-      •➥ /info: Get information about a user.
-      •➥ /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
-      •➥ /ud <word>: Type the word or expression you want to search use.
-      •➥ /urban <word>: Same as /ud
-      •➥ /paste: Do a paste at nekobin.com
-      •➥ /cash: Currency converter
+      - /id: Get the current group id. If used by replying to a message, gets that user's id.
+      - /gifid: Reply to a gif to me to tell you its file ID.
+      - /info: Get information about a user.
+      - /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
+      - /ud <word>: Type the word or expression you want to search use.
+      - /urban <word>: Same as /ud
+      - /paste: Do a paste at nekobin.com
+      - /cash: Currency converter
         example syntax: /cash 1 USD INR
-      •➥ /getid: GET IDs of chat, user and chat message.
+      - /getid: GET IDs of chat, user and chat message.
 
 modules_help: |
-   •➥ /listmodules: Lists all modules loaded by the bot
-   •➥ /unload <name>: Unloads a module
-   •➥ /load <name>: Loads a module
+   - /listmodules: Lists all modules loaded by the bot
+   - /unload <name>: Unloads a module
+   - /load <name>: Loads a module
 
 muting_help: |
-   •➥*Admins only:*
-   •➥ /mute <userhandle>: Mute a user. Can also be used as reply, muting the replied to user.
-   •➥ /dmute <userhandle>: Delete message + Mute a user
-   •➥ /smute <userhandle>: Delete message + Delete bot message + Mute a user
-   •➥ /tmute <userhandle> x(m/h): Mutes a user for x time. (via handle, or reply). m = minutes, h = hours.
-   •➥ /unmute <userhandle>: Unmute a user. Can also be used as reply, muting the replied to user.
+   -*Admin commands:*
+   - /mute <userhandle>: Mute a user. Can also be used as reply, muting the replied to user.
+   - /dmute <userhandle>: Delete message + Mute a user
+   - /smute <userhandle>: Delete message + Delete bot message + Mute a user
+   - /tmute <userhandle> x(m/h): Mutes a user for x time. (via handle, or reply). m = minutes, h = hours.
+   - /unmute <userhandle>: Unmute a user. Can also be used as reply, muting the replied to user.
 
 notes_help: |
-   •➥ /get <notename>: Get the note with this notename
-   •➥ #<notename>: Same as /get
-   •➥ /notes or /saved: Lists all saved notes in this chat
-   •➥ /number: Will pull the note of that number in the list
+   - /get <notename>: Get the note with this notename
+   - #<notename>: Same as /get
+   - /notes or /saved: Lists all saved notes in this chat
+   - /number: Will pull the note of that number in the list
    
    If you would like to retrieve the contents of a note without any formatting, use /get <notename> noformat. This can \
    be useful when updating a current note.
    
-   *Admins only:*
-   •➥ /save <notename> <notedata>: Saves notedata as a note with name notename
+   *Admin commands:*
+   - /save <notename> <notedata>: Saves notedata as a note with name notename
    A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a \n 
    buttonurl: section, as such: [somelink](buttonurl:example.com). See /markdownhelp for more info.
-   •➥ /save <notename>: Save the replied message as a note with name notename
+   - /save <notename>: Save the replied message as a note with name notename
    
    Separate different replies by %%% to get random notes.
    
@@ -444,8 +463,8 @@ notes_help: |
    %%%
    Reply 3
    
-   •➥ /clear <notename>: Clear note with this name
-   •➥ /removeallnotes: Removes all notes from the group
+   - /clear <notename>: Clear note with this name
+   - /removeallnotes: Removes all notes from the group
    
    *Note:* Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
 
@@ -453,40 +472,40 @@ nmode_help: |
    *Night Mode Help*
 
 purge_help: |
-    •➥ /purge: Reply to a message to delete all messages from that point
-    •➥ /del: Delete the replied to message
+    - /purge: Reply to a message to delete all messages from that point
+    - /del: Delete the replied to message
 
 pins_help: |
-   •➥ /pin: Silently pins the message replied to - add 'loud' or 'notify' to give notifs to users
-   •➥ /unpin: Unpins the currently pinned message.
-   •➥ /pinned: Get the current pinned message.
+   - /pin: Silently pins the message replied to - add 'loud' or 'notify' to give notifs to users
+   - /unpin: Unpins the currently pinned message.
+   - /pinned: Get the current pinned message.
 
 quotly_help: |
-   •➥ /q: Create a quote from the message
-   •➥ /q r: Create a quote from the message with reply
+   - /q: Create a quote from the message
+   - /q r: Create a quote from the message with reply
 
 reports_help: |
-   •➥ /report <reason>: Reply to a message to report it to admins.
-   •➥ @admin: Reply to a message to report it to admins.
+   - /report <reason>: Reply to a message to report it to admins.
+   - @admin: Reply to a message to report it to admins.
    
    *Note:* Neither of these will get triggered if used by admins.
 
-   •➥ /reports <on/off>: Change report settings, or view current status.
-   •➥ If done in pm, toggles your status.
-   •➥ If in group, toggles that groups's status.   
+   - /reports <on/off>: Change report settings, or view current status.
+   - If done in pm, toggles your status.
+   - If in group, toggles that groups's status.   
 
 rcmds_help: |
    *For devs only*
-   •➥ /rban user group: Remote ban
-   •➥ /runban user group: Remote un-ban
-   •➥ /rkick user group: Remote kick
-   •➥ /rmute user group: Remote mute
-   •➥/runmute user group: Remote un-mute
+   - /rban user group: Remote ban
+   - /runban user group: Remote un-ban
+   - /rkick user group: Remote kick
+   - /rmute user group: Remote mute
+   -/runmute user group: Remote un-mute
 
 rules_help: |
-  •➥ /rules: Get the rules for this chat.
-  •➥ /setrules <rules>: Set rules for this chat.
-  •➥ /clearrules: Clear the rules for this chat.
+  - /rules: Get the rules for this chat.
+  - /setrules <rules>: Set rules for this chat.
+  - /clearrules: Clear the rules for this chat.
 
 topics_help: |
     Telegram introduced new way of managing your chat called topics(forums). 
@@ -494,71 +513,71 @@ topics_help: |
     As a group management bot I have some useful commands to help you 
     create, delete, close and reopen topics in your chat!
 
-    •➥ /topicnew: Creates a new topic, requires topic name to create.
-    •➥ /topicdel: Deletes an existing topic, requires topic ID to delete.   
-    •➥ /topicclose: Close an existing topic, requires topic ID to close.
-    •➥ /topicopen: Open an already closed topic, requires topic ID to open.
+    - /topicnew: Creates a new topic, requires topic name to create.
+    - /topicdel: Deletes an existing topic, requires topic ID to delete.   
+    - /topicclose: Close an existing topic, requires topic ID to close.
+    - /topicopen: Open an already closed topic, requires topic ID to open.
 
 tags_help: |
-    •➥ /tagall or @all: Mention all members in your group, without exception.
-    •➥ /cancel: For canceling the mention-all.
-    •➥ /tagalert: Turn on/off tag alerts.
+    - /tagall or @all: Mention all members in your group, without exception.
+    - /cancel: For canceling the mention-all.
+    - /tagalert: Turn on/off tag alerts.
 
 userinfo_help: |
-      •➥ /setbio <text>: While replying, will save another user's bio 
-      •➥ /bio: Will get your or another user's bio. This cannot be set by yourself.
-      •➥ /setme <text>: Will set your info
-      •➥ /me: Will get your or another user's info
+      - /setbio <text>: While replying, will save another user's bio 
+      - /bio: Will get your or another user's bio. This cannot be set by yourself.
+      - /setme <text>: Will set your info
+      - /me: Will get your or another user's info
 
 warns_help: |
-   •➥ /warns <userhandle>: Get a user's number, and reason, of warns.
-   •➥ /warnlist: List of all current warning filters
-   •➥ /warn <userhandle>: Warn a user. After 3 warns, the user will be banned from the group. Can also be used as reply.
-   •➥ /dwarn <userhandle>: Warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as reply.
-   •➥ /resetwarn <userhandle>: Reset the warnings for a user. Can also be used as reply.
-   •➥ /addwarn <keyword> <reply message>: Set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user. 
-   •➥ /nowarn <keyword>: Stop a warning filter
-   •➥ /warnlimit <num>: Set the warning limit.
-   •➥ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
+   - /warns <userhandle>: Get a user's number, and reason, of warns.
+   - /warnlist: List of all current warning filters
+   - /warn <userhandle>: Warn a user. After 3 warns, the user will be banned from the group. Can also be used as reply.
+   - /dwarn <userhandle>: Warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as reply.
+   - /resetwarn <userhandle>: Reset the warnings for a user. Can also be used as reply.
+   - /addwarn <keyword> <reply message>: Set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user. 
+   - /nowarn <keyword>: Stop a warning filter
+   - /warnlimit <num>: Set the warning limit.
+   - /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 
 greetings_help: |
-   •➥ /welcome <on/off>: Enable/disable welcome messages.
-   •➥ /welcome: Shows current welcome settings.
-   •➥ /welcome noformat: Shows current welcome settings, without the formatting - useful to recycle your welcome messages!
-   •➥ /goodbye: Same usage and args as /welcome.
-   •➥ /setwelcome <sometext>: Set a custom welcome message. If used replying to media, uses that media.
-   •➥ /setgoodbye <sometext>: Set a custom goodbye message. If used replying to media, uses that media. 
-   •➥ /resetwelcome: Reset to the default welcome message.
-   •➥ /resetgoodbye: Reset to the default goodbye message.
-   •➥ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
-   •➥ /welcomemutehelp: Gives information about welcome mutes.
-   •➥ /cleanservice <on/off>: Deletes the service message (like user joined/left) automatically.
+   - /welcome <on/off>: Enable/disable welcome messages.
+   - /welcome: Shows current welcome settings.
+   - /welcome noformat: Shows current welcome settings, without the formatting - useful to recycle your welcome messages!
+   - /goodbye: Same usage and args as /welcome.
+   - /setwelcome <sometext>: Set a custom welcome message. If used replying to media, uses that media.
+   - /setgoodbye <sometext>: Set a custom goodbye message. If used replying to media, uses that media. 
+   - /resetwelcome: Reset to the default welcome message.
+   - /resetgoodbye: Reset to the default goodbye message.
+   - /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
+   - /welcomemutehelp: Gives information about welcome mutes.
+   - /cleanservice <on/off>: Deletes the service message (like user joined/left) automatically.
    
        *Welcome markdown:* 
-   •➥ /welcomehelp: View more formatting information for custom welcome/goodbye messages.
+   - /welcomehelp: View more formatting information for custom welcome/goodbye messages.
 
 welcome_mutes: |
     You can get the bot to mute new people who join your group and hence prevent spambots from flooding your group.  
     
     The following options are possible:
-    •➥ /welcomemute soft: Restricts new members from sending media for 24 hours.
-    •➥ /welcomemute strong: Mutes new members till they tap on a button, thereby verifying they're human.
-    •➥ /welcomemute captcha:  Mutes new members till they solve a button captcha, thereby verifying they're human.
-    •➥ /welcomemute off: Turns off welcomemute.
+    - /welcomemute soft: Restricts new members from sending media for 24 hours.
+    - /welcomemute strong: Mutes new members till they tap on a button, thereby verifying they're human.
+    - /welcomemute captcha:  Mutes new members till they solve a button captcha, thereby verifying they're human.
+    - /welcomemute off: Turns off welcomemute.
     
     *Note:* Strong mode kicks a user from the chat if they dont verify in 120seconds. They can always rejoin though.
 
 welcome_help: |
     Your group's welcome/goodbye messages can be personalized in multiple ways. If you want the messages to be individually generated, like the default welcome message is, you can use *these* variables:
     
-    •➥ {first}: This represents the user's *first* name.
-    •➥ {last}: This represents the user's *last* name. Defaults to *first name* if user has no last name.
-    •➥ {fullname}: This represents the user's *full* name. Defaults to *first name* if user has no last name.
-    •➥ {username}: This represents the user's *username*. Defaults to a *mention* of the user's first name if has no username.
-    •➥ {mention}: This simply *mentions* a user - tagging them with their first name.
-    •➥ {id}: This represents the user's *id*
-    •➥ {count}: This represents the user's *member number*.
-    •➥ {chatname}: This represents the *current chat name*.
+    - {first}: This represents the user's *first* name.
+    - {last}: This represents the user's *last* name. Defaults to *first name* if user has no last name.
+    - {fullname}: This represents the user's *full* name. Defaults to *first name* if user has no last name.
+    - {username}: This represents the user's *username*. Defaults to a *mention* of the user's first name if has no username.
+    - {mention}: This simply *mentions* a user - tagging them with their first name.
+    - {id}: This represents the user's *id*
+    - {count}: This represents the user's *member number*.
+    - {chatname}: This represents the *current chat name*.
 
     Each variable MUST be surrounded by `{}` to be replaced.  
     Messages also support markdown, so you can make any elements bold/italic/code/links.
@@ -571,22 +590,22 @@ welcome_help: |
     replying to the desired media, and calling /setwelcome.
 
 sticker_help: |
-   •➥ /stickerid: Reply to a sticker to me to tell you its file ID.
-   •➥ /getsticker: Reply to a sticker to me to upload its raw PNG file.
-   •➥ /kang: Reply to a sticker to add it to your pack.
-   •➥ /delsticker: Reply to a sticker in your pack to delete it.
-   •➥ /stickers: Find stickers for given term on Combot sticker catalogue
-   •➥ /mmf <reply with text>: To draw a text for sticker
+   - /stickerid: Reply to a sticker to me to tell you its file ID.
+   - /getsticker: Reply to a sticker to me to upload its raw PNG file.
+   - /kang: Reply to a sticker to add it to your pack.
+   - /delsticker: Reply to a sticker in your pack to delete it.
+   - /stickers: Find stickers for given term on Combot sticker catalogue
+   - /mmf <reply with text>: To draw a text for sticker
 
 sticker_blacklist_help: |
    *Admin only:*
-   •➥ /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker
-   •➥ /unblsticker <sticker link>: Remove triggers from blacklist. Same newline logic applies here, so you can delete multiple triggers at once.
-   •➥ /rmblsticker <sticker link>: Same as above.
-   •➥ /blstickermode <delete/ban/tban/mute/tmute>: Sets up a default action on what to do if users use blacklisted stickers.
+   - /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker
+   - /unblsticker <sticker link>: Remove triggers from blacklist. Same newline logic applies here, so you can delete multiple triggers at once.
+   - /rmblsticker <sticker link>: Same as above.
+   - /blstickermode <delete/ban/tban/mute/tmute>: Sets up a default action on what to do if users use blacklisted stickers.
    
    Note: 
-   •➥ Sticker link can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message
+   - Sticker link can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message
 
 raid_help: |
    Have you ever had your group raided by spammers and bots?  
@@ -594,21 +613,21 @@ raid_help: |
    By enabling *Raid Mode* I will automatically kick every user that tries to join.
    When the raid is done you can toggle back LockGroup and everything will be back to normal!
   
-   *Admins only!*
-   •➥ /raid <on/off> (Optional time): Enable/Disable raid mode. 
+   *Admin commands:*
+   - /raid `<on/off> (Optional time)`: Enable/Disable raid mode. 
    If no time is given it will default to 2 hours then turn off automatically
    Enabling raid mode will kick every user on joining the group.
-   •➥ /raidtime <time>: View or set default duration for raid mode, after that time from toggling raid mode will turn off automatically 
-   Default is 6 hours
-   •➥ /raidactiontime <time>: View or set default action duration for temp banned users, default is 1 hour
+   - /raidtime `<time>`: View or set default duration for raid mode, after that time from toggling raid mode will turn off automatically 
+   Default is 6 hours.
+   - /raidactiontime `<time>`: View or set default action duration for temp banned users, default is 1 hour.
 
 zombies_help: |
-   •➥ /zombies: Find and remove deleted accounts from your groups.  
-   •➥ /zombies clean: Remove deleted accounts from your groups.
+   - /zombies: Find and remove deleted accounts from your groups.  
+   - /zombies `clean`: Remove deleted accounts from your groups.
 
 webss_help: |
-   •➥ /webss <url>: Takes a screenshot of the website and sends it.
+   - /webss `<url>`: Takes a screenshot of the website and sends it.
 
 td_help: |
-   •➥ /truth: Sends a random truth string
-   •➥ /dare: Sends a random dare string
+   - /truth: Sends a random truth string.
+   - /dare: Sends a random dare string.
