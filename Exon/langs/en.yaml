@@ -356,7 +356,7 @@ filling_help: |
 
 
 gcast_help: |
-      *Dev commands:*
+   *Dev commands:*
    - /broadcastall: Broadcasts everywhere.
    - /broadcastusers: Broadcasts to all users.
    - /broadcastgroups: Broadcasts to all groups.
