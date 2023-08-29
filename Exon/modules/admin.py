@@ -113,7 +113,7 @@ async def get_users(show):
         if not user.deleted:
             mentions += f"\n[{user.first_name}](tg://user?id={user.id}) {user.id}"
         else:
-            mentions += f"\nᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛ {user.id}"
+            mentions += f"\nDeleted Account {user.id}"
     file = open("userslist.txt", "w+")
     file.write(mentions)
     file.close()
@@ -182,7 +182,7 @@ def setchatpic(update: Update, context: CallbackContext):
                 context.bot.set_chat_photo(int(chat.id), photo=chatp)
                 msg.reply_text("set new chatPic success!")
         except BadRequest as excp:
-            msg.reply_text(f"ᴇʀʀᴏʀ! {excp.message}")
+            msg.reply_text(f"Error! {excp.message}")
         finally:
             dlmsg.delete()
             if os.path.isfile("gpic.png"):
@@ -199,13 +199,13 @@ def rmchatpic(update: Update, context: CallbackContext):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ᴛᴏ ᴅᴇʟᴇᴛᴇ ɢʀᴏᴜᴘ ᴘʜᴏᴛᴏ")
+        msg.reply_text("you don't have enough rights to delete group photo!")
         return
     try:
         context.bot.delete_chat_photo(int(chat.id))
-        msg.reply_text("sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴄʜᴀᴛ's ᴘʀᴏғɪʟᴇ ᴘʜᴏᴛᴏ!")
+        msg.reply_text("Successfully deleted chat's profile photo!")
     except BadRequest as excp:
-        msg.reply_text(f"ᴇʀʀᴏʀ! {excp.message}.")
+        msg.reply_text(f"Error! {excp.message}.")
         return
 
 
@@ -217,20 +217,20 @@ def set_desc(update: Update, context: CallbackContext):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("ʏᴏᴜ'ʀᴇ ᴍɪssɪɴɢ ʀɪɢʜᴛs ᴛᴏ ᴄʜᴀɴɢᴇ ᴄʜᴀᴛ ɪɴғᴏ!")
+        return msg.reply_text("You're missing rights to change chat info!")
 
     tesc = msg.text.split(None, 1)
     if len(tesc) >= 2:
         desc = tesc[1]
     else:
-        return msg.reply_text("sᴇᴛᴛɪɴɢ ᴇᴍᴘᴛʏ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴡᴏɴ'ᴛ ᴅᴏ ᴀɴʏᴛʜɪɴɢ!")
+        return msg.reply_text("Setting empty description won't do anything!")
     try:
         if len(desc) > 255:
-            return msg.reply_text("ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴍᴜsᴛ ɴᴇᴇᴅs ᴛᴏ ʙᴇ ᴜɴᴅᴇʀ 255 ᴄʜᴀʀᴀᴄᴛᴇʀs!")
+            return msg.reply_text("Description must be under 255 characters!")
         context.bot.set_chat_description(chat.id, desc)
-        msg.reply_text(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴜᴘᴅᴀᴛᴇᴅ ᴄʜᴀᴛ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ɪɴ {chat.title}!")
+        msg.reply_text(f"Successfully updated chat description in {chat.title}!")
     except BadRequest as excp:
-        msg.reply_text(f"ᴇʀʀᴏʀ! {excp.message}.")
+        msg.reply_text(f"Error! {excp.message}.")
 
 
 @bot_admin
@@ -242,22 +242,22 @@ def setchat_title(update: Update, context: CallbackContext):
     args = context.args
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ᴛᴏ ᴄʜᴀɴɢᴇ ᴄʜᴀᴛ ɪɴғᴏ!")
+        msg.reply_text("You don't have enough rights to change chat info!")
         ʀᴇᴛᴜʀɴ
 
     title = " ".join(args)
     if not title:
-        msg.reply_text("ᴇɴᴛᴇʀ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ sᴇᴛ ɴᴇᴡ ᴛɪᴛʟᴇ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ!")
+        msg.reply_text("Enter some text to set new title to your chat!")
         return
 
     try:
         context.bot.set_chat_title(int(chat.id), str(title))
         msg.reply_text(
-            f"sᴜᴄᴄᴇssғᴜʟʟʏ sᴇᴛ <b>{title}</b> ᴀs ɴᴇᴡ ᴄʜᴀᴛ ᴛɪᴛʟᴇ!",
+            f"Successfully set <b>{title}</b> as new chat title!",
             parse_mode=ParseMode.HTML,
         )
     except BadRequest as excp:
-        msg.reply_text(f"ᴇʀʀᴏʀ! {excp.message}.")
+        msg.reply_text(f"Error! {excp.message}.")
         return
 
 
@@ -311,7 +311,7 @@ def promote(update: Update, context: CallbackContext) -> Optional[str]:
         title = message.text.split(" ", 1)[1]
         if len(title) > 16:
             message.reply_text(
-                "ᴛʜᴇ ᴛɪᴛʟᴇ ʟᴇɴɢᴛʜ ɪs ʟᴏɴɢᴇʀ ᴛʜᴀɴ 16 ᴄʜᴀʀᴀᴄᴛᴇʀs.\nᴛʀᴜɴᴄᴀᴛɪɴɢ it ᴛᴏ 16 ᴄʜᴀʀᴀᴄᴛᴇʀs."
+                "The title length is longer than 16 characters.\nTruncating it to 16 characters."
             )
 
         try:
@@ -347,9 +347,9 @@ def promote(update: Update, context: CallbackContext) -> Optional[str]:
         pass
     return (
         "<b>{}:</b>"
-        "\n#ᴘʀᴏᴍᴏᴛᴇᴅ"
-        "\n<b>ᴀᴅᴍɪɴ:</b> {}"
-        "\n<b>ᴜsᴇʀ:</b> {}".format(
+        "\n#PROMOTED"
+        "\n<b>ADMIN:</b> {}"
+        "\n<b>USER:</b> {}".format(
             html.escape(chat.title),
             mention_html(user.id, user.first_name),
             mention_html(user_member.user.id, user_member.user.first_name),
@@ -374,21 +374,21 @@ def fullpromote(update, context):
     bot, args = context.bot, context.args
 
     if user_can_promote(chat, user, bot.id) is False:
-        message.reply_text("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ᴛᴏ ᴘʀᴏᴍᴏᴛᴇ sᴏᴍᴇᴏɴᴇ!")
+        message.reply_text("You don't have enough rights to promote someone!")
         return ""
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("ᴍᴇɴᴛɪᴏɴ ᴏɴᴇ.... 🤷🏻‍♂.")
+        message.reply_text("Mentione one!")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status in ["administrator", "creator"]:
-        message.reply_text("ᴛʜɪs ᴘᴇʀsᴏɴ ɪs ᴀʟʀᴇᴀᴅʏ ᴀɴ ᴀᴅᴍɪɴ...!")
+        message.reply_text("This person is already an admin...!")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I ʜᴏᴘᴇ, ɪғ ɪ ᴄᴏᴜʟᴅ ᴘʀᴏᴍᴏᴛᴇ ᴍʏsᴇʟғ!")
+        message.reply_text("I hope, if i could promote myself!")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -413,7 +413,7 @@ def fullpromote(update, context):
         title = message.text.split(" ", 1)[1]
         if len(title) > 16:
             message.reply_text(
-                "ᴛʜᴇ ᴛɪᴛʟᴇ ʟᴇɴɢᴛʜ ɪs ʟᴏɴɢᴇʀ ᴛʜᴀɴ 16 ᴄʜᴀʀᴀᴄᴛᴇʀs.\nᴛʀᴜɴᴄᴀᴛɪɴɢ ɪᴛ ᴛᴏ 16 ᴄʜᴀʀᴀᴄᴛᴇʀs."
+                "The title length is longer than 16 characters.\nTruncating it to 16 characters."
             )
 
         try:
@@ -421,38 +421,38 @@ def fullpromote(update, context):
 
         except BadRequest:
             message.reply_text(
-                "I ᴄᴀɴ'ᴛ sᴇᴛ ᴄᴜsᴛᴏᴍ ᴛɪᴛʟᴇ ғᴏʀ ᴀᴅᴍɪɴs ᴛʜᴀᴛ I ᴅɪᴅɴ'ᴛ ᴘʀᴏᴍᴏᴛᴇ!"
+                "I can't set custom title for admins that I didn't PROMOTE!"
             )
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="⏬ ᴅᴇᴍᴏᴛᴇ",
+                    text="⏬ DEMOTE",
                     callback_data="demote_({})".format(user_member.user.id),
                 ),
-                InlineKeyboardButton(text="🔄 ᴄʟᴏsᴇ", callback_data="close2"),
+                InlineKeyboardButton(text="🔄 CLOSE", callback_data="close2"),
             ]
         ]
     )
     message.reply_text(
-        f"♔ {chat.title} ᴇᴠᴇɴᴛ!\n"
-        f"• ᴀ ɴᴇᴡ ᴀᴅᴍɪɴ ʜᴀs ʙᴇᴇɴ ᴀᴘᴘᴏɪɴᴛᴇᴅ ᴀs ғᴜʟʟʏ ᴘʀᴏᴍᴏᴛᴇᴅ!\n"
-        f"• ʟᴇᴛ's ᴀʟʟ ᴡᴇʟᴄᴏᴍᴇ {mention_html(user_member.user.id, user_member.user.first_name)}",
+        f"A {chat.title} EVENT!\n"
+        f"A NEW ADMIN HAS BEEN APPOINTED AS FULLY PROMOTED!\n"
+        f"LET'S ALL WELCOME{mention_html(user_member.user.id, user_member.user.first_name)}",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML,
     )
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#ғᴜʟʟᴘʀᴏᴍᴏᴛᴇᴅ\n"
-        f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>ᴜsᴇʀ:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+        f"#FULLPROMOTE\n"
+        f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>USER:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
     )
 
 
 close_keyboard = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🔄 ᴄᴀᴄʜᴇ", callback_data="close2")]]
+    [[InlineKeyboardButton("🔄 CACHE", callback_data="close2")]]
 )
 
 
