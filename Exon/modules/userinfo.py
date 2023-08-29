@@ -481,7 +481,7 @@ def set_about_me(update: Update, context: CallbackContext):
                 ),
             )
 
-
+'''
 @Exoncmd(command="stats", can_disable=True)
 @sudo_plus
 def stats(update, context):
@@ -537,7 +537,7 @@ def stats(update, context):
             reply_markup=InlineKeyboardMarkup(kb),
             disable_web_page_preview=True,
         )
-
+'''
 
 @Exoncallback(pattern=r"^pingCB")
 def pingCallback(update: Update, context: CallbackContext):
