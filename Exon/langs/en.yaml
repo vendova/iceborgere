@@ -55,8 +55,7 @@ akboss_help: |
     *ANTI-SERVICE HELP*
 
 
-achannel_help: |
-    *ANTI-CHANNEL*  
+achannel_help: | 
     Tired of Telegram stupidity? Here you go:
     
     *Available commands:*
@@ -66,8 +65,6 @@ achannel_help: |
 
 
 admin_help: |
-   - /admins: List of admins in the chat.
-   
    *Admin commands:*
    - /invitelink: Generates chat invite link.
    - /lowpromote: Promotes user replied to with low rights. 
@@ -82,6 +79,7 @@ admin_help: |
 
 
 afk_help: |
+   *User commands:*
    - /afk: Sets you as offline. 
    - /afk `[reason]`: Sets you as offline with a reason.
    - /afk `[reply to media]`: Sets you as offline using replied media as reason.
@@ -153,7 +151,10 @@ dbbackup_help: |
 
 
 blacklist_help_bse: |
-   *BLACKLIST HELP*
+   Want to stop people asking stupid questions? or ban anyone saying censored words? Blocklists is the module for you!
+   From blocking rude words, filenames/extensions, to specific emoji, everything is possible.
+
+   to proceed click from below buttons:
 
 
 dbclean_help: |
@@ -193,6 +194,8 @@ blacklist_help: |
 
 
 cinfo_help: |
+
+   *User commands:*
    - /cinfo `<chat ID/username>`: Fetch info about the chat. 
    - /uinfo: Fetch user info.
    - /info: Same as /uinfo
@@ -353,6 +356,7 @@ filling_help: |
 
 
 gcast_help: |
+      *Dev commands:*
    - /broadcastall: Broadcasts everywhere.
    - /broadcastusers: Broadcasts to all users.
    - /broadcastgroups: Broadcasts to all groups.
@@ -375,8 +379,6 @@ gtranslate_help: |
    https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
 fsub_help: |
-   *Force Subscribe:*
-
    quickerobot can mute members who are not subscribed your channel until they subscribe
    When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them.
 
@@ -405,6 +407,7 @@ locks_help: |
    - Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
 
 log_help: |
+   *Admin commands:*
    - /logchannel: Get log channel info.
    - /setlog: Set the log channel.
    - /unsetlog: Unset the log channel.
@@ -417,6 +420,7 @@ log_help: |
 
 
 misc_help: |  
+      *User commands:*
       - /id: Get the current group id. If used by replying to a message, gets that user's id.
       - /gifid: Reply to a gif to me to tell you its file ID.
       - /info: Get information about a user.
@@ -475,6 +479,7 @@ nmode_help: |
    *Night Mode Help*
 
 purge_help: |
+   *Admin commands:*
     - /purge: Reply to a message to delete all messages from that point.
     - /del: Delete the replied to message.
 
@@ -484,6 +489,7 @@ pins_help: |
    - /pinned: Get the current pinned message.
 
 quotly_help: |
+   *User commands:*
    - /q: Create a quote from the message.
    - /q `r`: Create a quote from the message with reply.
 
@@ -498,15 +504,17 @@ reports_help: |
    - If in group, toggles that groups's status.   
 
 rcmds_help: |
-   *For devs only*
+   *Dev commands:*
    - /rban `user group`: Remote ban.
    - /runban `user group`: Remote un-ban.
    - /rkick `user group`: Remote kick.
    - /rmute `user group`: Remote mute.
    -/runmute `user group`: Remote un-mute.
 
-rules_help: |
+rules_help: | 
   - /rules: Get the rules for this chat.
+
+  *Admin commands:*
   - /setrules `<rules>`: Set rules for this chat.
   - /clearrules: Clear the rules for this chat.
 
@@ -527,12 +535,14 @@ tags_help: |
     - /tagalert: Turn on/off tag alerts.
 
 userinfo_help: |
+      *User commands:*
       - /setbio `<text>`: While replying, will save another user's bio.
       - /bio: Will get your or another user's bio. This cannot be set by yourself.
       - /setme `<text>`: Will set your info.
       - /me: Will get your or another user's info.
 
 warns_help: |
+   *Admin commands:*
    - /warns `<userhandle>`: Get a user's number, and reason, of warns.
    - /warnlist: List of all current warning filters
    - /warn `<userhandle>`: Warn a user. After 3 warns, the user will be banned from the group. Can also be used as reply.
@@ -544,6 +554,7 @@ warns_help: |
    - /strongwarn `<on/yes/off/no>`: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 
 greetings_help: |
+   *Admin commands:*
    - /welcome `<on/off>`: Enable/disable welcome messages.
    - /welcome: Shows current welcome settings.
    - /welcome `noformat`: Shows current welcome settings, without the formatting - useful to recycle your welcome messages!
@@ -586,13 +597,14 @@ welcome_help: |
     Messages also support markdown, so you can make any elements bold/italic/code/links.
     Buttons are also supported, so you can make your welcomes look awesome with some nice intro buttons.
 
-    To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{exon.bot.username}?start=group_id)`. 
+    To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{bot.username}?start=group_id)`. 
     Simply replace group_id with your group's id, which can be obtained via /id. Be sure to mention the bot's username after the t.me.
 
     You can even set images/gifs/videos/voice messages as the welcome message by 
     replying to the desired media, and calling /setwelcome.
 
 sticker_help: |
+   *User commands:*
    - /stickerid: Reply to a sticker to me to tell you its file ID.
    - /getsticker: Reply to a sticker to me to upload its raw PNG file.
    - /kang: Reply to a sticker to add it to your pack.
@@ -601,7 +613,7 @@ sticker_help: |
    - /mmf `<reply with text>`: To draw a text for sticker.
 
 sticker_blacklist_help: |
-   *Admin only:*
+   *Admin commands:*
    - /addblsticker `<sticker link>`: Add the sticker trigger to the black list. Can be added via reply sticker.
    - /unblsticker `<sticker link>`: Remove triggers from blacklist. Same newline logic applies here, so you can delete multiple triggers at once.
    - /rmblsticker `<sticker link>`: Same as above.
@@ -625,12 +637,15 @@ raid_help: |
    - /raidactiontime `<time>`: View or set default action duration for temp banned users, default is 1 hour.
 
 zombies_help: |
+   *Admin commands:*
    - /zombies: Find and remove deleted accounts from your groups.  
    - /zombies `clean`: Remove deleted accounts from your groups.
 
 webss_help: |
+   *User command:*
    - /webss `<url>`: Takes a screenshot of the website and sends it.
 
 td_help: |
+   *User commands:*
    - /truth: Sends a random truth string.
    - /dare: Sends a random dare string.
