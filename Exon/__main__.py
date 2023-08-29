@@ -323,7 +323,7 @@ def help_button(update: Update, context: CallbackContext):
                 help_text = help_list
                 help_buttons = []
             text = (
-                "*{}*:\n\n".format(
+                "*{}*\n\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + help_text
@@ -451,7 +451,7 @@ def get_help(update: Update, context: CallbackContext):
             elif isinstance(help_list, str):
                 help_text = help_list
             text = (
-                "*{}*:\n\n".format(
+                "*{}*\n\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + help_text
@@ -488,7 +488,7 @@ def send_settings(chat_id: int, user_id: int, user=False):
     if user:
         if USER_SETTINGS:
             settings = "\n\n".join(
-                "*{}*:\n{}".format(mod.__mod_name__, mod.__user_settings__(user_id))
+                "*{}*:\n\n{}".format(mod.__mod_name__, mod.__user_settings__(user_id))
                 for mod in USER_SETTINGS.values()
             )
             dispatcher.bot.send_message(
