@@ -439,8 +439,7 @@ def check_and_ban(update, user_id, should_message=True):
         update.effective_chat.ban_member(user_id)
         if should_message:
             update.effective_message.reply_text(
-                f"this user (id: <code>{sw_ban.id}</code>) is globally banned.\n"
-                f"<b>say last goodbyes...👋</b>.\n",
+                f"the user (id: <code>{sw_ban.id}</code>) is banned globally; henceforth removed from here.\n",
                 parse_mode=ParseMode.HTML,
             )
         return
@@ -449,8 +448,7 @@ def check_and_ban(update, user_id, should_message=True):
         update.effective_chat.ban_member(user_id)
         if should_message:
             text = (
-                f"this user (id: <code>{sw_ban.id}</code>) is globally banned.\n"
-                f"<b>say last goodbyes...👋</b>.\n",
+                f"the user (id: <code>{sw_ban.id}</code>) is globally banned; henceforth removed from here.\n"
             )
             user = gban_db.get_gbanned_user(user_id)
             if user["reason"]:
