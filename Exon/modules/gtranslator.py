@@ -110,12 +110,12 @@ def gtts(update, context):
             reply = reply.replace(x, "")
     try:
         tts = gTTS(reply)
-        tts.save("Exon.mp3")
-        with open("Exon.mp3", "rb") as speech:
+        tts.save("quickero.mp3")
+        with open("quickero.mp3", "rb") as speech:
             msg.reply_audio(speech)
     finally:
-        if os.path.isfile("Exon.mp3"):
-            os.remove("Exon.mp3")
+        if os.path.isfile("quickero.mp3"):
+            os.remove("quickero.mp3")
 
 
 # Open API key
