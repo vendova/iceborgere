@@ -831,7 +831,7 @@ def invite(update, context):
         except:
             uname += ""
     await message.reply_text(uname)
-"""
+
 
 
 @Abishnoi.on_message(filters.command(["adminlist", "staff", "admins"]))
@@ -881,6 +881,7 @@ async def admins(client, message):
             await Abishnoi.send_message(message.chat.id, text2)
     except FloodWait as e:
         await asyncio.sleep(e.value)
+"""
 
 
 @Abishnoi.on_message(filters.command("bots"))
