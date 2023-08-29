@@ -13,6 +13,8 @@ set_chat_lang: "Great, I have set your language to {}!"
 
 pm_start_text: |
    Hey there! My name is quickerobot - I'm here to manage @wwquickers!
+
+   Join the <a href="url">group</a> to have exciting minutes of fun.
    
    Hit /help to find out more about how to use me to my full potential.
 
