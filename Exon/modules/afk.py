@@ -51,20 +51,23 @@ async def active_afk(_, message: Message):
             data = reasondb["data"]
             reasonafk = reasondb["reason"]
             seenago = get_readable_time((int(time.time() - timeafk)))
+
             if afktype == "text":
                 send = await message.reply_text(
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     disable_web_page_preview=True,
                 )
-            time.sleep(16)
-            await send.delete()
+                time.sleep(16)
+                await send.delete()
+
             if afktype == "text_reason":
                 send = await message.reply_text(
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
-            time.sleep(16)
-            await send.delete()
+                time.sleep(16)
+                await send.delete()
+
             if afktype == "animation":
                 if str(reasonafk) == "None":
                     send = await message.reply_animation(
@@ -80,6 +83,7 @@ async def active_afk(_, message: Message):
                     )
                     time.sleep(16)
                     await send.delete()
+
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     send = await message.reply_photo(
