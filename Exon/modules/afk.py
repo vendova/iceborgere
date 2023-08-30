@@ -48,6 +48,7 @@ async def active_afk(_, message: Message):
     verifier, reasondb = await is_afk(user_id)
     if verifier:
         await remove_afk(user_id)
+        send = None  # Initialize the 'send' variable
         try:
             afktype = reasondb["type"]
             timeafk = reasondb["time"]
