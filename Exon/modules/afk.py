@@ -229,9 +229,10 @@ async def active_afk(_, message: Message):
     ]
     
     await message.reply_sticker(random.choice(sticker_ids))
-    await message.reply_text(f"{message.from_user.first_name} is now afk!")
+    gone = await message.reply_text(f"{message.from_user.first_name} is now afk!")
 # Add a delay of 10 seconds before deleting the message
-    await message.delete()
+    time.sleep(10)
+    await gone.delete()
 
 
 __mod_name__ = "Afk"
