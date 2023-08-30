@@ -71,30 +71,30 @@ async def active_afk(_, message: Message):
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                time.sleep(16)
-                await send.delete()
+                    time.sleep(16)
+                    await send.delete()
                 else:
                     send = await message.reply_animation(
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                time.sleep(16)
-                await send.delete()
+                    time.sleep(16)
+                    await send.delete()
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                time.sleep(16)
-                await send.delete()
+                    time.sleep(16)
+                    await send.delete()
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                time.sleep(16)
-                await send.delete()
+                    time.sleep(16)
+                    await send.delete()
         except Exception:
             send = await message.reply_text(
                 f"**{message.from_user.first_name}** is back online.",
