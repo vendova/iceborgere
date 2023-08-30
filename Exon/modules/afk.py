@@ -37,6 +37,8 @@ from pyrogram.types import Message
 from Exon import Abishnoi
 from Exon.modules.no_sql.afk_db import add_afk, is_afk, remove_afk
 
+send = None  # Initialize the 'send' variable
+
 start_time = datetime.datetime.now()
 target_time = start_time + datetime.timedelta(seconds=10)
 
@@ -48,7 +50,6 @@ async def active_afk(_, message: Message):
     verifier, reasondb = await is_afk(user_id)
     if verifier:
         await remove_afk(user_id)
-        send = None  # Initialize the 'send' variable
         try:
             afktype = reasondb["type"]
             timeafk = reasondb["time"]
