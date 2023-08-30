@@ -36,6 +36,8 @@ from pyrogram.types import Message
 from Exon import Abishnoi
 from Exon.modules.no_sql.afk_db import add_afk, is_afk, remove_afk
 
+start_time = datetime.datetime.now()
+target_time = start_time + datetime.timedelta(seconds=10)
 
 @Abishnoi.on_cmd(["afk", "brb"])
 async def active_afk(_, message: Message):
@@ -57,7 +59,8 @@ async def active_afk(_, message: Message):
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     disable_web_page_preview=True,
                 )
-                time.sleep(16)
+                while datetime.datetime.now() < target_time:
+                    pass
                 await send.delete()
 
             if afktype == "text_reason":
@@ -65,7 +68,8 @@ async def active_afk(_, message: Message):
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
-                time.sleep(16)
+                while datetime.datetime.now() < target_time:
+                    pass
                 await send.delete()
 
             if afktype == "animation":
@@ -74,14 +78,17 @@ async def active_afk(_, message: Message):
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                    time.sleep(16)
+                    while datetime.datetime.now() < target_time:
+                        pass
                     await send.delete()
+
                 else:
                     send = await message.reply_animation(
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                    time.sleep(16)
+                    while datetime.datetime.now() < target_time:
+                        pass
                     await send.delete()
 
             if afktype == "photo":
@@ -90,21 +97,26 @@ async def active_afk(_, message: Message):
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                    time.sleep(16)
+                    while datetime.datetime.now() < target_time:
+                        pass
                     await send.delete()
+
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                    time.sleep(16)
+                    while datetime.datetime.now() < target_time:
+                        pass
                     await send.delete()
+
         except Exception:
             send = await message.reply_text(
                 f"**{message.from_user.first_name}** is back online.",
                 disable_web_page_preview=True,
             )
-            time.sleep(16)
+            while datetime.datetime.now() < target_time:
+                pass
             await send.delete()
 
     if len(message.command) == 1 and not message.reply_to_message:
@@ -249,8 +261,10 @@ async def active_afk(_, message: Message):
     await message.reply_sticker(random.choice(sticker_ids))
     gone = await message.reply_text(f"{message.from_user.first_name} is now afk!")
 # Add a delay of 10 seconds before deleting the message
-    time.sleep(10)
-    await gone.delete()
+    while datetime.datetime.now() < target_time:
+        pass
+    await send.delete()
+
 
 
 __mod_name__ = "Afk"
