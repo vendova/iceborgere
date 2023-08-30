@@ -29,7 +29,6 @@ SOFTWARE.
 
 
 import time
-import datetime
 import random
 from Abg.helpers.human_read import get_readable_time
 from pyrogram.types import Message
@@ -37,10 +36,6 @@ from pyrogram.types import Message
 from Exon import Abishnoi
 from Exon.modules.no_sql.afk_db import add_afk, is_afk, remove_afk
 
-send = None  # Initialize the 'send' variable
-
-start_time = datetime.datetime.now()
-target_time = start_time + datetime.timedelta(seconds=10)
 
 @Abishnoi.on_cmd(["afk", "brb"])
 async def active_afk(_, message: Message):
@@ -62,8 +57,7 @@ async def active_afk(_, message: Message):
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     disable_web_page_preview=True,
                 )
-                while datetime.datetime.now() < target_time:
-                    pass
+                time.sleep(6)
                 await send.delete()
 
             if afktype == "text_reason":
@@ -71,8 +65,7 @@ async def active_afk(_, message: Message):
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
-                while datetime.datetime.now() < target_time:
-                    pass
+                time.sleep(6)
                 await send.delete()
 
             if afktype == "animation":
@@ -81,17 +74,14 @@ async def active_afk(_, message: Message):
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                    while datetime.datetime.now() < target_time:
-                        pass
+                    time.sleep(6)
                     await send.delete()
-
                 else:
                     send = await message.reply_animation(
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                    while datetime.datetime.now() < target_time:
-                        pass
+                    time.sleep(6)
                     await send.delete()
 
             if afktype == "photo":
@@ -100,26 +90,21 @@ async def active_afk(_, message: Message):
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                    while datetime.datetime.now() < target_time:
-                        pass
+                    time.sleep(6)
                     await send.delete()
-
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                    while datetime.datetime.now() < target_time:
-                        pass
+                    time.sleep(6)
                     await send.delete()
-
         except Exception:
             send = await message.reply_text(
                 f"**{message.from_user.first_name}** is back online.",
                 disable_web_page_preview=True,
             )
-            while datetime.datetime.now() < target_time:
-                pass
+            time.sleep(6)
             await send.delete()
 
     if len(message.command) == 1 and not message.reply_to_message:
@@ -130,7 +115,7 @@ async def active_afk(_, message: Message):
             "reason": None,
         }
     elif len(message.command) > 1 and not message.reply_to_message:
-        _reason = (message.text.split(None, 1)[1].strip())[:100]
+        _reason = (message.text.split(None, 1)[1].strip())[:60]
         details = {
             "type": "text_reason",
             "time": time.time(),
@@ -147,7 +132,7 @@ async def active_afk(_, message: Message):
         }
     elif len(message.command) > 1 and message.reply_to_message.animation:
         _data = message.reply_to_message.animation.file_id
-        _reason = (message.text.split(None, 1)[1].strip())[:100]
+        _reason = (message.text.split(None, 1)[1].strip())[:60]
         details = {
             "type": "animation",
             "time": time.time(),
@@ -194,7 +179,7 @@ async def active_afk(_, message: Message):
                 "reason": None,
             }
     elif len(message.command) > 1 and message.reply_to_message.sticker:
-        _reason = (message.text.split(None, 1)[1].strip())[:100]
+        _reason = (message.text.split(None, 1)[1].strip())[:60]
         if message.reply_to_message.sticker.is_animated:
             details = {
                 "type": "text_reason",
@@ -231,7 +216,7 @@ async def active_afk(_, message: Message):
         "CAACAgEAAxkBAAEJzINkvnrKHt550W3T1xzBq-6DVsjZxgAC3AADuvzyGZMu1owN01-yLwQ",
         "CAACAgEAAxkBAAEJzIVkvnrlZFHUDst4vF661MfcfSza8gAC-wADuvzyGeFkCRSA-rCGLwQ",
         "CAACAgEAAxkBAAEJzIdkvnrwNSXJRwyOW-ZOtU1iD0n3TgAC4QADuvzyGagN2YYz-z1xLwQ",
-        "CAACAgEAAxkBAAEJzIlkvnr16zvhOgSSTrorQiRt73FWhgACKgEAArr88hlsLpLpXlzm2C8E",
+        "CAACAgEAAxkBAAEJzIlkvnr6zvhOgSSTrorQiRt73FWhgACKgEAArr88hlsLpLpXlzm2C8E",
         "CAACAgEAAxkBAAEJzItkvnr5gkfHpr2nGXJtUQVKx2VHzwACKQEAArr88hmT3XyhkRmDei8E",
         "CAACAgEAAxkBAAEJzI1kvnsDHlGtCkrHh6QyIGFt7qDzpgACGAEAArr88hlkt1cr11v0ti8E",
         "CAACAgEAAxkBAAEJzJFkvnsTCmYxnn7VqDoUvyNde_RPUQACLQEAArr88hle-kwmp_O0hy8E",
@@ -263,11 +248,9 @@ async def active_afk(_, message: Message):
     
     await message.reply_sticker(random.choice(sticker_ids))
     gone = await message.reply_text(f"{message.from_user.first_name} is now afk!")
-# Add a delay of 10 seconds before deleting the message
-    while datetime.datetime.now() < target_time:
-        pass
-    await send.delete()
-
+# Add a delay of 6 seconds before deleting the message
+    time.sleep(6)
+    await gone.delete()
 
 
 __mod_name__ = "Afk"
