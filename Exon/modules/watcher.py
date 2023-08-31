@@ -213,7 +213,7 @@ async def chat_watcher_func(_, message):
                                     photo=f"downloads/{user.id}.jpg",
                                     caption=f"**{user.first_name[:25]}** Is AFK since {seenago}\n\n",
                                 )
-                                await.sleep(12)
+                                await asyncio.sleep(12)
                                 await send.delete()
                             else:
                                 send = await message.reply_photo(
