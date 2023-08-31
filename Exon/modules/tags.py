@@ -72,7 +72,8 @@ async def locks_dfunc(_, message):
             await asyncio.sleep(2)
             await lol.delete()
             return
-    parameter = message.text.strip().split(None, 1)[1].lower()
+    else:
+        parameter = message.text.strip().split(None, 1)[1].lower()
 
     if parameter in ["on", ""]:
         if not message.from_user:
@@ -87,15 +88,15 @@ async def locks_dfunc(_, message):
             await lol.edit(
                 f"Tag alerts ENABLED.\nWhen someone tags you as @{uname} you will be notified."
             )
-            await asyncio.sleep(2)
+            await asyncio.sleep(3)
             await lol.delete()
             return
         else:
             await lol.edit("Tag alerts already ENABLED for you!")
-            await asyncio.sleep(2)
+            await asyncio.sleep(3)
             await lol.delete()
             return
-    if parameter == "off" or parameter == "OFF":
+    if parameter == "off":
         if not message.from_user:
             return
         if not message.from_user.username:
@@ -335,9 +336,9 @@ async def mentioned_alert(client, message):
             return message.continue_propagation()
         user_ = message.from_user.mention or f"@{message.from_user.username}"
 
-        final_tagged_msg = f"**🔔 You have been** [TAGGED]({tagged_msg_link}) **in** {chat_name} **by** {user_}"
+        final_tagged_msg = f"**❗{user_} ** [mentioned]({tagged_msg_link}) you in {chat_name}!"
         button_s = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔔 View message 🔔", url=tagged_msg_link)]]
+            [[InlineKeyboardButton("View message", url=tagged_msg_link)]]
         )
         # print(final_tagged_msg)
         try:
@@ -354,13 +355,12 @@ async def mentioned_alert(client, message):
     except:
         return message.continue_propagation()
 
-
 @abishnoi.on(events.NewMessage(pattern="^/tagall ?(.*)"))
 @abishnoi.on(events.NewMessage(pattern="^@all ?(.*)"))
 async def mentionall(event):
     chat_id = event.chat_id
     if event.is_private:
-        return await event.respond("__This command can be used in groups!__")
+        return await event.respond("__ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ʙᴇ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘs !__")
 
     is_admin = False
     try:
@@ -373,10 +373,10 @@ async def mentionall(event):
         ):
             is_admin = True
     if not is_admin:
-        return await event.respond("__report this miracle if you see this message!__")
+        return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ !__")
 
     if event.pattern_match.group(1) and event.is_reply:
-        return await event.respond("__Give me one ARGUMENT!__")
+        return await event.respond("__ɢɪᴠᴇ ᴍᴇ ᴏɴᴇ ᴀʀɢᴜᴍᴇɴᴛ ʙᴀʙʏ!__")
     elif event.pattern_match.group(1):
         mode = "text_on_cmd"
         msg = event.pattern_match.group(1)
@@ -385,11 +385,11 @@ async def mentionall(event):
         msg = await event.get_reply_message()
         if msg == None:
             return await event.respond(
-                "__I can't mention members for older messages! (Messages which are sent before i was added to the group.)__"
+                "__I ᴄᴀɴ'ᴛ ᴍᴇɴᴛɪᴏɴ ᴍᴇᴍʙᴇʀs ғᴏʀ ᴏʟᴅᴇʀ ᴍᴇssᴀɢᴇs! (ᴍᴇssᴀɢᴇs ᴡʜɪᴄʜ ᴀʀᴇ sᴇɴᴛ ʙᴇғᴏʀᴇ I'ᴍ ᴀᴅᴅᴇᴅ ᴛᴏ ɢʀᴏᴜᴘ)__"
             )
     else:
         return await event.respond(
-            "__Reply to a MESSAGE or give me some TEXT to mention.!__"
+            "__ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ ᴍᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴍᴇɴᴛɪᴏɴ ᴏᴛʜᴇʀs!__"
         )
 
     spam_chats.append(chat_id)
@@ -403,14 +403,10 @@ async def mentionall(event):
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{msg}\n{usrtxt}"
-                messoge = await abishnoi.send_message(chat_id, txt)
-                await asyncio.sleep(6)
-                await messoge.delete()
+                await abishnoi.send_message(chat_id, txt)
             elif mode == "text_on_reply":
-                messoge = await msg.reply(usrtxt)
-                await asyncio.sleep(6)
-                await messoge.delete()
-            await asyncio.sleep(1)
+                await msg.reply(usrtxt)
+            await asyncio.sleep(3)
             usrnum = 0
             usrtxt = ""
     try:
@@ -422,7 +418,7 @@ async def mentionall(event):
 @abishnoi.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
-        return await event.respond("__There is no process ongoing...__")
+        return await event.respond("__ᴛʜᴇʀᴇ ɪs ɴᴏ ᴘʀᴏᴄᴄᴇss ᴏɴ ɢᴏɪɴɢ...__")
     is_admin = False
     try:
         partici_ = await abishnoi(GetParticipantRequest(event.chat_id, event.sender_id))
@@ -434,14 +430,14 @@ async def cancel_spam(event):
         ):
             is_admin = True
     if not is_admin:
-        return await event.respond("__omw!__")
+        return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴇxᴇᴄᴜᴛᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ!__")
 
     else:
         try:
             spam_chats.remove(event.chat_id)
         except:
             pass
-        return await event.respond("__Stopped mention...__")
+        return await event.respond("__sᴛᴏᴘᴘᴇᴅ ᴍᴇɴᴛɪᴏɴ.__")
 
 
 __mod_name__ = "Tags"
