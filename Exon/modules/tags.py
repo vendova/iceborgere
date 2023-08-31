@@ -63,7 +63,7 @@ def get_info(id):
 
 @AsuX.on_message(filters.command(["tagalert", "afk"]))
 async def locks_dfunc(_, message):
-    lol = await message.reply("__processing__...")
+    lol = await message.reply("__who has username 🔉❓...")
     if len(message.command) != 2:
         if len(message.command) == 1 and message.command[0] in ["tagalert", "afk", "start"]:
             parameter = "on"
@@ -115,6 +115,8 @@ async def locks_dfunc(_, message):
         await lol.edit("Expected ON or OFF")
         await asyncio.sleep(2)
         await lol.delete()
+    await asyncio.sleep(12)
+    await lol.delete()
 
 @AsuX.on_message(filters.incoming)
 async def mentioned_alert(client, message):
