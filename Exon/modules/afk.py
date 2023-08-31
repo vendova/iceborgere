@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2022 ABISHNOI129
+Copyright (c) 2022 ABISHNOI69
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@ SOFTWARE.
 # ""DEAR PRO PEOPLE,  DON'T REMOVE & CHANGE THIS LINE
 # TG :- @Abishnoi1m
 #     UPDATE   :- Abishnoi_bots
-#     GITHUB :- ABISHNOI129 ""
+#     GITHUB :- ABISHNOI69 ""
 
 
 import time
@@ -58,7 +58,7 @@ async def active_afk(_, message: Message):
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     disable_web_page_preview=True,
                 )
-                await asyncio.sleep(12)
+                await asyncio.sleep(16)
                 await send.delete()
 
             if afktype == "text_reason":
@@ -66,7 +66,7 @@ async def active_afk(_, message: Message):
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
-                await asyncio.sleep(12)
+                await asyncio.sleep(16)
                 await send.delete()
 
             if afktype == "animation":
@@ -75,14 +75,14 @@ async def active_afk(_, message: Message):
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                    await asyncio.sleep(12)
+                    await asyncio.sleep(16)
                     await send.delete()
                 else:
                     send = await message.reply_animation(
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                    await asyncio.sleep(12)
+                    await asyncio.sleep(16)
                     await send.delete()
 
             if afktype == "photo":
@@ -91,14 +91,14 @@ async def active_afk(_, message: Message):
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
-                    await asyncio.sleep(12)
+                    await asyncio.sleep(16)
                     await send.delete()
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
-                    await asyncio.sleep(12)
+                    await asyncio.sleep(16)
                     await send.delete()
         except Exception:
             send = await message.reply_text(
@@ -116,7 +116,7 @@ async def active_afk(_, message: Message):
             "reason": None,
         }
     elif len(message.command) > 1 and not message.reply_to_message:
-        _reason = (message.text.split(None, 1)[1].strip())[:120]
+        _reason = (message.text.split(None, 1)[1].strip())[:100]
         details = {
             "type": "text_reason",
             "time": time.time(),
@@ -133,7 +133,7 @@ async def active_afk(_, message: Message):
         }
     elif len(message.command) > 1 and message.reply_to_message.animation:
         _data = message.reply_to_message.animation.file_id
-        _reason = (message.text.split(None, 1)[1].strip())[:120]
+        _reason = (message.text.split(None, 1)[1].strip())[:100]
         details = {
             "type": "animation",
             "time": time.time(),
@@ -180,7 +180,7 @@ async def active_afk(_, message: Message):
                 "reason": None,
             }
     elif len(message.command) > 1 and message.reply_to_message.sticker:
-        _reason = (message.text.split(None, 1)[1].strip())[:120]
+        _reason = (message.text.split(None, 1)[1].strip())[:100]
         if message.reply_to_message.sticker.is_animated:
             details = {
                 "type": "text_reason",
@@ -210,37 +210,37 @@ async def active_afk(_, message: Message):
 
     sticker_ids = [
         "CAACAgEAAxkBAAEJzIFkvnqdG0WplzGQ5pzSO_5o3Sfv5gACeQEAArr88hkbuqYUJn-say8E",
-        "CAACAgEAAxkBAAEJzINkvnrKHt550W3T1xzBq-12DVsjZxgAC3AADuvzyGZMu1owN01-yLwQ",
+        "CAACAgEAAxkBAAEJzINkvnrKHt550W3T1xzBq-6DVsjZxgAC3AADuvzyGZMu1owN01-yLwQ",
         "CAACAgEAAxkBAAEJzMFkvnwtD8_mfgM01BzVTlug0dkE-wACFQEAArr88hm3XMuZH18jhi8E",
         "CAACAgEAAxkBAAEJzMNkvnw1eo-F4g9yJYquKLmZSV537QACGwEAArr88hm8Bk97XxFmJC8E",
         "CAACAgEAAxkBAAEJzIFkvnqdG0WplzGQ5pzSO_5o3Sfv5gACeQEAArr88hkbuqYUJn-say8E",
-        "CAACAgEAAxkBAAEJzINkvnrKHt550W3T1xzBq-12DVsjZxgAC3AADuvzyGZMu1owN01-yLwQ",
-        "CAACAgEAAxkBAAEJzIVkvnrlZFHUDst4vF12121MfcfSza8gAC-wADuvzyGeFkCRSA-rCGLwQ",
+        "CAACAgEAAxkBAAEJzINkvnrKHt550W3T1xzBq-6DVsjZxgAC3AADuvzyGZMu1owN01-yLwQ",
+        "CAACAgEAAxkBAAEJzIVkvnrlZFHUDst4vF661MfcfSza8gAC-wADuvzyGeFkCRSA-rCGLwQ",
         "CAACAgEAAxkBAAEJzIdkvnrwNSXJRwyOW-ZOtU1iD0n3TgAC4QADuvzyGagN2YYz-z1xLwQ",
-        "CAACAgEAAxkBAAEJzIlkvnr12zvhOgSSTrorQiRt73FWhgACKgEAArr88hlsLpLpXlzm2C8E",
+        "CAACAgEAAxkBAAEJzIlkvnr16zvhOgSSTrorQiRt73FWhgACKgEAArr88hlsLpLpXlzm2C8E",
         "CAACAgEAAxkBAAEJzItkvnr5gkfHpr2nGXJtUQVKx2VHzwACKQEAArr88hmT3XyhkRmDei8E",
-        "CAACAgEAAxkBAAEJzI1kvnsDHlGtCkrHh12QyIGFt7qDzpgACGAEAArr88hlkt1cr11v0ti8E",
+        "CAACAgEAAxkBAAEJzI1kvnsDHlGtCkrHh6QyIGFt7qDzpgACGAEAArr88hlkt1cr11v0ti8E",
         "CAACAgEAAxkBAAEJzJFkvnsTCmYxnn7VqDoUvyNde_RPUQACLQEAArr88hle-kwmp_O0hy8E",
-        "CAACAgEAAxkBAAEJzJNkvnspc5eUbUo8dlQxgMJjX1vExQAC9wADuvzyGZpOxvQ3n12KfLwQ",
+        "CAACAgEAAxkBAAEJzJNkvnspc5eUbUo8dlQxgMJjX1vExQAC9wADuvzyGZpOxvQ3n6KfLwQ",
         "CAACAgEAAxkBAAEJzJVkvns2exC2Lc3O0Vp_pmyPTyPTuAACFwEAArr88hkRViTRyl-vBS8E",
-        "CAACAgEAAxkBAAEJzJdkvns12XofBV0h5cHKXv12l3uKHhAwAC-gADuvzyGVzrNc12kcC7bLwQ",
-        "CAACAgEAAxkBAAEJzJlkvntK5d12YqYXSgfybZrVoedloJAAC9QADuvzyGcwbuNY211RpLwQ",
+        "CAACAgEAAxkBAAEJzJdkvns6XofBV0h5cHKXv6l3uKHhAwAC-gADuvzyGVzrNc6kcC7bLwQ",
+        "CAACAgEAAxkBAAEJzJlkvntK5d6YqYXSgfybZrVoedloJAAC9QADuvzyGcwbuNY211RpLwQ",
         "CAACAgEAAxkBAAEJzJ1kvntVaklCLuXHtrV-aiUKPb2_FwACJQEAArr88hk85jb83qRcny8E",
         "CAACAgEAAxkBAAEJzJ9kvntwdnO3GNvDpaVB9NA9az_OFQAC7gADuvzyGeXuyBUPfIBFLwQ",
-        "CAACAgEAAxkBAAEJzKFkvnt8ClZeP29o_A_r4SwopEYQcAAC12gADuvzyGTC312r-q2nqYLwQ",
+        "CAACAgEAAxkBAAEJzKFkvnt8ClZeP29o_A_r4SwopEYQcAAC6gADuvzyGTC36r-q2nqYLwQ",
         "CAACAgEAAxkBAAEJzKNkvnuMIh27WuIMT2A0YqbMU5GdqwAC7QADuvzyGUxh1Clr8jwULwQ",
-        "CAACAgEAAxkBAAEJzKVkvnuYDT0LstwiE3mwZptwVZAVHwAC8QADuvzyGaeHW-H812XCULwQ",   
+        "CAACAgEAAxkBAAEJzKVkvnuYDT0LstwiE3mwZptwVZAVHwAC8QADuvzyGaeHW-H86XCULwQ",   
         "CAACAgEAAxkBAAEJzKdkvnudBSwfmcr9yyHuESHf2kX0dQACJAEAArr88hnsckruLKDxWC8E",
         "CAACAgEAAxkBAAEJzKlkvnut_upII3cdk-Tcmq-2EEajZAACCAEAArr88hl23EpXsYluSy8E",
         "CAACAgEAAxkBAAEJzKtkvnu2CXEB4xly9725LF4g2IAo-wACCgEAArr88hlKnB_mzREoQC8E",
         "CAACAgEAAxkBAAEJzK1kvnu-Qb9iQDKN0-Ju17RsAqYs2wACKAEAArr88hmIrG2eEuPKGy8E",
-        "CAACAgEAAxkBAAEJzK9kvnvFAax52rwrTTgE2cC12-DdhgwACfAEAArr88hlGCxAcoCx3Xi8E",
+        "CAACAgEAAxkBAAEJzK9kvnvFAax52rwrTTgE2cC6-DdhgwACfAEAArr88hlGCxAcoCx3Xi8E",
         "CAACAgEAAxkBAAEJzLFkvnvS1aKAcVTayXTIm24PJfG1kwAC_gADuvzyGXdrX7pwtRlyLwQ",
-        "CAACAgEAAxkBAAEJzLNkvnvgPi412E8v1x1fv8MxC4s_4ogAC9gADuvzyGao412Ts99csiLwQ",
-        "CAACAgEAAxkBAAEJzLVkvnvo120azdj7YpBiFOJP1KOn_dQACegEAArr88hkfC8tRD0R7pi8E",
+        "CAACAgEAAxkBAAEJzLNkvnvgPi46E8v1x1fv8MxC4s_4ogAC9gADuvzyGao46Ts99csiLwQ",
+        "CAACAgEAAxkBAAEJzLVkvnvo60azdj7YpBiFOJP1KOn_dQACegEAArr88hkfC8tRD0R7pi8E",
         "CAACAgEAAxkBAAEJzLdkvnvs0R9CbM3S3tRuBe2-fSC-owACAwEAArr88hkSA3kXL2h4ky8E",
-        "CAACAgEAAxkBAAEJzLlkvnvzMtEvPXeoS0z3q12Q13121KWQACAQEAArr88hmoeqKPr9utMy8E",
-        "CAACAgEAAxkBAAEJzLtkvnwBiTFevMzbupp9AAFa2qOw73sAAgIBAAK12_PIZ_OQ1ePi_xu8vBA",
+        "CAACAgEAAxkBAAEJzLlkvnvzMtEvPXeoS0z3q6Q1361KWQACAQEAArr88hmoeqKPr9utMy8E",
+        "CAACAgEAAxkBAAEJzLtkvnwBiTFevMzbupp9AAFa2qOw73sAAgIBAAK6_PIZ_OQ1ePi_xu8vBA",
         "CAACAgEAAxkBAAEJzL1kvnwQ0Uunt4AxD7U5Vdl2GszHZgACBQEAArr88hlE1ktsrcJUtC8E",
         "CAACAgEAAxkBAAEJzL9kvnwa9X9mvBy3rCJIn7mR8QIajAACBwEAArr88hl5S9mKzGwboi8E",
         "CAACAgEAAxkBAAEJzMFkvnwtD8_mfgM01BzVTlug0dkE-wACFQEAArr88hm3XMuZH18jhi8E",
@@ -249,8 +249,8 @@ async def active_afk(_, message: Message):
     
     await message.reply_sticker(random.choice(sticker_ids))
     gone = await message.reply_text(f"{message.from_user.first_name} is now afk!")
-# Add a delay of 12 seconds before deleting the message
-    await asyncio.sleep(12)
+# Add a delay of 10 seconds before deleting the message
+    await asyncio.sleep(10)
     await gone.delete()
 
 
