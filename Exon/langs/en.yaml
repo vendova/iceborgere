@@ -530,8 +530,7 @@ topics_help: |
     - /topicopen: Open an already closed topic, requires topic ID to open.
 
 tags_help: |
-    - /tagall or @all: Mention all members in your group, without exception.
-    - /cancel: For canceling the mention-all.
+    *User command:*
     - /tagalert: Turn on/off tag alerts.
 
 userinfo_help: |
