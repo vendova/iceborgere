@@ -397,13 +397,13 @@ async def mentionall(event):
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{msg}\n{usrtxt}"
-                await abishnoi.send_message(chat_id, txt)
-            await asyncio.sleep(6)
-            await txt.delete()
+                abishnoi.send_message(chat_id, txt)
+                await asyncio.sleep(6)
+                await txt.delete()
             elif mode == "text_on_reply":
-                await msg.reply(usrtxt)
-            await asyncio.sleep(6)
-            await txt.delete()
+                msg.reply(usrtxt)
+                await asyncio.sleep(6)
+                await txt.delete()
             await asyncio.sleep(1)
             usrnum = 0
             usrtxt = ""
