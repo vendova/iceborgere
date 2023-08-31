@@ -65,10 +65,13 @@ def get_info(id):
 async def locks_dfunc(_, message):
     lol = await message.reply("__processing__...")
     if len(message.command) != 2:
-        await lol.edit("Expected ON or OFF")
-        await asyncio.sleep(2)
-        await lol.delete()
-        return
+        if len(message.command) == 1 and message.command[0] in ["tagalert", "afk", "start"]:
+            parameter = "on"
+        else:
+            await lol.edit("Expected ON or OFF")
+            await asyncio.sleep(2)
+            await lol.delete()
+            return
     parameter = message.text.strip().split(None, 1)[1].lower()
 
     if parameter in ["on", ""]:
