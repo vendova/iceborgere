@@ -29,6 +29,7 @@ SOFTWARE.
 
 import re
 import time
+import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import MessageEntityType
@@ -81,14 +82,14 @@ async def chat_watcher_func(_, message):
                         data,
                         caption=f"**{user_name[:25]}** is back online and was away for {seenago}\n\n",
                     )
-                    time.sleep(6)
+                    asyncio.sleep(6)
                     await send.delete()
                 else:
                     send = await message.reply_animation(
                         data,
                         caption=f"**{user_name[:25]}** is back online and was away for {seenago}\nReason:\n\n`{reasonafk}`\n\n",
                     )
-                    time.sleep(6)
+                    asyncio.sleep(6)
                     await send.delete()
             if afktype == "photo":
                 if str(reasonafk) == "None":
@@ -96,14 +97,14 @@ async def chat_watcher_func(_, message):
                         photo=f"downloads/{userid}.jpg",
                         caption=f"**{user_name[:25]}** is back online and was away for {seenago}\n\n",
                     )
-                    time.sleep(6)
+                    asyncio.sleep(6)
                     await send.delete()
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{userid}.jpg",
                         caption=f"**{user_name[:25]}** is back online and was away for {seenago}\nReason:\n\n`{reasonafk}`\n\n",
                     )
-                    time.sleep(6)
+                    asyncio.sleep(6)
                     await send.delete()
         except:
             msg += f"**{user_name[:25]}** Is back online\n\n"
@@ -133,14 +134,14 @@ async def chat_watcher_func(_, message):
                                 data,
                                 caption=f"**{replied_first_name[:25]}** Is AFK since {seenago}\n\n",
                             )
-                            time.sleep(6)
+                            asyncio.sleep(6)
                             await send.delete()
                         else:
                             send = await message.reply_animation(
                                 data,
                                 caption=f"**{replied_first_name[:25]}** Is AFK since {seenago}\nSays it because of :\n\n`{reasonafk}`\n\n",
                             )
-                            time.sleep(6)
+                            asyncio.sleep(6)
                             await send.delete()
                     if afktype == "photo":
                         if str(reasonafk) == "None":
@@ -148,14 +149,14 @@ async def chat_watcher_func(_, message):
                                 photo=f"downloads/{replied_user_id}.jpg",
                                 caption=f"**{replied_first_name[:25]}** Is AFK since {seenago}\n\n",
                             )
-                            time.sleep(6)
+                            asyncio.sleep(6)
                             await send.delete()
                         else:
                             send = await message.reply_photo(
                                 photo=f"downloads/{replied_user_id}.jpg",
                                 caption=f"**{replied_first_name[:25]}** Is AFK since {seenago}\nSays it because of :\n\n`{reasonafk}`\n\n",
                             )
-                            time.sleep(6)
+                            asyncio.sleep(6)
                             await send.delete()
                 except Exception:
                     msg += f"**{replied_first_name}** Is AFK,\nhaven't mentioned why T_T\n\n"
@@ -197,14 +198,14 @@ async def chat_watcher_func(_, message):
                                     data,
                                     caption=f"**{user.first_name[:25]}** Is AFK since {seenago}\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                             else:
                                 send = await message.reply_animation(
                                     data,
                                     caption=f"**{user.first_name[:25]}** Is AFK since {seenago}\nSays it because of :\n\n`{reasonafk}`\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                         if afktype == "photo":
                             if str(reasonafk) == "None":
@@ -212,14 +213,14 @@ async def chat_watcher_func(_, message):
                                     photo=f"downloads/{user.id}.jpg",
                                     caption=f"**{user.first_name[:25]}** Is AFK since {seenago}\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                             else:
                                 send = await message.reply_photo(
                                     photo=f"downloads/{user.id}.jpg",
                                     caption=f"**{user.first_name[:25]}** Is AFK since {seenago}\nSays it because of :\n\n`{reasonafk}`\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                     except:
                         msg += f"**{user.first_name[:25]}** ɪs ᴀғᴋ\n\n"
@@ -251,14 +252,14 @@ async def chat_watcher_func(_, message):
                                     data,
                                     caption=f"**{first_name[:25]}** Is AFK since {seenago}\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                             else:
                                 send = await message.reply_animation(
                                     data,
                                     caption=f"**{first_name[:25]}** ɪs AFK sɪɴᴄᴇ {seenago}\nSays it because of :\n\n`{reasonafk}`\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                         if afktype == "photo":
                             if str(reasonafk) == "None":
@@ -266,14 +267,14 @@ async def chat_watcher_func(_, message):
                                     photo=f"downloads/{user_id}.jpg",
                                     caption=f"**{first_name[:25]}** Is AFK since {seenago}\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                             else:
                                 send = await message.reply_photo(
                                     photo=f"downloads/{user_id}.jpg",
                                     caption=f"**{first_name[:25]}** Is AFK since {seenago}\nSays it because of :\n\n`{reasonafk}`\n\n",
                                 )
-                                time.sleep(6)
+                                asyncio.sleep(6)
                                 await send.delete()
                     except:
                         msg += f"**{first_name[:25]}** Is AFK\n\n"
@@ -281,7 +282,7 @@ async def chat_watcher_func(_, message):
     if msg != "":
         try:
             send = await message.reply_text(msg, disable_web_page_preview=True)
-            time.sleep(6)
+            asyncio.sleep(6)
             await send.delete()
         except:
             return
