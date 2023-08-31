@@ -65,12 +65,13 @@ def get_info(id):
 async def locks_dfunc(_, message):
     lol = await message.reply("__processing__...")
     if len(message.command) != 2:
-        return await lol.edit("Expected ON or OFF")
+        await lol.edit("Expected ON or OFF")
         await asyncio.sleep(2)
         await lol.delete()
+        return
     parameter = message.text.strip().split(None, 1)[1].lower()
 
-    if parameter == "on" or parameter == "ON" or parameter == "":
+    if parameter in ["on", ""]:
         if not message.from_user:
             return
         if not message.from_user.username:
@@ -80,15 +81,17 @@ async def locks_dfunc(_, message):
         isittrue = tagdb.find_one({f"teg": uname})
         if not isittrue:
             tagdb.insert_one({f"teg": uname})
-            return await lol.edit(
+            await lol.edit(
                 f"Tag alerts ENABLED.\nWhen someone tags you as @{uname} you will be notified."
             )
             await asyncio.sleep(2)
             await lol.delete()
+            return
         else:
-            return await lol.edit("Tag alerts already ENABLED for you!")
+            await lol.edit("Tag alerts already ENABLED for you!")
             await asyncio.sleep(2)
             await lol.delete()
+            return
     if parameter == "off" or parameter == "OFF":
         if not message.from_user:
             return
@@ -365,7 +368,7 @@ async def mentionall(event):
         if isinstance(
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
-            is_admin = False
+            is_admin = True
     if not is_admin:
         return await event.respond("__report this miracle if you see this message!__")
 
@@ -397,13 +400,13 @@ async def mentionall(event):
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{msg}\n{usrtxt}"
-                abishnoi.send_message(chat_id, txt)
+                messoge = await abishnoi.send_message(chat_id, txt)
                 await asyncio.sleep(6)
-                await txt.delete()
+                await messoge.delete()
             elif mode == "text_on_reply":
-                msg.reply(usrtxt)
+                messoge = await msg.reply(usrtxt)
                 await asyncio.sleep(6)
-                await txt.delete()
+                await messoge.delete()
             await asyncio.sleep(1)
             usrnum = 0
             usrtxt = ""
@@ -426,7 +429,7 @@ async def cancel_spam(event):
         if isinstance(
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
-            is_admin = False
+            is_admin = True
     if not is_admin:
         return await event.respond("__omw!__")
 
