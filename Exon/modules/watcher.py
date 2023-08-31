@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2022 ABISHNOI129
+Copyright (c) 2022 ABISHNOI69
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@ SOFTWARE.
 # ""DEAR PRO PEOPLE,  DON'T REMOVE & CHANGE THIS LINE
 # TG :- @Abishnoi1m
 #     UPDATE   :- Abishnoi_bots
-#     GITHUB :- ABISHNOI129 ""
+#     GITHUB :- ABISHNOI69 ""
 
 import re
 import time
@@ -213,7 +213,7 @@ async def chat_watcher_func(_, message):
                                     photo=f"downloads/{user.id}.jpg",
                                     caption=f"**{user.first_name[:25]}** Is AFK since {seenago}\n\n",
                                 )
-                                await asyncio.sleep(12)
+                                await.sleep(12)
                                 await send.delete()
                             else:
                                 send = await message.reply_photo(
