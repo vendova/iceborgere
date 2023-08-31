@@ -61,20 +61,20 @@ def get_info(id):
     return nightmod.find_one({"id": id})
 
 
-@AsuX.on_message(filters.command(["tagalert"]))
+@AsuX.on_message(filters.command(["tagalert", "afk"]))
 async def locks_dfunc(_, message):
     lol = await message.reply("__processing__...")
     if len(message.command) != 2:
         return await lol.edit("Expected ON or OFF")
+        await asyncio.sleep(2)
+        await lol.delete()
     parameter = message.text.strip().split(None, 1)[1].lower()
 
-    if parameter == "on" or parameter == "ON":
+    if parameter == "on" or parameter == "ON" or parameter == "":
         if not message.from_user:
             return
         if not message.from_user.username:
-            return await lol.edit(
-                "only users with USERNAMES are eligible for getting tagalerts."
-            )
+            return
         uname = str(message.from_user.username)
         uname = uname.lower()
         isittrue = tagdb.find_one({f"teg": uname})
@@ -83,14 +83,18 @@ async def locks_dfunc(_, message):
             return await lol.edit(
                 f"Tag alerts ENABLED.\nWhen someone tags you as @{uname} you will be notified."
             )
+            await asyncio.sleep(2)
+            await lol.delete()
         else:
             return await lol.edit("Tag alerts already ENABLED for you!")
+            await asyncio.sleep(2)
+            await lol.delete()
     if parameter == "off" or parameter == "OFF":
         if not message.from_user:
             return
         if not message.from_user.username:
             return await lol.edit(
-                "only users with USERNAMES are eligible for getting tagalerts."
+                "only users with USERNAMES are eligible for getting tagalerts; and you can't remove because you aren't eligible at the first place!"
             )
         uname = message.from_user.username
         uname = uname.lower()
@@ -102,7 +106,8 @@ async def locks_dfunc(_, message):
             return await lol.edit("Tag alerts already DISABLED for you!")
     else:
         await lol.edit("Expected ON or OFF")
-
+        await asyncio.sleep(2)
+        await lol.delete()
 
 @AsuX.on_message(filters.incoming)
 async def mentioned_alert(client, message):
@@ -355,12 +360,12 @@ async def mentionall(event):
     try:
         partici_ = await abishnoi(GetParticipantRequest(event.chat_id, event.sender_id))
     except UserNotParticipantError:
-        is_admin = True
+        is_admin = False
     else:
         if isinstance(
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
-            is_admin = True
+            is_admin = False
     if not is_admin:
         return await event.respond("__report this miracle if you see this message!__")
 
@@ -393,12 +398,12 @@ async def mentionall(event):
             if mode == "text_on_cmd":
                 txt = f"{msg}\n{usrtxt}"
                 await abishnoi.send_message(chat_id, txt)
-                await asyncio.sleep(6)
-                await txt.delete()
+            await asyncio.sleep(6)
+            await txt.delete()
             elif mode == "text_on_reply":
                 await msg.reply(usrtxt)
-                await asyncio.sleep(6)
-                await txt.delete()
+            await asyncio.sleep(6)
+            await txt.delete()
             await asyncio.sleep(1)
             usrnum = 0
             usrtxt = ""
@@ -416,14 +421,14 @@ async def cancel_spam(event):
     try:
         partici_ = await abishnoi(GetParticipantRequest(event.chat_id, event.sender_id))
     except UserNotParticipantError:
-        is_admin = True
+        is_admin = False
     else:
         if isinstance(
             partici_.participant, (ChannelParticipantAdmin, ChannelParticipantCreator)
         ):
-            is_admin = True
+            is_admin = False
     if not is_admin:
-        return await event.respond("__Only admins can execute this command!__")
+        return await event.respond("__omw!__")
 
     else:
         try:
