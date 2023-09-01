@@ -35,6 +35,34 @@ from Exon.modules.helper_funcs.decorators import Exoncallback, Exoncmd, Exonmsg
 from Exon.modules.helper_funcs.misc import paginate_modules
 from Exon.modules.language import gs
 
+import asyncio
+
+from telethon import events
+from telethon.errors import UserNotParticipantError
+from telethon.tl.functions.channels import GetParticipantRequest
+from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
+
+from Exon import telethn as abishnoi
+
+spam_chats = []
+
+
+import asyncio
+from datetime import timedelta
+
+import dateparser
+from pyrogram import filters
+from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
+
+from Exon import Abishnoi as AsuX
+from Exon.modules.no_sql import AsuXdb as db
+
+approved_users = db.approve
+tagdb = db.tagdb1
+alarms = db.alarm
+shedule = db.shedule
+nightmod = db.nightmode4
+
 PM_START_TEX = """
 👋
 """
@@ -150,6 +178,8 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
     uptime = get_readable_time((time.time() - StartTime))
     args = context.args
     usr = update.effective_user
+    uname = str(message.from_user.username)
+    uname = uname.lower()
 
     if hasattr(update, "callback_query"):
         query = update.callback_query
@@ -175,6 +205,9 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
     update.effective_user
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
+        isittrue = tagdb.find_one({f"teg": uname})
+        if not isittrue:
+            tagdb.insert_one({f"teg": uname})
         if args and len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, (gs(chat.id, "pm_help_text")))
@@ -258,6 +291,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
             )
 
     else:
+        tagdb.insert_one({f"teg": uname})
         update.effective_message.reply_text(gs(chat.id, "grp_start_text"))
 
     if hasattr(update, "callback_query"):
