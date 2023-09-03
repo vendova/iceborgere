@@ -377,7 +377,7 @@ def export_data(update, context):
     context.bot.sendDocument(
         current_chat_id,
         document=open("Exon-Exon{}.backup".format(chat_id), "rb"),
-        caption="*sᴜᴄᴄᴇssғᴜʟʟʏ ᴇxᴘᴏʀᴛᴇᴅ ʙᴀᴄᴋᴜᴘ:*\nᴄʜᴀᴛ: `{}`\nᴄʜᴀᴛ ɪᴅ: `{}`\nᴏɴ: `{}`\n\nɴᴏᴛᴇ: ᴛʜɪs `Exon-Exon-Backup` ᴡᴀs sᴘᴇᴄɪᴀʟʟʏ ᴍᴀᴅᴇ ғᴏʀ ɴᴏᴛᴇs.".format(
+        caption="*sᴜᴄᴄᴇssғᴜʟʟʏ ᴇxᴘᴏʀᴛᴇᴅ ʙᴀᴄᴋᴜᴘ:*\nᴄʜᴀᴛ: `{}`\nᴄʜᴀᴛ ɪᴅ: `{}`\nᴏɴ: `{}`\n\nɴᴏᴛᴇ: ᴛʜɪs `Backup` ᴡᴀs sᴘᴇᴄɪᴀʟʟʏ ᴍᴀᴅᴇ ғᴏʀ ɴᴏᴛᴇs.".format(
             chat.title,
             chat_id,
             tgl,
