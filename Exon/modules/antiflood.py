@@ -75,23 +75,23 @@ def check_flood(update, context) -> Optional[str]:
         getmode, getvalue = sql.get_flood_setting(chat.id)
         if getmode == 1:
             chat.ban_member(user.id)
-            execstrings = "ʙᴀɴɴᴇᴅ"
+            execstrings = "BANNED"
             tag = "BANNED"
         elif getmode == 2:
             chat.ban_member(user.id)
             chat.unban_member(user.id)
-            execstrings = "ᴋɪᴄᴋᴇᴅ"
+            execstrings = "KIcKED"
             tag = "KICKED"
         elif getmode == 3:
             context.bot.restrict_chat_member(
                 chat.id, user.id, permissions=ChatPermissions(can_send_messages=False)
             )
-            execstrings = "ᴍᴜᴛᴇᴅ"
+            execstrings = "MUTED"
             tag = "MUTED"
         elif getmode == 4:
             bantime = extract_time(msg, getvalue)
             chat.ban_member(user.id, until_date=bantime)
-            execstrings = "ʙᴀɴɴᴇᴅ ғᴏʀ {}".format(getvalue)
+            execstrings = "BANNED foR {}".format(getvalue)
             tag = "TBAN"
         elif getmode == 5:
             mutetime = extract_time(msg, getvalue)
@@ -101,31 +101,31 @@ def check_flood(update, context) -> Optional[str]:
                 until_date=mutetime,
                 permissions=ChatPermissions(can_send_messages=False),
             )
-            execstrings = "ᴍᴜᴛᴇᴅ ғᴏʀ {}".format(getvalue)
+            execstrings = "MUTED foR {}".format(getvalue)
             tag = "TMUTE"
         send_message(
             update.effective_message,
-            "ᴡᴀɴɴᴀ sᴘᴀᴍ?! sᴏʀʀʏ ɪᴛ's ɴᴏᴛ ʏᴏᴜʀ ʜᴏᴜsᴇ ᴍᴀɴ!\n{}!".format(execstrings),
+            "WANNA sPAM?! soRRY IT's NoT YoUR HoUsE MAN!\n{}!".format(execstrings),
         )
 
         return (
             "<b>{}:</b>"
             "\n#{}"
-            "\n<b>ᴜsᴇʀ:</b> {}"
-            "\ɴғʟᴏᴏᴅᴇᴅ ᴛʜᴇ ɢʀᴏᴜᴘ.".format(
+            "\n<b>UsER:</b> {}"
+            "\NfLooDED THE GRoUP.".format(
                 html.escape(chat.title), tag, mention_html(user.id, user.first_name)
             )
         )
 
     except BadRequest:
         msg.reply_text(
-            "I ᴄᴀɴ'ᴛ ʀᴇsᴛʀɪᴄᴛ (ʙᴀɴ) ᴘᴇᴏᴘʟᴇ ʜᴇʀᴇ, ɢɪᴠᴇ ᴍᴇ ᴘᴇʀᴍɪssɪᴏɴs ғɪʀsᴛ! ᴜɴᴛɪʟ ᴛʜᴇɴ, I'ʟʟ ᴅɪsᴀʙʟᴇ ᴀɴᴛɪ-ғʟᴏᴏᴅ."
+            "I cAN'T REsTRIcT (BAN) PEoPLE HERE, GIvE ME PERMIssIoNs fIRsT! UNTIL THEN, I'LL DIsABLE ANTI-fLooD."
         )
         sql.set_flood(chat.id, 0)
         return (
             "<b>{}:</b>"
-            "\n#𝐀𝐋𝐄𝐑𝐓 !"
-            "\nᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ʀᴇsᴛʀɪᴄᴛ ᴜsᴇʀs sᴏ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪ-ғʟᴏᴏᴅ ".format(
+            "\n#ALERT !"
+            "\nDoN'T HAvE ENoUGH PERMIssIoN To REsTRIcT UsERs so AUToMATIcALLY DIsABLED ANTI-fLooD ".format(
                 chat.title
             )
         )
@@ -148,7 +148,7 @@ def set_flood(update, context) -> str:
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴍᴇᴀɴᴛ ᴛᴏ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘ ɴᴏᴛ ɪɴ ᴘᴍ",
+                "THIs coMMAND Is MEANT To UsE IN GRoUP NoT IN PM",
             )
             return ""
         chat_id = update.effective_chat.id
@@ -160,10 +160,10 @@ def set_flood(update, context) -> str:
             sql.set_flood(chat_id, 0)
             if conn:
                 text = message.reply_text(
-                    "ᴀɴᴛɪғʟᴏᴏᴅ ʜᴀs ʙᴇᴇɴ ᴅɪsᴀʙʟᴇᴅ ɪɴ {}.".format(chat_name)
+                    "ANTIfLooD HAs BEEN DIsABLED IN {}.".format(chat_name)
                 )
             else:
-                text = message.reply_text("ᴀɴᴛɪғʟᴏᴏᴅ ʜᴀs ʙᴇᴇɴ ᴅɪsᴀʙʟᴇᴅ.")
+                text = message.reply_text("ANTIfLooD HAs BEEN DIsABLED.")
             send_message(update.effective_message, text, parse_mode="markdown")
 
         elif val.isdigit():
@@ -172,15 +172,15 @@ def set_flood(update, context) -> str:
                 sql.set_flood(chat_id, 0)
                 if conn:
                     text = message.reply_text(
-                        "ᴀɴᴛɪғʟᴏᴏᴅ ʜᴀs ʙᴇᴇɴ ᴅɪsᴀʙʟᴇᴅ ɪɴ {}.".format(chat_name)
+                        "ANTIfLooD HAs BEEN DIsABLED IN {}.".format(chat_name)
                     )
                 else:
-                    text = message.reply_text("ᴀɴᴛɪғʟᴏᴏᴅ ʜᴀs ʙᴇᴇɴ ᴅɪsᴀʙʟᴇᴅ.")
+                    text = message.reply_text("ANTIfLooD HAs BEEN DIsABLED.")
                 return (
                     "<b>{}:</b>"
-                    "\n#𝐒𝐄𝐓𝐅𝐋𝐎𝐎𝐃"
-                    "\n<b>ᴀᴅᴍɪɴ:</b> {}"
-                    "\nᴅɪsᴀʙʟᴇ ᴀɴᴛɪғʟᴏᴏᴅ.".format(
+                    "\n#SETFLOOD"
+                    "\n<b>ADMIN:</b> {}"
+                    "\nDIsABLE ANTIfLooD.".format(
                         html.escape(chat_name), mention_html(user.id, user.first_name)
                     )
                 )
@@ -188,26 +188,26 @@ def set_flood(update, context) -> str:
             if amount < 3:
                 send_message(
                     update.effective_message,
-                    "ᴀɴᴛɪғʟᴏᴏᴅ ᴍᴜsᴛ ʙᴇ ᴇɪᴛʜᴇʀ 0 (disabled) ᴏʀ ɴᴜᴍʙᴇʀ ɢʀᴇᴀᴛᴇʀ ᴛʜᴀɴ 3!",
+                    "ANTIfLooD MUsT BE EITHER 0 (disabled) oR NUMBER GREATER THAN 3!",
                 )
                 return ""
             sql.set_flood(chat_id, amount)
             if conn:
                 text = message.reply_text(
-                    "ᴀɴᴛɪ-ғʟᴏᴏᴅ ʜᴀs ʙᴇᴇɴ sᴇᴛ ᴛᴏ {} ɪɴ ᴄʜᴀᴛ: {}".format(
+                    "ANTI-fLooD HAs BEEN sET To {} IN cHAT: {}".format(
                         amount, chat_name
                     )
                 )
             else:
                 text = message.reply_text(
-                    "sᴜᴄᴄᴇssғᴜʟʟʏ ᴜᴘᴅᴀᴛᴇᴅ ᴀɴᴛɪ-ғʟᴏᴏᴅ ʟɪᴍɪᴛ ᴛᴏ {}!".format(amount)
+                    "sUccEssfULLY UPDATED ANTI-fLooD LIMIT To {}!".format(amount)
                 )
             send_message(update.effective_message, text, parse_mode="markdown")
             return (
                 "<b>{}:</b>"
-                "\n#𝐒𝐄𝐓𝐅𝐋𝐎𝐎𝐃"
-                "\n<b>ᴀᴅᴍɪɴ:</b> {}"
-                "\nsᴇᴛ ᴀɴᴛɪғʟᴏᴏᴅ ᴛᴏ <code>{}</code>.".format(
+                "\n#SETFLOOD"
+                "\n<b>ADMIN:</b> {}"
+                "\nsET ANTIfLooD To <code>{}</code>.".format(
                     html.escape(chat_name),
                     mention_html(user.id, user.first_name),
                     amount,
@@ -215,11 +215,11 @@ def set_flood(update, context) -> str:
             )
 
         else:
-            message.reply_text("ɪɴᴠᴀʟɪᴅ ᴀʀɢᴜᴍᴇɴᴛ ᴘʟᴇᴀsᴇ ᴜsᴇ ᴀ ɴᴜᴍʙᴇʀ, 'off' ᴏʀ 'no'")
+            message.reply_text("INvALID ARGUMENT PLEAsE UsE A NUMBER, 'off' oR 'no'")
     else:
         message.reply_text(
             (
-                "ᴜsᴇ `/setflood ɴᴜᴍʙᴇʀ` ᴛᴏ ᴇɴᴀʙʟᴇ ᴀɴᴛɪ-ғʟᴏᴏᴅ.\nᴏʀ ᴜsᴇ `/setflood off` ᴛᴏ ᴅɪsᴀʙʟᴇ ᴀɴᴛɪ-ғʟᴏᴏᴅ!."
+                "UsE `/setflood NUMBER` To ENABLE ANTI-fLooD.\noR UsE `/setflood off` To DIsABLE ANTI-fLooD!."
             ),
             parse_mode="markdown",
         )
@@ -240,7 +240,7 @@ def flood(update, context):
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴍᴇᴀɴᴛ ᴛᴏ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘ ɴᴏᴛ ɪɴ  ᴘᴍ",
+                "THIs coMMAND Is MEANT To UsE IN GRoUP NoT IN  PM",
             )
             return
         chat_id = update.effective_chat.id
@@ -250,13 +250,13 @@ def flood(update, context):
     if limit == 0:
         if conn:
             text = msg.reply_text(
-                "I'ᴍ ɴᴏᴛ ᴇɴғᴏʀᴄɪɴɢ ᴀɴʏ ғʟᴏᴏᴅ ᴄᴏɴᴛʀᴏʟ ɪɴ {}!".format(chat_name)
+                "I'M NoT ENfoRcING ANY fLooD coNTRoL IN {}!".format(chat_name)
             )
         else:
-            text = msg.reply_text("I'ᴍ ɴᴏᴛ ᴇɴғᴏʀᴄɪɴɢ ᴀɴʏ ғʟᴏᴏᴅ ᴄᴏɴᴛʀᴏʟ ʜᴇʀᴇ!")
+            text = msg.reply_text("I'M NoT ENfoRcING ANY fLooD coNTRoL HERE!")
     elif conn:
         text = msg.reply_text(
-            "I'ᴍ ᴄᴜʀʀᴇɴᴛʟʏ ʀᴇsᴛʀɪᴄᴛɪɴɢ ᴍᴇᴍʙᴇʀs ᴀғᴛᴇʀ {} ᴄᴏɴsᴇᴄᴜᴛɪᴠᴇ ᴍᴇssᴀɢᴇs ɪɴ {}.".format(
+            "I'M cURRENTLY REsTRIcTING MEMBERs AfTER {} coNsEcUTIvE MEssAGEs IN {}.".format(
                 limit, chat_name
             )
         )
@@ -287,7 +287,7 @@ def set_flood_mode(update, context):
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ᴍᴇᴀɴᴛ ᴛᴏ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘ ɴᴏᴛ ɪɴ PM",
+                "THIs coMMAND Is MEANT To UsE IN GRoUP NoT IN PM",
             )
             return ""
         chat = update.effective_chat
@@ -296,52 +296,52 @@ def set_flood_mode(update, context):
 
     if args:
         if args[0].lower() == "ban":
-            settypeflood = "ʙᴀɴ"
+            settypeflood = "BAN"
             sql.set_flood_strength(chat_id, 1, "0")
         elif args[0].lower() == "kick":
-            settypeflood = "ᴋɪᴄᴋ"
+            settypeflood = "KIcK"
             sql.set_flood_strength(chat_id, 2, "0")
         elif args[0].lower() == "mute":
-            settypeflood = "ᴍᴜᴛᴇ"
+            settypeflood = "MUTE"
             sql.set_flood_strength(chat_id, 3, "0")
         elif args[0].lower() == "tban":
             if len(args) == 1:
-                teks = """ɪᴛ ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ ᴛʀɪᴇᴅ ᴛᴏ sᴇᴛ ᴛɪᴍᴇ ᴠᴀʟᴜᴇ ғᴏʀ ᴀɴᴛɪғʟᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴅɪᴅɴ'ᴛ sᴘᴇᴄɪғɪᴇᴅ ᴛɪᴍᴇ; ᴛʀʏ, `/setfloodmode tban <ᴛɪᴍᴇᴠᴀʟᴜᴇ>`.
-    ᴇxᴀᴍᴘʟᴇs ᴏғ ᴛɪᴍᴇ ᴠᴀʟᴜᴇ: 4ᴍ = 4 ᴍɪɴᴜᴛᴇs, 3ʜ = 3 ʜᴏᴜʀs, 6ᴅ = 6 ᴅᴀʏs, 5ᴡ = 5 ᴡᴇᴇᴋs."""
+                teks = """IT LooKs LIKE YoU TRIED To sET TIME vALUE foR ANTIfLooD BUT YoU DIDN'T sPEcIfIED TIME; TRY, `/setfloodmode tban <TIMEvALUE>`.
+    ExAMPLEs of TIME vALUE: 4M = 4 MINUTEs, 3H = 3 HoURs, 6D = 6 DAYs, 5W = 5 WEEKs."""
                 send_message(update.effective_message, teks, parse_mode="markdown")
                 return
-            settypeflood = "ᴛʙᴀɴ ғᴏʀ {}".format(args[1])
+            settypeflood = "TBAN foR {}".format(args[1])
             sql.set_flood_strength(chat_id, 4, str(args[1]))
         elif args[0].lower() == "tmute":
             if len(args) == 1:
-                teks = """ɪᴛ ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ ᴛʀɪᴇᴅ ᴛᴏ sᴇᴛ ᴛɪᴍᴇ ᴠᴀʟᴜᴇ ғᴏʀ ᴀɴᴛɪғʟᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴅɪᴅɴ'ᴛ sᴘᴇᴄɪғɪᴇᴅ ᴛɪᴍᴇ; ᴛʀʏ, `/setfloodmode tmute <ᴛɪᴍᴇᴠᴀʟᴜᴇ>`.
-    ᴇxᴀᴍᴘʟᴇs ᴏғ ᴛɪᴍᴇ ᴠᴀʟᴜᴇ: 4ᴍ = 4 ᴍɪɴᴜᴛᴇs, 3ʜ = 3 ʜᴏᴜʀs, 6d = 6 ᴅᴀʏs, 5ᴡ = 5 ᴡᴇᴇᴋs."""
+                teks = """IT LooKs LIKE YoU TRIED To sET TIME vALUE foR ANTIfLooD BUT YoU DIDN'T sPEcIfIED TIME; TRY, `/setfloodmode tmute <TIMEvALUE>`.
+    ExAMPLEs of TIME vALUE: 4M = 4 MINUTEs, 3H = 3 HoURs, 6d = 6 DAYs, 5W = 5 WEEKs."""
                 send_message(update.effective_message, teks, parse_mode="markdown")
                 return
-            settypeflood = "ᴛᴍᴜᴛᴇ ғᴏʀ {}".format(args[1])
+            settypeflood = "TMUTE foR {}".format(args[1])
             sql.set_flood_strength(chat_id, 5, str(args[1]))
         else:
             send_message(
-                update.effective_message, "I ᴏɴʟʏ ᴜɴᴅᴇʀsᴛᴀɴᴅ ʙᴀɴ/ᴋɪᴄᴋ/ᴍᴜᴛᴇ/ᴛʙᴀɴ/ᴛᴍᴜᴛᴇ!"
+                update.effective_message, "I oNLY UNDERsTAND BAN/KIcK/MUTE/TBAN/TMUTE!"
             )
             return
         if conn:
             text = msg.reply_text(
-                "ᴇxᴄᴇᴇᴅɪɴɢ ᴄᴏɴsᴇᴄᴜᴛɪᴠᴇ ғʟᴏᴏᴅ ʟɪᴍɪᴛ ᴡɪʟʟ ʀᴇsᴜʟᴛ ɪɴ {} ɪɴ {}!".format(
+                "ExcEEDING coNsEcUTIvE fLooD LIMIT WILL REsULT IN {} IN {}!".format(
                     settypeflood, chat_name
                 )
             )
         else:
             text = msg.reply_text(
-                "ᴇxᴄᴇᴇᴅɪɴɢ ᴄᴏɴsᴇᴄᴜᴛɪᴠᴇ ғʟᴏᴏᴅ ʟɪᴍɪᴛ ᴡɪʟʟ ʀᴇsᴜʟᴛ ɪɴ {}!".format(
+                "ExcEEDING coNsEcUTIvE fLooD LIMIT WILL REsULT IN {}!".format(
                     settypeflood
                 )
             )
         send_message(update.effective_message, text, parse_mode="markdown")
         return (
             "<b>{}:</b>\n"
-            "<b>ᴀᴅᴍɪɴ:</b> {}\n"
-            "ʜᴀs ᴄʜᴀɴɢᴇᴅ ᴀɴᴛɪғʟᴏᴏᴅ ᴍᴏᴅᴇ. ᴜsᴇʀ ᴡɪʟʟ {}.".format(
+            "<b>ADMIN:</b> {}\n"
+            "HAs cHANGED ANTIfLooD MoDE. UsER WILL {}.".format(
                 settypeflood,
                 html.escape(chat.title),
                 mention_html(user.id, user.first_name),
@@ -349,24 +349,24 @@ def set_flood_mode(update, context):
         )
     getmode, getvalue = sql.get_flood_setting(chat.id)
     if getmode == 1:
-        settypeflood = "ʙᴀɴ"
+        settypeflood = "BAN"
     elif getmode == 2:
-        settypeflood = "ᴋɪᴄᴋ"
+        settypeflood = "KIcK"
     elif getmode == 3:
-        settypeflood = "ᴍᴜᴛᴇ"
+        settypeflood = "MUTE"
     elif getmode == 4:
-        settypeflood = "ᴛʙᴀɴ ғᴏʀ {}".format(getvalue)
+        settypeflood = "TBAN foR {}".format(getvalue)
     elif getmode == 5:
-        settypeflood = "ᴛᴍᴜᴛᴇ ғᴏʀ {}".format(getvalue)
+        settypeflood = "TMUTE foR {}".format(getvalue)
     if conn:
         text = msg.reply_text(
-            "sᴇɴᴅɪɴɢ ᴍᴏʀᴇ ᴍᴇssᴀɢᴇs ᴛʜᴀɴ ғʟᴏᴏᴅ ʟɪᴍɪᴛ ᴡɪʟʟ ʀᴇsᴜʟᴛ ɪɴ {} ɪɴ {}.".format(
+            "sENDING MoRE MEssAGEs THAN fLooD LIMIT WILL REsULT IN {} IN {}.".format(
                 settypeflood, chat_name
             )
         )
     else:
         text = msg.reply_text(
-            "sᴇɴᴅɪɴɢ ᴍᴏʀᴇ ᴍᴇssᴀɢᴇ ᴛʜᴀɴ ғʟᴏᴏᴅ ʟɪᴍɪᴛ ᴡɪʟʟ ʀᴇsᴜʟᴛ ɪɴ {}.".format(
+            "sENDING MoRE MEssAGE THAN fLooD LIMIT WILL REsULT IN {}.".format(
                 settypeflood
             )
         )
@@ -381,13 +381,13 @@ def __migrate__(old_chat_id, new_chat_id):
 def __chat_settings__(chat_id, user_id):
     limit = sql.get_flood_limit(chat_id)
     if limit == 0:
-        return "ɴᴏᴛ ᴇɴғᴏʀᴄɪɴɢ ᴛᴏ ғʟᴏᴏᴅ ᴄᴏɴᴛʀᴏʟ."
-    return "ᴀɴᴛɪғʟᴏᴏᴅ ʜᴀs ʙᴇᴇɴ sᴇᴛ ᴛᴏ`{}`.".format(limit)
+        return "NoT ENfoRcING To fLooD coNTRoL."
+    return "ANTIfLooD HAs BEEN sET To`{}`.".format(limit)
 
 
 __mod_name__ = "A-Flood"
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 # """
 from Exon.modules.language import gs
