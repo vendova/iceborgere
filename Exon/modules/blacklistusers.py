@@ -52,33 +52,33 @@ def bl_user(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("I ᴅᴏᴜʙᴛs ᴛʜᴀᴛ's a ᴜsᴇʀ.")
+        message.reply_text("I DoUBTs THAT's a UsER.")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("ʜᴏᴡ ᴀᴍ ɪ sᴜᴘᴘᴏsᴇᴅ ᴛᴏ ᴅᴏ ᴍʏ ᴡᴏʀᴋ ɪғ ɪ ᴀᴍ ɪɢɴᴏʀɪɴɢ ᴍʏsᴇʟғ?")
+        message.reply_text("HoW AM I sUPPosED To Do MY WoRK If I AM IGNoRING MYsELf?")
         return ""
 
     if user_id in BLACKLISTWHITELIST:
-        message.reply_text("ɴᴏ!\nɴᴏᴛɪᴄɪɴɢ ᴅɪsᴀsᴛᴇʀs ɪs ᴍʏ ᴊᴏʙ.")
+        message.reply_text("No!\nNoTIcING DIsAsTERs Is MY JoB.")
         return ""
 
     try:
         target_user = bot.get_chat(user_id)
     except BadRequest as excp:
-        if excp.message != "ᴜsᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ":
+        if excp.message != "UsER NoT foUND":
             raise
-        message.reply_text("I ᴄᴀɴ'ᴛ sᴇᴇᴍ ᴛᴏ ғɪɴᴅ ᴛʜɪs ᴜsᴇʀ.")
+        message.reply_text("I cAN'T sEEM To fIND THIs UsER.")
         return ""
     sql.blacklist_user(user_id, reason)
-    message.reply_text("I sʜᴀʟʟ ɪɢɴᴏʀᴇ ᴛʜᴇ ᴇxɪsᴛᴇɴᴄᴇ ᴏғ ᴛʜɪs ᴜsᴇʀ!")
+    message.reply_text("I sHALL IGNoRE THE ExIsTENcE of THIs UsER!")
     log_message = (
-        f"#𝐁𝐋𝐀𝐂𝐊𝐋𝐈𝐒𝐓\n"
-        f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-        f"<b>ᴜsᴇʀ:</b> {mention_html(target_user.id, html.escape(target_user.first_name))}"
+        f"#BLACKLIST\n"
+        f"<b>ADMIN:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+        f"<b>UsER:</b> {mention_html(target_user.id, html.escape(target_user.first_name))}"
     )
     if reason:
-        log_message += f"\n<b>ʀᴇᴀsᴏɴ:</b> {reason}"
+        log_message += f"\n<b>REAsoN:</b> {reason}"
 
     return log_message
 
@@ -92,18 +92,18 @@ def unbl_user(update: Update, context: CallbackContext) -> str:
     user_id = extract_user(message, args)
 
     if not user_id:
-        message.reply_text("I ᴅᴏᴜʙᴛ ᴛʜᴀᴛ's ᴀ ᴜsᴇʀ.")
+        message.reply_text("I DoUBT THAT's A UsER.")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I ᴀʟᴡᴀʏs ɴᴏᴛɪᴄᴇ ᴍʏsᴇʟғ.")
+        message.reply_text("I ALWAYs NoTIcE MYsELf.")
         return ""
 
     try:
         target_user = bot.get_chat(user_id)
     except BadRequest as excp:
-        if excp.message == "ᴜsᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ":
-            message.reply_text("I ᴄᴀɴ'ᴛ sᴇᴇᴍ ᴛᴏ ғɪɴᴅ ᴛʜɪs ᴜsᴇʀ.")
+        if excp.message == "UsER NoT foUND":
+            message.reply_text("I cAN'T sEEM To fIND THIs UsER.")
             return ""
         raise
 
@@ -111,13 +111,13 @@ def unbl_user(update: Update, context: CallbackContext) -> str:
         sql.unblacklist_user(user_id)
         message.reply_text("*notices user*")
         log_message = (
-            f"#𝐔𝐍𝐁𝐋𝐀𝐂𝐊𝐋𝐈𝐒𝐓\n"
-            f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-            f"<b>ᴜsᴇʀ:</b> {mention_html(target_user.id, html.escape(target_user.first_name))}"
+            f"#UNBLACKLIST\n"
+            f"<b>ADMIN:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+            f"<b>UsER:</b> {mention_html(target_user.id, html.escape(target_user.first_name))}"
         )
 
         return log_message
-    message.reply_text("I ᴀᴍ ɴᴏᴛ ɪɢɴᴏʀɪɴɢ ᴛʜᴇᴍ ᴀᴛ ᴀʟʟ ᴛʜᴏᴜɢʜ!")
+    message.reply_text("I AM NoT IGNoRING THEM AT ALL THoUGH!")
     return ""
 
 
@@ -136,15 +136,15 @@ def bl_users(update: Update, context: CallbackContext):
         else:
             users.append(f"• {mention_html(user.id, html.escape(user.first_name))}")
 
-    message = "<b>ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴜsᴇʀs</b>\n"
-    message += "\n".join(users) if users else "ɴᴏɴᴇ ɪs ʙᴇɪɴɢ ɪɢɴᴏʀᴇᴅ ᴀs ᴏғ ʏᴇᴛ."
+    message = "<b>BLAcKLIsTED UsERs</b>\n"
+    message += "\n".join(users) if users else "NoNE Is BEING IGNoRED As of YET."
     update.effective_message.reply_text(message, parse_mode=ParseMode.HTML)
 
 
 def __user_info__(user_id):
     is_blacklisted = sql.is_user_blacklisted(user_id)
 
-    text = "ʙʟᴀᴄᴋʟɪsᴛᴇᴅ: <b>{}</b>"
+    text = "BLAcKLIsTED: <b>{}</b>"
     if user_id in [777000, 1087968824]:
         return ""
     if user_id == dispatcher.bot.id:
@@ -155,7 +155,7 @@ def __user_info__(user_id):
         text = text.format("Yes")
         reason = sql.get_reason(user_id)
         if reason:
-            text += f"\nʀᴇᴀsᴏɴ: <code>{reason}</code>"
+            text += f"\nREAsoN: <code>{reason}</code>"
     else:
         text = text.format("No")
 
@@ -173,7 +173,7 @@ dispatcher.add_handler(BLUSERS_HANDLER)
 __mod_name__ = "B-Users"
 __handlers__ = [BL_HANDLER, UNBL_HANDLER, BLUSERS_HANDLER]
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 # """
 from Exon.modules.language import gs
 
