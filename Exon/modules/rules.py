@@ -57,14 +57,14 @@ def send_rules(update, chat_id, from_pm=False):
         if excp.message == "Chat not found" and from_pm:
             bot.send_message(
                 user.id,
-                "ᴛʜᴇ ʀᴜʟᴇꜱ ꜱʜᴏʀᴛᴄᴜᴛ ꜰᴏʀ ᴛʜɪꜱ ᴄʜᴀᴛ ʜᴀꜱɴ'ᴛ ʙᴇᴇɴ ꜱᴇᴛ ᴘʀᴏᴘᴇʀʟʏ! ᴀꜱᴋ ᴀᴅᴍɪɴꜱ ᴛᴏ "
-                "ꜰɪx ᴛʜɪꜱ.\nᴍᴀʏ ʙᴇ ᴛʜᴇʏ ꜰᴏʀɢᴏᴛ ᴛʜᴇ ʜʏᴘʜᴇɴ ɪɴ ɪᴅ",
+                "THE RULES SHoRTcUT FoR THIS cHAT HASN'T BEEN SET PRoPERLY! ASK ADMINS To "
+                "FIx THIS.\nMAY BE THEY FoRGoT THE HYPHEN IN ID",
             )
             return
         raise
 
     rules = sql.get_rules(chat_id)
-    text = f"ᴛʜᴇ ʀᴜʟᴇꜱ ꜰᴏʀ *{escape_markdown(chat.title)}* ᴀʀᴇ:\n\n{rules}"
+    text = f"THE RULES FoR *{escape_markdown(chat.title)}* ARE:\n\n{rules}"
 
     if from_pm and rules:
         bot.send_message(
@@ -76,20 +76,20 @@ def send_rules(update, chat_id, from_pm=False):
     elif from_pm:
         bot.send_message(
             user.id,
-            "ᴛʜᴇ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴꜱ ʜᴀᴠᴇɴ'ᴛ ꜱᴇᴛ ᴀɴʏ ʀᴜʟᴇꜱ ꜰᴏʀ ᴛʜɪꜱ ᴄʜᴀᴛ ʏᴇᴛ. "
-            "ᴛʜɪꜱ ᴘʀᴏʙᴇʙʟʏ ᴅᴏᴇꜱ'ᴛ ᴍᴇᴀɴ ɪᴛ'ꜱ ʟᴀᴡʟᴇꜱꜱ ᴛʜᴏᴜɢʜ...!",
+            "THE GRoUP ADMINS HAvEN'T SET ANY RULES FoR THIS cHAT YET. "
+            "THIS PRoBEBLY DoES'T MEAN IT'S LAWLESS THoUGH...!",
         )
     elif rules and reply_msg:
         reply_msg.reply_text(
-            "ᴘʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ꜱᴇᴇ ᴛʜᴇ ʀᴜʟᴇꜱ.",
+            "PLEASE cLIcK THE BUTToN BELoW To SEE THE RULES.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="📝 ʀᴇᴀᴅ ʀᴜʟᴇꜱ",
+                            text="📝 READ RULES",
                             url=f"t.me/{bot.username}?start={chat_id}",
                         ),
-                        InlineKeyboardButton(text="❌ ᴅᴇʟᴇᴛᴇ", callback_data="close2"),
+                        InlineKeyboardButton(text="❌ DELETE", callback_data="close2"),
                     ]
                 ]
             ),
@@ -99,10 +99,10 @@ def send_rules(update, chat_id, from_pm=False):
             [
                 [
                     InlineKeyboardButton(
-                        text="📝 ʀᴇᴀᴅ ʀᴜʟᴇꜱ",
+                        text="📝 READ RULES",
                         url=f"t.me/{bot.username}?start={chat_id}",
                     ),
-                    InlineKeyboardButton(text="❌ ᴅᴇʟᴇᴛᴇ", callback_data="close2"),
+                    InlineKeyboardButton(text="❌ DELETE", callback_data="close2"),
                 ]
             ]
         )
@@ -114,13 +114,13 @@ def send_rules(update, chat_id, from_pm=False):
             message.reply_to_message.reply_text(txt, reply_markup=btn)
     else:
         update.effective_message.reply_text(
-            "ᴛʜᴇ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴꜱ ʜᴀᴠᴇɴ'ᴛ ꜱᴇᴛ ᴀɴʏ ʀᴜʟᴇꜱ ꜰᴏʀ ᴛʜɪꜱ ᴄʜᴀᴛ ʏᴇᴛ. "
-            "ᴛʜɪꜱ ᴘʀᴏʙᴀʙʟʏ ᴅᴏᴇꜱ'ᴛ ᴍᴇᴀɴ ɪᴛꜱ ʟᴀᴡʟᴇꜱꜱ ᴛʜᴏᴜɢʜ...!",
+            "THE GRoUP ADMINS HAvEN'T SET ANY RULES FoR THIS cHAT YET. "
+            "THIS PRoBABLY DoES'T MEAN ITS LAWLESS THoUGH...!",
         )
 
 
 close_keyboard = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("❌ ᴅᴇʟᴇᴛᴇ", callback_data="close2")]]
+    [[InlineKeyboardButton("❌ DELETE", callback_data="close2")]]
 )
 
 
@@ -141,7 +141,7 @@ def set_rules(update: Update, context: CallbackContext):
         )
 
         sql.set_rules(chat_id, markdown_rules)
-        update.effective_message.reply_text("ꜱᴜᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇᴛ ʀᴜʟᴇꜱ ꜰᴏʀ ᴛʜɪꜱ ɢʀᴏᴜᴘ.")
+        update.effective_message.reply_text("SUcESSFULLY SET RULES FoR THIS GRoUP.")
 
 
 @Exoncmd(command="clearrules", filters=Filters.chat_type.groups)
@@ -149,11 +149,11 @@ def set_rules(update: Update, context: CallbackContext):
 def clear_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     sql.set_rules(chat_id, "")
-    update.effective_message.reply_text("ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴄʟᴇᴀʀᴇᴅ ʀᴜʟᴇꜱ!")
+    update.effective_message.reply_text("SUccESSFULLY cLEARED RULES!")
 
 
 def __stats__():
-    return f"× {sql.num_chats()} chats have rules set."
+    return f"x {sql.num_chats()} chats have rules set."
 
 
 def __import_data__(chat_id, data):
@@ -173,7 +173,7 @@ def __chat_settings__(chat_id, user_id):
 __mod_name__ = "Rules"
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 
 # """
