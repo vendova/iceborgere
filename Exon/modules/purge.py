@@ -39,7 +39,7 @@ from Exon import LOGGER, Abishnoi
 @Abishnoi.adminsOnly(permissions="can_delete_messages", is_both=True)
 async def purge(c: Abishnoi, m: Message):
     if m.chat.type != ChatType.SUPERGROUP:
-        await m.reply_text(text="ᴄᴀɴɴᴏᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ")
+        await m.reply_text(text="cANNoT PURGE MEssAGEs IN A BAsIc GRoUP")
         return
 
     if m.reply_to_message:
@@ -62,7 +62,7 @@ async def purge(c: Abishnoi, m: Message):
             await m.delete()
         except MessageDeleteForbidden:
             await m.reply_text(
-                text="ᴄᴀɴɴᴏᴛ ᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴍᴇssᴀɢᴇs. ᴛʜᴇ ᴍᴇssᴀɢᴇs ᴍᴀʏ ʙᴇ ᴛᴏᴏ ᴏʟᴅ, I ᴍɪɢʜᴛ ɴᴏᴛ ʜᴀᴠᴇ ᴅᴇʟᴇᴛᴇ ʀɪɢʜᴛs, ᴏʀ ᴛʜɪs ᴍɪɢʜᴛ ɴᴏᴛ ʙᴇ ᴀ sᴜᴘᴇʀɢʀᴏᴜᴘ."
+                text="cANNoT DELETE ALL MEssAGEs. THE MEssAGEs MAY BE Too oLD, I MIGHT NoT HAvE DELETE RIGHTs, oR THIs MIGHT NoT BE A sUPERGRoUP."
             )
             return
         except RPCError as ef:
@@ -70,9 +70,9 @@ async def purge(c: Abishnoi, m: Message):
 
         count_del_msg = len(message_ids)
 
-        z = await m.reply_text(text=f"ᴅᴇʟᴇᴛᴇᴅ <i>{count_del_msg}</i> messages")
+        z = await m.reply_text(text=f"DELETED <i>{count_del_msg}</i> messages")
         return
-    await m.reply_text("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛᴀʀᴛ ᴘᴜʀɢᴇ !")
+    await m.reply_text("REPLY To A MEssAGE To sTART PURGE !")
     return
 
 
@@ -80,7 +80,7 @@ async def purge(c: Abishnoi, m: Message):
 @Abishnoi.adminsOnly(permissions="can_delete_messages", is_both=True)
 async def spurge(c: Abishnoi, m: Message):
     if m.chat.type != ChatType.SUPERGROUP:
-        await m.reply_text(text="ᴄᴀɴɴᴏᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ")
+        await m.reply_text(text="cANNoT PURGE MEssAGEs IN A BAsIc GRoUP")
         return
 
     if m.reply_to_message:
@@ -103,13 +103,13 @@ async def spurge(c: Abishnoi, m: Message):
             await m.delete()
         except MessageDeleteForbidden:
             await m.reply_text(
-                text="ᴄᴀɴɴᴏᴛ ᴅᴇʟᴇᴛᴇ ᴀʟʟ ᴍᴇssᴀɢᴇs. ᴛʜᴇ ᴍᴇssᴀɢᴇs ᴍᴀʏ ʙᴇ ᴛᴏᴏ ᴏʟᴅ, I ᴍɪɢʜᴛ ɴᴏᴛ ʜᴀᴠᴇ ᴅᴇʟᴇᴛᴇ ʀɪɢʜᴛs, ᴏʀ ᴛʜɪs ᴍɪɢʜᴛ ɴᴏᴛ ʙᴇ ᴀ sᴜᴘᴇʀɢʀᴏᴜᴘ."
+                text="cANNoT DELETE ALL MEssAGEs. THE MEssAGEs MAY BE Too oLD, I MIGHT NoT HAvE DELETE RIGHTs, oR THIs MIGHT NoT BE A sUPERGRoUP."
             )
             return
         except RPCError as ef:
             LOGGER.info(f"ERROR on purge {ef}")
         return
-    await m.reply_text("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛᴀʀᴛ sᴘᴜʀɢᴇ !")
+    await m.reply_text("REPLY To A MEssAGE To sTART sPURGE !")
     return
 
 
@@ -123,23 +123,23 @@ async def del_msg(c: Abishnoi, m: Message):
             message_ids=m.reply_to_message.id,
         )
     else:
-        await m.reply_text(text="ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴɴᴀ ᴅᴇʟᴇᴛᴇ?")
+        await m.reply_text(text="WHAT Do YoU WANNA DELETE?")
     return
 
 
-__PLUGIN__ = "Pᴜʀɢᴇ"
+__PLUGIN__ = "PURGE"
 
 __alt_name__ = ["purge", "del", "spurge"]
 
 __HELP__ = """
-• /purge: ᴅᴇʟᴇᴛᴇs ᴍᴇssᴀɢᴇs ᴜᴘᴛᴏ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ.
-• /spurge: ᴅᴇʟᴇᴛᴇs ᴍᴇssᴀɢᴇs ᴜᴘᴛᴏ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ᴡɪᴛʜᴏᴜᴛ ᴀ sᴜᴄᴄᴇss ᴍᴇssᴀɢᴇ.
-• /del: ᴅᴇʟᴇᴛᴇs ᴀ sɪɴɢʟᴇ ᴍᴇssᴀɢᴇ, ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴍᴇssᴀɢᴇ.
+• /purge: DELETEs MEssAGEs UPTo REPLIED MEssAGE.
+• /spurge: DELETEs MEssAGEs UPTo REPLIED MEssAGE WITHoUT A sUccEss MEssAGE.
+• /del: DELETEs A sINGLE MEssAGE, UsED As A REPLY To MEssAGE.
 """
 
 __mod_name__ = "Purge"
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 
 # """
