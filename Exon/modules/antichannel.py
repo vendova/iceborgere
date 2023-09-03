@@ -56,25 +56,25 @@ def set_antilinkedchannel(update: Update, context: CallbackContext):
                 sql.disable_pin(chat.id)
                 sql.enable_pin(chat.id)
                 message.reply_html(
-                    "ᴇɴᴀʙʟᴇᴅ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴅᴇʟᴇᴛɪᴏɴ ᴀɴᴅ ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ ᴘɪɴ ɪɴ {}".format(
+                    "ENABLED LINKED cHANNEL DELETIoN AND DIsABLED ANTI cHANNEL PIN IN {}".format(
                         html.escape(chat.title)
                     )
                 )
             else:
                 sql.enable_linked(chat.id)
                 message.reply_html(
-                    "ᴇɴᴀʙʟᴇᴅ ᴀɴᴛɪ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ɪɴ {}".format(html.escape(chat.title))
+                    "ENABLED ANTI LINKED cHANNEL IN {}".format(html.escape(chat.title))
                 )
         elif s in ["off", "no"]:
             sql.disable_linked(chat.id)
             message.reply_html(
-                "ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ɪɴ {}".format(html.escape(chat.title))
+                "DIsABLED ANTI LINKED cHANNEL IN {}".format(html.escape(chat.title))
             )
         else:
-            message.reply_text("ᴜɴʀᴇᴄᴏɢɴɪᴢᴇᴅ ᴀʀɢᴜᴍᴇɴᴛs {}".format(s))
+            message.reply_text("UNREcoGNIzED ARGUMENTs {}".format(s))
         return
     message.reply_html(
-        "ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴅᴇʟᴇᴛɪᴏɴ ɪs ᴄᴜʀʀᴇɴᴛʟʏ {} ɪɴ {}".format(
+        "LINKED cHANNEL DELETIoN Is cURRENTLY {} IN {}".format(
             sql.status_linked(chat.id), html.escape(chat.title)
         )
     )
@@ -106,14 +106,14 @@ def antichannelmode(update: Update, context: CallbackContext):
         if param in ("on", "true", "yes", "On", "Yes", "True"):
             acm_sql.setCleanLinked(chat.id, True)
             msg.reply_text(
-                f"*ᴇɴᴀʙʟᴇᴅ* ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ ɪɴ {chat.title}. ᴍᴇssᴀɢᴇs sᴇɴᴛ ʙʏ ᴄʜᴀɴɴᴇʟ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.",
+                f"*ENABLED* ANTI cHANNEL IN {chat.title}. MEssAGEs sENT BY cHANNEL WILL BE DELETED.",
                 parse_mode=ParseMode.MARKDOWN,
             )
             return
         if param in ("off", "false", "no", "No", "Off", "False"):
             acm_sql.setCleanLinked(chat.id, False)
             msg.reply_text(
-                f"*ᴅɪsᴀʙʟᴇᴅ* ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ ɪɴ {chat.title}.",
+                f"*DIsABLED* ANTI cHANNEL IN {chat.title}.",
                 parse_mode=ParseMode.MARKDOWN,
             )
             return
@@ -125,12 +125,12 @@ def antichannelmode(update: Update, context: CallbackContext):
         stat = acm_sql.getCleanLinked(str(chat.id))
         if stat:
             msg.reply_text(
-                f"ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴘᴏsᴛ ᴅᴇʟᴇᴛɪᴏɴ ɪs ᴄᴜʀʀᴇɴᴛʟʏ *ᴇɴᴀʙʟᴇᴅ* ɪɴ {chat.title}. ᴍᴇssᴀɢᴇs sᴇɴᴛ ғʀᴏᴍ ᴛʜᴇ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.",
+                f"LINKED cHANNEL PosT DELETIoN Is cURRENTLY *ENABLED* IN {chat.title}. MEssAGEs sENT fRoM THE LINKED cHANNEL WILL BE DELETED.",
                 parse_mode=ParseMode.MARKDOWN,
             )
             return
         msg.reply_text(
-            f"ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴘᴏsᴛ ᴅᴇʟᴇᴛɪᴏɴ ɪs ᴄᴜʀʀᴇɴᴛʟʏ *ᴅɪsᴀʙʟᴇᴅ* ɪɴ {chat.title}.",
+            f"LINKED cHANNEL PosT DELETIoN Is cURRENTLY *DIsABLED* IN {chat.title}.",
             parse_mode=ParseMode.MARKDOWN,
         )
         return
@@ -157,15 +157,15 @@ def sfachat(update: Update, context: CallbackContext):
                 update.message.reply_text(
                     f"""
 • AUTO-BAN CHANNEL EVENT ‼️
-🚫 ʙᴀɴɴᴇᴅ ᴛʜɪs ᴄʜᴀɴɴᴇʟ: <a href="{BANNED_CHANNEL_LINK}">ʜᴇʀᴇ's ᴛʜᴇ ʟɪɴᴋ</a>
+🚫 BANNED THIs cHANNEL: <a href="{BANNED_CHANNEL_LINK}">HERE's THE LINK</a>
                 """,
                     parse_mode=ParseMode.HTML,
                 )
             else:
                 update.message.reply_text(
                     f"""
-ᴛʜᴇʀᴇ ᴡᴀs ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀᴇᴅ ᴅᴜʀɪɴɢ ᴀᴜᴛᴏ ʙᴀɴ ᴀɴᴅ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇ. ᴘʟᴇᴀsᴇ ʀᴇᴘᴏʀᴛ ᴛʜɪs ᴛᴏ {SUPPORT_CHAT} !
-• ᴇʀʀᴏʀ: `{respond}`
+THERE WAs AN ERRoR occURED DURING AUTo BAN AND DELETE MEssAGE. PLEAsE REPoRT THIs To {SUPPORT_CHAT} !
+• ERRoR: `{respond}`
                 """
                 )
             msg.delete()
@@ -186,25 +186,25 @@ def set_antipinchannel(update: Update, context: CallbackContext):
                 sql.disable_linked(chat.id)
                 sql.enable_pin(chat.id)
                 message.reply_html(
-                    "ᴅɪsᴀʙʟᴇᴅ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴅᴇʟᴇᴛɪᴏɴ ᴀɴᴅ ᴇɴᴀʙʟᴇᴅ ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ ᴘɪɴ ɪɴ {}".format(
+                    "DIsABLED LINKED cHANNEL DELETIoN AND ENABLED ANTI cHANNEL PIN IN {}".format(
                         html.escape(chat.title)
                     )
                 )
             else:
                 sql.enable_pin(chat.id)
                 message.reply_html(
-                    "ᴇɴᴀʙʟᴇᴅ ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ ᴘɪɴ ɪɴ {}".format(html.escape(chat.title))
+                    "ENABLED ANTI cHANNEL PIN IN {}".format(html.escape(chat.title))
                 )
         elif s in ["off", "no"]:
             sql.disable_pin(chat.id)
             message.reply_html(
-                "ᴅɪsᴀʙʟᴇᴅ ᴀɴᴛɪ ᴄʜᴀɴɴᴇʟ ᴘɪɴ ɪɴ {}".format(html.escape(chat.title))
+                "DIsABLED ANTI cHANNEL PIN IN {}".format(html.escape(chat.title))
             )
         else:
-            message.reply_text("ᴜɴʀᴇᴄᴏɢɴɪᴢᴇᴅ ᴀʀɢᴜᴍᴇɴᴛs {}".format(s))
+            message.reply_text("UNREcoGNIzED ARGUMENTs {}".format(s))
         return
     message.reply_html(
-        "ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ ᴍᴇssᴀɢᴇ ᴜɴᴘɪɴ ɪs ᴄᴜʀʀᴇɴᴛʟʏ {} ɪɴ {}".format(
+        "LINKED cHANNEL MEssAGE UNPIN Is cURRENTLY {} IN {}".format(
             sql.status_pin(chat.id), html.escape(chat.title)
         )
     )
@@ -222,7 +222,7 @@ def eliminate_linked_channel_msg(update: Update, _: CallbackContext):
         return
 
 
-__mod_name__ = "𝐀-ᴄʜᴀɴɴᴇʟ"
+__mod_name__ = "A-cHANNEL"
 
 
 CLEANLINKED_HANDLER = CommandHandler(
@@ -250,7 +250,7 @@ __handlers__ = [
 __mod_name__ = "A-channel"
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 # """
 from Exon.modules.language import gs
