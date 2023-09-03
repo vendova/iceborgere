@@ -438,10 +438,8 @@ def check_and_ban(update, user_id, should_message=True):
     if sw_ban:
         update.effective_chat.ban_member(user_id)
         if should_message:
-            update.effective_message.reply_text(
-                f"this user (id: <code>{sw_ban.id}</code>) is globally banned.\n"
-                f"<b>say last goodbyes...👋</b>.\n",
-                parse_mode=ParseMode.HTML,
+            update.effective_message.reply_sticker(
+                "CAADBQAD3AcAAor_2VaLJ7V3SdP8dgI"
             )
         return
 
@@ -449,15 +447,16 @@ def check_and_ban(update, user_id, should_message=True):
         update.effective_chat.ban_member(user_id)
         if should_message:
             text = (
-                f"this user (id: <code>{sw_ban.id}</code>) is globally banned.\n"
-                f"<b>say last goodbyes...👋</b>.\n",
+                f"the user (id: <code>{sw_ban.id}</code>) is globally banned; henceforth removed from here.\n"
             )
             user = gban_db.get_gbanned_user(user_id)
             if user["reason"]:
                 text += (
                     f"\n<b>Ban Reason:</b> <code>{html.escape(user['reason'])}</code>"
                 )
-            update.effective_message.reply_text(text, parse_mode=ParseMode.HTML)
+            update.effective_message.reply_sticker(
+                "CAADBQAD3AcAAor_2VaLJ7V3SdP8dgI"
+            )
 
 
 @Exonmsg(
