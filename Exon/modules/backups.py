@@ -68,7 +68,7 @@ def import_data(update, context):
         chat_name = dispatcher.bot.getChat(conn).title
     else:
         if update.effective_message.chat.type == "private":
-            update.effective_message.reply_text("ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ғᴏʀ ɢʀᴏᴜᴘ !")
+            update.effective_message.reply_text("THIs coMMAND foR GRoUP !")
             return ""
 
         chat = update.effective_chat
@@ -79,7 +79,7 @@ def import_data(update, context):
             file_info = context.bot.get_file(msg.reply_to_message.document.file_id)
         except BadRequest:
             msg.reply_text(
-                "ᴛʀʏ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴀɴᴅ ᴜᴘʟᴏᴀᴅɪɴɢ ᴛʜᴇ ғɪʟᴇ ʏᴏᴜʀsᴇʟғ ᴀɢᴀɪɴ, ᴛʜɪs ᴏɴᴇ sᴇᴇᴍ ʙʀᴏᴋᴇɴ ᴛᴏ ᴍᴇ!",
+                "TRY DoWNLoADING AND UPLoADING THE fILE YoURsELf AGAIN, THIs oNE sEEM BRoKEN To ME!",
             )
             return
 
@@ -91,7 +91,7 @@ def import_data(update, context):
         # only import one group
         if len(data) > 1 and str(chat.id) not in data:
             msg.reply_text(
-                "ᴛʜᴇʀᴇ ᴀʀᴇ ᴍᴏʀᴇ ᴛʜᴀɴ ᴏɴᴇ ɢʀᴏᴜᴘ ɪɴ ᴛʜɪs ғɪʟᴇ ᴀɴᴅ ᴛʜᴇ chat.id ɪs ɴᴏᴛ sᴀᴍᴇ! ʜᴏᴡ ᴀᴍ ɪ sᴜᴘᴘᴏsᴇᴅ ᴛᴏ ɪᴍᴘᴏʀᴛ ɪᴛ?",
+                "THERE ARE MoRE THAN oNE GRoUP IN THIs fILE AND THE chat.id Is NoT sAME! HoW AM I sUPPosED To IMPoRT IT?",
             )
             return
 
@@ -99,19 +99,19 @@ def import_data(update, context):
         try:
             if data.get(str(chat.id)) is None:
                 if conn:
-                    text = "ʙᴀᴄᴋᴜᴘ ᴄᴏᴍᴇs ғʀᴏᴍ ᴀɴᴏᴛʜᴇʀ ᴄʜᴀᴛ, ɪ ᴄᴀɴ'ᴛ ʀᴇᴛᴜʀɴ ᴀɴᴏᴛʜᴇʀ ᴄʜᴀᴛ ᴛᴏ ᴄʜᴀᴛ *{}*".format(
+                    text = "BAcKUP coMEs fRoM ANoTHER cHAT, I cAN'T RETURN ANoTHER cHAT To cHAT *{}*".format(
                         chat_name,
                     )
                 else:
-                    text = "ʙᴀᴄᴋᴜᴘ ᴄᴏᴍᴇs ғʀᴏᴍ ᴀɴᴏᴛʜᴇʀ ᴄʜᴀᴛ, I ᴄᴀɴ'ᴛ ʀᴇᴛᴜʀɴ another ᴄʜᴀᴛ ᴛᴏ ᴛʜɪs ᴄʜᴀᴛ"
+                    text = "BAcKUP coMEs fRoM ANoTHER cHAT, I cAN'T RETURN another cHAT To THIs cHAT"
                 return msg.reply_text(text, parse_mode="markdown")
         except Exception:
-            return msg.reply_text("ᴛʜᴇʀᴇ ᴡᴀs ᴀ ᴘʀᴏʙʟᴇᴍ ᴡʜɪʟᴇ ɪᴍᴘᴏʀᴛɪɴɢ ᴛʜᴇ ᴅᴀᴛᴀ!")
+            return msg.reply_text("THERE WAs A PRoBLEM WHILE IMPoRTING THE DATA!")
         # Check if backup is from self
         try:
             if str(context.bot.id) != str(data[str(chat.id)]["bot"]):
                 return msg.reply_text(
-                    "ʙᴀᴄᴋᴜᴘ ғʀᴏᴍ ᴀɴᴏᴛʜᴇʀ ʙᴏᴛ ᴛʜᴀᴛ ɪs ɴᴏᴛ sᴜɢɢᴇsᴛᴇᴅ ᴍɪɢʜᴛ ᴄᴀᴜsᴇ ᴛʜᴇ ᴘʀᴏʙʟᴇᴍ, ᴅᴏᴄᴜᴍᴇɴᴛs, ᴘʜᴏᴛᴏs, ᴠɪᴅᴇᴏs, ᴀᴜᴅɪᴏs, ʀᴇᴄᴏʀᴅs ᴍɪɢʜᴛ ɴᴏᴛ ᴡᴏʀᴋ ᴀs ɪᴛ sʜᴏᴜʟᴅ ʙᴇ.",
+                    "BAcKUP fRoM ANoTHER BoT THAT Is NoT sUGGEsTED MIGHT cAUsE THE PRoBLEM, DocUMENTs, PHoTos, vIDEos, AUDIos, REcoRDs MIGHT NoT WoRK As IT sHoULD BE.",
                 )
         except Exception:
             pass
@@ -126,11 +126,11 @@ def import_data(update, context):
                 mod.__import_data__(str(chat.id), data)
         except Exception:
             msg.reply_text(
-                f"ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ ᴡʜɪʟᴇ ʀᴇᴄᴏᴠᴇʀɪɴɢ ʏᴏᴜʀ ᴅᴀᴛᴀ. ᴛʜᴇ ᴘʀᴏᴄᴇss ғᴀɪʟᴇᴅ. ɪғ ʏᴏᴜ ᴇxᴘᴇʀɪᴇɴᴄᴇ ᴀ ᴘʀᴏʙʟᴇᴍ ᴡɪᴛʜ ᴛʜɪs, ᴘʟᴇᴀsᴇ ᴛᴀᴋᴇ ɪᴛ ᴛᴏ @{SUPPORT_CHAT}",
+                f"AN ERRoR occURRED WHILE REcovERING YoUR DATA. THE PRocEss fAILED. If YoU ExPERIENcE A PRoBLEM WITH THIs, PLEAsE TAKE IT To @{SUPPORT_CHAT}",
             )
 
             LOGGER.exception(
-                "ɪᴍᴘᴏʀᴛ ғᴏʀ ᴛʜᴇ ᴄʜᴀᴛ %s ᴡɪᴛʜ ᴛʜᴇ ɴᴀᴍᴇ %s ғᴀɪʟᴇᴅ.",
+                "IMPoRT foR THE cHAT %s WITH THE NAME %s fAILED.",
                 str(chat.id),
                 str(chat.title),
             )
@@ -139,9 +139,9 @@ def import_data(update, context):
         # TODO: some of that link logic
         # NOTE: consider default permissions stuff?
         if conn:
-            text = "ʙᴀᴄᴋᴜᴘ ғᴜʟʟʏ ʀᴇsᴛᴏʀᴇᴅ ᴏɴ *{}*.".format(chat_name)
+            text = "BAcKUP fULLY REsToRED oN *{}*.".format(chat_name)
         else:
-            text = "ʙᴀᴄᴋᴜᴘ ғᴜʟʟʏ ʀᴇsᴛᴏʀᴇᴅ"
+            text = "BAcKUP fULLY REsToRED"
         msg.reply_text(text, parse_mode="markdown")
 
 
@@ -160,7 +160,7 @@ def export_data(update, context):
         # chat_name = dispatcher.bot.getChat(conn).title
     else:
         if update.effective_message.chat.type == "private":
-            update.effective_message.reply_text("ᴛʜɪs ɪs ᴀ ɢʀᴏᴜᴘ ᴄᴏᴍᴍᴀɴᴅ!")
+            update.effective_message.reply_text("THIs Is A GRoUP coMMAND!")
             return ""
         chat = update.effective_chat
         chat_id = update.effective_chat.id
@@ -176,7 +176,7 @@ def export_data(update, context):
                 time.localtime(checkchat.get("value")),
             )
             update.effective_message.reply_text(
-                "ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ʙᴀᴄᴋᴜᴘ ᴏɴᴄᴇ ᴀ ᴅᴀʏ!\nʏᴏᴜ ᴄᴀɴ ʙᴀᴄᴋᴜᴘ ᴀɢᴀɪɴ ɪɴ ᴀʙᴏᴜᴛ `{}`".format(
+                "YoU cAN oNLY BAcKUP oNcE A DAY!\nYoU cAN BAcKUP AGAIN IN ABoUT `{}`".format(
                     timeformatt,
                 ),
                 parse_mode=ParseMode.MARKDOWN,
@@ -358,14 +358,14 @@ def export_data(update, context):
         },
     }
     baccinfo = json.dumps(backup, indent=4)
-    with open("Exon-Exon{}.backup".format(chat_id), "w") as f:
+    with open("network{}.backup".format(chat_id), "w") as f:
         f.write(str(baccinfo))
     context.bot.sendChatAction(current_chat_id, "upload_document")
     tgl = time.strftime("%H:%M:%S - %d/%m/%Y", time.localtime(time.time()))
     try:
         context.bot.sendMessage(
             JOIN_LOGGER,
-            "*sᴜᴄᴄᴇssғᴜʟʟʏ ɪᴍᴘᴏʀᴛᴇᴅ ʙᴀᴄᴋᴜᴘ:*\nᴄʜᴀᴛ: `{}`\nᴄʜᴀᴛ ɪᴅ: `{}`\nᴏɴ: `{}`".format(
+            "*sUccEssfULLY IMPoRTED BAcKUP:*\ncHAT: `{}`\ncHAT ID: `{}`\noN: `{}`".format(
                 chat.title,
                 chat_id,
                 tgl,
@@ -376,8 +376,8 @@ def export_data(update, context):
         pass
     context.bot.sendDocument(
         current_chat_id,
-        document=open("Exon-Exon{}.backup".format(chat_id), "rb"),
-        caption="*sᴜᴄᴄᴇssғᴜʟʟʏ ᴇxᴘᴏʀᴛᴇᴅ ʙᴀᴄᴋᴜᴘ:*\nᴄʜᴀᴛ: `{}`\nᴄʜᴀᴛ ɪᴅ: `{}`\nᴏɴ: `{}`\n\nɴᴏᴛᴇ: ᴛʜɪs `Backup` ᴡᴀs sᴘᴇᴄɪᴀʟʟʏ ᴍᴀᴅᴇ ғᴏʀ ɴᴏᴛᴇs.".format(
+        document=open("network{}.backup".format(chat_id), "rb"),
+        caption="*sUccEssfULLY ExPoRTED BAcKUP:*\ncHAT: `{}`\ncHAT ID: `{}`\noN: `{}`\n\nNoTE: THIs `Backup` WAs sPEcIALLY MADE foR NoTEs.".format(
             chat.title,
             chat_id,
             tgl,
@@ -386,7 +386,7 @@ def export_data(update, context):
         reply_to_message_id=msg.message_id,
         parse_mode=ParseMode.MARKDOWN,
     )
-    os.remove("Exon-Exon{}.backup".format(chat_id))  # Cleaning file
+    os.remove("network{}.backup".format(chat_id))  # Cleaning file
 
 
 # Temporary data
@@ -415,7 +415,7 @@ dispatcher.add_handler(IMPORT_HANDLER)
 dispatcher.add_handler(EXPORT_HANDLER)
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 # """
 from Exon.modules.language import gs
 
