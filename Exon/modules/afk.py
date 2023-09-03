@@ -29,6 +29,7 @@ SOFTWARE.
 
 
 import time
+import asyncio
 import random
 from Abg.helpers.human_read import get_readable_time
 from pyrogram.types import Message
@@ -51,43 +52,61 @@ async def active_afk(_, message: Message):
             data = reasondb["data"]
             reasonafk = reasondb["reason"]
             seenago = get_readable_time((int(time.time() - timeafk)))
+
             if afktype == "text":
                 send = await message.reply_text(
                     f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     disable_web_page_preview=True,
                 )
+                await asyncio.sleep(16)
+                await send.delete()
+
             if afktype == "text_reason":
                 send = await message.reply_text(
-                    f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                    f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nREAsoN: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
+                await asyncio.sleep(16)
+                await send.delete()
+
             if afktype == "animation":
                 if str(reasonafk) == "None":
                     send = await message.reply_animation(
                         data,
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
+                    await asyncio.sleep(16)
+                    await send.delete()
                 else:
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nREAsoN: `{reasonafk}`",
                     )
+                    await asyncio.sleep(16)
+                    await send.delete()
+
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
                         caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
                     )
+                    await asyncio.sleep(16)
+                    await send.delete()
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nREAsoN: `{reasonafk}`",
                     )
+                    await asyncio.sleep(16)
+                    await send.delete()
         except Exception:
             send = await message.reply_text(
                 f"**{message.from_user.first_name}** is back online.",
                 disable_web_page_preview=True,
             )
+            await asyncio.sleep(12)
+            await send.delete()
 
     if len(message.command) == 1 and not message.reply_to_message:
         details = {
@@ -229,13 +248,16 @@ async def active_afk(_, message: Message):
     ]
     
     await message.reply_sticker(random.choice(sticker_ids))
-    await message.reply_text(f"{message.from_user.first_name} is now afk!")
+    gone = await message.reply_text(f"{message.from_user.first_name} is now afk!")
+# Add a delay of 10 seconds before deleting the message
+    await asyncio.sleep(10)
+    await gone.delete()
 
 
 __mod_name__ = "Afk"
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 # """
 from Exon.modules.language import gs
