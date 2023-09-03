@@ -57,7 +57,7 @@ def get_readable_time(time: int) -> str:
     t = f"{timedelta(seconds=time)}".split(":")
     if time == 86400:
         return "1 day"
-    return "{} ʜᴏᴜʀ(s)".format(t[0]) if time >= 3600 else "{} ᴍɪɴᴜᴛᴇs".format(t[1])
+    return "{} HoUR(s)".format(t[0]) if time >= 3600 else "{} MINUTEs".format(t[1])
 
 
 @Exoncmd(command="raid", pass_args=True)
@@ -71,31 +71,31 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
     u = update.effective_user
     user = res_user(u, msg.message_id, chat)
     if chat.type == "private":
-        context.bot.sendMessage(chat.id, "ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴘᴍs.")
+        context.bot.sendMessage(chat.id, "THIs coMMAND Is NoT AvAILABLE IN PMs.")
         return
     stat, time, acttime = sql.getDefenseStatus(chat.id)
     readable_time = get_readable_time(time)
     if len(args) == 0:
         if stat:
-            text = "ʀᴀɪᴅ ᴍᴏᴅᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ <code>ᴇɴᴀʙʟᴇᴅ</code>\nᴡᴏᴜʟᴅ ʏᴏᴜ ʟɪᴋᴇ ᴛᴏ <code>ᴅɪsᴀʙʟᴇ</code> ʀᴀɪᴅ?"
+            text = "RAID MoDE Is cURRENTLY <code>ENABLED</code>\nWoULD YoU LIKE To <code>DIsABLE</code> RAID?"
             keyboard = [
                 [
                     InlineKeyboardButton(
-                        "ᴅɪsᴀʙʟᴇ ʀᴀɪᴅ",
+                        "DIsABLE RAID",
                         callback_data="disable_raid={}={}".format(chat.id, time),
                     ),
-                    InlineKeyboardButton("ᴄᴀɴᴄᴇʟ", callback_data="cancel_raid=1"),
+                    InlineKeyboardButton("cANcEL", callback_data="cancel_raid=1"),
                 ]
             ]
         else:
-            text = f"ʀᴀɪᴅ ᴍᴏᴅᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ <code>ᴅɪsᴀʙʟᴇᴅ</code>\nᴡᴏᴜʟᴅ ʏᴏᴜ ʟɪᴋᴇ ᴛᴏ <code>ᴇɴᴀʙʟᴇ</code> ʀᴀɪᴅ ғᴏʀ {readable_time}?"
+            text = f"RAID MoDE Is cURRENTLY <code>DIsABLED</code>\nWoULD YoU LIKE To <code>ENABLE</code> RAID foR {readable_time}?"
             keyboard = [
                 [
                     InlineKeyboardButton(
-                        "ᴇɴᴀʙʟᴇ ʀᴀɪᴅ",
+                        "ENABLE RAID",
                         callback_data="enable_raid={}={}".format(chat.id, time),
                     ),
-                    InlineKeyboardButton("ᴄᴀɴᴄᴇʟ", callback_data="cancel_raid=0"),
+                    InlineKeyboardButton("cANcEL", callback_data="cancel_raid=0"),
                 ]
             ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -104,13 +104,13 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
     elif args[0] == "off":
         if stat:
             sql.setDefenseStatus(chat.id, False, time, acttime)
-            text = "ʀᴀɪᴅ ᴍᴏᴅᴇ ʜᴀs ʙᴇᴇɴ <code>ᴅɪsᴀʙʟᴇᴅ</code>, ᴍᴇᴍʙᴇʀs ᴛʜᴀᴛ ᴊᴏɪɴ ᴡɪʟʟ ɴᴏ ʟᴏɴɢᴇʀ ʙᴇ ᴋɪᴄᴋᴇᴅ."
+            text = "RAID MoDE HAs BEEN <code>DIsABLED</code>, MEMBERs THAT JoIN WILL No LoNGER BE KIcKED."
             msg.reply_text(text, parse_mode=ParseMode.HTML)
             logmsg = (
                 f"<b>{html.escape(chat.title)}:</b>\n"
-                f"#𝐑𝐀𝐈𝐃\n"
-                f"ᴅɪsᴀʙʟᴇᴅ\n"
-                f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
+                f"#RAID\n"
+                f"DIsABLED\n"
+                f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
             )
             return logmsg
 
@@ -120,14 +120,14 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
         if time:
             readable_time = get_readable_time(time)
             if time >= 300 and time < 86400:
-                text = f"ʀᴀɪᴅ ᴍᴏᴅᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ <code>ᴅɪsᴀʙʟᴇᴅ</code>\nᴡᴏᴜʟᴅ ʏᴏᴜ ʟɪᴋᴇ ᴛᴏ <code>ᴇɴᴀʙʟᴇ</code> ʀᴀɪᴅ ғᴏʀ {readable_time}?"
+                text = f"RAID MoDE Is cURRENTLY <code>DIsABLED</code>\nWoULD YoU LIKE To <code>ENABLE</code> RAID foR {readable_time}?"
                 keyboard = [
                     [
                         InlineKeyboardButton(
-                            "ᴇɴᴀʙʟᴇ ʀᴀɪᴅ",
+                            "ENABLE RAID",
                             callback_data="enable_raid={}={}".format(chat.id, time),
                         ),
-                        InlineKeyboardButton("ᴄᴀɴᴄᴇʟ", callback_data="cancel_raid=0"),
+                        InlineKeyboardButton("cANcEL", callback_data="cancel_raid=0"),
                     ]
                 ]
                 reply_markup = InlineKeyboardMarkup(keyboard)
@@ -136,13 +136,13 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
                 )
             else:
                 msg.reply_text(
-                    "ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ sᴇᴛ ᴛɪᴍᴇ ʙᴇᴛᴡᴇᴇɴ 5 ᴍɪɴᴜᴛᴇs ᴀɴᴅ 1 ᴅᴀʏ",
+                    "YoU cAN oNLY sET TIME BETWEEN 5 MINUTEs AND 1 DAY",
                     parse_mode=ParseMode.HTML,
                 )
 
         else:
             msg.reply_text(
-                "ᴜɴᴋɴᴏᴡɴ ᴛɪᴍᴇ ɢɪᴠᴇɴ, ɢɪᴠᴇ ᴍᴇ sᴏᴍᴇᴛʜɪɴɢ ʟɪᴋᴇ 5m ᴏʀ 1h",
+                "UNKNoWN TIME GIvEN, GIvE ME soMETHING LIKE 5m oR 1h",
                 parse_mode=ParseMode.HTML,
             )
 
@@ -161,27 +161,27 @@ def enable_raid_cb(update: Update, _: CallbackContext) -> Optional[str]:
     _, t, acttime = sql.getDefenseStatus(chat_id)
     sql.setDefenseStatus(chat_id, True, time, acttime)
     update.effective_message.edit_text(
-        f"ʀᴀɪᴅ ᴍᴏᴅᴇ ʜᴀs ʙᴇᴇɴ <code>ᴇɴᴀʙʟᴇᴅ</code> ғᴏʀ {readable_time}.",
+        f"RAID MoDE HAs BEEN <code>ENABLED</code> foR {readable_time}.",
         parse_mode=ParseMode.HTML,
     )
-    log.info("ᴇɴᴀʙʟᴇᴅ ʀᴀɪᴅ ᴍᴏᴅᴇ ɪɴ {} ғᴏʀ {}".format(chat_id, readable_time))
+    log.info("ENABLED RAID MoDE IN {} foR {}".format(chat_id, readable_time))
 
     def disable_raid(_):
         sql.setDefenseStatus(chat_id, False, t, acttime)
-        log.info("ᴅɪsʙʟᴇᴅ ʀᴀɪᴅ ᴍᴏᴅᴇ ɪɴ {}".format(chat_id))
+        log.info("DIsBLED RAID MoDE IN {}".format(chat_id))
         logmsg = (
             f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#𝐑𝐀𝐈𝐃\n"
-            f"ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅɪsᴀʙʟᴇᴅ\n"
+            f"#RAID\n"
+            f"AUToMATIcALLY DIsABLED\n"
         )
         return logmsg
 
     j.run_once(disable_raid, time)
     logmsg = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#𝐑𝐀𝐈𝐃\n"
-        f"ᴇɴᴀʙʟʙᴇᴅ ғᴏʀ {readable_time}\n"
-        f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
+        f"#RAID\n"
+        f"ENABLBED foR {readable_time}\n"
+        f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
     )
     return logmsg
 
@@ -199,14 +199,14 @@ def disable_raid_cb(update: Update, _: CallbackContext) -> Optional[str]:
     _, t, acttime = sql.getDefenseStatus(chat_id)
     sql.setDefenseStatus(chat_id, False, time, acttime)
     update.effective_message.edit_text(
-        "ʀᴀɪᴅ ᴍᴏᴅᴇ ʜᴀs ʙᴇᴇɴ <code>Disabled</code>, ᴊᴏɪɴɪɢ ᴍᴇᴍʙᴇʀs ᴡɪʟʟ ɴᴏ ʟᴏɴɢᴇʀ ʙᴇ ᴋɪᴄᴋᴇᴅ.",
+        "RAID MoDE HAs BEEN <code>Disabled</code>, JoINIG MEMBERs WILL No LoNGER BE KIcKED.",
         parse_mode=ParseMode.HTML,
     )
     logmsg = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#𝐑𝐀𝐈𝐃\n"
-        f"ᴅɪsᴀʙʟᴇᴅ\n"
-        f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
+        f"#RAID\n"
+        f"DIsABLED\n"
+        f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
     )
     return logmsg
 
@@ -218,7 +218,7 @@ def disable_raid_cb(update: Update, context: CallbackContext):
     args = update.callback_query.data.split("=")
     what = args[0]
     update.effective_message.edit_text(
-        f"ᴀᴄᴛɪᴏɴ ᴄᴀɴᴄᴇʟʟᴇᴅ, ʀᴀɪᴅ ᴍᴏᴅᴇ ᴡɪʟʟ sᴛᴀʏ <code>{'Enabled' if what ==1 else 'Disabled'}</code>.",
+        f"AcTIoN cANcELLED, RAID MoDE WILL sTAY <code>{'Enabled' if what ==1 else 'Disabled'}</code>.",
         parse_mode=ParseMode.HTML,
     )
 
@@ -236,7 +236,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
     user = res_user(u, msg.message_id, chat)
     if not args:
         msg.reply_text(
-            f"ʀᴀɪᴅ ᴍᴏᴅᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ sᴇᴛ ᴛᴏ {get_readable_time(time)}\nᴡʜᴇɴ ᴛᴏɢɢʟᴇᴅ, ᴛʜᴇ ʀᴀɪᴅ ᴍᴏᴅᴇ ᴡɪʟʟ ʟᴀsᴛ ғᴏʀ {get_readable_time(time)} ᴛʜᴇɴ ᴛᴜʀɴ ᴏғғ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ",
+            f"RAID MoDE Is cURRENTLY sET To {get_readable_time(time)}\nWHEN ToGGLED, THE RAID MoDE WILL LAsT foR {get_readable_time(time)} THEN TURN off AUToMATIcALLY",
             parse_mode=ParseMode.HTML,
         )
         return
@@ -245,24 +245,24 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
     if time:
         readable_time = get_readable_time(time)
         if time >= 300 and time < 86400:
-            text = f"ʀᴀɪᴅ ᴍᴏᴅᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ sᴇᴛ ᴛᴏ {readable_time}\nᴡʜᴇɴ ᴛᴏɢɢʟᴇᴅ, ᴛʜᴇ ʀᴀɪᴅ ᴍᴏᴅᴇ ᴡɪʟʟ ʟᴀsᴛ ғᴏʀ {readable_time} ᴛʜᴇɴ ᴛᴜʀɴ ᴏғғ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ"
+            text = f"RAID MoDE Is cURRENTLY sET To {readable_time}\nWHEN ToGGLED, THE RAID MoDE WILL LAsT foR {readable_time} THEN TURN off AUToMATIcALLY"
             msg.reply_text(text, parse_mode=ParseMode.HTML)
             sql.setDefenseStatus(chat.id, what, time, acttime)
             logmsg = (
                 f"<b>{html.escape(chat.title)}:</b>\n"
-                f"#𝐑𝐀𝐈𝐃\n"
-                f"sᴇᴛ ʀᴀɪᴅ ᴍᴏᴅᴇ ᴛɪᴍᴇ ᴛᴏ {readable_time}\n"
-                f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
+                f"#RAID\n"
+                f"sET RAID MoDE TIME To {readable_time}\n"
+                f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
             )
             return logmsg
         else:
             msg.reply_text(
-                "ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ sᴇᴛ ᴛɪᴍᴇ ʙᴇᴛᴡᴇᴇɴ 5 ᴍɪɴᴜᴛᴇs ᴀɴᴅ 1 ᴅᴀʏ",
+                "YoU cAN oNLY sET TIME BETWEEN 5 MINUTEs AND 1 DAY",
                 parse_mode=ParseMode.HTML,
             )
     else:
         msg.reply_text(
-            "ᴜɴᴋɴᴏᴡɴ ᴛɪᴍᴇ ɢɪᴠᴇɴ, give ᴍᴇ sᴏᴍᴇᴛʜɪɴɢ ʟɪᴋᴇ 5ᴍ ᴏʀ 1ʜ",
+            "UNKNoWN TIME GIvEN, give ME soMETHING LIKE 5M oR 1H",
             parse_mode=ParseMode.HTML,
         )
 
@@ -280,7 +280,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
     user = res_user(u, msg.message_id, chat)
     if not args:
         msg.reply_text(
-            f"ʀᴀɪᴅ ᴀᴄᴛᴏɪɴ ᴛɪᴍᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ sᴇᴛ ᴛᴏ {get_readable_time(time)}\nᴡʜᴇɴ ᴛᴏɢɢʟᴇᴅ, ᴛʜᴇ ᴍᴇᴍʙᴇʀs ᴛʜᴀᴛ ᴊᴏɪɴ ᴡɪʟʟ ʙᴇ ᴛᴇᴍᴘ ʙᴀɴɴᴇᴅ ғᴏʀ {get_readable_time(time)}",
+            f"RAID AcToIN TIME Is cURRENTLY sET To {get_readable_time(time)}\nWHEN ToGGLED, THE MEMBERs THAT JoIN WILL BE TEMP BANNED foR {get_readable_time(time)}",
             parse_mode=ParseMode.HTML,
         )
         return
@@ -289,29 +289,29 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
     if time:
         readable_time = get_readable_time(time)
         if time >= 300 and time < 86400:
-            text = f"ʀᴀɪᴅ ᴀᴄᴛᴏɪɴ ᴛɪᴍᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ sᴇᴛ ᴛᴏ {get_readable_time(time)}\nᴡʜᴇɴ ᴛᴏɢɢʟᴇᴅ, ᴛʜᴇ ᴍᴇᴍʙᴇʀs ᴛʜᴀᴛ ᴊᴏɪɴ ᴡɪʟʟ ʙᴇ ᴛᴇᴍᴘ ʙᴀɴɴᴇᴅ ғᴏʀ {readable_time}"
+            text = f"RAID AcToIN TIME Is cURRENTLY sET To {get_readable_time(time)}\nWHEN ToGGLED, THE MEMBERs THAT JoIN WILL BE TEMP BANNED foR {readable_time}"
             msg.reply_text(text, parse_mode=ParseMode.HTML)
             sql.setDefenseStatus(chat.id, what, t, time)
             logmsg = (
                 f"<b>{html.escape(chat.title)}:</b>\n"
-                f"#𝐑𝐀𝐈𝐃\n"
-                f"sᴇᴛ ʀᴀɪᴅ ᴍᴏᴅᴇ ᴀᴄᴛɪᴏɴ ᴛɪᴍᴇ ᴛᴏ {readable_time}\n"
-                f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
+                f"#RAID\n"
+                f"sET RAID MoDE AcTIoN TIME To {readable_time}\n"
+                f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
             )
             return logmsg
         else:
             msg.reply_text(
-                "ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ sᴇᴛ ᴛɪᴍᴇ ʙᴇᴛᴡᴇᴇɴ 5 ᴍɪɴᴜᴛᴇs ᴀɴᴅ 1 ᴅᴀʏ",
+                "YoU cAN oNLY sET TIME BETWEEN 5 MINUTEs AND 1 DAY",
                 parse_mode=ParseMode.HTML,
             )
     else:
         msg.reply_text(
-            "ᴜɴᴋɴᴏᴡɴ ᴛɪᴍᴇ ɢɪᴠᴇɴ, ɢɪᴠᴇ ᴍᴇ sᴏᴍᴇᴛʜɪɴɢ ʟɪᴋᴇ 5m ᴏʀ 1h",
+            "UNKNoWN TIME GIvEN, GIvE ME soMETHING LIKE 5m oR 1h",
             parse_mode=ParseMode.HTML,
         )
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 # """
 from Exon.modules.language import gs
 
