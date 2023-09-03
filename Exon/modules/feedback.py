@@ -61,15 +61,15 @@ async def feedback(e):
     )
     NATFEED = ("https://telegra.ph/file/2dd04f407b16bc2cfdf76.jpg",)
     BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
-    TEXT = "ᴛʜᴀɴᴋꜱ ꜰᴏʀ ʏᴏᴜʀ ꜰᴇᴇᴅʙᴀᴄᴋ, ɪ ʜᴏᴘᴇ ʏᴏᴜ ʜᴀᴘᴘʏ ᴡɪᴛʜ ᴏᴜʀ ꜱᴇʀᴠɪᴄᴇ."
-    GIVE = "ɢɪᴠᴇ ꜱᴏᴍᴇ ᴛᴇxᴛ ꜰᴏʀ ꜰᴇᴇᴅʙᴄᴋ ✨"
+    TEXT = "THANKS FoR YoUR FEEDBAcK, I HoPE YoU HAPPY WITH oUR SERvIcE."
+    GIVE = "GIvE SoME TExT FoR FEEDBcK ✨"
     logger_text = f"""
-**ɴᴇᴡ ꜰᴇᴇᴅʙᴀᴄᴋ**
+**NEW FEEDBAcK**
 
-**ꜰʀᴏᴍ ᴜꜱᴇʀ:** {mention}
-**ᴜꜱᴇʀɴᴀᴍᴇ:** @{e.sender.username}
-**ᴜꜱᴇʀ ɪᴅ:** `{e.sender.id}`
-**ꜰᴇᴇᴅʙᴀᴄᴋ:** `{e.text}`
+**FRoM USER:** {mention}
+**USERNAME:** @{e.sender.username}
+**USER ID:** `{e.sender.id}`
+**FEEDBAcK:** `{e.text}`
 """
     if e.sender_id != OWNER_ID and not quew:
         await e.reply(
