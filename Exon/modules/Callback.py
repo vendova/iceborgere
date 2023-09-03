@@ -50,15 +50,14 @@ def ABG_about_callback(update, context):
     query = update.callback_query
     if query.data == "ABG_":
         query.message.edit_text(
-            text=f"I'm {BOT_NAME} ,A @werewolfquicker group management bot."
+            text=f"I'm {BOT_NAME}!"
             "\nI can restrict and scan for disruptive users."
             "\nI greet new users with customizable welcome messages and can even set group rules."
             "\nI have an advanced anti-flood system."
             "\nI warn users until they reach max warns, with predefined actions like ban, mute, kick, etc."
             "\nI feature note keeping, blacklists, and predetermined replies to certain keywords."
             "\nI check for admins' permissions before executing any command and more."
-            "\n\n_quickerobot licensed under the GNU general public license v3.0_"
-            "\n\n*Click the button below to get basic help for using quickerobot.*.",
+            "\n\n*Click the button below to get basic help for using me*.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
