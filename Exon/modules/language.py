@@ -55,7 +55,7 @@ def gs(chat_id: Union[int, str], string: str) -> str:
         lang = sql.get_chat_lang(chat_id)
         return get_string(lang, string)
     except:
-        return "ᴍᴇ ɴᴏᴡ ʙᴜsʏ ᴡʜᴇɴ ғʀᴇᴇ ᴀᴅᴅ ᴛʜɪs "
+        return "otw "
 
 
 @Exoncmd(command="language")
