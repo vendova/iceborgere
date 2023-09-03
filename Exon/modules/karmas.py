@@ -85,9 +85,11 @@ async def upvote(_, message):
         karma = 1
     new_karma = {"karma": karma}
     await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
-    await message.reply_text(
+    again = await message.reply_text(
         f"Increased karma of {user_mention} by 1.\n**Total points :** {karma}"
     )
+    await asyncio.sleep(12)
+    await again.delete()
 
 
 @abishnoi.on_message(
@@ -122,9 +124,12 @@ async def downvote(_, message):
         karma = 0
     new_karma = {"karma": karma}
     await update_karma(message.chat.id, await int_to_alpha(user_id), new_karma)
-    await message.reply_text(
+    again = await message.reply_text(
         f"Decreased karma of {user_mention} by 1.\n**Total points :** {karma}"
     )
+    await asyncio.sleep(12)
+    await again.delete()
+    
 
 
 @abishnoi.on_cmd("karmastat", group_only=True)
@@ -174,10 +179,10 @@ async def command_karma(_, message):
         karma = await get_karma(chat_id, await int_to_alpha(user_id))
         if karma:
             karma = karma["karma"]
-            await message.reply_text(f"**ᴛᴏᴛᴀʟ ᴘᴏɪɴᴛs**: __{karma}__")
+            await message.reply_text(f"**Total points**: __{karma}__")
         else:
             karma = 0
-            await message.reply_text(f"**ᴛᴏᴛᴀʟ ᴘᴏɪɴᴛs**: __{karma}__")
+            await message.reply_text(f"**Total points**: __{karma}__")
 
 
 @abishnoi.on_cmd("karma", group_only=True)
@@ -190,9 +195,9 @@ async def captcha_state(_, message):
     state = state.lower()
     if state == "on":
         await karma_on(message.chat.id)
-        await message.reply_text("ᴇɴᴀʙʟᴇᴅ ᴋᴀʀᴍᴀ sʏsᴛᴇᴍ.")
+        await message.reply_text("Enabled Karma system.")
     elif state == "off":
         await karma_off(message.chat.id)
-        await message.reply_text("ᴅɪsᴀʙʟᴇᴅ ᴋᴀʀᴍᴀ sʏsᴛᴇᴍ.")
+        await message.reply_text("Disabled Karma system.")
     else:
         await message.reply_text(usage)
