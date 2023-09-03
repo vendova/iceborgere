@@ -71,10 +71,10 @@ async def fsub(event):
     if event.is_group:
         perm = await event.client.get_permissions(event.chat_id, event.sender_id)
         if not perm.is_admin:
-            return await event.reply("ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴅᴏ ᴛʜɪs.")
+            return await event.reply("YoU NEED To BE AN ADMIN To Do THIs.")
         if not perm.is_creator:
             return await event.reply(
-                "❗ <b>ɢʀᴏᴜᴘ ᴄʀᴇᴀᴛᴏʀ ʀᴇǫᴜɪʀᴇᴅ</b> \n<i>ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʙᴇ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄʀᴇᴀᴛᴏʀ ᴛᴏ ᴅᴏ ᴛʜᴀᴛ.</i>",
+                "! <b>GRoUP cREAToR REoUIRED</b> \n<i>YoU HAvE To BE THE GRoUP cREAToR To Do THAT.</i>",
                 parse_mode="html",
             )
     try:
@@ -85,38 +85,38 @@ async def fsub(event):
         chat_db = db.fs_settings(event.chat_id)
         if not chat_db:
             await event.reply(
-                "<b>❌ ғᴏʀᴄᴇ sᴜʙsᴄʀɪʙᴇ ɪs ᴅɪsᴀʙʟᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ.</b>", parse_mode="HTML"
+                "<b>❌ foRcE sUBscRIBE Is DIsABLED IN THIs cHAT.</b>", parse_mode="HTML"
             )
         else:
             await event.reply(
-                f"ғᴏʀᴄᴇsᴜʙsᴄʀɪʙᴇ ɪs ᴄᴜʀʀᴇɴᴛʟʏ <b>ᴇɴᴀʙʟᴇᴅ</b>. ᴜsᴇʀs ᴀʀᴇ ғᴏʀᴄᴇᴅ ᴛᴏ ᴊᴏɪɴ <b>@{chat_db.channel}</b> ᴛᴏ sᴘᴇᴀᴋ ʜᴇʀᴇ.",
+                f"foRcEsUBscRIBE Is cURRENTLY <b>ENABLED</b>. UsERs ARE foRcED To JoIN <b>@{chat_db.channel}</b> To sPEAK HERE.",
                 parse_mode="html",
             )
     elif channel in ["on", "yes", "y"]:
-        await event.reply("❗ᴘʟᴇᴀsᴇ sᴘᴇᴄɪғʏ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ.")
+        await event.reply("!PLEAsE sPEcIfY THE cHANNEL UsERNAME.")
     elif channel in ["off", "no", "n"]:
-        await event.reply("**❌ ғᴏʀᴄᴇ sᴜʙsᴄʀɪʙᴇ ɪs ᴅɪsᴀʙʟᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ.**")
+        await event.reply("**❌ foRcE sUBscRIBE Is DIsABLED sUccEssfULLY.**")
         db.disapprove(event.chat_id)
     else:
         try:
             channel_entity = await event.client.get_entity(channel)
         except:
             return await event.reply(
-                "❗<b>ɪɴᴠᴀʟɪᴅ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ ᴘʀᴏᴠɪᴅᴇᴅ.</b>", parse_mode="html"
+                "!<b>INvALID cHANNEL UsERNAME PRovIDED.</b>", parse_mode="html"
             )
         channel = channel_entity.username
         try:
             if not channel_entity.broadcast:
-                return await event.reply("ᴛʜᴀᴛ's ɴᴏᴛ ᴀ ᴠᴀʟɪᴅ ᴄʜᴀɴɴᴇʟ.")
+                return await event.reply("THAT's NoT A vALID cHANNEL.")
         except:
-            return await event.reply("ᴛʜᴀᴛ's ɴᴏᴛ ᴀ ᴠᴀʟɪᴅ ᴄʜᴀɴɴᴇʟ.")
+            return await event.reply("THAT's NoT A vALID cHANNEL.")
         if not await participant_check(channel, BOT_ID):
             return await event.reply(
-                f"❗**ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ**\nI ᴀᴍ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ɪɴ ᴛʜᴇ [ᴄʜᴀɴɴᴇʟ](https://t.me/{channel}). ᴀᴅᴅ ᴍᴇ ᴀs ᴀ ᴀᴅᴍɪɴ ɪɴ ᴏʀᴅᴇʀ ᴛᴏ ᴇɴᴀʙʟᴇ ғᴏʀᴄᴇsᴜʙsᴄʀɪʙᴇ.",
+                f"!**NoT AN ADMIN IN THE cHANNEL**\nI AM NoT AN ADMIN IN THE [cHANNEL](https://t.me/{channel}). ADD ME As A ADMIN IN oRDER To ENABLE foRcEsUBscRIBE.",
                 link_preview=False,
             )
         db.add_channel(event.chat_id, str(channel))
-        await event.reply(f"✅ **ғᴏʀᴄᴇ sᴜʙsᴄʀɪʙᴇ ɪs ᴇɴᴀʙʟᴇᴅ** to @{channel}.")
+        await event.reply(f"✅ **foRcE sUBscRIBE Is ENABLED** to @{channel}.")
 
 
 @Rani.on(events.NewMessage())
@@ -144,10 +144,10 @@ async def fsub_n(e):
     except ChatAdminRequiredError:
         return
     if not check:
-        buttons = [Button.url("ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", f"t.me/{channel}")], [
-            Button.inline("ᴜɴᴍᴜᴛᴇ ᴍᴇ", data="fs_{}".format(str(e.sender_id)))
+        buttons = [Button.url("JoIN cHANNEL", f"t.me/{channel}")], [
+            Button.inline("UNMUTE ME", data="fs_{}".format(str(e.sender_id)))
         ]
-        txt = f'<b><a href="tg://user?id={e.sender_id}">{e.sender.first_name}</a></b>, ʏᴏᴜ ʜᴀᴠᴇ <b>ɴᴏᴛ sᴜʙsᴄʀɪʙᴇᴅ</b> ᴛᴏ ᴏᴜʀ <b><a href="t.me/{channel}">ᴄʜᴀɴɴᴇʟ</a></b> ʏᴇᴛ❗.ᴘʟᴇᴀsᴇ <b><a href="t.me/{channel}">ᴊᴏɪɴ</a></b> ᴀɴᴅ <b>ᴘʀᴇss ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ</b> ᴛᴏ ᴜɴᴍᴜᴛᴇ ʏᴏᴜʀsᴇʟғ.'
+        txt = f'<b><a href="tg://user?id={e.sender_id}">{e.sender.first_name}</a></b>, YoU HAvE <b>NoT sUBscRIBED</b> To oUR <b><a href="t.me/{channel}">cHANNEL</a></b> YET!.PLEAsE <b><a href="t.me/{channel}">JoIN</a></b> AND <b>PREss THE BUTToN BELoW</b> To UNMUTE YoURsELf.'
         await e.reply(txt, buttons=buttons, parse_mode="html", link_preview=False)
         await e.client.edit_permissions(e.chat_id, e.sender_id, send_messages=False)
 
@@ -156,7 +156,7 @@ async def fsub_n(e):
 async def unmute_fsub(event):
     user_id = int(((event.pattern_match.group(1)).decode()).split("_", 1)[1])
     if not event.sender_id == user_id:
-        return await event.answer("ᴛʜɪs ɪs ɴᴏᴛ ᴍᴇᴀɴᴛ ғᴏʀ ʏᴏᴜ.", alert=True)
+        return await event.answer("THIs Is NoT MEANT foR YoU.", alert=True)
     channel = (db.fs_settings(event.chat_id)).get("channel")
     try:
         check = await participant_check(channel, user_id)
@@ -165,7 +165,7 @@ async def unmute_fsub(event):
         return
     if not check:
         return await event.answer(
-            "ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ, ᴛᴏ ɢᴇᴛ ᴜɴᴍᴜᴛᴇᴅ!", alert=True
+            "YoU HAvE To JoIN THE cHANNEL fIRsT, To GET UNMUTED!", alert=True
         )
     try:
         await event.client.edit_permissions(event.chat_id, user_id, send_messages=True)
@@ -176,7 +176,7 @@ async def unmute_fsub(event):
 
 __mod_name__ = "F-Sub"
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 # """
 from Exon.modules.language import gs
