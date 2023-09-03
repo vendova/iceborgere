@@ -53,7 +53,7 @@ def approve(update, context):
     user_id = extract_user(message, args)
     if not user_id:
         message.reply_text(
-            "I ᴅᴏɴ'ᴛ ᴋɴᴏᴡ ᴡʜᴏ ʏᴏᴜ'ʀᴇ ᴛᴀʟᴋɪɴɢ ᴀʙᴏᴜᴛ, ʏᴏᴜ'ʀᴇ ɢᴏɪɴɢ ᴛᴏ ɴᴇᴇᴅ ᴛᴏ sᴘᴇᴄɪғʏ ᴀ ᴜsᴇʀ!",
+            "I DoN'T KNoW WHo YoU'RE TALKING ABoUT, YoU'RE GoING To NEED To sPEcIfY A UsER!",
         )
         return ""
     try:
@@ -62,25 +62,25 @@ def approve(update, context):
         return ""
     if member.status in ("administrator", "creator"):
         message.reply_text(
-            "ᴜsᴇʀ ɪs ᴀʟʀᴇᴀᴅʏ ᴀᴅᴍɪɴ - ʟᴏᴄᴋs, ʙʟᴏᴄᴋʟɪsᴛs, ᴀɴᴅ ᴀɴᴛɪғʟᴏᴏᴅ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴ'ᴛ ᴀᴘᴘʟʏ ᴛᴏ ᴛʜᴇᴍ.",
+            "UsER Is ALREADY ADMIN - LocKs, BLocKLIsTs, AND ANTIfLooD ALREADY DoN'T APPLY To THEM.",
         )
         return ""
     if sql.is_approved(message.chat_id, user_id):
         message.reply_text(
-            f"[{member.user['first_name']}](tg://user?id={member.user['id']}) ɪs ᴀʟʀᴇᴀᴅʏ ᴀᴘᴘʀᴏᴠᴇᴅ ɪɴ {chat_title}",
+            f"[{member.user['first_name']}](tg://user?id={member.user['id']}) Is ALREADY APPRovED IN {chat_title}",
             parse_mode=ParseMode.MARKDOWN,
         )
         return ""
     sql.approve(message.chat_id, user_id)
     message.reply_text(
-        f"[{member.user['first_name']}](tg://user?id={member.user['id']}) ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ ɪɴ {chat_title}! ᴛʜᴇʏ ᴡɪʟʟ ɴᴏᴡ ʙᴇ ɪɢɴᴏʀᴇᴅ ʙʏ ᴀᴜᴛᴏᴍᴀᴛᴇᴅ ᴀᴅᴍɪɴ ᴀᴄᴛɪᴏɴs ʟɪᴋᴇ ʟᴏᴄᴋs, ʙʟᴏᴄᴋʟɪsᴛs, ᴀɴᴅ ᴀɴᴛɪғʟᴏᴏᴅ.",
+        f"[{member.user['first_name']}](tg://user?id={member.user['id']}) HAs BEEN APPRovED IN {chat_title}! THEY WILL NoW BE IGNoRED BY AUToMATED ADMIN AcTIoNs LIKE LocKs, BLocKLIsTs, AND ANTIfLooD.",
         parse_mode=ParseMode.MARKDOWN,
     )
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#𝐀𝐏𝐏𝐑𝐎𝐕𝐄𝐃\n"
-        f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>ᴜsᴇʀ:</b> {mention_html(member.user.id, member.user.first_name)}"
+        f"#APPROVED\n"
+        f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>UsER:</b> {mention_html(member.user.id, member.user.first_name)}"
     )
 
     return log_message
@@ -97,7 +97,7 @@ def disapprove(update, context):
     user_id = extract_user(message, args)
     if not user_id:
         message.reply_text(
-            "I ᴅᴏɴ'ᴛ ᴋɴᴏᴡ ᴡʜᴏ ʏᴏᴜ'ʀᴇ ᴛᴀʟᴋɪɴɢ ᴀʙᴏᴜᴛ, ʏᴏᴜ'ʀᴇ ɢᴏɪɴɢ ᴛᴏ ɴᴇᴇᴅ ᴛᴏ sᴘᴇᴄɪғʏ ᴀ ᴜsᴇʀ!",
+            "I DoN'T KNoW WHo YoU'RE TALKING ABoUT, YoU'RE GoING To NEED To sPEcIfY A UsER!",
         )
         return ""
     try:
@@ -105,20 +105,20 @@ def disapprove(update, context):
     except BadRequest:
         return ""
     if member.status in ("administrator", "creator"):
-        message.reply_text("ᴛʜɪs ᴜsᴇʀ ɪs ᴀɴ ᴀᴅᴍɪɴ, ᴛʜᴇʏ ᴄᴀɴ'ᴛ ʙᴇ ᴜɴᴀᴘᴘʀᴏᴠᴇᴅ.")
+        message.reply_text("THIs UsER Is AN ADMIN, THEY cAN'T BE UNAPPRovED.")
         return ""
     if not sql.is_approved(message.chat_id, user_id):
-        message.reply_text(f"{member.user['first_name']} ɪsɴ'ᴛ ᴀᴘᴘʀᴏᴠᴇᴅ ʏᴇᴛ!")
+        message.reply_text(f"{member.user['first_name']} IsN'T APPRovED YET!")
         return ""
     sql.disapprove(message.chat_id, user_id)
     message.reply_text(
-        f"{member.user['first_name']} ɪs ɴᴏ ʟᴏɴɢᴇʀ ᴀᴘᴘʀᴏᴠᴇᴅ ɪɴ {chat_title}.",
+        f"{member.user['first_name']} Is No LoNGER APPRovED IN {chat_title}.",
     )
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#𝐔𝐍𝐀𝐏𝐏𝐑𝐎𝐕𝐄𝐃\n"
-        f"<b>ᴀᴅᴍɪɴ:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>ᴜsᴇʀ:</b> {mention_html(member.user.id, member.user.first_name)}"
+        f"#UNAPPROVED\n"
+        f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>UsER:</b> {mention_html(member.user.id, member.user.first_name)}"
     )
 
     return log_message
@@ -129,13 +129,13 @@ def approved(update, context):
     message = update.effective_message
     chat_title = message.chat.title
     chat = update.effective_chat
-    msg = "ᴛʜᴇ ғᴏʟʟᴏᴡɪɴɢ ᴜsᴇʀ's ᴀʀᴇ ᴀᴘᴘʀᴏᴠᴇᴅ.\n"
+    msg = "THE foLLoWING UsER's ARE APPRovED.\n"
     approved_users = sql.list_approved(message.chat_id)
     for i in approved_users:
         member = chat.get_member(int(i.user_id))
-        msg += f"× `{i.user_id}`: {member.user['first_name']}\n"
-    if msg.endswith("ᴀᴘᴘʀᴏᴠᴇᴅ.\n"):
-        message.reply_text(f"ɴᴏ ᴜsᴇʀs ᴀʀᴇ ᴀᴘᴘʀᴏᴠᴇᴅ ɪɴ {chat_title}.")
+        msg += f"x `{i.user_id}`: {member.user['first_name']}\n"
+    if msg.endswith("APPRovED.\n"):
+        message.reply_text(f"No UsERs ARE APPRovED IN {chat_title}.")
         return ""
     message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
@@ -149,16 +149,16 @@ def approval(update, context):
     member = chat.get_member(int(user_id))
     if not user_id:
         message.reply_text(
-            "I ᴅᴏɴ'ᴛ ᴋɴᴏᴡ ᴡʜᴏ ʏᴏᴜ'ʀᴇ ᴛᴀʟᴋɪɴɢ ᴀʙᴏᴜᴛ, ʏᴏᴜ'ʀᴇ ɢᴏɪɴɢ ᴛᴏ ɴᴇᴇᴅ ᴛᴏ sᴘᴇᴄɪғʏ ᴀ ᴜsᴇʀ!",
+            "I DoN'T KNoW WHo YoU'RE TALKING ABoUT, YoU'RE GoING To NEED To sPEcIfY A UsER!",
         )
         return ""
     if sql.is_approved(message.chat_id, user_id):
         message.reply_text(
-            f"{member.user['first_name']} ɪs ᴀɴ ᴀᴘᴘʀᴏᴠᴇᴅ ᴜsᴇʀ. ʟᴏᴄᴋs, ᴀɴᴛɪғʟᴏᴏᴅ, ᴀɴᴅ ʙʟᴏᴄᴋʟɪsᴛs ᴡᴏɴ'ᴛ ᴀᴘᴘʟʏ ᴛᴏ ᴛʜᴇᴍ.",
+            f"{member.user['first_name']} Is AN APPRovED UsER. LocKs, ANTIfLooD, AND BLocKLIsTs WoN'T APPLY To THEM.",
         )
     else:
         message.reply_text(
-            f"{member.user['first_name']} ɪs ɴᴏᴛ ᴀɴ ᴀᴘᴘʀᴏᴠᴇᴅ ᴜsᴇʀ. ᴛʜᴇʏ ᴀʀᴇ ᴀғғᴇᴄᴛᴇᴅ ʙʏ ɴᴏʀᴍᴀʟ ᴄᴏᴍᴍᴀɴᴅs.",
+            f"{member.user['first_name']} Is NoT AN APPRovED UsER. THEY ARE AffEcTED BY NoRMAL coMMANDs.",
         )
 
 
@@ -168,27 +168,27 @@ def unapproveall(update: Update, context: CallbackContext):
     member = chat.get_member(user.id)
     if member.status != "creator" and user.id not in DRAGONS:
         update.effective_message.reply_text(
-            "ᴏɴʟʏ ᴛʜᴇ ᴄʜᴀᴛ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜɴᴀᴘᴘʀᴏᴠᴇ ᴀʟʟ ᴜsᴇʀs ᴀᴛ ᴏɴᴄᴇ.",
+            "oNLY THE cHAT oWNER cAN UNAPPRovE ALL UsERs AT oNcE.",
         )
     else:
         buttons = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="ᴜɴᴀᴘᴘʀᴏᴠᴇ ᴀʟʟ ᴜsᴇʀs",
+                        text="UNAPPRovE ALL UsERs",
                         callback_data="unapproveall_user",
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        text="ᴄᴀɴᴄᴇʟ",
+                        text="cANcEL",
                         callback_data="unapproveall_cancel",
                     ),
                 ],
             ],
         )
         update.effective_message.reply_text(
-            f"ᴀʀᴇ ʏᴏᴜ sᴜʀᴇ ʏᴏᴜ ᴡᴏᴜʟᴅ ʟɪᴋᴇ ᴛᴏ ᴜɴᴀᴘᴘʀᴏᴠᴇ 𝐀𝐋𝐋 ᴜsᴇʀs ɪɴ {chat.title}? ᴛʜɪs ᴀᴄᴛɪᴏɴ ᴄᴀɴɴᴏᴛ ʙᴇ ᴜɴᴅᴏɴᴇ.",
+            f"ARE YoU sURE YoU WoULD LIKE To UNAPPRovE ALL UsERs IN {chat.title}? THIs AcTIoN cANNoT BE UNDoNE.",
             reply_markup=buttons,
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -205,22 +205,22 @@ def unapproveall_btn(update: Update, context: CallbackContext):
             users = [int(i.user_id) for i in approved_users]
             for user_id in users:
                 sql.disapprove(chat.id, user_id)
-            message.edit_text("sᴜᴄᴄᴇssғᴜʟʟʏ ᴜɴᴀᴘᴘʀᴏᴠᴇᴅ ᴀʟʟ ᴜsᴇʀ ɪɴ ᴛʜɪs ᴄʜᴀᴛ.")
+            message.edit_text("sUccEssfULLY UNAPPRovED ALL UsER IN THIs cHAT.")
             return
 
         if member.status == "administrator":
-            query.answer("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴏғ ᴛʜᴇ ᴄʜᴀᴛ ᴄᴀɴ ᴅᴏ ᴛʜɪs.")
+            query.answer("oNLY oWNER of THE cHAT cAN Do THIs.")
 
         if member.status == "member":
-            query.answer("ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴅᴏ ᴛʜɪs.")
+            query.answer("YoU NEED To BE ADMIN To Do THIs.")
     elif query.data == "unapproveall_cancel":
         if member.status == "creator" or query.from_user.id in DRAGONS:
-            message.edit_text("ʀᴇᴍᴏᴠɪɴɢ ᴏғ ᴀʟʟ ᴀᴘᴘʀᴏᴠᴇᴅ ᴜsᴇʀs ʜᴀs ʙᴇᴇɴ ᴄᴀɴᴄᴇʟʟᴇᴅ.")
+            message.edit_text("REMovING of ALL APPRovED UsERs HAs BEEN cANcELLED.")
             return ""
         if member.status == "administrator":
-            query.answer("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴏғ ᴛʜᴇ ᴄʜᴀᴛ ᴄᴀɴ ᴅᴏ ᴛʜɪs.")
+            query.answer("oNLY oWNER of THE cHAT cAN Do THIs.")
         if member.status == "member":
-            query.answer("ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴅᴏ ᴛʜɪs.")
+            query.answer("YoU NEED To BE ADMIN To Do THIs.")
 
 
 APPROVE = DisableAbleCommandHandler(["approve", "free"], approve, run_async=True)
@@ -242,7 +242,7 @@ dispatcher.add_handler(UNAPPROVEALL_BTN)
 __mod_name__ = "Approval"
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 # """
 from Exon.modules.language import gs
 
