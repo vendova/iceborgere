@@ -52,17 +52,17 @@ def chat_join_req(upd: Update, ctx: CallbackContext):
         [
             [
                 InlineKeyboardButton(
-                    "ᴀᴘᴘʀᴏᴠᴇ", callback_data="cb_approve={}".format(user.id)
+                    "Approve", callback_data="cb_approve={}".format(user.id)
                 ),
                 InlineKeyboardButton(
-                    "ᴅᴇᴄʟɪɴᴇ", callback_data="cb_decline={}".format(user.id)
+                    "Decline", callback_data="cb_decline={}".format(user.id)
                 ),
             ]
         ]
     )
     bot.send_message(
         chat.id,
-        "{} ᴡᴀɴᴛs ᴛᴏ ᴊᴏɪɴ {}".format(
+        "{} Wants to join {}".format(
             mention_html(user.id, user.first_name), chat.title or "this chat"
         ),
         reply_markup=keyboard,
@@ -85,7 +85,7 @@ def approve_joinreq(update: Update, context: CallbackContext) -> str:
     try:
         bot.approve_chat_join_request(chat.id, user_id)
         update.effective_message.edit_text(
-            f"ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ᴀᴘᴘʀᴏᴠᴇᴅ ʙʏ {mention_html(user.id, user.first_name)}.",
+            f"Join request approved by {mention_html(user.id, user.first_name)}.",
             parse_mode="HTML",
         )
         logmsg = (
@@ -115,7 +115,7 @@ def decline_joinreq(update: Update, context: CallbackContext) -> str:
     try:
         bot.decline_chat_join_request(chat.id, user_id)
         update.effective_message.edit_text(
-            f"ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ᴅᴇᴄʟɪɴᴇᴅ ʙʏ {mention_html(user.id, user.first_name)}.",
+            f"Join request declined by {mention_html(user.id, user.first_name)}.",
             parse_mode="HTML",
         )
         logmsg = (
