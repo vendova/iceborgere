@@ -74,7 +74,7 @@ async def _(event):
     creator = chat.creator
     if event.is_private:
         return await event.respond(
-            "__ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ʙᴇ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs!__"
+            "__THIs coMMAND cAN BE UsE IN GRoUPs AND cHANNELs!__"
         )
 
     is_admin = False
@@ -92,13 +92,13 @@ async def _(event):
         ):
             is_admin = True
     if not is_admin:
-        return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴜɴᴍᴜᴛᴇᴀʟʟ!__")
+        return await event.respond("__oNLY ADMINs cAN UNMUTEALL!__")
 
     if not admin and not creator:
-        await event.reply("`I ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴘᴇʀᴍɪssɪᴏɴs!`")
+        await event.reply("`I DoN'T HAvE ENoUGH PERMIssIoNs!`")
         return
 
-    done = await event.reply("sᴇᴀʀᴄʜɪɴɢ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛ ʟɪsᴛs.")
+    done = await event.reply("sEARcHING PARTIcIPANT LIsTs.")
     p = 0
     async for i in telethn.iter_participants(
         event.chat_id, filter=ChannelParticipantsKicked, aggressive=True
@@ -109,7 +109,7 @@ async def _(event):
                 functions.channels.EditBannedRequest(event.chat_id, i, rights)
             )
         except FloodWaitError as ex:
-            LOGGER.warn(f"sʟᴇᴇᴘɪɴɢ ғᴏʀ {ex.seconds} sᴇᴄᴏɴᴅs")
+            LOGGER.warn(f"sLEEPING foR {ex.seconds} sEcoNDs")
             sleep(ex.seconds)
         except Exception as ex:
             await event.reply(str(ex))
@@ -117,9 +117,9 @@ async def _(event):
             p += 1
 
     if p == 0:
-        await done.edit("ɴᴏ ᴏɴᴇ ɪs ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ")
+        await done.edit("No oNE Is BANNED IN THIs cHAT")
         return
-    required_string = "sᴜᴄᴄᴇssғᴜʟʟʏ ᴜɴʙᴀɴɴᴇᴅ **{}** ᴜsᴇʀs"
+    required_string = "sUccEssfULLY UNBANNED **{}** UsERs"
     await event.reply(required_string.format(p))
 
 
@@ -128,7 +128,7 @@ async def _(event):
 async def _(event):
     if event.is_private:
         return await event.respond(
-            "__ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ʙᴇ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘꜱ ᴀɴᴅ ᴄʜᴀɴɴᴇʟꜱ!__"
+            "__THIs coMMAND cAN BE UsE IN GRoUPS AND cHANNELS!__"
         )
 
     is_admin = False
@@ -146,17 +146,17 @@ async def _(event):
         ):
             is_admin = True
     if not is_admin:
-        return await event.respond("__ᴏɴʟʏ ᴀᴅᴍɪɴꜱ ᴄᴀɴ ᴜɴᴍᴜᴛᴇᴀʟʟ!__")
+        return await event.respond("__oNLY ADMINS cAN UNMUTEALL!__")
     chat = await event.get_chat()
     admin = chat.admin_rights.ban_users
     creator = chat.creator
 
     # Well
     if not admin and not creator:
-        await event.reply("`I ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ!`")
+        await event.reply("`I DoN'T HAvE ENoUGH PERMISSIoNS!`")
         return
 
-    done = await event.reply("ᴡᴏʀᴋɪɴɢ ...")
+    done = await event.reply("WoRKING ...")
     p = 0
     async for i in telethn.iter_participants(
         event.chat_id, filter=ChannelParticipantsBanned, aggressive=True
@@ -170,7 +170,7 @@ async def _(event):
                 functions.channels.EditBannedRequest(event.chat_id, i, rights)
             )
         except FloodWaitError as ex:
-            LOGGER.warn(f"ꜱʟᴇᴇᴘɪɴɢ ғᴏʀ {ex.seconds} ꜱᴇᴄᴏɴᴅꜱ")
+            LOGGER.warn(f"SLEEPING foR {ex.seconds} SEcoNDS")
             sleep(ex.seconds)
         except Exception as ex:
             await event.reply(str(ex))
@@ -178,9 +178,9 @@ async def _(event):
             p += 1
 
     if p == 0:
-        await done.edit("ɴᴏ ᴏɴᴇ ɪꜱ ᴍᴜᴛᴇᴅ ɪɴ ᴛʜɪꜱ ᴄʜᴀᴛ")
+        await done.edit("No oNE IS MUTED IN THIS cHAT")
         return
-    required_string = "ꜱᴜᴄᴄᴇꜱꜱғᴜʟʟʏ ᴜɴᴍᴜᴛᴇᴅ **{}** ᴜꜱᴇʀꜱ"
+    required_string = "SUccESSfULLY UNMUTED **{}** USERS"
     await event.reply(required_string.format(p))
 
 
@@ -192,10 +192,10 @@ async def get_users(show):
         return
     info = await telethn.get_entity(show.chat_id)
     title = info.title or "this chat"
-    mentions = f"ᴜꜱᴇʀꜱ ɪɴ {title}: \n"
+    mentions = f"USERS IN {title}: \n"
     async for user in telethn.iter_participants(show.chat_id):
         mentions += (
-            f"\n ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛ {user.id}"
+            f"\n DELETED AccoUNT {user.id}"
             if user.deleted
             else f"\n[{user.first_name}](tg://user?id={user.id}) {user.id}"
         )
@@ -214,7 +214,7 @@ async def get_users(show):
 
 __mod_name__ = "Uall"
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 # """
 from Exon.modules.language import gs
