@@ -112,7 +112,7 @@ def check_flood(update, context) -> Optional[str]:
             "<b>{}:</b>"
             "\n#{}"
             "\n<b>UsER:</b> {}"
-            "\NfLooDED THE GRoUP.".format(
+            "\nfLooDED THE GRoUP.".format(
                 html.escape(chat.title), tag, mention_html(user.id, user.first_name)
             )
         )
