@@ -98,7 +98,7 @@ def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
     time_list = []
-    time_suffix_list = ["s", "ᴍ", "ʜ", "ᴅᴀʏs"]
+    time_suffix_list = ["s", "M", "H", "DAYs"]
 
     while count < 4:
         count += 1
@@ -170,27 +170,27 @@ def get_id(update: Update, context: CallbackContext):
             user2 = message.reply_to_message.forward_from
 
             msg.reply_text(
-                f"× <b>ꜱᴇɴᴅᴇʀ:</b> {mention_html(user2.id, user2.first_name)} - <code>{user2.id}</code>.\n"
-                f"× <b>ꜰᴏʀᴡᴀʀᴅᴇʀ:</b> {mention_html(user1.id, user1.first_name)} - <code>{user1.id}</code>.",
+                f"x <b>SENDER:</b> {mention_html(user2.id, user2.first_name)} - <code>{user2.id}</code>.\n"
+                f"x <b>FoRWARDER:</b> {mention_html(user1.id, user1.first_name)} - <code>{user1.id}</code>.",
                 parse_mode=ParseMode.HTML,
             )
 
         else:
             user = bot.get_chat(user_id)
             msg.reply_text(
-                f"× <b>ʀᴇᴘʟɪᴇᴅ ᴛᴏ:</b> {mention_html(user.id, user.first_name)}\n× <b>ID of the user:</b> <code>{user.id}</code>",
+                f"x <b>REPLIED To:</b> {mention_html(user.id, user.first_name)}\nx <b>ID of the user:</b> <code>{user.id}</code>",
                 parse_mode=ParseMode.HTML,
             )
 
     else:
         if chat.type == "private":
             msg.reply_text(
-                f"⟃ ʏᴏᴜʀ ɪᴅ ɪꜱ <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
+                f"⟃ YoUR ID IS <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
             )
 
         else:
             msg.reply_text(
-                f"⟃ <b>ᴜꜱᴇʀ:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>ꜰʀᴏᴍ ᴜꜱᴇʀ ɪᴅ:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>ᴛʜɪꜱ ɢʀᴏᴜᴘ ɪᴅ:</b> <code>{chat.id}</code>",
+                f"⟃ <b>USER:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>FRoM USER ID:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>THIS GRoUP ID:</b> <code>{chat.id}</code>",
                 parse_mode=ParseMode.HTML,
             )
 
@@ -215,23 +215,23 @@ async def group_info(event) -> None:
             "Can't for some reason, maybe it is a private one or that I am banned there.",
         )
         return
-    msg = f"**ɪᴅ**: `{entity.id}`"
-    msg += f"\n**ᴛɪᴛʟᴇ**: `{entity.title}`"
-    msg += f"\n**ᴅᴀᴛᴀᴄᴇɴᴛᴇʀ**: `{entity.photo.dc_id}`"
-    msg += f"\n**ᴠɪᴅᴇᴏ ᴘꜰᴘ**: `{entity.photo.has_video}`"
-    msg += f"\n**ꜱᴜᴘᴇʀɢʀᴏᴜᴘ**: `{entity.megagroup}`"
-    msg += f"\n**ʀᴇꜱᴛʀɪᴄᴛᴇᴅ**: `{entity.restricted}`"
-    msg += f"\n**ꜱᴄᴀᴍ**: `{entity.scam}`"
-    msg += f"\n**ꜱʟᴏᴡᴍᴏᴅᴇ**: `{entity.slowmode_enabled}`"
+    msg = f"**ID**: `{entity.id}`"
+    msg += f"\n**TITLE**: `{entity.title}`"
+    msg += f"\n**DATAcENTER**: `{entity.photo.dc_id}`"
+    msg += f"\n**vIDEo PFP**: `{entity.photo.has_video}`"
+    msg += f"\n**SUPERGRoUP**: `{entity.megagroup}`"
+    msg += f"\n**RESTRIcTED**: `{entity.restricted}`"
+    msg += f"\n**ScAM**: `{entity.scam}`"
+    msg += f"\n**SLoWMoDE**: `{entity.slowmode_enabled}`"
     if entity.username:
-        msg += f"\n**ᴜꜱᴇʀɴᴀᴍᴇ**: {entity.username}"
-    msg += "\n\n**ᴍᴇᴍʙᴇʀ ꜱᴛᴀᴛꜱ:**"
-    msg += f"\n`ᴀᴅᴍɪɴꜱ:` `{len(totallist)}`"
-    msg += f"\n`ᴜꜱᴇʀꜱ`: `{totallist.total}`"
-    msg += "\n\n**ᴀᴅᴍɪɴꜱ ʟɪꜱᴛ:**"
+        msg += f"\n**USERNAME**: {entity.username}"
+    msg += "\n\n**MEMBER STATS:**"
+    msg += f"\n`ADMINS:` `{len(totallist)}`"
+    msg += f"\n`USERS`: `{totallist.total}`"
+    msg += "\n\n**ADMINS LIST:**"
     for x in totallist:
         msg += f"\n• [{x.id}](tg://user?id={x.id})"
-    msg += f"\n\n**ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ**:\n`{ch_full.full_chat.about}`"
+    msg += f"\n\n**DEScRIPTIoN**:\n`{ch_full.full_chat.about}`"
     await event.reply(msg)
 
 
@@ -240,7 +240,7 @@ def gifid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.animation:
         update.effective_message.reply_text(
-            f"ɢɪꜰ ɪᴅ:\n<code>{msg.reply_to_message.animation.file_id}</code>",
+            f"GIF ID:\n<code>{msg.reply_to_message.animation.file_id}</code>",
             parse_mode=ParseMode.HTML,
         )
     else:
@@ -269,30 +269,30 @@ def info(update: Update, context: CallbackContext):
             and not message.parse_entities([MessageEntity.TEXT_MENTION])
         )
     ):
-        message.reply_text("ɪ ᴄᴀɴ'ᴛ ᴇxᴛʀᴀᴄᴛ ᴀ ᴜꜱᴇʀ ꜰʀᴏᴍ ᴛʜɪꜱ.")
+        message.reply_text("I cAN'T ExTRAcT A USER FRoM THIS.")
         return
 
     else:
         return
 
-    rep = message.reply_text("<code>ᴀᴘᴘʀᴀɪꜱɪɴɢ...</code>", parse_mode=ParseMode.HTML)
+    rep = message.reply_text("<code>APPRAISING...</code>", parse_mode=ParseMode.HTML)
 
     text = (
-        f"╔━⊰✦✪「 <b> Appraisal Results:</b> 」✪✦⊱━╗\n"
-        f"➻ ɪᴅ: <code>{user.id}</code>\n"
-        f"➻ ꜰɪʀꜱᴛ ɴᴀᴍᴇ: {html.escape(user.first_name)}"
+        f"╔-⊰✦✪「 <b> Appraisal Results:</b> 」✪✦⊱-╗\n"
+        f"➻ ID: <code>{user.id}</code>\n"
+        f"➻ FIRST NAME: {html.escape(user.first_name)}"
     )
 
     if user.last_name:
-        text += f"\n➻ ʟᴀꜱᴛ ɴᴀᴍᴇ: {html.escape(user.last_name)}"
+        text += f"\n➻ LAST NAME: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\n➻ ᴜꜱᴇʀɴᴀᴍᴇ: @{html.escape(user.username)}"
+        text += f"\n➻ USERNAME: @{html.escape(user.username)}"
 
-    text += f"\n➻ ᴜꜱᴇʀʟɪɴᴋ: {mention_html(user.id, 'link')}"
+    text += f"\n➻ USERLINK: {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
-        _stext = "\n➻ <b>ᴩʀᴇsᴇɴᴄᴇ:</b> <code>{}</code>"
+        _stext = "\n➻ <b>PREsENcE:</b> <code>{}</code>"
 
         # afk_st = is_afk(user.id)
         #  if afk_st:
@@ -301,28 +301,28 @@ def info(update: Update, context: CallbackContext):
         status = status = bot.get_chat_member(chat.id, user.id).status
         if status:
             if status in {"left", "kicked"}:
-                text += _stext.format("ɴᴏᴛ ʜᴇʀᴇ")
+                text += _stext.format("NoT HERE")
             elif status == "member":
-                text += _stext.format("ᴅᴇᴛᴇᴄᴛᴇᴅ")
+                text += _stext.format("DETEcTED")
             elif status in {"administrator", "creator"}:
-                text += _stext.format("ᴀᴅᴍɪɴ")
+                text += _stext.format("ADMIN")
     if user_id not in [bot.id, 777000, 1087968824]:
         userhp = hpmanager(user)
-        text += f"\n\n<b>ʜᴇᴀʟᴛʜ:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
+        text += f"\n\n<b>HEALTH:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
 
     try:
         spamwtc = sw.get_ban(int(user.id))
         if spamwtc:
-            text += "\n\n<b>ᴛʜɪs ᴘᴇʀsᴏɴ ɪs sᴘᴀᴍᴡᴀᴛᴄʜᴇᴅ!</b>"
-            text += f"\nʀᴇᴀꜱᴏɴ: <pre>{spamwtc.reason}</pre>"
-            text += "\nᴀᴘᴘᴇᴀʟ ᴀᴛ @AbishnoiMF"
+            text += "\n\n<b>THIs PERsoN Is sPAMWATcHED!</b>"
+            text += f"\nREASoN: <pre>{spamwtc.reason}</pre>"
+            text += "\nAPPEAL AT @AbishnoiMF"
     except:
         pass  # don't crash if api is down somehow...
 
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nᴛʜᴇ ʟᴇᴠᴇʟ ғᴏʀ ᴍʏ ᴍᴀsᴛᴇʀ "
+        text += "\n\nTHE LEvEL foR MY MAsTER "
         disaster_level_present = True
     elif user.id in DEV_USERS:
         text += "\n\nThe level for this user is Destroyers"
@@ -340,11 +340,11 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThe level for this user is Villain"
         disaster_level_present = True
     elif user.id == 5938660179:
-        text += "\n\nᴄᴏ-ᴏᴡᴇʀɴ ᴏғ ᴀ ʙᴏᴛ."
+        text += "\n\nco-oWERN of A BoT."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/Abishnoi_bots/60">ʟᴇᴠᴇʟʟɪɴɢ</a>]'.format(
+        text += ' [<a href="https://t.me/Abishnoi_bots/60">LEvELLING</a>]'.format(
             bot.username,
         )
 
@@ -357,7 +357,7 @@ def info(update: Update, context: CallbackContext):
             result = result.json()["result"]
             if "custom_title" in result.keys():
                 custom_title = result["custom_title"]
-                text += f"\n\nᴛɪᴛʟᴇ:\n<b>{custom_title}</b>"
+                text += f"\n\nTITLE:\n<b>{custom_title}</b>"
     except BadRequest:
         pass
 
@@ -381,10 +381,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ʜᴇᴀʟᴛʜ", url="https://t.me/Abishnoi_bots/60"
+                                "HEALTH", url="https://t.me/Abishnoi_bots/60"
                             ),
                             InlineKeyboardButton(
-                                "ᴅɪsᴀsᴛᴇʀ", url="https://t.me/Abishnoi_bots/60"
+                                "DIsAsTER", url="https://t.me/Abishnoi_bots/60"
                             ),
                         ],
                     ]
@@ -401,10 +401,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ʜᴇᴀʟᴛʜ", url="https://t.me/Abishnoi_bots/60"
+                                "HEALTH", url="https://t.me/Abishnoi_bots/60"
                             ),
                             InlineKeyboardButton(
-                                "ʟᴇᴠᴇʟʟɪɴɢ", url="https://t.me/Abishnoi_bots/60"
+                                "LEvELLING", url="https://t.me/Abishnoi_bots/60"
                             ),
                         ],
                     ]
@@ -441,11 +441,11 @@ def about_me(update: Update, context: CallbackContext):
     elif message.reply_to_message:
         username = message.reply_to_message.from_user.first_name
         update.effective_message.reply_text(
-            f"{username} ʜᴀꜱɴ'ᴛ ꜱᴇᴛ ᴀɴ ɪɴꜰᴏ ᴍᴇꜱꜱᴀɢᴇ ᴀʙᴏᴜᴛ ᴛʜᴇᴍꜱᴇʟᴠᴇꜱ ʏᴇ !",
+            f"{username} HASN'T SET AN INFo MESSAGE ABoUT THEMSELvES YE !",
         )
     else:
         update.effective_message.reply_text(
-            "ᴛʜᴇʀᴇ ɪꜱ ɴᴏᴛ ᴀɴʏ ʙɪᴏ, use /setme ᴛᴏ ꜱᴇᴛ ᴏɴᴇ."
+            "THERE IS NoT ANY BIo, use /setme To SET oNE."
         )
 
 
@@ -455,7 +455,7 @@ def set_about_me(update: Update, context: CallbackContext):
     user_id = message.from_user.id
     if user_id in [777000, 1087968824]:
         message.reply_text("Error! Unauthorized")
-        ᴛ
+        T
     bot = context.bot
     if message.reply_to_message:
         repl_message = message.reply_to_message
@@ -490,35 +490,35 @@ def stats(update, context):
     ).scalar_one_or_none()
     uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
     botuptime = get_readable_time((time.time() - StartTime))
-    status = "*╒═══「 ꜱʏꜱᴛᴇᴍ ꜱᴛᴀᴛɪᴄꜱ: 」*\n\n"
-    status += "*× ꜱʏꜱᴛᴇᴍ ꜱᴛᴀʀᴛ ᴛɪᴍᴇ:* " + str(uptime) + "\n"
+    status = "*╒═══「 SYSTEM STATIcS: 」*\n\n"
+    status += "*x SYSTEM START TIME:* " + str(uptime) + "\n"
     uname = platform.uname()
-    status += "*× ꜱʏꜱᴛᴇᴍ:* " + str(uname.system) + "\n"
-    status += "*× ɴᴏᴅᴇ ɴᴀᴍᴇ:* " + escape_markdown(str(uname.node)) + "\n"
-    status += "*× ʀᴇʟᴇᴀꜱᴇ:* " + escape_markdown(str(uname.release)) + "\n"
-    status += "*× ᴍᴀᴄʜɪɴᴇ:* " + escape_markdown(str(uname.machine)) + "\n"
+    status += "*x SYSTEM:* " + str(uname.system) + "\n"
+    status += "*x NoDE NAME:* " + escape_markdown(str(uname.node)) + "\n"
+    status += "*x RELEASE:* " + escape_markdown(str(uname.release)) + "\n"
+    status += "*x MAcHINE:* " + escape_markdown(str(uname.machine)) + "\n"
 
     mem = virtual_memory()
     cpu = cpu_percent()
     disk = disk_usage("/")
-    status += "*× ᴄᴘᴜ:* " + str(cpu) + " %\n"
-    status += "*× ʀᴀᴍ:* " + str(mem[2]) + " %\n"
-    status += "*× ꜱᴛᴏʀᴀɢᴇ:* " + str(disk[3]) + " %\n\n"
-    status += "*× ᴘʏᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ:* " + python_version() + "\n"
-    status += "*× ᴘʏᴛʜᴏɴ-ᴛᴇʟᴇɢʀᴀᴍ-ʙᴏᴛ:* " + str(ptbver) + "\n"
-    status += "*× ᴜᴘᴛɪᴍᴇ:* " + str(botuptime) + "\n"
-    status += "*× ᴅʙ ꜱɪᴢᴇ:* " + str(db_size) + "\n"
+    status += "*x cPU:* " + str(cpu) + " %\n"
+    status += "*x RAM:* " + str(mem[2]) + " %\n"
+    status += "*x SToRAGE:* " + str(disk[3]) + " %\n\n"
+    status += "*x PYTHoN vERSIoN:* " + python_version() + "\n"
+    status += "*x PYTHoN-TELEGRAM-BoT:* " + str(ptbver) + "\n"
+    status += "*x UPTIME:* " + str(botuptime) + "\n"
+    status += "*x DB SIzE:* " + str(db_size) + "\n"
     kb = [[InlineKeyboardButton("Ping", callback_data="pingCB")]]
     # repo = git.Repo(search_parent_directories=True)
     # sha = repo.head.object.hexsha
-    # status += f"*× ᴄᴏᴍᴍɪᴛ*: {sha[0:9]}\n"
+    # status += f"*x coMMIT*: {sha[0:9]}\n"
     try:
         update.effective_message.reply_text(
             status
             + "\n*Bot statistics*:\n"
             + "\n".join([mod.__stats__() for mod in STATS])
-            + "\n\n[⍙ ɢɪᴛʜᴜʙ](https://github.com/Abishnoi69/ExonRobot) | ⍚\n\n "
-            + "╘══「 by [ᴀʙɪsʜɴᴏɪ](github.com/Abishnoi69) 」\n",
+            + "\n\n[⍙ GITHUB](https://github.com/Abishnoi69/ExonRobot) | ⍚\n\n "
+            + "╘══「 by [ABIsHNoI](github.com/Abishnoi69) 」\n",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(kb),
             disable_web_page_preview=True,
@@ -531,9 +531,9 @@ def stats(update, context):
                         "\n*Bot statistics*:\n"
                         + "\n".join(mod.__stats__() for mod in STATS)
                     )
-                    + "\n\n⍙ [ɢɪᴛʜᴜʙ](https://github.com/Abishnoi69/ExonRobot) | ⍚ \n\n"
+                    + "\n\n⍙ [GITHUB](https://github.com/Abishnoi69/ExonRobot) | ⍚ \n\n"
                 )
-                + "╘══「 by [ᴅʏɴᴀᴍɪᴄ](github.com/Abishnoi69) 」\n"
+                + "╘══「 by [DYNAMIc](github.com/Abishnoi69) 」\n"
             ),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(kb),
@@ -548,7 +548,7 @@ def pingCallback(update: Update, context: CallbackContext):
     requests.get("https://api.telegram.org")
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
-    query.answer("ᴘᴏɴɢ 🌺! {}ms".format(ping_time))
+    query.answer("PoNG 🌺! {}ms".format(ping_time))
 
 
 @Exoncmd(command="bio")
@@ -569,11 +569,11 @@ def about_bio(update: Update, context: CallbackContext):
     elif message.reply_to_message:
         username = user.first_name
         update.effective_message.reply_text(
-            f"{username} ʜᴀꜱɴ'ᴛ ʜᴀᴅ ᴀ ᴍᴇꜱꜱᴀɢᴇ ꜱᴇᴛ ᴀʙᴏᴜᴛ ᴛʜᴇᴍꜱᴇʟᴠᴇꜱ ʏᴇᴛ!\nꜱᴇᴛ ᴏɴᴇ ᴜꜱɪɴɢ  /setbio",
+            f"{username} HASN'T HAD A MESSAGE SET ABoUT THEMSELvES YET!\nSET oNE USING  /setbio",
         )
     else:
         update.effective_message.reply_text(
-            "ʏᴏᴜ ʜᴀꜱɴ' ʜᴀᴅ ᴀ ʙɪᴏ ꜱᴇᴛ ᴀʙᴏᴜᴛ ʏᴏᴜʀꜱᴇʟꜰ ʏᴇᴛ!",
+            "YoU HASN' HAD A BIo SET ABoUT YoURSELF YET!",
         )
     message = update.effective_message
     if message.reply_to_message:
@@ -581,7 +581,7 @@ def about_bio(update: Update, context: CallbackContext):
         user_id = repl_message.from_user.id
         if user_id == message.from_user.id:
             message.reply_text(
-                "ʜᴀ, ʏᴏᴜ ᴄᴀɴ'ᴛ ꜱᴇᴛ ʏᴏᴜʀ ᴏᴡɴ ʙɪᴏ ! ʏᴏᴜ'ʀᴇ ᴀᴛ ᴛʜᴇ ᴍᴇʀᴄʏ ᴏʀ ᴏᴛʜᴇʀꜱ ʜᴇʀᴇ..."
+                "HA, YoU cAN'T SET YoUR oWN BIo ! YoU'RE AT THE MERcY oR oTHERS HERE..."
             )
             return
         sender_id = update.effective_user.id
@@ -602,16 +602,16 @@ def about_bio(update: Update, context: CallbackContext):
             if len(bio[1]) < MAX_MESSAGE_LENGTH // 4:
                 sql.set_user_bio(user_id, bio[1])
                 message.reply_text(
-                    "ᴜᴘᴅᴀᴛᴇᴅ {}'ꜱ ʙɪᴏ!".format(repl_message.from_user.first_name)
+                    "UPDATED {}'S BIo!".format(repl_message.from_user.first_name)
                 )
             else:
                 message.reply_text(
-                    "ᴀ ʙɪᴏ ɴᴇᴇᴅꜱ ᴛᴏ ʙᴇ ᴜɴᴅᴇʀ {} ᴄʜᴀʀᴇᴄᴛᴇʀ! ʏᴏᴜ ᴛʀɪᴇᴅ ᴛᴏ ꜱᴇᴛ {}.".format(
+                    "A BIo NEEDS To BE UNDER {} cHAREcTER! YoU TRIED To SET {}.".format(
                         MAX_MESSAGE_LENGTH // 4, len(bio[1])
                     )
                 )
     else:
-        message.reply_text("ʀᴇᴘʟʏ ᴛᴏ ꜱᴏᴍᴇᴏɴᴇ'ꜱ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ꜱᴇᴛ ᴛʜᴇɪʀ ʙɪᴏ!")
+        message.reply_text("REPLY To SoMEoNE'S MESSAGE To SET THEIR BIo!")
 
 
 @Exoncmd(command="setbio")
@@ -626,7 +626,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == message.from_user.id:
             message.reply_text(
-                "ʜᴀ, ʏᴏᴜ ᴄᴀɴ'ᴛ ꜱᴇᴛ ʏᴏᴜʀ ᴏᴡɴ ʙɪᴏ! ʏᴏᴜ'ʀᴇ ᴀᴛ ᴛʜᴇ ᴍᴇʀᴄʏ ᴏꜰ ᴏᴛʜᴇʀꜱ ʜᴇʀᴇ...",
+                "HA, YoU cAN'T SET YoUR oWN BIo! YoU'RE AT THE MERcY oF oTHERS HERE...",
             )
             return
 
@@ -636,7 +636,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "ᴇʀᴍ... ʏᴇᴀʜ, ɪ ᴏɴʟʏ ᴛʀᴜꜱᴛ ᴛʜᴇ ᴀᴄᴋᴇʀᴍᴀɴꜱ ᴛᴏ ꜱᴇᴛ ᴍʏ ʙɪᴏ.",
+                "ERM... YEAH, I oNLY TRUST THE AcKERMANS To SET MY BIo.",
             )
             return
 
@@ -654,13 +654,13 @@ def set_about_bio(update: Update, context: CallbackContext):
                 )
             else:
                 message.reply_text(
-                    "ʙɪᴏ ɴᴇᴇᴅꜱ ᴛᴏ ᴜɴᴅᴇʀ {} ᴄʜᴀʀᴇᴄᴛᴇʀ! ʏᴏᴜ ᴛʀɪᴇᴅ ᴛᴏ ꜱᴇᴛ {}.".format(
+                    "BIo NEEDS To UNDER {} cHAREcTER! YoU TRIED To SET {}.".format(
                         MAX_MESSAGE_LENGTH // 4,
                         len(bio[1]),
                     ),
                 )
     else:
-        message.reply_text("ʀᴇᴘʟʏ ᴛᴏ ꜱᴏᴍᴇᴏɴᴇ ᴛᴏ ꜱᴇᴛ ᴛʜᴇɪʀ ʙɪᴏ!")
+        message.reply_text("REPLY To SoMEoNE To SET THEIR BIo!")
 
 
 def __user_info__(user_id):
@@ -668,9 +668,9 @@ def __user_info__(user_id):
     me = html.escape(sql.get_user_me_info(user_id) or "")
     result = ""
     if me:
-        result += f"<b>ᴀʙᴏᴜᴛ ᴜꜱᴇʀ:</b>\n{me}\n"
+        result += f"<b>ABoUT USER:</b>\n{me}\n"
     if bio:
-        result += f"<b>ᴡʜᴀᴛ ᴏᴛʜᴇʀ ꜱᴀʏꜱ:</b>\n{bio}\n"
+        result += f"<b>WHAT oTHER SAYS:</b>\n{bio}\n"
     result = result.strip("\n")
     return result
 
@@ -678,7 +678,7 @@ def __user_info__(user_id):
 __mod_name__ = "Info "
 
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
+# foR HELP MENU
 
 
 # """
