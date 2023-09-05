@@ -167,7 +167,7 @@ def chats(update: Update, context: CallbackContext):
         update.effective_message.reply_document(
             document=output,
             filename="groups_list.txt",
-            caption="ʜᴇʀᴇ ʙᴇ ᴛʜᴇ ʟɪꜱᴛ ᴏꜰ ɢʀᴏᴜᴘꜱ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ.",
+            caption="List of Groups in the DATABASE.",
         )
 
 
@@ -183,15 +183,15 @@ def chat_checker(update: Update, context: CallbackContext):
 
 def __user_info__(user_id):
     if user_id in [777000, 1087968824]:
-        return """╘══「 ɢʀᴏᴜᴘꜱ ᴄᴏᴜɴᴛ: <code>???</code> 」"""
+        return """「 Groups count: <code>???</code> 」"""
     if user_id == dispatcher.bot.id:
-        return """╘══「 ɢʀᴏᴜᴘꜱ ᴄᴏᴜɴᴛ: <code>???</code> 」"""
+        return """「 Groups count: <code>???</code> 」"""
     num_chats = user_db.get_user_num_chats(user_id)
-    return f"""╘══「 ɢʀᴏᴜᴘꜱ ᴄᴏᴜɴᴛ: <code>{num_chats}</code> 」"""
+    return f"""「 Groups count: <code>{num_chats}</code> 」"""
 
 
 def __stats__():
-    return f"× 0{user_db.num_users()} ᴜsᴇʀs, ᴀᴄʀᴏss 0{user_db.num_chats()} ᴄʜᴀᴛs"
+    return f"× 0{user_db.num_users()} Users, Across 0{user_db.num_chats()} chats"
 
 
 def __migrate__(old_chat_id, new_chat_id):
