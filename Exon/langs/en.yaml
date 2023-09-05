@@ -375,7 +375,7 @@ gtranslate_help: |
    - /stt: Type in reply to a voice message(support English only) to extract text from it.
    
    *Language codes*:
-   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+   [wiki](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 fsub_help: |
    NetworkModerator can mute members who are not subscribed your channel until they subscribe
