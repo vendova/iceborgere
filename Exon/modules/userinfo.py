@@ -764,13 +764,13 @@ def info(update: Update, context: CallbackContext):
 
                             InlineKeyboardButton( 
 
-                                "Health", url="https://t.me/werewolfnetworks" 
+                                "Health", url="https://t.me/wwquickers" 
 
                             ), 
 
                             InlineKeyboardButton( 
 
-                                "Disaster", url="https://t.me/werewolfnetworks" 
+                                "Disaster", url="https://t.me/wwquickers" 
 
                             ), 
 
@@ -804,13 +804,13 @@ def info(update: Update, context: CallbackContext):
 
                             InlineKeyboardButton( 
 
-                                "Health", url="https://t.me/werewolfnetworks" 
+                                "Health", url="https://t.me/wwquickers" 
 
                             ), 
 
                             InlineKeyboardButton( 
 
-                                "Levelling", url="https://t.me/werewolfnetworks" 
+                                "Levelling", url="https://t.me/wwquickers" 
 
                             ), 
 
