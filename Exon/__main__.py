@@ -48,7 +48,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text=f"Help", callback_data="help_back"),
-        InlineKeyboardButton(text="Network", url="https://t.me/WerewolfNetworks"),
+        InlineKeyboardButton(text="Lounge", url=f"https://t.me/WerewolfLounge"),
     ],
 ]
 
