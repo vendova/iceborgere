@@ -81,8 +81,8 @@ def set_lang(update: Update, _) -> None:
     keyb.append(
         [
             InlineKeyboardButton(
-                text="network",
-                url="t.me/werewolfnetworks",  # plz. Don't edit and change
+                text="quickers",
+                url="t.me/wwquickers",  # plz. Don't edit and change
             )
         ]
     )
