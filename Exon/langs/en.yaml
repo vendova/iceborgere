@@ -653,3 +653,7 @@ uall_help: |
    `this module usage may result in telegram API limit to the bot. Handle with care.`
    - /unball: Unball all banned users via one command.
    - /unmuteall: Unmute all users via one command.
+
+ping_help: |
+   *User command:*
+   - /ping: Check bot response time.
