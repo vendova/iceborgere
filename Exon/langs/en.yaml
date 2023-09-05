@@ -12,27 +12,27 @@ set_chat_lang: "Great, I have set your language to {}!"
 
 
 pm_start_text: |
-   Hey there! I'm NetworkModerator!
+   Hey there! I'm quickerobot!
 
-   Join my [channel](https://t.me/WerewolfNetworks) to know more about me.
+   Join the [group](https://t.me/wwquickers) to have exciting minutes of fun.
    
    Hit /help to find out more about how to use me to my full potential.
 
       
-grp_start_text: "Greetings! \nJoin my [channel](https://t.me/WerewolfNetworks) to know more about me."
+grp_start_text: "Greetings! \nJoin the [group](https://t.me/wwquickers) to know more about me."
 
 
 pm_help_text: |
    *HELP*
 
-   Hey there! I'm NetworkModerator!
+   Hey there! I'm quickerobot!
    I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
    
    *Helpful commands*:
    - /start: Starts me! You've probably already used this.
    - /help: Sends this message; I'll tell you more about myself!
 
-   Join the [channel](https://t.me/WerewolfNetworks) to know more about me.
+   Join the [group](https://t.me/wwquickers) to have exciting minutes of fun.
    All commands can be used with the following: / !
    
 
@@ -74,8 +74,8 @@ admin_help: |
    - /title `<title>`: Sets custom title for promoted admin.
    - /reload: Force refreshes adminlist.
 
-   Sometimes, you promote or demote an admin manually, and NetworkModerator doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
-   This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /reload command; that'll force NetworkModerator to check who the admins are again.
+   Sometimes, you promote or demote an admin manually, and quickerobot doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
+   This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /reload command; that'll force quickerobot to check who the admins are again.
 
 
 afk_help: |
@@ -379,7 +379,7 @@ gtranslate_help: |
    https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
 fsub_help: |
-   NetworkModerator can mute members who are not subscribed your channel until they subscribe
+   quickerobot can mute members who are not subscribed your channel until they subscribe
    When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them.
 
    *Setup* 
