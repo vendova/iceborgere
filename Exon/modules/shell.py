@@ -41,7 +41,7 @@ def shell(update: Update, context: CallbackContext):
     message = update.effective_message
     cmd = message.text.split(" ", 1)
     if len(cmd) == 1:
-        message.reply_text("ɴᴏ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴇxᴄᴜᴛᴇ ᴡᴀꜱ ɢɪᴠᴇɴ ʙᴀʙʏ.")
+        message.reply_text("ɴᴏ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴇxᴄᴜᴛᴇ ᴡᴀꜱ ɢɪᴠᴇɴ.")
         return
     cmd = cmd[1]
     process = subprocess.Popen(
