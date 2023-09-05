@@ -1,692 +1,1383 @@
-"""
-MIT License
-
-Copyright (c) 2022 ABISHNOI69
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
-
-# ""DEAR PRO PEOPLE,  DON'T REMOVE & CHANGE THIS LINE
-# TG :- @Abishnoi1m
-#     UPDATE   :- Abishnoi_bots
-#     GITHUB :- ABISHNOI69 ""
-
-
-import datetime
-import html
-import platform
-import time
-from platform import python_version
-
-import requests
-from psutil import boot_time, cpu_percent, disk_usage, virtual_memory
-from telegram import (
-    MAX_MESSAGE_LENGTH,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    MessageEntity,
-    ParseMode,
-    Update,
-)
-from telegram import __version__ as ptbver
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext
-from telegram.utils.helpers import escape_markdown, mention_html
-from telethon import events
-from telethon.tl.functions.channels import GetFullChannelRequest
-from telethon.tl.types import ChannelParticipantsAdmins
-
-import Exon.modules.sql.userinfo_sql as sql
-from Exon import (
-    DEMONS,
-    DEV_USERS,
-    DRAGONS,
-    INFOPIC,
-    OWNER_ID,
-    TIGERS,
-    WOLVES,
-    StartTime,
-    dispatcher,
-    sw,
-)
-from Exon import telethn as Exon
-from Exon.__main__ import STATS, TOKEN, USER_INFO
-from Exon.modules.helper_funcs.chat_status import sudo_plus
-from Exon.modules.helper_funcs.decorators import Exoncallback, Exoncmd
-from Exon.modules.helper_funcs.extraction import extract_user
-from Exon.modules.no_sql.global_bans_db import is_user_gbanned
-from Exon.modules.no_sql.users_db import get_user_num_chats
-from Exon.modules.sql import SESSION
-
-
-def no_by_per(totalhp, percentage):
-    """
-    rtype: num of `percentage` from total
-    eg: 1000, 10 -> 10% of 1000 (100)
-    """
-    return totalhp * percentage / 100
-
-
-def get_percentage(totalhp, earnedhp):
-    """
-    rtype: percentage of `totalhp` num
-    eg: (1000, 100) will return 10%
-    """
-    matched_less = totalhp - earnedhp
-    per_of_totalhp = 100 - matched_less * 100.0 / totalhp
-    per_of_totalhp = str(int(per_of_totalhp))
-    return per_of_totalhp
-
-
-def get_readable_time(seconds: int) -> str:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "M", "H", "DAYs"]
-
-    while count < 4:
-        count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
-
-
-def hpmanager(user):
-    total_hp = (get_user_num_chats(user.id) + 10) * 10
-
-    if not is_user_gbanned(user.id):
-        # Assign new var `new_hp` since we need `total_hp` in
-        # end to calculate percentage.
-        new_hp = total_hp
-
-        # if no username decrease 25% of hp.
-        if not user.username:
-            new_hp -= no_by_per(total_hp, 25)
-        try:
-            dispatcher.bot.get_user_profile_photos(user.id).photos[0][-1]
-        except IndexError:
-            # no profile photo ==> -25% of hp
-            new_hp -= no_by_per(total_hp, 25)
-        # if no /setme exist ==> -20% of hp
-        if not sql.get_user_me_info(user.id):
-            new_hp -= no_by_per(total_hp, 20)
-        # if no bio exsit ==> -10% of hp
-        if not sql.get_user_bio(user.id):
-            new_hp -= no_by_per(total_hp, 10)
-
-        # new_hp = no_by_per(total_hp, 5)
-
-    return {
-        "earnedhp": int(new_hp),
-        "totalhp": int(total_hp),
-        "percentage": get_percentage(total_hp, new_hp),
-    }
-
-
-def make_bar(per):
-    done = min(round(per / 10), 10)
-    return "⬢" * done + "⬡" * (10 - done)
-
-
-@Exoncmd(command="id")
-def get_id(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    message = update.effective_message
-    chat = update.effective_chat
-    msg = update.effective_message
-    user_id = extract_user(msg, args)
-
-    if user_id:
-        if msg.reply_to_message and msg.reply_to_message.forward_from:
-            user1 = message.reply_to_message.from_user
-            user2 = message.reply_to_message.forward_from
-
-            msg.reply_text(
-                f"x <b>SENDER:</b> {mention_html(user2.id, user2.first_name)} - <code>{user2.id}</code>.\n"
-                f"x <b>FoRWARDER:</b> {mention_html(user1.id, user1.first_name)} - <code>{user1.id}</code>.",
-                parse_mode=ParseMode.HTML,
-            )
-
-        else:
-            user = bot.get_chat(user_id)
-            msg.reply_text(
-                f"x <b>REPLIED To:</b> {mention_html(user.id, user.first_name)}\nx <b>ID of the user:</b> <code>{user.id}</code>",
-                parse_mode=ParseMode.HTML,
-            )
-
-    else:
-        if chat.type == "private":
-            msg.reply_text(
-                f"⟃ YoUR ID IS <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
-            )
-
-        else:
-            msg.reply_text(
-                f"⟃ <b>USER:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>FRoM USER ID:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>THIS GRoUP ID:</b> <code>{chat.id}</code>",
-                parse_mode=ParseMode.HTML,
-            )
-
-
-@Exon.on(
-    events.NewMessage(
-        pattern="/ginfo ",
-        from_users=(TIGERS or []) + (DRAGONS or []) + (DEMONS or []),
-    ),
-)
-async def group_info(event) -> None:
-    chat = event.text.split(" ", 1)[1]
-    try:
-        entity = await event.client.get_entity(chat)
-        totallist = await event.client.get_participants(
-            entity,
-            filter=ChannelParticipantsAdmins,
-        )
-        ch_full = await event.client(GetFullChannelRequest(channel=entity))
-    except:
-        await event.reply(
-            "Can't for some reason, maybe it is a private one or that I am banned there.",
-        )
-        return
-    msg = f"**ID**: `{entity.id}`"
-    msg += f"\n**TITLE**: `{entity.title}`"
-    msg += f"\n**DATAcENTER**: `{entity.photo.dc_id}`"
-    msg += f"\n**vIDEo PFP**: `{entity.photo.has_video}`"
-    msg += f"\n**SUPERGRoUP**: `{entity.megagroup}`"
-    msg += f"\n**RESTRIcTED**: `{entity.restricted}`"
-    msg += f"\n**ScAM**: `{entity.scam}`"
-    msg += f"\n**SLoWMoDE**: `{entity.slowmode_enabled}`"
-    if entity.username:
-        msg += f"\n**USERNAME**: {entity.username}"
-    msg += "\n\n**MEMBER STATS:**"
-    msg += f"\n`ADMINS:` `{len(totallist)}`"
-    msg += f"\n`USERS`: `{totallist.total}`"
-    msg += "\n\n**ADMINS LIST:**"
-    for x in totallist:
-        msg += f"\n• [{x.id}](tg://user?id={x.id})"
-    msg += f"\n\n**DEScRIPTIoN**:\n`{ch_full.full_chat.about}`"
-    await event.reply(msg)
-
-
-@Exoncmd(command="gifid")
-def gifid(update: Update, context: CallbackContext):
-    msg = update.effective_message
-    if msg.reply_to_message and msg.reply_to_message.animation:
-        update.effective_message.reply_text(
-            f"GIF ID:\n<code>{msg.reply_to_message.animation.file_id}</code>",
-            parse_mode=ParseMode.HTML,
-        )
-    else:
-        update.effective_message.reply_text("Please reply to a gif to get its ID.")
-
-
-@Exoncmd(command=["info", "book"])
-def info(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    message = update.effective_message
-    chat = update.effective_chat
-    user_id = extract_user(update.effective_message, args)
-
-    if user_id:
-        user = bot.get_chat(user_id)
-
-    elif not message.reply_to_message and not args:
-        user = message.from_user
-
-    elif not message.reply_to_message and (
-        not args
-        or (
-            len(args) >= 1
-            and not args[0].startswith("@")
-            and not args[0].isdigit()
-            and not message.parse_entities([MessageEntity.TEXT_MENTION])
-        )
-    ):
-        message.reply_text("I cAN'T ExTRAcT A USER FRoM THIS.")
-        return
-
-    else:
-        return
-
-    rep = message.reply_text("<code>APPRAISING...</code>", parse_mode=ParseMode.HTML)
-
-    text = (
-        f"╔-⊰✦✪「 <b> Appraisal Results:</b> 」✪✦⊱-╗\n"
-        f"➻ ID: <code>{user.id}</code>\n"
-        f"➻ FIRST NAME: {html.escape(user.first_name)}"
-    )
-
-    if user.last_name:
-        text += f"\n➻ LAST NAME: {html.escape(user.last_name)}"
-
-    if user.username:
-        text += f"\n➻ USERNAME: @{html.escape(user.username)}"
-
-    text += f"\n➻ USERLINK: {mention_html(user.id, 'link')}"
-
-    if chat.type != "private" and user_id != bot.id:
-        _stext = "\n➻ <b>PREsENcE:</b> <code>{}</code>"
-
-        # afk_st = is_afk(user.id)
-        #  if afk_st:
-        #     text += _stext.format("AFK")
-        # else:
-        status = status = bot.get_chat_member(chat.id, user.id).status
-        if status:
-            if status in {"left", "kicked"}:
-                text += _stext.format("NoT HERE")
-            elif status == "member":
-                text += _stext.format("DETEcTED")
-            elif status in {"administrator", "creator"}:
-                text += _stext.format("ADMIN")
-    if user_id not in [bot.id, 777000, 1087968824]:
-        userhp = hpmanager(user)
-        text += f"\n\n<b>HEALTH:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
-
-    try:
-        spamwtc = sw.get_ban(int(user.id))
-        if spamwtc:
-            text += "\n\n<b>THIs PERsoN Is sPAMWATcHED!</b>"
-            text += f"\nREASoN: <pre>{spamwtc.reason}</pre>"
-            text += "\nAPPEAL AT @AbishnoiMF"
-    except:
-        pass  # don't crash if api is down somehow...
-
-    disaster_level_present = False
-
-    if user.id == OWNER_ID:
-        text += "\n\nTHE LEvEL foR MY MAsTER "
-        disaster_level_present = True
-    elif user.id in DEV_USERS:
-        text += "\n\nThe level for this user is Destroyers"
-        disaster_level_present = True
-    elif user.id in DRAGONS:
-        text += "\n\nThe level for this user is Shadow Slayer"
-        disaster_level_present = True
-    elif user.id in DEMONS:
-        text += "\n\nThe level for this user is Guardian"
-        disaster_level_present = True
-    elif user.id in TIGERS:
-        text += "\n\nThe level for this user is Light Shooters"
-        disaster_level_present = True
-    elif user.id in WOLVES:
-        text += "\n\nThe level for this user is Villain"
-        disaster_level_present = True
-    elif user.id == 5938660179:
-        text += "\n\nco-oWERN of A BoT."
-        disaster_level_present = True
-
-    if disaster_level_present:
-        text += ' [<a href="https://t.me/Abishnoi_bots/60">LEvELLING</a>]'.format(
-            bot.username,
-        )
-
-    try:
-        user_member = chat.get_member(user.id)
-        if user_member.status == "administrator":
-            result = requests.post(
-                f"https://api.telegram.org/bot{TOKEN}/getChatMember?chat_id={chat.id}&user_id={user.id}",
-            )
-            result = result.json()["result"]
-            if "custom_title" in result.keys():
-                custom_title = result["custom_title"]
-                text += f"\n\nTITLE:\n<b>{custom_title}</b>"
-    except BadRequest:
-        pass
-
-    for mod in USER_INFO:
-        try:
-            mod_info = mod.__user_info__(user.id).strip()
-        except TypeError:
-            mod_info = mod.__user_info__(user.id, chat.id).strip()
-        if mod_info:
-            text += "\n\n" + mod_info
-
-    if INFOPIC:
-        try:
-            profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
-            context.bot.sendChatAction(chat.id, "upload_photo")
-            context.bot.send_photo(
-                chat.id,
-                photo=profile,
-                caption=(text),
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "HEALTH", url="https://t.me/Abishnoi_bots/60"
-                            ),
-                            InlineKeyboardButton(
-                                "DIsAsTER", url="https://t.me/Abishnoi_bots/60"
-                            ),
-                        ],
-                    ]
-                ),
-                parse_mode=ParseMode.HTML,
-                disable_web_page_preview=True,
-            )
-
-        # Incase user don't have profile pic, send normal text
-        except IndexError:
-            message.reply_text(
-                text,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "HEALTH", url="https://t.me/Abishnoi_bots/60"
-                            ),
-                            InlineKeyboardButton(
-                                "LEvELLING", url="https://t.me/Abishnoi_bots/60"
-                            ),
-                        ],
-                    ]
-                ),
-                parse_mode=ParseMode.HTML,
-                disable_web_page_preview=True,
-            )
-
-    else:
-        message.reply_text(
-            text,
-            parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True,
-        )
-
-    rep.delete()
-
-
-@Exoncmd(command="me")
-def about_me(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    message = update.effective_message
-    user_id = extract_user(message, args)
-
-    user = bot.get_chat(user_id) if user_id else message.from_user
-    info = sql.get_user_me_info(user.id)
-
-    if info:
-        update.effective_message.reply_text(
-            f"*{user.first_name}*:\n{escape_markdown(info)}",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-        )
-    elif message.reply_to_message:
-        username = message.reply_to_message.from_user.first_name
-        update.effective_message.reply_text(
-            f"{username} HASN'T SET AN INFo MESSAGE ABoUT THEMSELvES YE !",
-        )
-    else:
-        update.effective_message.reply_text(
-            "THERE IS NoT ANY BIo, use /setme To SET oNE."
-        )
-
-
-@Exoncmd(command="setme")
-def set_about_me(update: Update, context: CallbackContext):
-    message = update.effective_message
-    user_id = message.from_user.id
-    if user_id in [777000, 1087968824]:
-        message.reply_text("Error! Unauthorized")
-        T
-    bot = context.bot
-    if message.reply_to_message:
-        repl_message = message.reply_to_message
-        repl_user_id = repl_message.from_user.id
-        if repl_user_id in [bot.id, 777000, 1087968824] and (user_id in DEV_USERS):
-            user_id = repl_user_id
-    text = message.text
-    info = text.split(None, 1)
-    if len(info) == 2:
-        if len(info[1]) < MAX_MESSAGE_LENGTH // 4:
-            sql.set_user_me_info(user_id, info[1])
-            if user_id in [777000, 1087968824]:
-                message.reply_text("Authorized...Information updated!")
-            elif user_id == bot.id:
-                message.reply_text("I have updated my info with the one you provided!")
-            else:
-                message.reply_text("Information updated!")
-        else:
-            message.reply_text(
-                "The info needs to be under {} characters! You have {}.".format(
-                    MAX_MESSAGE_LENGTH // 4,
-                    len(info[1]),
-                ),
-            )
-
-
-@Exoncmd(command="stats", can_disable=True)
-@sudo_plus
-def stats(update, context):
-    db_size = SESSION.execute(
-        "SELECT pg_size_pretty(pg_database_size(current_database()))"
-    ).scalar_one_or_none()
-    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
-    botuptime = get_readable_time((time.time() - StartTime))
-    status = "*╒═══「 SYSTEM STATIcS: 」*\n\n"
-    status += "*x SYSTEM START TIME:* " + str(uptime) + "\n"
-    uname = platform.uname()
-    status += "*x SYSTEM:* " + str(uname.system) + "\n"
-    status += "*x NoDE NAME:* " + escape_markdown(str(uname.node)) + "\n"
-    status += "*x RELEASE:* " + escape_markdown(str(uname.release)) + "\n"
-    status += "*x MAcHINE:* " + escape_markdown(str(uname.machine)) + "\n"
-
-    mem = virtual_memory()
-    cpu = cpu_percent()
-    disk = disk_usage("/")
-    status += "*x cPU:* " + str(cpu) + " %\n"
-    status += "*x RAM:* " + str(mem[2]) + " %\n"
-    status += "*x SToRAGE:* " + str(disk[3]) + " %\n\n"
-    status += "*x PYTHoN vERSIoN:* " + python_version() + "\n"
-    status += "*x PYTHoN-TELEGRAM-BoT:* " + str(ptbver) + "\n"
-    status += "*x UPTIME:* " + str(botuptime) + "\n"
-    status += "*x DB SIzE:* " + str(db_size) + "\n"
-    kb = [[InlineKeyboardButton("Ping", callback_data="pingCB")]]
-    # repo = git.Repo(search_parent_directories=True)
-    # sha = repo.head.object.hexsha
-    # status += f"*x coMMIT*: {sha[0:9]}\n"
-    try:
-        update.effective_message.reply_text(
-            status
-            + "\n*Bot statistics*:\n"
-            + "\n".join([mod.__stats__() for mod in STATS])
-            + "\n\n[⍙ GITHUB](https://github.com/Abishnoi69/ExonRobot) | ⍚\n\n "
-            + "╘══「 by [ABIsHNoI](github.com/Abishnoi69) 」\n",
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(kb),
-            disable_web_page_preview=True,
-        )
-    except BaseException:
-        update.effective_message.reply_text(
-            (
-                (
-                    (
-                        "\n*Bot statistics*:\n"
-                        + "\n".join(mod.__stats__() for mod in STATS)
-                    )
-                    + "\n\n⍙ [GITHUB](https://github.com/Abishnoi69/ExonRobot) | ⍚ \n\n"
-                )
-                + "╘══「 by [DYNAMIc](github.com/Abishnoi69) 」\n"
-            ),
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(kb),
-            disable_web_page_preview=True,
-        )
-
-
-@Exoncallback(pattern=r"^pingCB")
-def pingCallback(update: Update, context: CallbackContext):
-    query = update.callback_query
-    start_time = time.time()
-    requests.get("https://api.telegram.org")
-    end_time = time.time()
-    ping_time = round((end_time - start_time) * 1000, 3)
-    query.answer("PoNG 🌺! {}ms".format(ping_time))
-
-
-@Exoncmd(command="bio")
-def about_bio(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    message = update.effective_message
-
-    user_id = extract_user(message, args)
-    user = bot.get_chat(user_id) if user_id else message.from_user
-    info = sql.get_user_bio(user.id)
-
-    if info:
-        update.effective_message.reply_text(
-            "*{}*:\n{}".format(user.first_name, escape_markdown(info)),
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-        )
-    elif message.reply_to_message:
-        username = user.first_name
-        update.effective_message.reply_text(
-            f"{username} HASN'T HAD A MESSAGE SET ABoUT THEMSELvES YET!\nSET oNE USING  /setbio",
-        )
-    else:
-        update.effective_message.reply_text(
-            "YoU HASN' HAD A BIo SET ABoUT YoURSELF YET!",
-        )
-    message = update.effective_message
-    if message.reply_to_message:
-        repl_message = message.reply_to_message
-        user_id = repl_message.from_user.id
-        if user_id == message.from_user.id:
-            message.reply_text(
-                "HA, YoU cAN'T SET YoUR oWN BIo ! YoU'RE AT THE MERcY oR oTHERS HERE..."
-            )
-            return
-        sender_id = update.effective_user.id
-
-        if (
-            user_id == bot.id
-            and sender_id not in SUDO_USERS
-            and sender_id not in DEV_USERS
-        ):
-            message.reply_text(
-                "Erm... yeah, I only trust sudo users or developers to set my bio."
-            )
-            return
-        text = message.text
-        # use python's maxsplit to only remove the cmd, hence keeping newlines.
-        bio = text.split(None, 1)
-        if len(bio) == 2:
-            if len(bio[1]) < MAX_MESSAGE_LENGTH // 4:
-                sql.set_user_bio(user_id, bio[1])
-                message.reply_text(
-                    "UPDATED {}'S BIo!".format(repl_message.from_user.first_name)
-                )
-            else:
-                message.reply_text(
-                    "A BIo NEEDS To BE UNDER {} cHAREcTER! YoU TRIED To SET {}.".format(
-                        MAX_MESSAGE_LENGTH // 4, len(bio[1])
-                    )
-                )
-    else:
-        message.reply_text("REPLY To SoMEoNE'S MESSAGE To SET THEIR BIo!")
-
-
-@Exoncmd(command="setbio")
-def set_about_bio(update: Update, context: CallbackContext):
-    message = update.effective_message
-    sender_id = update.effective_user.id
-    bot = context.bot
-
-    if message.reply_to_message:
-        repl_message = message.reply_to_message
-        user_id = repl_message.from_user.id
-
-        if user_id == message.from_user.id:
-            message.reply_text(
-                "HA, YoU cAN'T SET YoUR oWN BIo! YoU'RE AT THE MERcY oF oTHERS HERE...",
-            )
-            return
-
-        if user_id in [777000, 1087968824] and sender_id not in DEV_USERS:
-            message.reply_text("You are not authorised")
-            return
-
-        if user_id == bot.id and sender_id not in DEV_USERS:
-            message.reply_text(
-                "ERM... YEAH, I oNLY TRUST THE AcKERMANS To SET MY BIo.",
-            )
-            return
-
-        text = message.text
-        bio = text.split(
-            None,
-            1,
-        )  # use python's maxsplit to only remove the cmd, hence keeping newlines.
-
-        if len(bio) == 2:
-            if len(bio[1]) < MAX_MESSAGE_LENGTH // 4:
-                sql.set_user_bio(user_id, bio[1])
-                message.reply_text(
-                    "Updated {}'s bio!".format(repl_message.from_user.first_name),
-                )
-            else:
-                message.reply_text(
-                    "BIo NEEDS To UNDER {} cHAREcTER! YoU TRIED To SET {}.".format(
-                        MAX_MESSAGE_LENGTH // 4,
-                        len(bio[1]),
-                    ),
-                )
-    else:
-        message.reply_text("REPLY To SoMEoNE To SET THEIR BIo!")
-
-
-def __user_info__(user_id):
-    bio = html.escape(sql.get_user_bio(user_id) or "")
-    me = html.escape(sql.get_user_me_info(user_id) or "")
-    result = ""
-    if me:
-        result += f"<b>ABoUT USER:</b>\n{me}\n"
-    if bio:
-        result += f"<b>WHAT oTHER SAYS:</b>\n{bio}\n"
-    result = result.strip("\n")
-    return result
-
-
-__mod_name__ = "Info "
-
-
-# foR HELP MENU
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "userinfo_help")
-
-
-# """
+""" 
+
+MIT License 
+
+  
+
+Copyright (c) 2022 ABISHNOI69 
+
+  
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+
+of this software and associated documentation files (the "Software"), to deal 
+
+in the Software without restriction, including without limitation the rights 
+
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+
+copies of the Software, and to permit persons to whom the Software is 
+
+furnished to do so, subject to the following conditions: 
+
+  
+
+The above copyright notice and this permission notice shall be included in all 
+
+copies or substantial portions of the Software. 
+
+  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+
+SOFTWARE. 
+
+""" 
+
+  
+
+# ""DEAR PRO PEOPLE,  DON'T REMOVE & CHANGE THIS LINE 
+
+# TG :- @Abishnoi1m 
+
+#     UPDATE   :- Abishnoi_bots 
+
+#     GITHUB :- ABISHNOI69 "" 
+
+  
+
+  
+
+import datetime 
+
+import html 
+
+import platform 
+
+import time 
+
+from platform import python_version 
+
+  
+
+import requests 
+
+from psutil import boot_time, cpu_percent, disk_usage, virtual_memory 
+
+from telegram import ( 
+
+    MAX_MESSAGE_LENGTH, 
+
+    InlineKeyboardButton, 
+
+    InlineKeyboardMarkup, 
+
+    MessageEntity, 
+
+    ParseMode, 
+
+    Update, 
+
+) 
+
+from telegram import __version__ as ptbver 
+
+from telegram.error import BadRequest 
+
+from telegram.ext import CallbackContext 
+
+from telegram.utils.helpers import escape_markdown, mention_html 
+
+from telethon import events 
+
+from telethon.tl.functions.channels import GetFullChannelRequest 
+
+from telethon.tl.types import ChannelParticipantsAdmins 
+
+  
+
+import Exon.modules.sql.userinfo_sql as sql 
+
+from Exon import ( 
+
+    DEMONS, 
+
+    DEV_USERS, 
+
+    DRAGONS, 
+
+    INFOPIC, 
+
+    OWNER_ID, 
+
+    TIGERS, 
+
+    WOLVES, 
+
+    StartTime, 
+
+    dispatcher, 
+
+    sw, 
+
+) 
+
+from Exon import telethn as Exon 
+
+from Exon.__main__ import STATS, TOKEN, USER_INFO 
+
+from Exon.modules.helper_funcs.chat_status import sudo_plus 
+
+from Exon.modules.helper_funcs.decorators import Exoncallback, Exoncmd 
+
+from Exon.modules.helper_funcs.extraction import extract_user 
+
+from Exon.modules.no_sql.global_bans_db import is_user_gbanned 
+
+from Exon.modules.no_sql.users_db import get_user_num_chats 
+
+from Exon.modules.sql import SESSION 
+
+  
+
+  
+
+def no_by_per(totalhp, percentage): 
+
+    """ 
+
+    rtype: num of `percentage` from total 
+
+    eg: 1000, 10 -> 10% of 1000 (100) 
+
+    """ 
+
+    return totalhp * percentage / 100 
+
+  
+
+  
+
+def get_percentage(totalhp, earnedhp): 
+
+    """ 
+
+    rtype: percentage of `totalhp` num 
+
+    eg: (1000, 100) will return 10% 
+
+    """ 
+
+    matched_less = totalhp - earnedhp 
+
+    per_of_totalhp = 100 - matched_less * 100.0 / totalhp 
+
+    per_of_totalhp = str(int(per_of_totalhp)) 
+
+    return per_of_totalhp 
+
+  
+
+  
+
+def get_readable_time(seconds: int) -> str: 
+
+    count = 0 
+
+    ping_time = "" 
+
+    time_list = [] 
+
+    time_suffix_list = ["s", "m", "h", "Days"] 
+
+  
+
+    while count < 4: 
+
+        count += 1 
+
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24) 
+
+        if seconds == 0 and remainder == 0: 
+
+            break 
+
+        time_list.append(int(result)) 
+
+        seconds = int(remainder) 
+
+  
+
+    for x in range(len(time_list)): 
+
+        time_list[x] = str(time_list[x]) + time_suffix_list[x] 
+
+    if len(time_list) == 4: 
+
+        ping_time += time_list.pop() + ", " 
+
+  
+
+    time_list.reverse() 
+
+    ping_time += ":".join(time_list) 
+
+  
+
+    return ping_time 
+
+  
+
+  
+
+def hpmanager(user): 
+
+    total_hp = (get_user_num_chats(user.id) + 10) * 10 
+
+  
+
+    if not is_user_gbanned(user.id): 
+
+        # Assign new var `new_hp` since we need `total_hp` in 
+
+        # end to calculate percentage. 
+
+        new_hp = total_hp 
+
+  
+
+        # if no username decrease 25% of hp. 
+
+        if not user.username: 
+
+            new_hp -= no_by_per(total_hp, 25) 
+
+        try: 
+
+            dispatcher.bot.get_user_profile_photos(user.id).photos[0][-1] 
+
+        except IndexError: 
+
+            # no profile photo ==> -25% of hp 
+
+            new_hp -= no_by_per(total_hp, 25) 
+
+        # if no /setme exist ==> -20% of hp 
+
+        if not sql.get_user_me_info(user.id): 
+
+            new_hp -= no_by_per(total_hp, 20) 
+
+        # if no bio exsit ==> -10% of hp 
+
+        if not sql.get_user_bio(user.id): 
+
+            new_hp -= no_by_per(total_hp, 10) 
+
+  
+
+        # new_hp = no_by_per(total_hp, 5) 
+
+  
+
+    return { 
+
+        "earnedhp": int(new_hp), 
+
+        "totalhp": int(total_hp), 
+
+        "percentage": get_percentage(total_hp, new_hp), 
+
+    } 
+
+  
+
+  
+
+def make_bar(per): 
+
+    done = min(round(per / 10), 10) 
+
+    return "⬢" * done + "⬡" * (10 - done) 
+
+  
+
+  
+
+@Exoncmd(command="id") 
+
+def get_id(update: Update, context: CallbackContext): 
+
+    bot, args = context.bot, context.args 
+
+    message = update.effective_message 
+
+    chat = update.effective_chat 
+
+    msg = update.effective_message 
+
+    user_id = extract_user(msg, args) 
+
+  
+
+    if user_id: 
+
+        if msg.reply_to_message and msg.reply_to_message.forward_from: 
+
+            user1 = message.reply_to_message.from_user 
+
+            user2 = message.reply_to_message.forward_from 
+
+  
+
+            msg.reply_text( 
+
+                f"x <b>Sender:</b> {mention_html(user2.id, user2.first_name)} - <code>{user2.id}</code>.\n" 
+
+                f"x <b>Forwarder:</b> {mention_html(user1.id, user1.first_name)} - <code>{user1.id}</code>.", 
+
+                parse_mode=ParseMode.HTML, 
+
+            ) 
+
+  
+
+        else: 
+
+            user = bot.get_chat(user_id) 
+
+            msg.reply_text( 
+
+                f"x <b>REPLIED To:</b> {mention_html(user.id, user.first_name)}\nx <b>ID of the user:</b> <code>{user.id}</code>", 
+
+                parse_mode=ParseMode.HTML, 
+
+            ) 
+
+  
+
+    else: 
+
+        if chat.type == "private": 
+
+            msg.reply_text( 
+
+                f"Your id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML 
+
+            ) 
+
+  
+
+        else: 
+
+            msg.reply_text( 
+
+                f"⟃ <b>USER:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>FRoM USER ID:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>THIS GRoUP ID:</b> <code>{chat.id}</code>", 
+
+                parse_mode=ParseMode.HTML, 
+
+            ) 
+
+  
+
+  
+
+@Exon.on( 
+
+    events.NewMessage( 
+
+        pattern="/ginfo ", 
+
+        from_users=(TIGERS or []) + (DRAGONS or []) + (DEMONS or []), 
+
+    ), 
+
+) 
+
+async def group_info(event) -> None: 
+
+    chat = event.text.split(" ", 1)[1] 
+
+    try: 
+
+        entity = await event.client.get_entity(chat) 
+
+        totallist = await event.client.get_participants( 
+
+            entity, 
+
+            filter=ChannelParticipantsAdmins, 
+
+        ) 
+
+        ch_full = await event.client(GetFullChannelRequest(channel=entity)) 
+
+    except: 
+
+        await event.reply( 
+
+            "Can't for some reason, maybe it is a private one or that I am banned there.", 
+
+        ) 
+
+        return 
+
+    msg = f"**ID**: `{entity.id}`" 
+
+    msg += f"\n**Title**: `{entity.title}`" 
+
+    msg += f"\n**Datacenter**: `{entity.photo.dc_id}`" 
+
+    msg += f"\n**video pfp**: `{entity.photo.has_video}`" 
+
+    msg += f"\n**Supergroup**: `{entity.megagroup}`" 
+
+    msg += f"\n**Restricted**: `{entity.restricted}`" 
+
+    msg += f"\n**Scam**: `{entity.scam}`" 
+
+    msg += f"\n**Slowmode**: `{entity.slowmode_enabled}`" 
+
+    if entity.username: 
+
+        msg += f"\n**USERNAME**: {entity.username}" 
+
+    msg += "\n\n**MEMBER STATS:**" 
+
+    msg += f"\n`ADMINS:` `{len(totallist)}`" 
+
+    msg += f"\n`USERS`: `{totallist.total}`" 
+
+    msg += "\n\n**ADMINS LIST:**" 
+
+    for x in totallist: 
+
+        msg += f"\n[{x.id}](tg://user?id={x.id})" 
+
+    msg += f"\n\n**Description**:\n`{ch_full.full_chat.about}`" 
+
+    await event.reply(msg) 
+
+  
+
+  
+
+@Exoncmd(command="gifid") 
+
+def gifid(update: Update, context: CallbackContext): 
+
+    msg = update.effective_message 
+
+    if msg.reply_to_message and msg.reply_to_message.animation: 
+
+        update.effective_message.reply_text( 
+
+            f"GIF ID:\n<code>{msg.reply_to_message.animation.file_id}</code>", 
+
+            parse_mode=ParseMode.HTML, 
+
+        ) 
+
+    else: 
+
+        update.effective_message.reply_text("Please reply to a gif to get its ID.") 
+
+  
+
+  
+
+@Exoncmd(command=["info", "book"]) 
+
+def info(update: Update, context: CallbackContext): 
+
+    bot, args = context.bot, context.args 
+
+    message = update.effective_message 
+
+    chat = update.effective_chat 
+
+    user_id = extract_user(update.effective_message, args) 
+
+  
+
+    if user_id: 
+
+        user = bot.get_chat(user_id) 
+
+  
+
+    elif not message.reply_to_message and not args: 
+
+        user = message.from_user 
+
+  
+
+    elif not message.reply_to_message and ( 
+
+        not args 
+
+        or ( 
+
+            len(args) >= 1 
+
+            and not args[0].startswith("@") 
+
+            and not args[0].isdigit() 
+
+            and not message.parse_entities([MessageEntity.TEXT_MENTION]) 
+
+        ) 
+
+    ): 
+
+        message.reply_text("I can't extract a user from this.") 
+
+        return 
+
+  
+
+    else: 
+
+        return 
+
+  
+
+    rep = message.reply_text("<code>APPRAISING...</code>", parse_mode=ParseMode.HTML) 
+
+  
+
+    text = ( 
+
+        f"「 <b> Appraisal Results:</b> 」\n" 
+
+        f"ID: <code>{user.id}</code>\n" 
+
+        f"FIRST NAME: {html.escape(user.first_name)}" 
+
+    ) 
+
+  
+
+    if user.last_name: 
+
+        text += f"\nLAST NAME: {html.escape(user.last_name)}" 
+
+  
+
+    if user.username: 
+
+        text += f"\nUSERNAME: @{html.escape(user.username)}" 
+
+  
+
+    text += f"\nUSERLINK: {mention_html(user.id, 'link')}" 
+
+  
+
+    if chat.type != "private" and user_id != bot.id: 
+
+        _stext = "\n<b>Presence:</b> <code>{}</code>" 
+
+  
+
+        # afk_st = is_afk(user.id) 
+
+        #  if afk_st: 
+
+        #     text += _stext.format("AFK") 
+
+        # else: 
+
+        status = status = bot.get_chat_member(chat.id, user.id).status 
+
+        if status: 
+
+            if status in {"left", "kicked"}: 
+
+                text += _stext.format("Not here") 
+
+            elif status == "member": 
+
+                text += _stext.format("Detected") 
+
+            elif status in {"administrator", "creator"}: 
+
+                text += _stext.format("Admin") 
+
+    if user_id not in [bot.id, 777000, 1087968824]: 
+
+        userhp = hpmanager(user) 
+
+        text += f"\n\n<b>HEALTH:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]" 
+
+  
+
+    try: 
+
+        spamwtc = sw.get_ban(int(user.id)) 
+
+        if spamwtc: 
+
+            text += "\n\n<b>This person is spamwatched!</b>" 
+
+            text += f"\nREASoN: <pre>{spamwtc.reason}</pre>" 
+
+            text += "\nAPPEAL AT @AbishnoiMF" 
+
+    except: 
+
+        pass  # don't crash if api is down somehow... 
+
+  
+
+    disaster_level_present = False 
+
+  
+
+    if user.id == OWNER_ID: 
+
+        text += "\n\nThe level for my master " 
+
+        disaster_level_present = True 
+
+    elif user.id in DEV_USERS: 
+
+        text += "\n\nThe level for this user is Destroyers" 
+
+        disaster_level_present = True 
+
+    elif user.id in DRAGONS: 
+
+        text += "\n\nThe level for this user is Shadow Slayer" 
+
+        disaster_level_present = True 
+
+    elif user.id in DEMONS: 
+
+        text += "\n\nThe level for this user is Guardian" 
+
+        disaster_level_present = True 
+
+    elif user.id in TIGERS: 
+
+        text += "\n\nThe level for this user is Light Shooters" 
+
+        disaster_level_present = True 
+
+    elif user.id in WOLVES: 
+
+        text += "\n\nThe level for this user is Villain" 
+
+        disaster_level_present = True 
+
+    elif user.id == 5938660179: 
+
+        text += "\n\nco-ower of a bot." 
+
+        disaster_level_present = True 
+
+  
+
+    if disaster_level_present: 
+
+        text += ' [<a href="https://t.me/">LEvELLING</a>]'.format( 
+
+            bot.username, 
+
+        ) 
+
+  
+
+    try: 
+
+        user_member = chat.get_member(user.id) 
+
+        if user_member.status == "administrator": 
+
+            result = requests.post( 
+
+                f"https://api.telegram.org/bot{TOKEN}/getChatMember?chat_id={chat.id}&user_id={user.id}", 
+
+            ) 
+
+            result = result.json()["result"] 
+
+            if "custom_title" in result.keys(): 
+
+                custom_title = result["custom_title"] 
+
+                text += f"\n\nTITLE:\n<b>{custom_title}</b>" 
+
+    except BadRequest: 
+
+        pass 
+
+  
+
+    for mod in USER_INFO: 
+
+        try: 
+
+            mod_info = mod.__user_info__(user.id).strip() 
+
+        except TypeError: 
+
+            mod_info = mod.__user_info__(user.id, chat.id).strip() 
+
+        if mod_info: 
+
+            text += "\n\n" + mod_info 
+
+  
+
+    if INFOPIC: 
+
+        try: 
+
+            profile = context.bot.get_user_profile_photos(user.id).photos[0][-1] 
+
+            context.bot.sendChatAction(chat.id, "upload_photo") 
+
+            context.bot.send_photo( 
+
+                chat.id, 
+
+                photo=profile, 
+
+                caption=(text), 
+
+                reply_markup=InlineKeyboardMarkup( 
+
+                    [ 
+
+                        [ 
+
+                            InlineKeyboardButton( 
+
+                                "Health", url="https://t.me/werewolfnetworks" 
+
+                            ), 
+
+                            InlineKeyboardButton( 
+
+                                "Disaster", url="https://t.me/werewolfnetworks" 
+
+                            ), 
+
+                        ], 
+
+                    ] 
+
+                ), 
+
+                parse_mode=ParseMode.HTML, 
+
+                disable_web_page_preview=True, 
+
+            ) 
+
+  
+
+        # Incase user don't have profile pic, send normal text 
+
+        except IndexError: 
+
+            message.reply_text( 
+
+                text, 
+
+                reply_markup=InlineKeyboardMarkup( 
+
+                    [ 
+
+                        [ 
+
+                            InlineKeyboardButton( 
+
+                                "Health", url="https://t.me/werewolfnetworks" 
+
+                            ), 
+
+                            InlineKeyboardButton( 
+
+                                "Levelling", url="https://t.me/werewolfnetworks" 
+
+                            ), 
+
+                        ], 
+
+                    ] 
+
+                ), 
+
+                parse_mode=ParseMode.HTML, 
+
+                disable_web_page_preview=True, 
+
+            ) 
+
+  
+
+    else: 
+
+        message.reply_text( 
+
+            text, 
+
+            parse_mode=ParseMode.HTML, 
+
+            disable_web_page_preview=True, 
+
+        ) 
+
+  
+
+    rep.delete() 
+
+  
+
+  
+
+@Exoncmd(command="me") 
+
+def about_me(update: Update, context: CallbackContext): 
+
+    bot, args = context.bot, context.args 
+
+    message = update.effective_message 
+
+    user_id = extract_user(message, args) 
+
+  
+
+    user = bot.get_chat(user_id) if user_id else message.from_user 
+
+    info = sql.get_user_me_info(user.id) 
+
+  
+
+    if info: 
+
+        update.effective_message.reply_text( 
+
+            f"*{user.first_name}*:\n{escape_markdown(info)}", 
+
+            parse_mode=ParseMode.MARKDOWN, 
+
+            disable_web_page_preview=True, 
+
+        ) 
+
+    elif message.reply_to_message: 
+
+        username = message.reply_to_message.from_user.first_name 
+
+        update.effective_message.reply_text( 
+
+            f"{username} Hasn't set an info message about themselves yet !", 
+
+        ) 
+
+    else: 
+
+        update.effective_message.reply_text( 
+
+            "There is not any bio, use /setme to set one." 
+
+        ) 
+
+  
+
+  
+
+@Exoncmd(command="setme") 
+
+def set_about_me(update: Update, context: CallbackContext): 
+
+    message = update.effective_message 
+
+    user_id = message.from_user.id 
+
+    if user_id in [777000, 1087968824]: 
+
+        message.reply_text("Error! Unauthorized") 
+
+        T 
+
+    bot = context.bot 
+
+    if message.reply_to_message: 
+
+        repl_message = message.reply_to_message 
+
+        repl_user_id = repl_message.from_user.id 
+
+        if repl_user_id in [bot.id, 777000, 1087968824] and (user_id in DEV_USERS): 
+
+            user_id = repl_user_id 
+
+    text = message.text 
+
+    info = text.split(None, 1) 
+
+    if len(info) == 2: 
+
+        if len(info[1]) < MAX_MESSAGE_LENGTH // 4: 
+
+            sql.set_user_me_info(user_id, info[1]) 
+
+            if user_id in [777000, 1087968824]: 
+
+                message.reply_text("Authorized...Information updated!") 
+
+            elif user_id == bot.id: 
+
+                message.reply_text("I have updated my info with the one you provided!") 
+
+            else: 
+
+                message.reply_text("Information updated!") 
+
+        else: 
+
+            message.reply_text( 
+
+                "The info needs to be under {} characters! You have {}.".format( 
+
+                    MAX_MESSAGE_LENGTH // 4, 
+
+                    len(info[1]), 
+
+                ), 
+
+            ) 
+
+  
+
+  
+
+@Exoncmd(command="stats", can_disable=True) 
+
+@sudo_plus 
+
+def stats(update, context): 
+
+    db_size = SESSION.execute( 
+
+        "SELECT pg_size_pretty(pg_database_size(current_database()))" 
+
+    ).scalar_one_or_none() 
+
+    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S") 
+
+    botuptime = get_readable_time((time.time() - StartTime)) 
+
+    status = "*╒═══「 SYSTEM STATIcS: 」*\n\n" 
+
+    status += "*x SYSTEM START TIME:* " + str(uptime) + "\n" 
+
+    uname = platform.uname() 
+
+    status += "*x SYSTEM:* " + str(uname.system) + "\n" 
+
+    status += "*x NoDE NAME:* " + escape_markdown(str(uname.node)) + "\n" 
+
+    status += "*x RELEASE:* " + escape_markdown(str(uname.release)) + "\n" 
+
+    status += "*x MAcHINE:* " + escape_markdown(str(uname.machine)) + "\n" 
+
+  
+
+    mem = virtual_memory() 
+
+    cpu = cpu_percent() 
+
+    disk = disk_usage("/") 
+
+    status += "*x cPU:* " + str(cpu) + " %\n" 
+
+    status += "*x RAM:* " + str(mem[2]) + " %\n" 
+
+    status += "*x SToRAGE:* " + str(disk[3]) + " %\n\n" 
+
+    status += "*x PYTHoN vERSIoN:* " + python_version() + "\n" 
+
+    status += "*x PYTHoN-TELEGRAM-BoT:* " + str(ptbver) + "\n" 
+
+    status += "*x UPTIME:* " + str(botuptime) + "\n" 
+
+    status += "*x DB SIzE:* " + str(db_size) + "\n" 
+
+    kb = [[InlineKeyboardButton("Ping", callback_data="pingCB")]] 
+
+    # repo = git.Repo(search_parent_directories=True) 
+
+    # sha = repo.head.object.hexsha 
+
+    # status += f"*x commit*: {sha[0:9]}\n" 
+
+    try: 
+
+        update.effective_message.reply_text( 
+
+            status 
+
+            + "\n*Bot statistics*:\n" 
+
+            + "\n".join([mod.__stats__() for mod in STATS]) 
+
+            + "\n\n[GITHUB](https://github.com/) | \n\n " 
+
+            parse_mode=ParseMode.MARKDOWN, 
+
+            reply_markup=InlineKeyboardMarkup(kb), 
+
+            disable_web_page_preview=True, 
+
+        ) 
+
+    except BaseException: 
+
+        update.effective_message.reply_text( 
+
+            ( 
+
+                ( 
+
+                    ( 
+
+                        "\n*Bot statistics*:\n" 
+
+                        + "\n".join(mod.__stats__() for mod in STATS) 
+
+                    ) 
+
+                    + "\n\n [GITHUB](github.com) | ⍚ \n\n" 
+
+                ) 
+
+                + "╘══「 by [DYNAMIC](telegram.org) 」\n" 
+
+            ), 
+
+            parse_mode=ParseMode.MARKDOWN, 
+
+            reply_markup=InlineKeyboardMarkup(kb), 
+
+            disable_web_page_preview=True, 
+
+        ) 
+
+  
+
+  
+
+@Exoncallback(pattern=r"^pingCB") 
+
+def pingCallback(update: Update, context: CallbackContext): 
+
+    query = update.callback_query 
+
+    start_time = time.time() 
+
+    requests.get("https://api.telegram.org") 
+
+    end_time = time.time() 
+
+    ping_time = round((end_time - start_time) * 1000, 3) 
+
+    query.answer("PoNG 🌺! {}ms".format(ping_time)) 
+
+  
+
+  
+
+@Exoncmd(command="bio") 
+
+def about_bio(update: Update, context: CallbackContext): 
+
+    bot, args = context.bot, context.args 
+
+    message = update.effective_message 
+
+  
+
+    user_id = extract_user(message, args) 
+
+    user = bot.get_chat(user_id) if user_id else message.from_user 
+
+    info = sql.get_user_bio(user.id) 
+
+  
+
+    if info: 
+
+        update.effective_message.reply_text( 
+
+            "*{}*:\n{}".format(user.first_name, escape_markdown(info)), 
+
+            parse_mode=ParseMode.MARKDOWN, 
+
+            disable_web_page_preview=True, 
+
+        ) 
+
+    elif message.reply_to_message: 
+
+        username = user.first_name 
+
+        update.effective_message.reply_text( 
+
+            f"{username} Hasn't had a message set about themselves yet!\nset one using  /setbio", 
+
+        ) 
+
+    else: 
+
+        update.effective_message.reply_text( 
+
+            "You hasn' had a bio set about yourself yet!", 
+
+        ) 
+
+    message = update.effective_message 
+
+    if message.reply_to_message: 
+
+        repl_message = message.reply_to_message 
+
+        user_id = repl_message.from_user.id 
+
+        if user_id == message.from_user.id: 
+
+            message.reply_text( 
+
+                "Ha, you can't set your own bio ! you're at the mercy or others here..." 
+
+            ) 
+
+            return 
+
+        sender_id = update.effective_user.id 
+
+  
+
+        if ( 
+
+            user_id == bot.id 
+
+            and sender_id not in SUDO_USERS 
+
+            and sender_id not in DEV_USERS 
+
+        ): 
+
+            message.reply_text( 
+
+                "Erm... yeah, I only trust sudo users or developers to set my bio." 
+
+            ) 
+
+            return 
+
+        text = message.text 
+
+        # use python's maxsplit to only remove the cmd, hence keeping newlines. 
+
+        bio = text.split(None, 1) 
+
+        if len(bio) == 2: 
+
+            if len(bio[1]) < MAX_MESSAGE_LENGTH // 4: 
+
+                sql.set_user_bio(user_id, bio[1]) 
+
+                message.reply_text( 
+
+                    "UPDATED {}'S BIo!".format(repl_message.from_user.first_name) 
+
+                ) 
+
+            else: 
+
+                message.reply_text( 
+
+                    "A bio needs to be under {} characters! you tried to set {}.".format( 
+
+                        MAX_MESSAGE_LENGTH // 4, len(bio[1]) 
+
+                    ) 
+
+                ) 
+
+    else: 
+
+        message.reply_text("Reply to someone's message to set their bio!") 
+
+  
+
+  
+
+@Exoncmd(command="setbio") 
+
+def set_about_bio(update: Update, context: CallbackContext): 
+
+    message = update.effective_message 
+
+    sender_id = update.effective_user.id 
+
+    bot = context.bot 
+
+  
+
+    if message.reply_to_message: 
+
+        repl_message = message.reply_to_message 
+
+        user_id = repl_message.from_user.id 
+
+  
+
+        if user_id == message.from_user.id: 
+
+            message.reply_text( 
+
+                "Ha, you can't set your own bio! you're at the mercy of others here...", 
+
+            ) 
+
+            return 
+
+  
+
+        if user_id in [777000, 1087968824] and sender_id not in DEV_USERS: 
+
+            message.reply_text("You are not authorised") 
+
+            return 
+
+  
+
+        if user_id == bot.id and sender_id not in DEV_USERS: 
+
+            message.reply_text( 
+
+                "Erm... yeah, i only trust the ackermans to set my bio.", 
+
+            ) 
+
+            return 
+
+  
+
+        text = message.text 
+
+        bio = text.split( 
+
+            None, 
+
+            1, 
+
+        )  # use python's maxsplit to only remove the cmd, hence keeping newlines. 
+
+  
+
+        if len(bio) == 2: 
+
+            if len(bio[1]) < MAX_MESSAGE_LENGTH // 4: 
+
+                sql.set_user_bio(user_id, bio[1]) 
+
+                message.reply_text( 
+
+                    "Updated {}'s bio!".format(repl_message.from_user.first_name), 
+
+                ) 
+
+            else: 
+
+                message.reply_text( 
+
+                    "Bio needs to be under {} character! you tried to set {}.".format( 
+
+                        MAX_MESSAGE_LENGTH // 4, 
+
+                        len(bio[1]), 
+
+                    ), 
+
+                ) 
+
+    else: 
+
+        message.reply_text("Reply to someone to set their bio!") 
+
+  
+
+  
+
+def __user_info__(user_id): 
+
+    bio = html.escape(sql.get_user_bio(user_id) or "") 
+
+    me = html.escape(sql.get_user_me_info(user_id) or "") 
+
+    result = "" 
+
+    if me: 
+
+        result += f"<b>About user:</b>\n{me}\n" 
+
+    if bio: 
+
+        result += f"<b>What other says:</b>\n{bio}\n" 
+
+    result = result.strip("\n") 
+
+    return result 
+
+  
+
+  
+
+__mod_name__ = "Info " 
+
+  
+
+  
+
+# foR HELP MENU 
+
+  
+
+  
+
+# """ 
+
+from Exon.modules.language import gs 
+
+  
+
+  
+
+def get_help(chat): 
+
+    return gs(chat, "userinfo_help") 
+
+  
+
+  
+
+# """ 
+
+ 
