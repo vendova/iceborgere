@@ -14,12 +14,12 @@ set_chat_lang: "Great, I have set your language to {}!"
 pm_start_text: |
    Hey there! I'm NetworkModerator!
 
-   Join my [channel](https://t.me/WerewolfNetworks) to know more about me.
+   Join the [channel](https://t.me/WerewolfNetworks) to know more about me.
    
    Hit /help to find out more about how to use me to my full potential.
 
       
-grp_start_text: "Greetings! \nJoin my [channel](https://t.me/WerewolfNetworks) to know more about me."
+grp_start_text: "Greetings! \nJoin @WerewolfNetworks to know more about me."
 
 
 pm_help_text: |
