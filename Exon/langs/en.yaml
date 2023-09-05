@@ -121,8 +121,7 @@ antispam_help: |
 
 backup_help: |
     *Admin commands:* 
-    - /import: Reply to a group backup file to import as much as possible, making the transfer super simple! Note \
-       that files/photos can't be imported due to telegram restrictions.
+    - /import: Reply to a group backup file to import as much as possible, making the transfer super simple! Note that files/photos can't be imported due to telegram restrictions.
     - /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons)
 
 
