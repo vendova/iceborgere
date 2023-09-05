@@ -648,3 +648,9 @@ td_help: |
    *User commands:*
    - /truth: Sends a random truth string.
    - /dare: Sends a random dare string.
+
+uall_help: |
+   *Admin commands:*
+   `this module usage may result in telegram API limit to the bot. Handle with care.`
+   - /unball: Unball all banned users via one command.
+   - /unmuteall: Unmute all users via one command.
