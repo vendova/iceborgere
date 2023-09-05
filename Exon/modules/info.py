@@ -26,7 +26,7 @@ SOFTWARE.
 # TG :- @Abishnoi1m
 #     UPDATE   :- Abishnoi_bots
 #     GITHUB :- ABISHNOI69 ""
-
+import os
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -103,7 +103,7 @@ async def info_func(_, message: Message):
     try:
         info_caption, photo_id = await get_user_info(user)
     except Exception as e:
-        return await m.edit(str(e))
+        return await m.edit(str("Remember to have <id/username> after the command!"))
 
     if not photo_id:
         return await m.edit(info_caption, disable_web_page_preview=True)
@@ -137,7 +137,7 @@ async def chat_info_func(_, message: Message):
         await m.delete()
         os.remove(photo)
     except Exception as e:
-        await m.edit(e)
+        await m.edit("Remember to have <id/username> after the command!")
 
 
 __mod_name__ = "C-Info"
