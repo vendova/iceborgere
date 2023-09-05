@@ -138,9 +138,9 @@ def ABG_about_callback(update, context):
     elif query.data == "ABG_credit":  # Credit  i hope edit nai hoga
         query.message.edit_text(
             text=f"━━━━━━━ *CREDIT* ━━━━━━━"
-            "\n🛡️ *credit for quickerobot robot* 🛡️"
+            "\n🛡️ *credit forb ot* 🛡️"
             "\n\nhere is the developer and"
-            f"\nsponsor of [{BOT_NAME}](t.me/quickerobot)",
+            f"\nsponsor of [{BOT_NAME}](t.me/)",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
