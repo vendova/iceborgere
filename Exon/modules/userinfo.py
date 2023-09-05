@@ -1030,11 +1030,11 @@ def stats(update, context):
 
         update.effective_message.reply_text( 
             status,
-            + "\n*Bot statistics*:\n" 
+            + "\n*Bot statistics*:\n",
 
-            + "\n".join([mod.__stats__() for mod in STATS]) 
+            + "\n".join([mod.__stats__() for mod in STATS]),
 
-            + "\n\n[GITHUB](https://github.com/) | \n\n " 
+            + "\n\n[GITHUB](https://github.com/) | \n\n ",
 
             parse_mode=ParseMode.MARKDOWN, 
 
