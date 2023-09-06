@@ -201,7 +201,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         InlineKeyboardButton(text="Back", callback_data="help_back"),
                         InlineKeyboardButton(
                             text="Support",
-                            callback_data="ABG_support",
+                            url="t.me/werewolfnetworks",
                         ),
                     ]
                 )
