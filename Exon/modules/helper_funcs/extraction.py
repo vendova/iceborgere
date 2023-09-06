@@ -104,8 +104,8 @@ def extract_user_and_text(
                 "them to give me control! (like a voodoo doll, I need a piece of them to be able "
                 "to execute certain commands...)"
             )
-            await asyncio.sleep(16)
-            await check.delete()
+            asyncio.sleep(16)
+            check.delete()
             
         else:
             LOGGER.exception("Exception %s on user %s", excp.message, user_id)
@@ -152,8 +152,8 @@ def extract_unt_fedban(
                 "I don't have this user's information in my database so, you'll not be able to interact with them"
                 "Try replying to that person's msg or forward their message so i can act upon them"
             )
-            await asyncio.sleep(16)
-            await check.delete()
+            asyncio.sleep(16)
+            check.delete()
             return None, None
         res = message.text.split(None, 2)
         if len(res) >= 3:
@@ -183,8 +183,8 @@ def extract_unt_fedban(
                 "them to give me control! (like a voodoo doll, I need a piece of them to be able "
                 "to execute certain commands...)"
             )
-            await asyncio.sleep(16)
-            await check.delete()
+            asyncio.sleep(16)
+            check.delete()
             return None, None
         if excp.message != "Chat not found":
             LOGGER.exception("Exception %s on user %s", excp.message, user_id)
