@@ -76,9 +76,9 @@ def extract_user_and_text(
                 "I don't have that user in my db. You'll be able to interact with them if "
                 "you reply to that person's message instead, or forward one of that user's messages."
             )
+            return None, None
             await asyncio.sleep(16)
             await check.delete()
-            return None, None
         res = message.text.split(None, 2)
         if len(res) >= 3:
             text = res[2]
