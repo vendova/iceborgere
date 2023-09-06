@@ -4,7 +4,7 @@ from datetime import datetime
 from pyrogram import filters
 from pyrogram.enums import ChatType
 
-from Exon import pbot
+from Exon import Abishnoi as pbot
 from Exon.utils.mongo import get_couple, save_couple
 
 
