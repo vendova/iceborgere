@@ -65,16 +65,30 @@ achannel_help: |
 
 
 admin_help: |
-   *Admin commands:*
-   - /invitelink: Generates chat invite link.
-   - /promote: Promotes user replied to.
-   - /fullpromote: Promotes user replied to with full rights.
-   - /demote: Demotes user replied to.
-   - /title `<title>`: Sets custom title for promoted admin.
-   - /reload: Force refreshes adminlist.
+   *User Commands*:
+   - /admins: list of admins in the chat.
+   - /pinned: to get the current pinned message.
+   
+   *Admin Commands:* 
+   - /pin: silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users.
+   - /unpin: unpins the currently pinned message.
+   - /invitelink: gets invitelink.
+   - /promote: promotes the user replied to.
+   - /lowpromote: promotes the user replied to with half rights.
+   - /fullpromote: promotes the user replied to with full rights.
+   - /demote: demotes the user replied to.
+   - /title <title here>: sets a custom title for an admin that the bot promoted.
+   - /admincache: force refresh the admins list.
+   - /del: deletes the message you replied to.
+   - /purge: deletes all messages between this and the replied to message.
+   - /purge `<integer X>`: deletes the replied message, and X messages following it if replied to a message.
+   - /setgtitle `<text>`: set group title.
+   - /setgpic: reply to an image to set as group photo.
+   - /setdesc: Set group description.
+   - /setsticker: Set group sticker.
 
-   Sometimes, you promote or demote an admin manually, and NetworkModerator doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
-   This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /reload command; that'll force NetworkModerator to check who the admins are again.
+   Sometimes, you promote or demote an admin manually, and quickerobot doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
+   This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /reload command; that'll force quickerobot to check who the admins are again.
 
 
 afk_help: |
