@@ -382,7 +382,7 @@ def get_id(update: Update, context: CallbackContext):
 
             msg.reply_text( 
 
-                f"<b>USER:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>From USER ID:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>THIS GRoUP ID:</b> <code>{chat.id}</code>", 
+                f"<b>User:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n<b>From User ID:</b> <code>{update.effective_message.from_user.id}</code>\n<b>This group ID:</b> <code>{chat.id}</code>", 
 
                 parse_mode=ParseMode.HTML, 
 
