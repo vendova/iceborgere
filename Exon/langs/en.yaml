@@ -665,7 +665,7 @@ td_help: |
 uall_help: |
    *Admin commands:*
    `this module usage may result in telegram API limit to the bot. Handle with care.`
-   - /unball: Unball all banned users via one command.
+   - /unbanall: Unbanall all banned users via one command.
    - /unmuteall: Unmute all users via one command.
 
 ping_help: |
