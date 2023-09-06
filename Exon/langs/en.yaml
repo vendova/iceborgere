@@ -634,6 +634,7 @@ raid_help: |
    - /raidactiontime `<time>`: View or set default action duration for temp banned users, default is 1 hour.
 
 zombies_help: |
+   `Telegram API limit may intervene with this action. Handle with care.`
    *Admin commands:*
    - /zombies: Find and remove deleted accounts from your groups.  
    - /zombies `clean`: Remove deleted accounts from your groups.
