@@ -290,7 +290,7 @@ def set_sticker(update: Update, context: CallbackContext):
 
             context.bot.set_chat_sticker_set(chat.id, stkr) 
 
-            msg.reply_text(f"successfully set new group stickers in {chat.title}!") 
+            msg.reply_text(f"Successfully set new group stickers in {chat.title}!") 
 
         except BadRequest as excp: 
 
@@ -298,7 +298,7 @@ def set_sticker(update: Update, context: CallbackContext):
 
                 return msg.reply_text( 
 
-                    "sorry, due to telegram restrictions chat needs to have minimum 100 members before they can have group stickers!" 
+                    "Sorry, due to telegram restrictions chat needs to have minimum 100 members before they can have group stickers!" 
 
                 ) 
 
@@ -362,11 +362,11 @@ def setchatpic(update: Update, context: CallbackContext):
 
                 context.bot.set_chat_photo(int(chat.id), photo=chatp) 
 
-                msg.reply_text("successfully set new chatpic!") 
+                msg.reply_text("Successfully set new chatpic!") 
 
         except BadRequest as excp: 
 
-            msg.reply_text(f"error! {excp.message}") 
+            msg.reply_text(f"Error! {excp.message}") 
 
         finally: 
 
@@ -400,7 +400,7 @@ def rmchatpic(update: Update, context: CallbackContext):
 
     if user_can_changeinfo(chat, user, context.bot.id) is False: 
 
-        msg.reply_text("You don't have enough rights to delete group photo") 
+        msg.reply_text("You don't have enough rights to delete group photo!") 
 
         return 
 
@@ -408,7 +408,7 @@ def rmchatpic(update: Update, context: CallbackContext):
 
         context.bot.delete_chat_photo(int(chat.id)) 
 
-        msg.reply_text("successfully deleted chat's profile photo!") 
+        msg.reply_text("Successfully deleted chat's profile photo!") 
 
     except BadRequest as excp: 
 
@@ -448,7 +448,7 @@ def set_desc(update: Update, context: CallbackContext):
 
     else: 
 
-        return msg.reply_text("setting empty description won't do anything!") 
+        return msg.reply_text("Setting empty description won't do anything!") 
 
     try: 
 
@@ -458,7 +458,7 @@ def set_desc(update: Update, context: CallbackContext):
 
         context.bot.set_chat_description(chat.id, desc) 
 
-        msg.reply_text(f"successfully updated chat description in {chat.title}!") 
+        msg.reply_text(f"Successfully updated chat description in {chat.title}!") 
 
     except BadRequest as excp: 
 
@@ -508,7 +508,7 @@ def setchat_title(update: Update, context: CallbackContext):
 
         msg.reply_text( 
 
-            f"successfully set <b>{title}</b> as new chat title!", 
+            f"Successfully set <b>{title}</b> as new chat title!", 
 
             parse_mode=ParseMode.HTML, 
 
@@ -1016,7 +1016,7 @@ def demote(update: Update, context: CallbackContext) -> Optional[str]:
 
         message.reply_text( 
 
-            f"successfully demoted <b>{user_member.user.first_name or user_id}</b>!", 
+            f"Successfully demoted <b>{user_member.user.first_name or user_id}</b>!", 
 
             parse_mode=ParseMode.HTML, 
 
@@ -1164,7 +1164,7 @@ def set_title(update: Update, context: CallbackContext):
 
     if not title: 
 
-        message.reply_text("setting blank title doesn't do anything!") 
+        message.reply_text("Setting blank title doesn't do anything!") 
 
         return 
 
@@ -1200,7 +1200,7 @@ def set_title(update: Update, context: CallbackContext):
 
         chat.id, 
 
-        f"sucessfully set title for <code>{user_member.user.first_name or user_id}</code> " 
+        f"Sucessfully set title for <code>{user_member.user.first_name or user_id}</code> !" 
 
         f"To <code>{html.escape(title[:16])}</code>!", 
 
@@ -1294,7 +1294,7 @@ def pin(update: Update, context: CallbackContext) -> str:
 
             msg.reply_text( 
 
-                "success! pinned this message on this group", 
+                "success! pinned this message on this group.", 
 
                 reply_markup=InlineKeyboardMarkup( 
 
@@ -1604,7 +1604,7 @@ def invite(update, context):
 
         if msg.chat.type == "private": 
 
-            msg.reply_text("This command is meant to use in chat not in pm") 
+            msg.reply_text("This command is meant to use in chat not in pm.") 
 
             return "" 
 
@@ -1714,11 +1714,11 @@ async def admins(client, message):
 
             if owner.username == None: 
 
-                text2 += f"👑 owner\n└ {owner.mention}\n\n👮🏻 admins\n" 
+                text2 += f"👑 owner\n└ <code>{owner.mention}</code>\n\n👮🏻 admins\n" 
 
             else: 
 
-                text2 += f"👑 owner\n└ @{owner.username}\n\n👮🏻 admins\n" 
+                text2 += f"👑 owner\n└ <code>@{owner.username}</code>\n\n👮🏻 admins\n" 
 
         except: 
 
@@ -1726,7 +1726,7 @@ async def admins(client, message):
 
         if len(adminList) == 0: 
 
-            text2 += "└ <i>Admins are hidden</i>" 
+            text2 += "└ <i>Admins are hidden.</i>" 
 
             await Abishnoi.send_message(message.chat.id, text2) 
 
@@ -1738,11 +1738,11 @@ async def admins(client, message):
 
                 if admin.username == None: 
 
-                    text2 += f"├ {admin.mention}\n" 
+                    text2 += f"├ <code>{admin.mention}</code>\n" 
 
                 else: 
 
-                    text2 += f"├ @ {admin.username}\n" 
+                    text2 += f"├ <code>@{admin.username}</code>\n" 
 
             else: 
 
@@ -1898,7 +1898,7 @@ def button(update: Update, context: CallbackContext) -> str:
 
                 f"YEP! {mention_html(user_member.user.id, user_member.user.first_name)} has been demoted in {chat.title}!" 
 
-                f"BY {mention_html(user.id, user.first_name)}", 
+                f"BY {mention_html(user.id, user.first_name)}.", 
 
                 parse_mode=ParseMode.HTML, 
 
@@ -2040,7 +2040,7 @@ dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
   
 
-__mod_name__ = "ADMIN" 
+__mod_name__ = "Admin" 
 
 __command_list__ = [ 
 

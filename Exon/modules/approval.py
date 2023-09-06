@@ -136,7 +136,7 @@ def approve(update, context):
 
         message.reply_text( 
 
-            f"[{member.user['first_name']}](tg://user?id={member.user['id']}) Is already approved in {chat_title}", 
+            f"[{member.user['first_name']}](tg://user?id={member.user['id']}) Is already approved in {chat_title}.", 
 
             parse_mode=ParseMode.MARKDOWN, 
 
@@ -338,7 +338,7 @@ def unapproveall(update: Update, context: CallbackContext):
 
         update.effective_message.reply_text( 
 
-            "only the chat owner can unapprove all users at once.", 
+            "Only the chat owner can unapprove all users at once.", 
 
         ) 
 
@@ -412,7 +412,7 @@ def unapproveall_btn(update: Update, context: CallbackContext):
 
                 sql.disapprove(chat.id, user_id) 
 
-            message.edit_text("successfully unapproved all user in this chat.") 
+            message.edit_text("Successfully unapproved all user in this chat.") 
 
             return 
 
@@ -420,7 +420,7 @@ def unapproveall_btn(update: Update, context: CallbackContext):
 
         if member.status == "administrator": 
 
-            query.answer("only owner of the chat can do this.") 
+            query.answer("Only owner of the chat can do this.") 
 
   
 
@@ -438,7 +438,7 @@ def unapproveall_btn(update: Update, context: CallbackContext):
 
         if member.status == "administrator": 
 
-            query.answer("only owner of the chat can do this.") 
+            query.answer("Only owner of the chat can do this.") 
 
         if member.status == "member": 
 

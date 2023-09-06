@@ -67,7 +67,6 @@ achannel_help: |
 admin_help: |
    *Admin commands:*
    - /invitelink: Generates chat invite link.
-   - /lowpromote: Promotes user replied to with low rights. 
    - /promote: Promotes user replied to.
    - /fullpromote: Promotes user replied to with full rights.
    - /demote: Demotes user replied to.
@@ -572,7 +571,7 @@ welcome_mutes: |
     You can get the bot to mute new people who join your group and hence prevent spambots from flooding your group.  
     
     The following options are possible:
-    - /welcomemute `soft`: Restricts new members from sending media for 24 hours.
+    - /welcomemute <code>soft</code>: Restricts new members from sending media for 24 hours.
     - /welcomemute `strong`: Mutes new members till they tap on a button, thereby verifying they're human.
     - /welcomemute `captcha`:  Mutes new members till they solve a button captcha, thereby verifying they're human.
     - /welcomemute `off`: Turns off welcomemute.

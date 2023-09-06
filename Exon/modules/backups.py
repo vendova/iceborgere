@@ -200,7 +200,7 @@ def import_data(update, context):
 
                 if conn: 
 
-                    text = "Backup comes from another chat, i can't return another chat to chat *{}*".format( 
+                    text = "Backup comes from another chat, i can't return another chat to chat *{}*!".format( 
 
                         chat_name, 
 
@@ -208,7 +208,7 @@ def import_data(update, context):
 
                 else: 
 
-                    text = "Backup comes from another chat, i can't return another chat to this chat" 
+                    text = "Backup comes from another chat, i can't return another chat to this chat!" 
 
                 return msg.reply_text(text, parse_mode="markdown") 
 
@@ -254,7 +254,7 @@ def import_data(update, context):
 
             msg.reply_text( 
 
-                f"An error occurred while recovering your data. the process failed. if you experience a problem with this, please take it to @{support_chat}", 
+                f"An error occurred while recovering your data. the process failed. if you experience a problem with this, please take it to @{support_chat}!", 
 
             ) 
 
@@ -284,7 +284,7 @@ def import_data(update, context):
 
         else: 
 
-            text = "Backup fully restored" 
+            text = "Backup fully restored." 
 
         msg.reply_text(text, parse_mode="markdown") 
 
@@ -354,7 +354,7 @@ def export_data(update, context):
 
             update.effective_message.reply_text( 
 
-                "You can only backup once a day!\nyou can backup again in about `{}`".format( 
+                "You can only backup once a day!\nyou can backup again in about `{}`.".format( 
 
                     timeformatt, 
 
@@ -732,7 +732,7 @@ def export_data(update, context):
 
             JOIN_LOGGER, 
 
-            "*successfully imported backup:*\nchat: `{}`\nchat id: `{}`\non: `{}`".format( 
+            "*Successfully imported backup:*\nchat: `{}`\nchat id: `{}`\non: `{}`.".format( 
 
                 chat.title, 
 
@@ -756,7 +756,7 @@ def export_data(update, context):
 
         document=open("network{}.backup".format(chat_id), "rb"), 
 
-        caption="*successfully exported backup:*\nchat: `{}`\nchat id: `{}`\non: `{}`\n\nnote: this `backup` was specially made for notes.".format( 
+        caption="*Successfully exported backup:*\nchat: `{}`\nchat id: `{}`\non: `{}`\n\nnote: this `backup` was specially made for notes.".format( 
 
             chat.title, 
 

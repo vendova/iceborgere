@@ -162,11 +162,11 @@ if is_module_loaded(FILENAME):
             if disable_cmd in set(DISABLE_CMDS + DISABLE_OTHER):
                 sql.disable_command(chat.id, str(disable_cmd).lower())
                 update.effective_message.reply_text(
-                    f"Disabled the use of `{disable_cmd}`",
+                    f"Disabled the use of `{disable_cmd}`.",
                     parse_mode=ParseMode.MARKDOWN,
                 )
             else:
-                update.effective_message.reply_text("That command can't be disabled")
+                update.effective_message.reply_text("That command can't be disabled!")
 
         else:
             update.effective_message.reply_text("What should I disable?")
@@ -235,7 +235,7 @@ if is_module_loaded(FILENAME):
 
             if sql.enable_command(chat.id, enable_cmd):
                 update.effective_message.reply_text(
-                    f"Enabled the use of `{enable_cmd}`",
+                    f"Enabled the use of `{enable_cmd}`.",
                     parse_mode=ParseMode.MARKDOWN,
                 )
             else:
@@ -282,7 +282,7 @@ if is_module_loaded(FILENAME):
             if enabled_cmds:
                 enabled_cmds_string = ", ".join(enabled_cmds)
                 update.effective_message.reply_text(
-                    f"Enabled the uses of `{enabled_cmds_string}`",
+                    f"Enabled the uses of `{enabled_cmds_string}`.",
                     parse_mode=ParseMode.MARKDOWN,
                 )
 
@@ -306,7 +306,7 @@ if is_module_loaded(FILENAME):
             )
 
             update.effective_message.reply_text(
-                f"The following commands are toggleable:\n{result}",
+                f"The following commands are toggleable:\n{result}.",
                 parse_mode=ParseMode.MARKDOWN,
             )
         else:
@@ -330,7 +330,7 @@ if is_module_loaded(FILENAME):
         )
 
     def __stats__():
-        return f"× {sql.num_disabled()} ᴅɪsᴀʙʟᴇᴅ ɪᴛᴇᴍs, ᴀᴄʀᴏss {sql.num_chats()} ᴄʜᴀᴛs."
+        return f"× {sql.num_disabled()} Disabled items, across {sql.num_chats()} chats."
 
     def __migrate__(old_chat_id, new_chat_id):
         sql.migrate_chat(old_chat_id, new_chat_id)

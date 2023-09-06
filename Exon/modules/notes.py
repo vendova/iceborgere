@@ -246,7 +246,7 @@ def get(update, context, notename, show_none=True, no_format=False):
                     LOGGER.warning("Message was: %s", str(note.value))
         return
     if show_none:
-        message.reply_text("This note doesn't exist")
+        message.reply_text("This note doesn't exist!")
 
 
 @connection_status
@@ -257,7 +257,7 @@ def cmd_get(update: Update, context: CallbackContext):
     elif len(args) >= 1:
         get(update, context, args[0].lower(), show_none=True)
     else:
-        update.effective_message.reply_text("Get rekt")
+        update.effective_message.reply_text("Get rekt.")
 
 
 @connection_status
@@ -279,7 +279,7 @@ def slash_get(update: Update, context: CallbackContext):
         note_name = str(noteid).strip(">").split()[1]
         get(update, context, note_name, show_none=False)
     except IndexError:
-        update.effective_message.reply_text("Wrong Note ID 😾")
+        update.effective_message.reply_text("Wrong Note ID 😾!")
 
 
 @user_admin
@@ -291,7 +291,7 @@ def save(update: Update, context: CallbackContext):
     note_name, text, data_type, content, buttons = get_note_type(msg)
     note_name = note_name.lower()
     if data_type is None:
-        msg.reply_text("Dude, there's no note")
+        msg.reply_text("Dude, there's no note!")
         return
 
     sql.add_note_to_db(
@@ -304,7 +304,7 @@ def save(update: Update, context: CallbackContext):
     )
 
     msg.reply_text(
-        f"Yas! Added `{note_name}`.\nGet it with /get `{note_name}`, or `#{note_name}`",
+        f"Yas! Added `{note_name}`.\nGet it with /get `{note_name}`, or `#{note_name}`.",
         parse_mode=ParseMode.MARKDOWN,
     )
 

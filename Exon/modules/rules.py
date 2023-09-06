@@ -118,7 +118,7 @@ def send_rules(update, chat_id, from_pm=False):
 
                 "The rules shortcut for this chat hasn't been set properly! ask admins to " 
 
-                "fix this.\nmay be they forgot the hyphen in id", 
+                "fix this.\nmay be they forgot the hyphen in id.", 
 
             ) 
 

@@ -236,11 +236,11 @@ async def _(event):
 
     if p == 0: 
 
-        await done.edit("No one is banned in this chat") 
+        await done.edit("No one is banned in this chat!") 
 
         return 
 
-    required_string = "successfully unbanned **{}** users" 
+    required_string = "Successfully unbanned **{}** users." 
 
     await event.reply(required_string.format(p)) 
 
@@ -294,7 +294,7 @@ async def _(event):
 
     if not is_admin: 
 
-        return await event.respond("__only admins can unmuteall!__") 
+        return await event.respond("__Only admins can unmuteall!__") 
 
     chat = await event.get_chat() 
 
@@ -342,7 +342,7 @@ async def _(event):
 
         except FloodWaitError as ex: 
 
-            LOGGER.warn(f"Sleeping for {ex.seconds} seconds") 
+            LOGGER.warn(f"Sleeping for {ex.seconds} seconds.") 
 
             sleep(ex.seconds) 
 
@@ -358,11 +358,11 @@ async def _(event):
 
     if p == 0: 
 
-        await done.edit("No one is muted in this chat") 
+        await done.edit("No one is muted in this chat!") 
 
         return 
 
-    required_string = "Successfully unmuted **{}** users" 
+    required_string = "Successfully unmuted **{}** users!" 
 
     await event.reply(required_string.format(p)) 
 

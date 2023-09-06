@@ -74,10 +74,10 @@ if is_module_loaded(FILENAME):
                 try:
                     if message.chat.type == chat.SUPERGROUP:
                         if message.chat.username:
-                            result += f'\n<b>Link:</b> <a href="https://t.me/{chat.username}/{message.message_id}">click here</a>'
+                            result += f'\n<b>Link:</b> <a href="https://t.me/{chat.username}/{message.message_id}">click here</a>.'
                         else:
                             cid = str(chat.id).replace("-100", "")
-                            result += f'\n<b>Link:</b> <a href="https://t.me/c/{cid}/{message.message_id}">click here</a>'
+                            result += f'\n<b>Link:</b> <a href="https://t.me/c/{cid}/{message.message_id}">click here</a>.'
                 except AttributeError:
                     result += "\n<b>Link:</b> No link for manual actions."  # or just without the whole line
                 log_chat = sql.get_chat_log_channel(chat.id)
@@ -229,7 +229,7 @@ if is_module_loaded(FILENAME):
         log_channel = sql.get_chat_log_channel(chat_id)
         if log_channel:
             log_channel_info = dispatcher.bot.get_chat(log_channel)
-            return f"This group has all it's logs sent to: {escape_markdown(log_channel_info.title)} (`{log_channel}`)"
+            return f"This group has all it's logs sent to: {escape_markdown(log_channel_info.title)} (`{log_channel}`)."
         return "No log channel is set for this group!"
 
     __mod_name__ = "Logger"
@@ -266,7 +266,7 @@ def log_settings(update: Update, _: CallbackContext):
         ]
     )
     msg = update.effective_message
-    msg.reply_text("Toggle channel log settings", reply_markup=btn)
+    msg.reply_text("Toggle channel log settings.", reply_markup=btn)
 
 
 from Exon.modules.sql import log_channel_sql as sql
@@ -278,7 +278,7 @@ def log_setting_callback(update: Update, context: CallbackContext):
     user = cb.from_user
     chat = cb.message.chat
     if not is_user_admin(update, user.id):
-        cb.answer("You aren't admin", show_alert=True)
+        cb.answer("You aren't admin!", show_alert=True)
         return
     setting = cb.data.replace("log_tog_", "")
     chat_set = sql.get_chat_setting(chat_id=chat.id)
@@ -290,26 +290,26 @@ def log_setting_callback(update: Update, context: CallbackContext):
     t = sql.get_chat_setting(chat.id)
     if setting == "warn":
         r = t.toggle_warn()
-        cb.answer("Warning log set to {}".format(r))
+        cb.answer("Warning log set to {}!".format(r))
         return
     if setting == "act":
         r = t.toggle_action()
-        cb.answer("Action log set to {}".format(r))
+        cb.answer("Action log set to {}!".format(r))
         return
     if setting == "join":
         r = t.toggle_joins()
-        cb.answer("Join log set to {}".format(r))
+        cb.answer("Join log set to {}!".format(r))
         return
     if setting == "leave":
         r = t.toggle_leave()
-        cb.answer("Leave log set to {}".format(r))
+        cb.answer("Leave log set to {}!".format(r))
         return
     if setting == "rep":
         r = t.toggle_report()
-        cb.answer("Report log set to {}".format(r))
+        cb.answer("Report log set to {}!".format(r))
         return
 
-    cb.answer("Now, What i need to do")
+    cb.answer("Now, What i need to do!")
 
 
 __mod_name__ = "Logs"

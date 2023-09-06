@@ -80,7 +80,7 @@ async def purge(c: Abishnoi, m: Message):
 
     if m.chat.type != ChatType.SUPERGROUP: 
 
-        await m.reply_text(text="cannot purge messages in a basic group") 
+        await m.reply_text(text="Cannot purge messages in a basic group!") 
 
         return 
 
@@ -126,7 +126,7 @@ async def purge(c: Abishnoi, m: Message):
 
             await m.reply_text( 
 
-                text="cannot delete all messages. the messages may be too old, i might not have delete rights, or this might not be a supergroup." 
+                text="Cannot delete all messages. the messages may be too old, i might not have delete rights, or this might not be a supergroup." 
 
             ) 
 
@@ -142,7 +142,7 @@ async def purge(c: Abishnoi, m: Message):
 
   
 
-        z = await m.reply_text(text=f"DELETED <i>{count_del_msg}</i> messages") 
+        z = await m.reply_text(text=f"DELETED <i>{count_del_msg}</i> messages.") 
 
         return 
 
@@ -162,7 +162,7 @@ async def spurge(c: Abishnoi, m: Message):
 
     if m.chat.type != ChatType.SUPERGROUP: 
 
-        await m.reply_text(text="cannot purge messages in a basic group") 
+        await m.reply_text(text="Cannot purge messages in a basic group!") 
 
         return 
 
@@ -208,7 +208,7 @@ async def spurge(c: Abishnoi, m: Message):
 
             await m.reply_text( 
 
-                text="cannot delete all messages. the messages may be too old, i might not have delete rights, or this might not be a supergroup." 
+                text="Cannot delete all messages. the messages may be too old, i might not have delete rights, or this might not be a supergroup." 
 
             ) 
 

@@ -156,7 +156,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
         admin_list = bot.getChatAdministrators(chat.id) 
 
-        reported = "REPoRTED To ADMINs." 
+        reported = "REPORTED To ADMINs." 
 
         for admin in admin_list: 
 
@@ -294,7 +294,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
             reported = ( 
 
-                f"{mention_html(user.id, user.first_name)} Reported " 
+                f"{mention_html(user.id, user.first_name)} Reported!" 
 
                 f"{mention_html(reported_user.id, reported_user.first_name)} To the admins!" 
 
@@ -302,7 +302,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
   
 
-            msg = f'{mention_html(user.id, user.first_name)} Is calling for admins in "{html.escape(chat_name)}"!' 
+            msg = f'{mention_html(user.id, user.first_name)} is calling for admins in "{html.escape(chat_name)}"!' 
 
             link = "" 
 

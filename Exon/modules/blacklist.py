@@ -154,7 +154,7 @@ def blacklist(update, context):
 
   
 
-    filter_list = "current blacklisted words in <b>{}</b>:\n".format(chat_name) 
+    filter_list = "Current blacklisted words in <b>{}</b>:\n".format(chat_name) 
 
   
 
@@ -186,7 +186,7 @@ def blacklist(update, context):
 
     for text in split_text: 
 
-        if filter_list == "current blacklisted words in <b>{}</b>:\n".format( 
+        if filter_list == "Current blacklisted words in <b>{}</b>:\n".format( 
 
             html.escape(chat_name) 
 
@@ -844,7 +844,7 @@ def del_blacklist(update, context):
 
                         chat.id, 
 
-                        f"Banned {user.first_name} for using blacklisted word: {trigger}", 
+                        f"Banned {user.first_name} for using blacklisted word: {trigger}!", 
 
                     ) 
 
@@ -890,7 +890,7 @@ def del_blacklist(update, context):
 
                         chat.id, 
 
-                        f"muted {user.first_name} until '{value}' for using blacklisted word: {trigger}!", 
+                        f"Muted {user.first_name} until <b>'{value}'</b> for using blacklisted word: {trigger}!", 
 
                     ) 
 
@@ -898,7 +898,7 @@ def del_blacklist(update, context):
 
             except BadRequest as excp: 
 
-                if excp.message != "MEssAGE To DELETE NoT foUND": 
+                if excp.message != "Message to delete not found": 
 
                     LOGGER.exception("ERRoR WHILE DELETING BLAcKLIsT MEssAGE.") 
 
@@ -1098,7 +1098,7 @@ def blacklist_help_bse(update: Update, context: CallbackContext):
 
                     InlineKeyboardButton( 
 
-                        text="BAcK", 
+                        text="Back", 
 
                         callback_data=f"help_module({__mod_name__.lower()})", 
 

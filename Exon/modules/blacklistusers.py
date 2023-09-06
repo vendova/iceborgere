@@ -290,7 +290,7 @@ def __user_info__(user_id):
 
   
 
-    text = "BLAcKLIsTED: <b>{}</b>" 
+    text = "Blacklisted: <b>{}</b>" 
 
     if user_id in [777000, 1087968824]: 
 
@@ -312,7 +312,7 @@ def __user_info__(user_id):
 
         if reason: 
 
-            text += f"\nreason: <code>{reason}</code>" 
+            text += f"\nReason: <code>{reason}</code>" 
 
     else: 
 

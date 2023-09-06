@@ -99,14 +99,14 @@ def set_blue_text_must_click(update: Update, context: CallbackContext):
         val = args[0].lower()
         if val in ("off", "no"):
             sql.set_cleanbt(chat.id, False)
-            reply = "Bluetext cleaning has been disabled for <b>{}</b>".format(
+            reply = "Bluetext cleaning has been disabled for <b>{}</b>.".format(
                 html.escape(chat.title),
             )
             message.reply_text(reply, parse_mode=ParseMode.HTML)
 
         elif val in ("yes", "on"):
             sql.set_cleanbt(chat.id, True)
-            reply = "Bluetext cleaning has been enabled for <b>{}</b>".format(
+            reply = "Bluetext cleaning has been enabled for <b>{}</b>.".format(
                 html.escape(chat.title),
             )
             message.reply_text(reply, parse_mode=ParseMode.HTML)
@@ -117,7 +117,7 @@ def set_blue_text_must_click(update: Update, context: CallbackContext):
     else:
         clean_status = sql.is_enabled(chat.id)
         clean_status = "Enabled" if clean_status else "Disabled"
-        reply = "Bluetext cleaning for <b>{}</b> : <b>{}</b>".format(
+        reply = "Bluetext cleaning for <b>{}</b> : <b>{}</b>.".format(
             html.escape(chat.title),
             clean_status,
         )

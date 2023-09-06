@@ -142,7 +142,7 @@ async def command_karma(_, message):
         if not karma:
             await m.edit("No Karma in database.")
             return
-        msg = f"🏆 **ᴋᴀʀᴍᴀ ʟɪsᴛ ᴏғ {message.chat.title}**\n"
+        msg = f"🏆 **   Karma list of {message.chat.title}**\n"
         limit = 0
         karma_dicc = {}
         for i in karma:

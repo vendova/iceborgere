@@ -230,7 +230,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"My darling has come to this group for make thee child with me"
+                    f"My darling has come to this group for make thee child with me."
                 )
                 continue
 
@@ -396,12 +396,12 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                     f"[{escape_markdown(new_mem.first_name)}](tg://user?id={user.id})"
                 )
                 message = msg.reply_text(
-                    f"{new_join_mem}, ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡᴡ ᴛᴏ ᴘʀᴏᴠᴇ ʏᴏᴜ ᴀʀᴇ ʜᴜᴍᴀɴ.\nʏᴏᴜᴜ ʜᴀᴠᴇ 120 ꜱᴇᴄᴏɴᴅꜱ.",
+                    f"{new_join_mem}, Click the button below to prove you are a human.\nYou have 120 seconds.",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="ʏᴇꜱ, ɪ'ᴍ ʜᴜᴍᴀɴ.",
+                                    text="Yes, I'm a Human.",
                                     callback_data=f"user_join_({new_mem.id})",
                                 )
                             ]
@@ -640,7 +640,7 @@ def left_member(update: Update, context: CallbackContext):  # sourcery no-metric
             # Give the devs a special goodbye
             elif left_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "See you later at the sukura empire",
+                    "See you later at the sukura empire!",
                     reply_to_message_id=reply,
                 )
                 return
@@ -1018,7 +1018,7 @@ def clean_welcome(update: Update, context: CallbackContext) -> str:
         )
     elif args[0].lower() in ("off", "no"):
         sql.set_clean_welcome(str(chat.id), False)
-        update.effective_message.reply_text("ɪ ᴡᴏɴ'ᴛ ᴅᴇʟᴇᴛᴇ ᴏʟᴅ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ.")
+        update.effective_message.reply_text("I won't delete old welcome message.")
         return (
             f"<b>{html.escape(chat.title)}:</b>\n"
             f"#CLEAN_WELCOME\n"
@@ -1363,7 +1363,7 @@ def fmt_help(update: Update, context: CallbackContext):
             [
                 [
                     InlineKeyboardButton(
-                        text="ʙᴀᴄᴋ",
+                        text="Back",
                         callback_data=f"help_module({__mod_name__.lower()})",
                     )
                 ]
@@ -1378,8 +1378,8 @@ def get_help(chat):
     return [
         gs(chat, "greetings_help"),
         [
-            InlineKeyboardButton(text="WELCOME MUTES", callback_data="wlc_help_m"),
-            InlineKeyboardButton(text="WELCOME FORMATTING", callback_data="wlc_help_h"),
+            InlineKeyboardButton(text="Welcome mutes", callback_data="wlc_help_m"),
+            InlineKeyboardButton(text="Welcome formatting", callback_data="wlc_help_h"),
         ],
     ]
 

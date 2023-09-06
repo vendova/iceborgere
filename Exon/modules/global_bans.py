@@ -110,7 +110,7 @@ def gban(update: Update, context: CallbackContext):
 
     if int(user_id) in DEV_USERS:
         message.reply_text(
-            "That user is a Destroyers",
+            "That user is a Destroyers.",
         )
         return
 
@@ -244,14 +244,14 @@ def gban(update: Update, context: CallbackContext):
                 if EVENT_LOGS:
                     bot.send_message(
                         EVENT_LOGS,
-                        f"Could not gban due to {excp.message}",
+                        f"Could not gban due to {excp.message}!",
                         parse_mode=ParseMode.HTML,
                     )
                 else:
                     send_to_list(
                         bot,
                         DRAGONS + DEMONS,
-                        f"Could not gban due to: {excp.message}",
+                        f"Could not gban due to: {excp.message}!",
                     )
                 gban_db.ungban_user(user_id)
                 return
@@ -260,14 +260,14 @@ def gban(update: Update, context: CallbackContext):
 
     if EVENT_LOGS:
         log.edit_text(
-            log_message + f"\n<b>Chats affected:</b> <code>{gbanned_chats}</code>",
+            log_message + f"\n<b>Chats affected:</b> <code>{gbanned_chats}</code>.",
             parse_mode=ParseMode.HTML,
         )
     else:
         send_to_list(
             bot,
             DRAGONS + DEMONS,
-            f"Gban complete! (User banned in <code>{gbanned_chats}</code> chats)",
+            f"Gban complete! (User banned in <code>{gbanned_chats}</code> chats).",
             html=True,
         )
 
@@ -369,13 +369,13 @@ def ungban(update: Update, context: CallbackContext):
                 if EVENT_LOGS:
                     bot.send_message(
                         EVENT_LOGS,
-                        f"Could not un-gban due to: {excp.message}",
+                        f"Could not un-gban due to: {excp.message}!",
                         parse_mode=ParseMode.HTML,
                     )
                 else:
                     bot.send_message(
                         OWNER_ID,
-                        f"Could not un-gban due to: {excp.message}",
+                        f"Could not un-gban due to: {excp.message}!",
                     )
                 return
         except TelegramError:
@@ -385,7 +385,7 @@ def ungban(update: Update, context: CallbackContext):
 
     if EVENT_LOGS:
         log.edit_text(
-            log_message + f"\n<b>Chats affected:</b> {ungbanned_chats}",
+            log_message + f"\n<b>Chats affected:</b> {ungbanned_chats}.",
             parse_mode=ParseMode.HTML,
         )
     else:
@@ -396,9 +396,9 @@ def ungban(update: Update, context: CallbackContext):
 
     if ungban_time > 60:
         ungban_time = round((ungban_time / 60), 2)
-        message.reply_text(f"Person has been un-gbanned. Took {ungban_time} min")
+        message.reply_text(f"Person has been un-gbanned. Took {ungban_time} min.")
     else:
-        message.reply_text(f"Person has been un-gbanned. Took {ungban_time} sec")
+        message.reply_text(f"Person has been un-gbanned. Took {ungban_time} sec.")
 
 
 @support_plus

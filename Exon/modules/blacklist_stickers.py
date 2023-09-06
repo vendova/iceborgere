@@ -250,7 +250,7 @@ def add_blackliststicker(update: Update, context: CallbackContext):
 
                     update.effective_message, 
 
-                    "sticker `{}` can not be found!".format(trigger), 
+                    "Sticker `{}` can not be found!".format(trigger), 
 
                     parse_mode="markdown", 
 
@@ -270,7 +270,7 @@ def add_blackliststicker(update: Update, context: CallbackContext):
 
                 update.effective_message, 
 
-                "sticker <code>{}</code> added to blacklist stickers in <b>{}</b>!".format( 
+                "Sticker <code>{}</code> added to blacklist stickers in <b>{}</b>!".format( 
 
                     html.escape(to_blacklist[0]), 
 
@@ -308,7 +308,7 @@ def add_blackliststicker(update: Update, context: CallbackContext):
 
         if trigger is None: 
 
-            send_message(update.effective_message, "sticker is invalid!") 
+            send_message(update.effective_message, "Sticker is invalid!") 
 
             return 
 
@@ -326,7 +326,7 @@ def add_blackliststicker(update: Update, context: CallbackContext):
 
                 update.effective_message, 
 
-                "sticker `{}` can not be found!".format(trigger), 
+                "Sticker `{}` can not be found!".format(trigger), 
 
                 parse_mode="markdown", 
 
@@ -344,7 +344,7 @@ def add_blackliststicker(update: Update, context: CallbackContext):
 
             update.effective_message, 
 
-            "sticker <code>{}</code> added to blacklist stickers in <b>{}</b>!".format( 
+            "Sticker <code>{}</code> added to blacklist stickers in <b>{}</b>!".format( 
 
                 trigger, 
 
@@ -438,7 +438,7 @@ def unblackliststicker(update: Update, context: CallbackContext):
 
                     update.effective_message, 
 
-                    "sticker <code>{}</code> deleted from blacklist in <b>{}</b>!".format( 
+                    "Sticker <code>{}</code> deleted from blacklist in <b>{}</b>!".format( 
 
                         html.escape(to_unblacklist[0]), 
 
@@ -468,7 +468,7 @@ def unblackliststicker(update: Update, context: CallbackContext):
 
                 update.effective_message, 
 
-                "sticker <code>{}</code> deleted from blacklist in <b>{}</b>!".format( 
+                "Sticker <code>{}</code> deleted from blacklist in <b>{}</b>!".format( 
 
                     successful, 
 
@@ -502,7 +502,7 @@ def unblackliststicker(update: Update, context: CallbackContext):
 
                 update.effective_message, 
 
-                "sticker <code>{}</code> deleted from blacklist. {} did not exist, so it's not deleted.".format( 
+                "Sticker <code>{}</code> deleted from blacklist. {} did not exist, so it's not deleted.".format( 
 
                     successful, 
 
@@ -520,7 +520,7 @@ def unblackliststicker(update: Update, context: CallbackContext):
 
         if trigger is None: 
 
-            send_message(update.effective_message, "sticker is invalid!") 
+            send_message(update.effective_message, "Sticker is invalid!") 
 
             return 
 
@@ -534,7 +534,7 @@ def unblackliststicker(update: Update, context: CallbackContext):
 
                 update.effective_message, 
 
-                "sticker <code>{}</code> deleted from blacklist in <b>{}</b>!".format( 
+                "Sticker <code>{}</code> deleted from blacklist in <b>{}</b>!".format( 
 
                     trigger, 
 
@@ -658,7 +658,7 @@ def blacklist_mode(update: Update, context: CallbackContext):
 
             if len(args) == 1: 
 
-                teks = """it looks like you are trying to set a temporary value to blacklist, but has not determined the time; use `/blstickermode tban <timevalue>`. 
+                teks = """It looks like you are trying to set a temporary value to blacklist, but has not determined the time; use `/blstickermode tban <timevalue>`. 
 
                                               examples of time values: 4m = 4 minute, 3h = 3 hours, 6d = 6 days, 5w = 5 weeks.""" 
 
@@ -674,7 +674,7 @@ def blacklist_mode(update: Update, context: CallbackContext):
 
             if len(args) == 1: 
 
-                teks = """it looks like you are trying to set a temporary value to blacklist, but has has determined the time; use `/blstickermode tmute <timevalue>`. 
+                teks = """It looks like you are trying to set a temporary value to blacklist, but has has determined the time; use `/blstickermode tmute <timevalue>`. 
 
                                               examples of time values: 4m = 4 minute, 3h = 3 hours, 6d = 6 days, 5w = 5 weeks.""" 
 
@@ -724,7 +724,7 @@ def blacklist_mode(update: Update, context: CallbackContext):
 
             "<b>ADMIN:</b> {}\n" 
 
-            "changed sticker blacklist mode. users will be {}.".format( 
+            "Changed sticker blacklist mode. users will be {}.".format( 
 
                 html.escape(chat.title), 
 
@@ -888,7 +888,7 @@ def del_blackliststicker(update: Update, context: CallbackContext):
 
                         chat.id, 
 
-                        "{} Muted because using '{}' which in blacklist stickers".format( 
+                        "{} Muted because using '{}' which in blacklist stickers!".format( 
 
                             mention_markdown(user.id, user.first_name), 
 
@@ -914,7 +914,7 @@ def del_blackliststicker(update: Update, context: CallbackContext):
 
                             chat.id, 
 
-                            "{} Kicked because using '{}' which in blacklist stickers".format( 
+                            "{} Kicked because using '{}' which in blacklist stickers!".format( 
 
                                 mention_markdown(user.id, user.first_name), 
 
@@ -1022,7 +1022,7 @@ def del_blackliststicker(update: Update, context: CallbackContext):
 
                 if excp.message != "Message to delete not found": 
 
-                    LOGGER.exception("ERRoR WHILE DELETING BLAcKLIsT MEssAGE.") 
+                    LOGGER.exception("ERROR WHILE DELETING BLACKLIST MESSAGE.") 
 
                 break 
 

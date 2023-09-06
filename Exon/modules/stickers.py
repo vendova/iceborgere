@@ -147,7 +147,7 @@ def get_cbs_data(query, page, user_id):
             link = pack["href"]
             text += f"\n• <a href='{link}'>{escape(title.get_text())}</a>"
     elif page == 1:
-        text = "ɴᴏ ʀᴇsᴜʟᴛs ғᴏᴜɴᴅ, ᴛʀʏ ᴀ ᴅɪғғᴇʀᴇɴᴛ ᴛᴇʀᴍ"
+        text = "ɴᴏ ʀᴇsᴜʟᴛs ғᴏᴜɴᴅ, ᴛʀʏ ᴀ ᴅɪғғᴇʀᴇɴᴛ ᴛᴇʀᴍ."
     else:
         text += "\n\nɪɴᴛᴇʀᴇsᴛɪɴɢʟʏ, ᴛʜᴇʀᴇ's  ɴᴏᴛʜɪɴɢ ʜᴇʀᴇ."
     return text, buttons
@@ -174,7 +174,7 @@ def cbs_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     _, page, user_id = query.data.split("_", 2)
     if int(user_id) != query.from_user.id:
-        query.answer("ɴᴏᴛ ғᴏʀ ʏᴏᴜ", cache_time=60 * 60)
+        query.answer("ɴᴏᴛ ғᴏʀ ʏᴏᴜ!", cache_time=60 * 60)
         return
     search_query = query.message.text.split("\n", 1)[0].split(maxsplit=2)[2][:-1]
     text, buttons = get_cbs_data(search_query, int(page), query.from_user.id)
@@ -273,7 +273,7 @@ def kang(update, context):
             sticker_emoji = "🙂"
 
         adding_process = msg.reply_text(
-            "<b>ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...ғᴏʀ ᴀ ᴍᴏᴍᴇɴᴛ</b>",
+            "<b>ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...ғᴏʀ ᴀ ᴍᴏᴍᴇɴᴛ.</b>",
             parse_mode=ParseMode.HTML,
         )
 
@@ -840,7 +840,7 @@ def video(update: Update, context: CallbackContext):
         )
 
 
-Credit = "Abishnoi69"
+Credit = "Network"
 
 
 @asux(pattern="^/mmf ?(.*)")
@@ -856,24 +856,24 @@ async def handler(event):
     reply_message = await event.get_reply_message()
 
     if not reply_message.media:
-        await event.reply("```ʀᴇᴘʟʏ ᴛᴏ ᴀ ɪᴍᴀɢᴇ/sᴛɪᴄᴋᴇʀ.```")
+        await event.reply("```Reply to a image/sticker.```")
 
         return
 
     file = await bot.download_media(reply_message)
 
-    msg = await event.reply("```ᴍᴇᴍɪғʏɪɴɢ ᴛʜɪs ɪᴍᴀɢᴇ! 😉 ```")
+    msg = await event.reply("```Memyfying the image! 😉 ```")
 
-    if "Abishnoi69" in Credit:
+    if "Network" in Credit:
         pass
 
     else:
-        await event.reply("ᴛʜɪs ɴɪɢɢᴀ ʀᴇᴍᴏᴠᴇᴅ ᴄʀᴇᴅɪᴛ ʟɪɴᴇ ғʀᴏᴍ ᴄᴏᴅᴇ 😶")
+        await event.reply("caught! 😶")
 
     text = str(event.pattern_match.group(1)).strip()
 
     if len(text) < 1:
-        return await msg.reply("ʏᴏᴜ ᴍɪɢʜᴛ ᴡᴀɴᴛ ᴛᴏ ᴛʀʏ `/mmf text`")
+        return await msg.reply("You might want to try `/mmf text`")
 
     meme = await drawText(file, text)
 

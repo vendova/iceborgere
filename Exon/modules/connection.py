@@ -61,13 +61,13 @@ def allow_connections(update, context) -> str:
             sql.set_allow_connect_to_chat(chat.id, False)
             send_message(
                 update.effective_message,
-                "Connection has been disabled for this chat",
+                "Connection has been disabled for this chat!",
             )
         elif var == "yes":
             sql.set_allow_connect_to_chat(chat.id, True)
             send_message(
                 update.effective_message,
-                "Connection has been enabled for this chat",
+                "Connection has been enabled for this chat!",
             )
         else:
             send_message(
@@ -191,7 +191,7 @@ def connect_chat(update, context):
             conn = connected(context.bot, update, chat, user.id, need_admin=False)
             if conn:
                 connectedchat = dispatcher.bot.getChat(conn)
-                text = "You are currently connected to *{}* (`{}`)".format(
+                text = "You are currently connected to *{}* (`{}`).".format(
                     connectedchat.title,
                     conn,
                 )

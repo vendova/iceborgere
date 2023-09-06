@@ -180,7 +180,7 @@ async def fsub(event):
 
             await event.reply( 
 
-                f"forcesubscribe is currently <b>enabled</b>. users are forced to join <b>@{chat_db.channel}</b> to speak here.", 
+                f"Forcesubscribe is currently <b>enabled</b>. users are forced to join <b>@{chat_db.channel}</b> to speak here.", 
 
                 parse_mode="html", 
 

@@ -63,7 +63,7 @@ async def active_afk(_, message: Message):
 
             if afktype == "text_reason":
                 send = await message.reply_text(
-                    f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nREAsoN: `{reasonafk}`",
+                    f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nReason: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
                 await asyncio.sleep(16)
@@ -80,7 +80,7 @@ async def active_afk(_, message: Message):
                 else:
                     send = await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nREAsoN: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nReason: `{reasonafk}`",
                     )
                     await asyncio.sleep(16)
                     await send.delete()
@@ -96,7 +96,7 @@ async def active_afk(_, message: Message):
                 else:
                     send = await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nREAsoN: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nReason: `{reasonafk}`",
                     )
                     await asyncio.sleep(16)
                     await send.delete()

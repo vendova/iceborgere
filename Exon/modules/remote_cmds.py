@@ -161,7 +161,7 @@ def rban(update: Update, context: CallbackContext):
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("I can't seem to find this user!")
             return
         raise
 
@@ -242,7 +242,7 @@ def runban(update: Update, context: CallbackContext):
         chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user there")
+            message.reply_text("I can't seem to find this user there!")
             return
         raise
 
@@ -325,7 +325,7 @@ def rkick(update: Update, context: CallbackContext):
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("I can't seem to find this user!")
             return
         raise
 
@@ -406,7 +406,7 @@ def rmute(update: Update, context: CallbackContext):
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("I can't seem to find this user!")
             return
         raise
 
@@ -491,7 +491,7 @@ def runmute(update: Update, context: CallbackContext):
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user there")
+            message.reply_text("I can't seem to find this user there!")
             return
         raise
 

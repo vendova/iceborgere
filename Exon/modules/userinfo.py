@@ -358,7 +358,7 @@ def get_id(update: Update, context: CallbackContext):
 
             msg.reply_text( 
 
-                f"x <b>REPLIED To:</b> {mention_html(user.id, user.first_name)}\nx <b>ID of the user:</b> <code>{user.id}</code>", 
+                f"<b>REPLIED To:</b> {mention_html(user.id, user.first_name)}\nx <b>ID of the user:</b> <code>{user.id}</code>", 
 
                 parse_mode=ParseMode.HTML, 
 
@@ -382,7 +382,7 @@ def get_id(update: Update, context: CallbackContext):
 
             msg.reply_text( 
 
-                f"⟃ <b>USER:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>FRoM USER ID:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>THIS GRoUP ID:</b> <code>{chat.id}</code>", 
+                f"<b>USER:</b> {mention_html(msg.from_user.id, msg.from_user.first_name)}\n⟃ <b>From USER ID:</b> <code>{update.effective_message.from_user.id}</code>\n⟃ <b>THIS GRoUP ID:</b> <code>{chat.id}</code>", 
 
                 parse_mode=ParseMode.HTML, 
 
@@ -630,9 +630,9 @@ def info(update: Update, context: CallbackContext):
 
             text += "\n\n<b>This person is spamwatched!</b>" 
 
-            text += f"\nREASoN: <pre>{spamwtc.reason}</pre>" 
+            text += f"\nREASON: <pre>{spamwtc.reason}</pre>" 
 
-            text += "\nAPPEAL AT @AbishnoiMF" 
+            text += "\nAPPEAL AT @SpamWatchSupport" 
 
     except: 
 
@@ -646,37 +646,37 @@ def info(update: Update, context: CallbackContext):
 
     if user.id == OWNER_ID: 
 
-        text += "\n\nThe level for my master " 
+        text += "\n\nThe level for my master!" 
 
         disaster_level_present = True 
 
     elif user.id in DEV_USERS: 
 
-        text += "\n\nThe level for this user is Destroyers" 
+        text += "\n\nThe level for this user is Destroyers!" 
 
         disaster_level_present = True 
 
     elif user.id in DRAGONS: 
 
-        text += "\n\nThe level for this user is Shadow Slayer" 
+        text += "\n\nThe level for this user is Shadow Slayer!" 
 
         disaster_level_present = True 
 
     elif user.id in DEMONS: 
 
-        text += "\n\nThe level for this user is Guardian" 
+        text += "\n\nThe level for this user is Guardian!" 
 
         disaster_level_present = True 
 
     elif user.id in TIGERS: 
 
-        text += "\n\nThe level for this user is Light Shooters" 
+        text += "\n\nThe level for this user is Light Shooters!" 
 
         disaster_level_present = True 
 
     elif user.id in WOLVES: 
 
-        text += "\n\nThe level for this user is Villain" 
+        text += "\n\nThe level for this user is Villain!" 
 
         disaster_level_present = True 
 
@@ -690,7 +690,7 @@ def info(update: Update, context: CallbackContext):
 
     if disaster_level_present: 
 
-        text += ' [<a href="https://t.me/">LEvELLING</a>]'.format( 
+        text += ' [<a href="https://t.me/">Levelling</a>]'.format( 
 
             bot.username, 
 

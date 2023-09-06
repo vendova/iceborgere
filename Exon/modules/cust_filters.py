@@ -473,8 +473,8 @@ def reply_filter(update, context):
                         try:
                             send_message(
                                 update.effective_message,
-                                "You seem to be trying to use an url protocol"
-                                "Telegram doesn't support buttons such as tg://, Please try again",
+                                "You seem to be trying to use an url protocol."
+                                "Telegram doesn't support buttons such as tg://, Please try again.",
                             )
                         except BadRequest as excp:
                             LOGGER.exception("Error in filters: " + excp.message)

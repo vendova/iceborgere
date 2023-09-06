@@ -139,11 +139,11 @@ async def unpinall_message(_, m: Message):
             return
         try:
             await _.unpin_all_chat_messages(m.chat.id)
-            await m.reply("I have unpinned all messages")
+            await m.reply("I have unpinned all messages!")
         except ChatAdminRequired:
-            await m.reply("I'm not admin here")
+            await m.reply("I'm not admin here!")
         except RightForbidden:
-            await m.reply("I don't have enough rights to unpin here")
+            await m.reply("I don't have enough rights to unpin here!")
         except RPCError as ef:
             await m.reply_text(ef)
             return
@@ -287,10 +287,10 @@ async def anti_channel_pin(_, m: Message):
     if len(m.text.split()) == 2:
         if m.command[1] in ("yes", "on", "true"):
             pinsdb.antichannelpin_on()
-            msg = "Antichannelpin turned on for this chat"
+            msg = "Antichannelpin turned on for this chat!"
         elif m.command[1] in ("no", "off", "false"):
             pinsdb.antichannelpin_off()
-            msg = "Antichannelpin turned off for this chat"
+            msg = "Antichannelpin turned off for this chat!"
         else:
             await m.reply_text("Invalid syntax")
             return
@@ -320,7 +320,7 @@ async def clean_linked(_, m: Message):
 
     if len(m.text.split()) == 1:
         status = pinsdb.get_settings()["cleanlinked"]
-        await m.reply_text(f"Cleanlinked pins currently: {status}")
+        await m.reply_text(f"Cleanlinked pins currently: {status}.")
         return
 
     if len(m.text.split()) == 2:

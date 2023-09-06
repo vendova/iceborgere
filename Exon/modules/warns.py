@@ -302,7 +302,7 @@ def warn(
 
                     InlineKeyboardButton( 
 
-                        "⟳ Remove warn ⟲", callback_data="rm_warn({})".format(user.id) 
+                        "Remove warn", callback_data="rm_warn({})".format(user.id) 
 
                     ) 
 
@@ -870,7 +870,7 @@ def set_warn_limit(update: Update, context: CallbackContext) -> str:
 
                 sql.set_warn_limit(chat.id, int(args[0])) 
 
-                msg.reply_text("Updated the warn limit to {}".format(args[0])) 
+                msg.reply_text("Updated the warn limit to {}!".format(args[0])) 
 
                 return ( 
 
@@ -894,7 +894,7 @@ def set_warn_limit(update: Update, context: CallbackContext) -> str:
 
   
 
-        msg.reply_text("The current warn limit is {}".format(limit)) 
+        msg.reply_text("The current warn limit is {}!".format(limit)) 
 
     return "" 
 
@@ -930,7 +930,7 @@ def set_warn_strength(update: Update, context: CallbackContext):
 
                 f"<b>ADMIN:</b> {mention_html(user.id, user.first_name)}\n" 
 
-                f"Has enabled strong warns. users will banned" 
+                f"Has enabled strong warns. users will banned!" 
 
             ) 
 
@@ -1032,7 +1032,7 @@ def __chat_settings__(chat_id, user_id):
 
     return ( 
 
-        f"THIS cHAT HAS `{num_warn_filters}` WARN FILTERS. " 
+        f"THIS CHAT HAS `{num_warn_filters}` WARN FILTERS. " 
 
         f"IT TAKES `{limit}` WARNA BEFoRE THE USER GETS *{'kicked' if soft_warn else 'banned'}*." 
 

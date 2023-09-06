@@ -114,7 +114,7 @@ def set_antilinkedchannel(update: Update, context: CallbackContext):
 
                 message.reply_html( 
 
-                    "enabled linked channel deletion and disabled anti channel pin in {}".format( 
+                    "Enabled linked channel deletion and disabled anti channel pin in {}!".format( 
 
                         html.escape(chat.title) 
 
@@ -128,7 +128,7 @@ def set_antilinkedchannel(update: Update, context: CallbackContext):
 
                 message.reply_html( 
 
-                    "enabled anti linked channel in {}".format(html.escape(chat.title)) 
+                    "Enabled anti linked channel in {}!".format(html.escape(chat.title)) 
 
                 ) 
 
@@ -138,19 +138,19 @@ def set_antilinkedchannel(update: Update, context: CallbackContext):
 
             message.reply_html( 
 
-                "disabled anti linked channel in {}".format(html.escape(chat.title)) 
+                "Disabled anti linked channel in {}!".format(html.escape(chat.title)) 
 
             ) 
 
         else: 
 
-            message.reply_text("unrecognized arguments {}".format(s)) 
+            message.reply_text("Unrecognized arguments {}!".format(s)) 
 
         return 
 
     message.reply_html( 
 
-        "linked channel deletion is currently {} in {}".format( 
+        "Linked channel deletion is currently {} in {}!".format( 
 
             sql.status_linked(chat.id), html.escape(chat.title) 
 
@@ -228,7 +228,7 @@ def antichannelmode(update: Update, context: CallbackContext):
 
             msg.reply_text( 
 
-                f"*DIsABLED* ANTI cHANNEL IN {chat.title}.", 
+                f"*DISABLED* ANTI cHANNEL IN {chat.title}.", 
 
                 parse_mode=ParseMode.MARKDOWN, 
 
@@ -252,7 +252,7 @@ def antichannelmode(update: Update, context: CallbackContext):
 
             msg.reply_text( 
 
-                f"linked channel post deletion is currently *enabled* in {chat.title}. messages sent from the linked channel will be deleted.", 
+                f"Linked channel post deletion is currently *enabled* in {chat.title}. messages sent from the linked channel will be deleted.", 
 
                 parse_mode=ParseMode.MARKDOWN, 
 
@@ -262,7 +262,7 @@ def antichannelmode(update: Update, context: CallbackContext):
 
         msg.reply_text( 
 
-            f"linked channel post deletion is currently *disabled* in {chat.title}.", 
+            f"Linked channel post deletion is currently *disabled* in {chat.title}.", 
 
             parse_mode=ParseMode.MARKDOWN, 
 
@@ -330,7 +330,7 @@ def sfachat(update: Update, context: CallbackContext):
 
                     f""" 
 
-there was an error occured during auto ban and delete message. please report this to {SUPPORT_CHAT} ! 
+There was an error occured during auto ban and delete message. please report this to {SUPPORT_CHAT} ! 
 
 • ERRoR: `{respond}` 
 
@@ -374,7 +374,7 @@ def set_antipinchannel(update: Update, context: CallbackContext):
 
                 message.reply_html( 
 
-                    "disabled linked channel deletion and enabled anti channel pin in {}".format( 
+                    "Disabled linked channel deletion and enabled anti channel pin in {}!".format( 
 
                         html.escape(chat.title) 
 
@@ -388,7 +388,7 @@ def set_antipinchannel(update: Update, context: CallbackContext):
 
                 message.reply_html( 
 
-                    "Enabled anti channel pin in {}".format(html.escape(chat.title)) 
+                    "Enabled anti channel pin in {}!".format(html.escape(chat.title)) 
 
                 ) 
 
@@ -398,19 +398,19 @@ def set_antipinchannel(update: Update, context: CallbackContext):
 
             message.reply_html( 
 
-                "Disabled anti channel pin in {}".format(html.escape(chat.title)) 
+                "Disabled anti channel pin in {}!".format(html.escape(chat.title)) 
 
             ) 
 
         else: 
 
-            message.reply_text("Unrecognized arguments {}".format(s)) 
+            message.reply_text("Unrecognized arguments {}!".format(s)) 
 
         return 
 
     message.reply_html( 
 
-        "Linked channel message unpin is currently {} in {}".format( 
+        "Linked channel message unpin is currently {} in {}!".format( 
 
             sql.status_pin(chat.id), html.escape(chat.title) 
 

@@ -68,7 +68,7 @@ def check_user(user_id: int, bot: Bot, update: Update) -> Optional[str]:
         member = update.effective_chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            return "I can't seem to find this user"
+            return "I can't seem to find this user!"
         raise
     if user_id == bot.id:
         return "I'm not gonna MUTE myself, How high are you?"
@@ -112,8 +112,8 @@ def mute(update: Update, context: CallbackContext) -> str:
         chat_permissions = ChatPermissions(can_send_messages=False)
         bot.restrict_chat_member(chat.id, user_id, chat_permissions)
         msg = (
-            f"Yep! Muted {mention_html(member.user.id, member.user.first_name)} for talking in {chat.title}\n"
-            f"by {mention_html(user.id, html.escape(user.first_name))}"
+            f"Yep! Muted {mention_html(member.user.id, member.user.first_name)} for talking in {chat.title}!\n"
+            f"by {mention_html(user.id, html.escape(user.first_name))}."
         )
         if reason:
             msg += f"\nReason: {html.escape(reason)}"
@@ -194,8 +194,8 @@ def unmute(update: Update, context: CallbackContext) -> str:
         except BadRequest:
             pass
         reply = (
-            f"Yep! Unmuted {mention_html(member.user.id, member.user.first_name)} "
-            f"by {mention_html(user.id, user.first_name)} in <b>{message.chat.title}</b>"
+            f"Yep! Unmuted {mention_html(member.user.id, member.user.first_name)}!"
+            f"by {mention_html(user.id, user.first_name)} in <b>{message.chat.title}</b>."
         )
         if reason:
             reply += f"Reason: {reason}"
@@ -266,8 +266,8 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
                 until_date=mutetime,
             )
             msg = (
-                f"Yep! Temporary Muted {mention_html(member.user.id, member.user.first_name)} from talking for <code>{time_val}</code> in {chat.title}\n"
-                f"by {mention_html(user.id, html.escape(user.first_name))}",
+                f"Yep! Temporary Muted {mention_html(member.user.id, member.user.first_name)} from talking for <code>{time_val}</code> in {chat.title}!\n"
+                f"by {mention_html(user.id, html.escape(user.first_name))}.",
             )
 
             keyboard = InlineKeyboardMarkup(

@@ -164,7 +164,7 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
 
                     InlineKeyboardButton( 
 
-                        "DIsABLE RAID", 
+                        "Disable raid", 
 
                         callback_data="disable_raid={}={}".format(chat.id, time), 
 
@@ -186,7 +186,7 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
 
                     InlineKeyboardButton( 
 
-                        "ENABLE RAID", 
+                        "Enable raid", 
 
                         callback_data="enable_raid={}={}".format(chat.id, time), 
 
@@ -274,7 +274,7 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
 
                 msg.reply_text( 
 
-                    "You can only set time between 5 minutes and 1 day", 
+                    "You can only set time between 5 minutes and 1 day.", 
 
                     parse_mode=ParseMode.HTML, 
 
@@ -286,7 +286,7 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
 
             msg.reply_text( 
 
-                "Unknown time given, give me something like 5m or 1h", 
+                "Unknown time given, give me something like 5m or 1h.", 
 
                 parse_mode=ParseMode.HTML, 
 
@@ -330,7 +330,7 @@ def enable_raid_cb(update: Update, _: CallbackContext) -> Optional[str]:
 
     ) 
 
-    log.info("Enabled raid mode in {} for {}".format(chat_id, readable_time)) 
+    log.info("Enabled raid mode in {} for {}!".format(chat_id, readable_time)) 
 
   
 
@@ -338,7 +338,7 @@ def enable_raid_cb(update: Update, _: CallbackContext) -> Optional[str]:
 
         sql.setDefenseStatus(chat_id, False, t, acttime) 
 
-        log.info("Disbled raid mode in {}".format(chat_id)) 
+        log.info("Disbled raid mode in {}!".format(chat_id)) 
 
         logmsg = ( 
 
@@ -474,7 +474,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
         msg.reply_text( 
 
-            f"Raid mode is currently set to {get_readable_time(time)}\nwhen toggled, the raid mode will last for {get_readable_time(time)} then turn off automatically", 
+            f"Raid mode is currently set to {get_readable_time(time)}\nwhen toggled, the raid mode will last for {get_readable_time(time)} then turn off automatically.", 
 
             parse_mode=ParseMode.HTML, 
 
@@ -492,7 +492,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
         if time >= 300 and time < 86400: 
 
-            text = f"Raid mode is currently set to {readable_time}\nwhen toggled, the raid mode will last for {readable_time} then turn off automatically" 
+            text = f"Raid mode is currently set to {readable_time}\nwhen toggled, the raid mode will last for {readable_time} then turn off automatically." 
 
             msg.reply_text(text, parse_mode=ParseMode.HTML) 
 
@@ -516,7 +516,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
             msg.reply_text( 
 
-                "You can only set time between 5 minutes and 1 day", 
+                "You can only set time between 5 minutes and 1 day!", 
 
                 parse_mode=ParseMode.HTML, 
 
@@ -526,7 +526,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
         msg.reply_text( 
 
-            "Unknown time given, give me something like 5m or 1h", 
+            "Unknown time given, give me something like 5m or 1h!", 
 
             parse_mode=ParseMode.HTML, 
 
@@ -562,7 +562,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
         msg.reply_text( 
 
-            f"Raid actoin time is currently set to {get_readable_time(time)}\nwhen toggled, the members that join will be temp banned for {get_readable_time(time)}", 
+            f"Raid actoin time is currently set to {get_readable_time(time)}\nwhen toggled, the members that join will be temp banned for {get_readable_time(time)}!", 
 
             parse_mode=ParseMode.HTML, 
 
@@ -580,7 +580,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
         if time >= 300 and time < 86400: 
 
-            text = f"Raid actoin time is currently set to {get_readable_time(time)}\nwhen toggled, the members that join will be temp banned for {readable_time}" 
+            text = f"Raid actoin time is currently set to {get_readable_time(time)}\nwhen toggled, the members that join will be temp banned for {readable_time}!" 
 
             msg.reply_text(text, parse_mode=ParseMode.HTML) 
 
@@ -604,7 +604,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
             msg.reply_text( 
 
-                "You can only set time between 5 minutes and 1 day", 
+                "You can only set time between 5 minutes and 1 day!", 
 
                 parse_mode=ParseMode.HTML, 
 
@@ -614,7 +614,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
         msg.reply_text( 
 
-            "Unknown time given, give me something like 5m or 1h", 
+            "Unknown time given, give me something like 5m or 1h!", 
 
             parse_mode=ParseMode.HTML, 
 

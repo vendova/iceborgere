@@ -162,7 +162,7 @@ def check_flood(update, context) -> Optional[str]:
 
             chat.unban_member(user.id) 
 
-            execstrings = "KIcKED" 
+            execstrings = "KICKED" 
 
             tag = "KICKED" 
 
@@ -252,7 +252,7 @@ def check_flood(update, context) -> Optional[str]:
 
             "\n#ALERT !" 
 
-            "\nDon't have enough permission to restrict users so automatically disabled anti-flood ".format( 
+            "\nDon't have enough permission to restrict users so automatically disabled anti-flood.".format( 
 
                 chat.title 
 
@@ -298,7 +298,7 @@ def set_flood(update, context) -> str:
 
                 update.effective_message, 
 
-                "This command is meant to use in group not in pm", 
+                "This command is meant to use in group not in pm!", 
 
             ) 
 
@@ -390,7 +390,7 @@ def set_flood(update, context) -> str:
 
                 text = message.reply_text( 
 
-                    "Anti-flood has been set to {} in chat: {}".format( 
+                    "Anti-flood has been set to {} in chat: {}.".format( 
 
                         amount, chat_name 
 
@@ -402,7 +402,7 @@ def set_flood(update, context) -> str:
 
                 text = message.reply_text( 
 
-                    "successfully updated anti-flood limit to {}!".format(amount) 
+                    "Successfully updated anti-flood limit to {}!".format(amount) 
 
                 ) 
 
@@ -482,7 +482,7 @@ def flood(update, context):
 
                 update.effective_message, 
 
-                "This command is meant to use in group not in  pm", 
+                "This command is meant to use in group not in pm!", 
 
             ) 
 
@@ -576,7 +576,7 @@ def set_flood_mode(update, context):
 
                 update.effective_message, 
 
-                "This command is meant to use in group not in pm", 
+                "This command is meant to use in group not in pm!", 
 
             ) 
 
@@ -600,7 +600,7 @@ def set_flood_mode(update, context):
 
         elif args[0].lower() == "kick": 
 
-            settypeflood = "KIcK" 
+            settypeflood = "KICK" 
 
             sql.set_flood_strength(chat_id, 2, "0") 
 
@@ -614,7 +614,7 @@ def set_flood_mode(update, context):
 
             if len(args) == 1: 
 
-                teks = """it looks like you tried to set time value for antiflood but you didn't specified time; try, `/setfloodmode tban <timevalue>`. 
+                teks = """It looks like you tried to set time value for antiflood but you didn't specified time; try, `/setfloodmode tban <timevalue>`. 
 
     examples of time value: 4m = 4 minutes, 3h = 3 hours, 6d = 6 days, 5w = 5 weeks.""" 
 
@@ -630,7 +630,7 @@ def set_flood_mode(update, context):
 
             if len(args) == 1: 
 
-                teks = """it looks like you tried to set time value for antiflood but you didn't specified time; try, `/setfloodmode tmute <timevalue>`. 
+                teks = """It looks like you tried to set time value for antiflood but you didn't specified time; try, `/setfloodmode tmute <timevalue>`. 
 
     examples of time value: 4m = 4 minutes, 3h = 3 hours, 6d = 6 days, 5w = 5 weeks.""" 
 
@@ -722,7 +722,7 @@ def set_flood_mode(update, context):
 
         text = msg.reply_text( 
 
-            "sending more messages than flood limit will result in {} in {}.".format( 
+            "Sending more messages than flood limit will result in {} in {}.".format( 
 
                 settypeflood, chat_name 
 
@@ -734,7 +734,7 @@ def set_flood_mode(update, context):
 
         text = msg.reply_text( 
 
-            "sending more message than flood limit will result in {}.".format( 
+            "Sending more message than flood limit will result in {}.".format( 
 
                 settypeflood 
 

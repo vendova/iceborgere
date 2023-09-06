@@ -208,7 +208,7 @@ def lock(update: Update, context: CallbackContext) -> str:  # sourcery no-metric
                     if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
-                            "This command is meant to use in group not in PM",
+                            "This command is meant to use in group not in PM!",
                         )
                         return ""
                     chat = update.effective_chat
@@ -243,7 +243,7 @@ def lock(update: Update, context: CallbackContext) -> str:  # sourcery no-metric
                     if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
-                            "This command is meant to use in group not in PM",
+                            "This command is meant to use in group not in PM!",
                         )
                         return ""
                     chat = update.effective_chat
@@ -274,7 +274,7 @@ def lock(update: Update, context: CallbackContext) -> str:  # sourcery no-metric
 
             send_message(
                 update.effective_message,
-                "What are you trying to lock...? Try /locktypes for the list of lockables",
+                "What are you trying to lock...? Try /locktypes for the list of lockables.",
             )
         else:
             send_message(update.effective_message, "What are you trying to lock...?")
@@ -311,7 +311,7 @@ def unlock(update: Update, context: CallbackContext) -> str:  # sourcery no-metr
                 if update.effective_message.chat.type == "private":
                     send_message(
                         update.effective_message,
-                        "This command is meant to use in group not in PM",
+                        "This command is meant to use in group not in PM!",
                     )
                     return ""
                 chat = update.effective_chat
@@ -343,7 +343,7 @@ def unlock(update: Update, context: CallbackContext) -> str:  # sourcery no-metr
                 if update.effective_message.chat.type == "private":
                     send_message(
                         update.effective_message,
-                        "This command is meant to use in group not in PM",
+                        "This command is meant to use in group not in PM!",
                     )
                     return ""
                 chat = update.effective_chat
@@ -401,7 +401,7 @@ def del_lockables(update, context):  # sourcery no-metrics
                             message.delete()
                         except BadRequest as excp:
                             if excp.message != "Message to delete not found":
-                                log.exception("ERROR in lockables")
+                                log.exception("ERROR in lockables!")
                         break
                 if message.text:
                     check = ad.detect_alphabet("{}".format(message.text))
@@ -550,7 +550,7 @@ def list_locks(update, context):
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "This command is meant to use in group not in PM",
+                "This command is meant to use in group not in PM!",
             )
             return ""
         chat = update.effective_chat
