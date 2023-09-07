@@ -18,6 +18,7 @@ from Exon.modules.connection import connected
 from Exon.modules.disable import DisableAbleCommandHandler
 from Exon.modules.helper_funcs.alternate import send_message, typing_action
 from Exon.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Exon.modules.helper_funcs.decorators import Exoncallback as akboss
 from Exon.modules.helper_funcs.extraction import extract_text
 from Exon.modules.helper_funcs.misc import split_message
 from Exon.modules.helper_funcs.string_handling import extract_time
