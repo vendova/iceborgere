@@ -86,6 +86,7 @@ admin_help: |
    - /setgpic: reply to an image to set as group photo.
    - /setdesc: Set group description.
    - /setsticker: Set group sticker.
+   - /das `ban`: remove DAs (Deleted accounts)
 
    Sometimes, you promote or demote an admin manually, and NetworkModerator doesn't realise it immediately. This is because to avoid spamming telegram servers, admin status is cached locally.
    This means that you sometimes have to wait a few minutes for admin rights to update. If you want to update them immediately, you can use the /reload command; that'll force NetworkModerator to check who the admins are again.
