@@ -109,20 +109,3 @@ async def zombies(event):
         \n`{del_a}` Deleted admin accounts are not removed!"
 
     await cleaning_zombies.edit(del_status)
-
-'''
-__mod_name__ = "Zombie"
-
-
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "zombies_help")
-
-
-"""
