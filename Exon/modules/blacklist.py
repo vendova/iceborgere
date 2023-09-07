@@ -9,7 +9,7 @@ from telegram import (
     Update,
 )
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, Filters, MessageHandler
+from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
 import Exon.modules.sql.blacklist_sql as sql
