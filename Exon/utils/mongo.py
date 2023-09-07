@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
-
-from env import MONGO_DB_URI
+import os
+from dotenv import MONGO_DB_URI
 
 mongo = MongoCli(MONGO_DB_URI)
 db = mongo.Exon
