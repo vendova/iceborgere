@@ -49,22 +49,22 @@ async def is_administrator(user_id: int, message):
     return admin
 
 
-@telethn.on(events.NewMessage(pattern="^[!/]zombies ?(.*)"))
+@telethn.on(events.NewMessage(pattern="^[!/]das ?(.*)"))
 async def zombies(event):
     """For .zombies command, list all the zombies in a chat."""
     con = event.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "No deleted accounts found, group is clean enjoy."
+    del_status = "No DAs found, group is clean."
 
-    if con != "clean":
-        find_zombies = await event.respond("Searching for *zombies*...")
+    if con != "ban":
+        find_zombies = await event.respond("Searching for *Deleted Accounts (DAs)*...")
         async for user in event.client.iter_participants(event.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
-            del_status = f"found **{del_u}** zombies in this group.\
-            \nclean them by using - `/zombies clean`"
+            del_status = f"found **{del_u}** DAs in this group.\
+            \nremove them all by using - `/das ban`"
         await find_zombies.edit(del_status)
         return
 
@@ -82,7 +82,7 @@ async def zombies(event):
         await event.respond("I am not admin here!")
         return
 
-    cleaning_zombies = await event.respond("Cleaning zombies...")
+    cleaning_zombies = await event.respond("Removing Deleted accounts...")
     del_u = 0
     del_a = 0
 
@@ -93,7 +93,7 @@ async def zombies(event):
                     EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                await cleaning_zombies.edit("I dont have ban right in your group.")
+                await cleaning_zombies.edit("I dont have the ban right in your group!")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
@@ -102,15 +102,15 @@ async def zombies(event):
             del_u += 1
 
     if del_u > 0:
-        del_status = f"cleaned `{del_u}` zombies."
+        del_status = f"removed `{del_u}` DAs."
 
     if del_a > 0:
-        del_status = f"cleaned `{del_u}` zombies \
-        \n`{del_a}` Zombies admin accounts are not removed!"
+        del_status = f"removed `{del_u}` Deleted accounts \
+        \n`{del_a}` Deleted admin accounts are not removed!"
 
     await cleaning_zombies.edit(del_status)
 
-
+'''
 __mod_name__ = "Zombie"
 
 
@@ -125,4 +125,4 @@ def get_help(chat):
     return gs(chat, "zombies_help")
 
 
-# """
+"""
