@@ -1,8 +1,7 @@
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 import os
-from dotenv import MONGO_DB_URI
 
-mongo = MongoCli(MONGO_DB_URI)
+mongo = MongoCli("mongodb+srv://mogenius:mogenius@quickers.rlx3b3f.mongodb.net/?retryWrites=true&w=majority")
 db = mongo.Exon
 
 coupledb = db.couple
