@@ -443,23 +443,6 @@ def __stats__():
         sql.num_blacklist_filters(), sql.num_blacklist_filter_chats()
     )
 
-
-__mod_name__ = "Bʟᴀᴄᴋʟɪsᴛ"
-
-__help__ = """
-
-Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
-
-*NOTE*: Blacklists do not affect group admins.
-
- ❍ /blacklist*:* View the current blacklisted words.
-
-Admin only:
- ❍ /addblacklist <triggers>*:* Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
- ❍ /unblacklist <triggers>*:* Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
- ❍ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>*:* Action to perform when someone sends blacklisted words.
-"""
-
 BLACKLIST_HANDLER = DisableAbleCommandHandler(
     "blacklist", blacklist, pass_args=True, admin_ok=True, run_async=True
 )
@@ -489,3 +472,65 @@ __handlers__ = [
     BLACKLISTMODE_HANDLER,
     (BLACKLIST_DEL_HANDLER, BLACKLIST_GROUP),
 ]
+
+from Exon.modules.language import gs
+
+
+def blacklist_help(update: Update, context: CallbackContext):
+    update.effective_message.reply_text(
+        gs(update.effective_chat.id, "blacklist_help"),
+        parse_mode=ParseMode.MARKDOWN,
+    )
+
+
+def sticker_blacklist_help(update: Update, context: CallbackContext):
+    update.effective_message.reply_text(
+        gs(update.effective_chat.id, "sticker_blacklist_help"),
+        parse_mode=ParseMode.MARKDOWN,
+    )
+
+
+@akboss(pattern=r"asusau_help_")
+def blacklist_help_bse(update: Update, context: CallbackContext):
+    query = update.callback_query
+    bot = context.bot
+    help_info = query.data.split("asusau_help_")[1]
+    if help_info == "wblack":
+        help_text = gs(update.effective_chat.id, "blacklist_help")
+    elif help_info == "sblack":
+        help_text = gs(update.effective_chat.id, "sticker_blacklist_help")
+    query.message.edit_text(
+        text=help_text,
+        parse_mode=ParseMode.MARKDOWN,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Back",
+                        callback_data=f"help_module({__mod_name__.lower()})",
+                    )
+                ]
+            ]
+        ),
+    )
+    bot.answer_callback_query(query.id)
+
+
+__mod_name__ = "Blacklist"
+
+
+def get_help(chat):
+    return [
+        gs(chat, "blacklist_help_bse"),
+        [
+            InlineKeyboardButton(
+                text="Blacklist users", callback_data="asusau_help_wblack"
+            ),
+            InlineKeyboardButton(
+                text="Blacklist stickers", callback_data="asusau_help_sblack"
+            ),
+        ],
+    ]
+
+
+# """
