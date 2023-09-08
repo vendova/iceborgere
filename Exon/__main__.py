@@ -224,8 +224,8 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                 else:
                     send_settings(match.group(1), update.effective_user.id, True)
 
-            elif args[0][1:].isdigit() and "𝐑ᴜʟᴇs" in IMPORTED:
-                IMPORTED["𝐑ᴜʟᴇs"].send_rules(update, args[0], from_pm=True)
+            elif args[0][1:].isdigit() and "Rules" in IMPORTED:
+                IMPORTED["Rules"].send_rules(update, args[0], from_pm=True)
 
         else:
             first_name = update.effective_user.first_name
