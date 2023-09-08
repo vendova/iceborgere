@@ -279,7 +279,6 @@ disable_help: |
    - /disable `<cmd name>`: Disable that command.
    - /enablemodule `<module name>`: Enable all commands in that module.
    - /disablemodule `<module name>`: Disable all commands in that module.
-   - /listcmds: List all possible toggleable commands.
 
 
 group_help: |
