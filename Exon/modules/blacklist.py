@@ -24,7 +24,7 @@ from Exon.modules.helper_funcs.misc import split_message
 from Exon.modules.helper_funcs.string_handling import extract_time
 from Exon.modules.log_channel import loggable
 from Exon.modules.sql.approve_sql import is_approved
-from Exon.modules.warns import warn
+from Exon.modules.warns import warn, warn_user
 
 BLACKLIST_GROUP = 11
 
@@ -363,7 +363,7 @@ def del_blacklist(update, context):
                         message.delete()
                     except BadRequest:
                         pass
-                    warn(
+                    warn_user(
                         update.effective_user,
                         chat,
                         ("Using blacklisted trigger: {}".format(trigger)),
