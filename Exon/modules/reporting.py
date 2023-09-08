@@ -27,6 +27,7 @@ from config import Config
 from Exon.modules.helper_funcs.chat_status import user_not_admin, user_admin
 from Exon.modules.log_channel import loggable
 from Exon.modules.sql import reporting_sql as sql
+from Exon import dispatcher
 
 REPORT_GROUP = 12
 
