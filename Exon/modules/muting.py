@@ -194,7 +194,7 @@ def unmute(update: Update, context: CallbackContext) -> str:
         except BadRequest:
             pass
         reply = (
-            f"Yep! Unmuted {mention_html(member.user.id, member.user.first_name)} "
+            f"Yep! Unmuted {mention_html(member.user.id, member.user.first_name)}\n"
             f"by {mention_html(user.id, user.first_name)} in <b>{message.chat.title}</b>"
         )
         if reason:
