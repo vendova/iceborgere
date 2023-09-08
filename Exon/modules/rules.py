@@ -57,7 +57,7 @@ def send_rules(update, chat_id, from_pm=False, dest_chat=None):
         )
     elif rules and reply_msg:
         reply_msg.reply_text(
-            "ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ʀᴜʟᴇs.",
+            "Click on the button below to get rules.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -71,7 +71,7 @@ def send_rules(update, chat_id, from_pm=False, dest_chat=None):
         )
     elif rules:
         update.effective_message.reply_text(
-            "ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ʀᴜʟᴇs.",
+            "Click on the button below to get rules.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
