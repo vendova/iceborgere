@@ -328,8 +328,6 @@ def report(update: Update, context: CallbackContext) -> str:
 
                             send_log,
 
-                            result,
-
                             msg + link, 
 
                             parse_mode=ParseMode.HTML, 
@@ -357,8 +355,6 @@ def report(update: Update, context: CallbackContext) -> str:
                         bot.send_message( 
 
                             send_log,
-
-                            result, 
 
                             msg + link, 
 
@@ -389,8 +385,6 @@ def report(update: Update, context: CallbackContext) -> str:
                         bot.send_message( 
 
                             send_log,
-
-                            result, 
 
                             msg + link, 
 
