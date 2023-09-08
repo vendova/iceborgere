@@ -249,11 +249,10 @@ ADMIN_REPORT_HANDLER = MessageHandler(Filters.regex("(?i)@admin(s)?"),
                                       run_async=True)
 
 report_button_user_handler = CallbackQueryHandler(buttons, pattern=r"report_")
-CONFIG.dispatcher.add_handler(report_button_user_handler)
-
-CONFIG.dispatcher.add_handler(REPORT_HANDLER, REPORT_GROUP)
-CONFIG.dispatcher.add_handler(ADMIN_REPORT_HANDLER, REPORT_GROUP)
-CONFIG.dispatcher.add_handler(SETTING_HANDLER)
+dispatcher.add_handler(report_button_user_handler)
+dispatcher.add_handler(REPORT_HANDLER, REPORT_GROUP)
+dispatcher.add_handler(ADMIN_REPORT_HANDLER, REPORT_GROUP)
+dispatcher.add_handler(SETTING_HANDLER)
 
 __mod_name__ = "Report" 
 
