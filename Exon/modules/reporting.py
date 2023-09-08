@@ -326,7 +326,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
                         bot.send_message( 
 
-                            log_chat_id,
+                            send_log,
 
                             result,
 
@@ -356,7 +356,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
                         bot.send_message( 
 
-                            log_chat_id,
+                            send_log,
 
                             result, 
 
@@ -388,7 +388,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
                         bot.send_message( 
 
-                            log_chat_id,
+                            send_log,
 
                             result, 
 
