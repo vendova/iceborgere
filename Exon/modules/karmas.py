@@ -88,7 +88,7 @@ async def upvote(_, message):
     again = await message.reply_text(
         f"Increased karma of {user_mention} by 1.\n**Total points :** {karma}"
     )
-    await asyncio.sleep(12)
+    await asyncio.sleep(18)
     await again.delete()
 
 
