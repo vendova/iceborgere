@@ -20,7 +20,7 @@ from Exon.modules.helper_funcs.chat_status import user_not_admin
 
 from Exon.modules.helper_funcs.decorators import Exoncallback, Exoncmd, Exonmsg 
 
-from Exon.modules.log_channel import loggable, send_log
+from Exon.modules.log_channel import loggable, send_log, log_chat_id
 
 from Exon.modules.sql import reporting_sql as sql 
 
@@ -326,7 +326,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
                         bot.send_message( 
 
-                            send_log,
+                            log_chat_id,
 
                             msg + link, 
 
@@ -354,7 +354,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
                         bot.send_message( 
 
-                            send_log,
+                            log_chat_id,
 
                             msg + link, 
 
@@ -384,7 +384,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
                         bot.send_message( 
 
-                            send_log,
+                            log_chat_id,
 
                             msg + link, 
 
