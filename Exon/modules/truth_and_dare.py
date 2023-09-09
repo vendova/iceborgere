@@ -52,12 +52,3 @@ async def _(asux):
         return await asux.reply(results)
     except Exception:
         await asux.reply(f"ᴇʀʀᴏʀ ʀᴇᴘᴏʀᴛ @{SUPPORT_CHAT}")
-
-
-__mod_name__ = "Truth-Dare"
-
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "td_help")
