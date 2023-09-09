@@ -201,13 +201,16 @@ blacklist_help: |
    - /unblacklist `<triggers>`: Remove triggers from blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
    - /blacklistmode `<off/del/warn/ban/kick/mute/tban/tmute>`: Action to perform when someone sends blacklisted words.
 
-cleaner_help: |
-   The blue text cleaner removes fake commands not recognized by this bot.
-   
+cleaner_help: | 
    - /cleanblue `<on/off/yes/no>`: Clean commands after sending.
+      The blue text cleaner removes fake commands not recognized by this bot.
    - /ignoreblue `<word>`: Prevent auto-clean of the command.
    - /unignoreblue `<word>`: Remove cleaning prevention.
    - /listblue: List currently whitelisted commands.
+
+   *Admin commands:*
+   - /purge: Reply to a message to delete all messages from that point.
+   - /del: Delete the replied to message.
 
    *Disasters only:*
    - /gignoreblue `<word>`: Globally ignore blue text cleaning of the saved word across the helpline.
@@ -475,11 +478,6 @@ notes_help: |
 
 nmode_help: |
    *Night Mode Help*
-
-purge_help: |
-   *Admin commands:*
-    - /purge: Reply to a message to delete all messages from that point.
-    - /del: Delete the replied to message.
 
 pins_help: |
    - /pin: Silently pins the message replied to - add 'loud' or 'notify' to give notifs to users.
