@@ -359,11 +359,8 @@ def del_blacklist(update, context):
                     except BadRequest:
                         pass
                 elif getmode == 2:
-                    try:
-                        message.delete()
-                    except BadRequest:
-                        pass
-                    warn_user(
+		    message.delete()
+                    warn(
                         update.effective_user,
                         chat,
                         ("Using blacklisted trigger: {}".format(trigger)),
