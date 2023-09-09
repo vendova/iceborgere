@@ -210,7 +210,7 @@ def buttons(update: Update, context: CallbackContext):
 
 __help__ = True
 
-REPORT_HANDLER = CommandHandler("report",
+REPORT_HANDLER = CommandHandler(["report", "admin"]
                                 report,
                                 run_async=True,
                                 filters=Filters.chat_type.groups)
