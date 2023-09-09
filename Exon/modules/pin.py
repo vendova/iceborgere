@@ -389,20 +389,3 @@ async def antichanpin_cleanlinked(c, m: Message):
     except Exception:
         return
     return
-
-
-__mod_name__ = "Pins"
-
-
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "pins_help")
-
-
-# """
