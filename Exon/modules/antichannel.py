@@ -490,38 +490,6 @@ __handlers__ = [
 
     SFA_HANDLER, 
 
-] 
-
-  
-
-  
-
-__mod_name__ = "A-channel" 
-
-  
-
-  
-
-# foR HELP MENU 
-
-  
-
-# """ 
-
-from Exon.modules.language import gs 
-
-  
-
-  
-
-def get_help(chat): 
-
-    return gs(chat, "achannel_help") 
-
-  
-
-  
-
-# """ 
+]
 
  
