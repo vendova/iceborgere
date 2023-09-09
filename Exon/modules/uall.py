@@ -426,7 +426,7 @@ async def get_users(show):
 
   
 
-__mod_name__ = "Uall" 
+__mod_name__ = "U-all" 
 
   
 
