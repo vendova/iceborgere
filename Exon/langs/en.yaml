@@ -429,6 +429,7 @@ misc_help: |
       - /ping: Check bot response time.
       - /truth: Sends a random truth string.
       - /dare: Sends a random dare string.
+      - /webss `<url>`: Takes a screenshot of the website and sends it.
       
       *Co-Owner commands:*
       - /broadcastall: Broadcasts everywhere.
@@ -628,10 +629,6 @@ zombies_help: |
    *Admin commands:*
    - /zombies: Find and remove deleted accounts from your groups.  
    - /zombies `clean`: Remove deleted accounts from your groups.
-
-webss_help: |
-   *User command:*
-   - /webss `<url>`: Takes a screenshot of the website and sends it.
 
 uall_help: |
    *Admin commands:*
