@@ -618,34 +618,6 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
 
             parse_mode=ParseMode.HTML, 
 
-        ) 
-
-  
-
-  
-
-# foR HELP MENU 
-
-# """ 
-
-from Exon.modules.language import gs 
-
-  
-
-  
-
-def get_help(chat): 
-
-    return gs(chat, "raid_help") 
-
-  
-
-  
-
-# """ 
-
-  
-
-__mod_name__ = "A-Raid" 
+        )
 
  
