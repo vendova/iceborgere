@@ -100,7 +100,7 @@ def report_setting(update: Update, context: CallbackContext):
 
                 "Turned on reporting! admins who have turned on reports will be notified when /report " 
 
-                "or @admin is called.", 
+                "or /admin is called.", 
 
             ) 
 
@@ -112,7 +112,7 @@ def report_setting(update: Update, context: CallbackContext):
 
             msg.reply_text( 
 
-                "Turned off reporting! no admins will be notified on /report or @admin.", 
+                "Turned off reporting! no admins will be notified on /report or /admin.", 
 
             ) 
 
@@ -130,9 +130,7 @@ def report_setting(update: Update, context: CallbackContext):
 
   
 
-@Exoncmd(command="report", filters=Filters.chat_type.groups, group=REPORT_GROUP) 
-
-@Exonmsg((Filters.regex(r"(?i)@admin(s)?")), group=REPORT_GROUP) 
+@Exoncmd(command=["report", "admin"], filters=Filters.chat_type.groups, group=REPORT_GROUP) 
 
 @user_not_admin 
 
@@ -325,66 +323,8 @@ def report(update: Update, context: CallbackContext) -> str:
             if sql.user_should_report(admin.user.id): 
 
                 try: 
-
-                    if chat.type != Chat.SUPERGROUP: 
-
-                        bot.send_message( 
-
-                            -1001541904474, 
-
-                            msg + link, 
-
-                            parse_mode=ParseMode.HTML, 
-
-                        ) 
-
-  
-
-                        if should_forward: 
-
-                            message.reply_to_message.forward(admin.user.id) 
-
-  
-
-                            if ( 
-
-                                len(message.text.split()) > 1 
-
-                            ):  # If user is giving a reason, send his message too 
-
-                                message.forward(admin.user.id) 
-
-                    elif not chat.username: 
-
-                        bot.send_message( 
-
-                            -1001541904474, 
-
-                            msg + link, 
-
-                            parse_mode=ParseMode.HTML, 
-
-                        ) 
-
-  
-
-                        if should_forward: 
-
-                            message.reply_to_message.forward(admin.user.id) 
-
-  
-
-                            if ( 
-
-                                len(message.text.split()) > 1 
-
-                            ):  # If user is giving a reason, send his message too 
-
-                                message.forward(admin.user.id) 
-
-  
-
-                    elif chat.username and chat.type == Chat.SUPERGROUP: 
+                  
+                    if chat.username and chat.type == Chat.SUPERGROUP: 
 
                         bot.send_message( 
 
@@ -413,6 +353,19 @@ def report(update: Update, context: CallbackContext) -> str:
                             ):  # If user is giving a reason, send his message too 
 
                                 message.forward(admin.user.id) 
+                    else:
+
+                        bot.send_message( 
+
+                            -1001541904474, 
+
+                            "No log group set!", 
+
+                            parse_mode=ParseMode.HTML, 
+
+                            reply_markup=reply_markup, 
+
+                        ) 
 
   
 
@@ -458,7 +411,7 @@ def __migrate__(old_chat_id, new_chat_id):
 
 def __chat_settings__(chat_id, _): 
 
-    return f"This chat is setup to send user reports to admins, via /report and @admin: `{sql.chat_should_report(chat_id)}`" 
+    return f"This chat is setup to send user reports to admins, via /report and /admin: `{sql.chat_should_report(chat_id)}` \ndebugging EVENT_LOGS from {str(EVENT_LOGS)} \ndebugging LOG_GROUP_ID from {get_chat_log_channel}" 
 
   
 
