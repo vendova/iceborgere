@@ -138,20 +138,3 @@ async def chat_info_func(_, message: Message):
         os.remove(photo)
     except Exception as e:
         await m.edit("Remember to have <id/username> after the command!")
-
-
-__mod_name__ = "C-Info"
-
-
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "cinfo_help")
-
-
-# """
