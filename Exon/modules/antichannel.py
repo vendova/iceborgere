@@ -440,13 +440,7 @@ def eliminate_linked_channel_msg(update: Update, _: CallbackContext):
 
     except TelegramError: 
 
-        return 
-
-  
-
-  
-
-__mod_name__ = "A-channel" 
+        return
 
   
 
