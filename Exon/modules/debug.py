@@ -89,23 +89,3 @@ DEBUG_HANDLER = CommandHandler("debug", debug, run_async=True)
 
 dispatcher.add_handler(LOG_HANDLER)
 dispatcher.add_handler(DEBUG_HANDLER)
-
-__mod_name__ = "Debug"
-
-__command_list__ = ["debug"]
-
-__handlers__ = [DEBUG_HANDLER]
-
-
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "debug_help")
-
-
-# """
