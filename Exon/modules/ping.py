@@ -110,14 +110,14 @@ def ping(update: Update, context: CallbackContext):
 
     message.edit_text(
         "PONG!!\n"
-        "<b>ᴛɪᴍᴇ ᴛᴀᴋᴇɴ:</b> <code>{}</code>\n"
-        "<b>sᴇʀᴠɪᴄᴇ ᴜᴘᴛɪᴍᴇ:</b> <code>{}</code>".format(telegram_ping, uptime),
+        "<b>Time taken:</b> <code>{}</code>\n"
+        "<b>Service uptime:</b> <code>{}</code>".format(telegram_ping, uptime),
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="sʏsᴛᴇᴍ sᴛᴀᴛs", callback_data="stats_callback"
+                        text="System stats", callback_data="stats_callback"
                     )
                 ]
             ]
