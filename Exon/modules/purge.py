@@ -273,35 +273,4 @@ __HELP__ = """
 • /del: Deletes a single message, used as a reply to message. 
 
 """ 
-
-  
-
-__mod_name__ = "Purge" 
-
-  
-
-# foR HELP MENU 
-
-  
-
-  
-
-# """ 
-
-from Exon.modules.language import gs 
-
-  
-
-  
-
-def get_help(chat): 
-
-    return gs(chat, "purge_help") 
-
-  
-
-  
-
-# """ 
-
  
