@@ -359,7 +359,7 @@ def del_blacklist(update, context):
                     except BadRequest:
                         pass
                 elif getmode == 2:
-		    message.delete()
+                    message.delete()
                     warn(
                         update.effective_user,
                         chat,
@@ -424,7 +424,6 @@ def del_blacklist(update, context):
                 if excp.message != "Message to delete not found":
                     LOGGER.exception("Error while deleting blacklist message.")
             break
-
 
 def __import_data__(chat_id, data):
     # set chat blacklist
