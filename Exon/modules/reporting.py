@@ -28,7 +28,7 @@ from Exon.modules.helper_funcs.chat_status import user_not_admin, user_admin
 from Exon.modules.log_channel import loggable
 from Exon.modules.sql import reporting_sql as sql
 from Exon import dispatcher
-from config import Config, LOG_GROUP_ID
+from Exon import EVENT_LOGS, LOGGER, dispatcher
 REPORT_GROUP = 12
 
 
@@ -138,7 +138,7 @@ def report(update: Update, context: CallbackContext) -> str:
             if sql.user_should_report(admin.user.id):
                 try:
                     if not chat.type == Chat.SUPERGROUP:
-                        context.bot.send_message(LOG_GROUP_ID,
+                        context.bot.send_message(EVENT_LOGS,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  disable_web_page_preview=True)
@@ -152,7 +152,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
 
                     if not chat.username:
-                        context.bot.send_message(LOG_GROUP_ID,
+                        context.bot.send_message(EVENT_LOGS,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  disable_web_page_preview=True)
@@ -166,7 +166,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
 
                     if chat.username and chat.type == Chat.SUPERGROUP:
-                        context.bot.send_message(LOG_GROUP_ID,
+                        context.bot.send_message(EVENT_LOGS,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  reply_markup=reply_markup,
