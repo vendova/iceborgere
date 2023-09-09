@@ -227,7 +227,6 @@ def report(update: Update, context: CallbackContext) -> str:
         if chat.username and chat.type == Chat.SUPERGROUP: 
 
             reported = f"{mention_html(user.id, user.first_name)} reported {mention_html(reported_user.id, reported_user.first_name)} to the admins! \ndebugging EVENT_LOGS from {str(EVENT_LOGS)} \ndebugging LOG_GROUP_ID from {get_chat_log_channel}"
-" 
 
   
 
