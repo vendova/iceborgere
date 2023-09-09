@@ -102,8 +102,7 @@ anti_help: |
    - /flood: Get the current flood settings
    - /setflood `<integer/'no'/'off'>`: Set the number of messages after which to take action on a user. set to '0' or 'off' to disable.
    - /setfloodmode `<action type>`: Choose which action to take on a user who has been flooding. Options: ban/kick/mute/tban/tmute
-   
-   *Admin commands:*
+
    - /raid `<on/off> (Optional time)`: Enable/Disable raid mode. 
    If no time is given it will default to 2 hours then turn off automatically
    By enabling *Raid Mode* I will automatically kick every user that tries to join.
@@ -111,11 +110,10 @@ anti_help: |
    - /raidtime `<time>`: View or set default duration for raid mode, after that time from toggling raid mode will turn off automatically 
    Default is 6 hours.
    - /raidactiontime `<time>`: View or set default action duration for temp banned users, default is 1 hour.
-   
-    *Available commands:*
-    - /antichannel `<on/off>`: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves.
-    - /antilinkedchan `<on/off>`: Automatically delete linked channel posts from chatroom.
-    - /antichannelpin `<on/off>`: Automatically unpin linked channel posts from chatroom.
+
+   - /antichannel `<on/off>`: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves.
+   - /antilinkedchan `<on/off>`: Automatically delete linked channel posts from chatroom.
+   - /antichannelpin `<on/off>`: Automatically unpin linked channel posts from chatroom.
 
 approve_help: |
    Sometimes you might trust a user not to send unwanted content. Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
