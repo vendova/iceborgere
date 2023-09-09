@@ -423,6 +423,7 @@ misc_help: |
       - /cash: Currency converter.
         example syntax: /cash 1 USD INR.
       - /getid: GET IDs of chat, user and chat message.
+      - /ping: Check bot response time.
       
       *Co-Owner commands:*
       - /broadcastall: Broadcasts everywhere.
@@ -642,7 +643,3 @@ uall_help: |
    `this module usage may result in telegram API limit to the bot. Handle with care.`
    - /unbanall: Unbanall all banned users via one command.
    - /unmuteall: Unmute all users via one command.
-
-ping_help: |
-   *User command:*
-   - /ping: Check bot response time.
