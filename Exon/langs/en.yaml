@@ -353,14 +353,6 @@ filling_help: |
       - <code>{id}</code>: The user's ID.
       - <code>{chatname}</code>: The chat's name.
 
-
-gcast_help: |
-   *Dev commands:*
-   - /broadcastall: Broadcasts everywhere.
-   - /broadcastusers: Broadcasts to all users.
-   - /broadcastgroups: Broadcasts to all groups.
-
-
 gtranslate_help: |
    *Use this module to translate stuff!*
    - /tl `(or /tr)`: As a reply to a message, translates it to English.
@@ -431,6 +423,11 @@ misc_help: |
       - /cash: Currency converter.
         example syntax: /cash 1 USD INR.
       - /getid: GET IDs of chat, user and chat message.
+      
+      *Co-Owner commands:*
+      - /broadcastall: Broadcasts everywhere.
+      - /broadcastusers: Broadcasts to all users.
+      - /broadcastgroups: Broadcasts to all groups.
 
 modules_help: |
    - /listmodules: Lists all modules loaded by the bot
