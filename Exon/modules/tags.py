@@ -354,12 +354,3 @@ async def mentioned_alert(client, message):
         message.continue_propagation()
     except:
         return message.continue_propagation()
-
-
-__mod_name__ = "Tags"
-
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "tags_help")
