@@ -381,7 +381,7 @@ def report(update: Update, context: CallbackContext) -> str:
 
         message.reply_to_message.reply_text( 
 
-            f"{mention_html(user.id, user.first_name)} Reported the message to the admins.", 
+            f"{mention_html(user.id, user.first_name)} Reported the message to the admins.  \ndebugging EVENT_LOGS from {str(EVENT_LOGS)} \ndebugging LOG_GROUP_ID from {get_chat_log_channel}", 
 
             parse_mode=ParseMode.HTML, 
 
@@ -421,7 +421,7 @@ def __user_settings__(user_id):
 
     return ( 
 
-        "You will receive reporta from chats you're admin." 
+        "You will receive reports from chats you're admin." 
 
         if sql.user_should_report(user_id) is true 
 
