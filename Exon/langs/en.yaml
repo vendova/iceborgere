@@ -427,6 +427,8 @@ misc_help: |
         example syntax: /cash 1 USD INR.
       - /getid: GET IDs of chat, user and chat message.
       - /ping: Check bot response time.
+      - /truth: Sends a random truth string.
+      - /dare: Sends a random dare string.
       
       *Co-Owner commands:*
       - /broadcastall: Broadcasts everywhere.
@@ -630,11 +632,6 @@ zombies_help: |
 webss_help: |
    *User command:*
    - /webss `<url>`: Takes a screenshot of the website and sends it.
-
-td_help: |
-   *User commands:*
-   - /truth: Sends a random truth string.
-   - /dare: Sends a random dare string.
 
 uall_help: |
    *Admin commands:*
