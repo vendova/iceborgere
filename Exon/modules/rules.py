@@ -110,3 +110,11 @@ RESET_RULES_HANDLER = CommandHandler("clearrules", clear_rules, filters=Filters.
 dispatcher.add_handler(GET_RULES_HANDLER)
 dispatcher.add_handler(SET_RULES_HANDLER)
 dispatcher.add_handler(RESET_RULES_HANDLER)
+
+__mod_name__ = "Rules" 
+
+from Exon.modules.language import gs 
+
+def get_help(chat): 
+
+    return gs(chat, "rules_help") 
