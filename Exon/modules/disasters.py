@@ -583,8 +583,6 @@ dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
 
-__mod_name__ = "Owner"
-
 
 __handlers__ = [
     SUDO_HANDLER,
@@ -601,16 +599,3 @@ __handlers__ = [
     SUDOLIST_HANDLER,
     DEVLIST_HANDLER,
 ]
-
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "owner_help")
-
-
-# """
