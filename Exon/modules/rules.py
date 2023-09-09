@@ -1,8 +1,8 @@
 from typing import Optional
 
-import Telegram.modules.sql.rules_sql as sql
-from Telegram import dispatcher
-from Telegram.modules.helper_funcs.string_handling import markdown_parser
+import Exon.modules.sql.rules_sql as sql
+from Exon import dispatcher
+from Exon.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -14,7 +14,7 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import escape_markdown
-from Telegram.modules.helper_funcs.decorators import Exoncmd
+from Exon.modules.helper_funcs.decorators import Exoncmd
 
 from Exon.modules.helper_funcs.anonymous import user_admin, AdminPerms
 
@@ -122,7 +122,7 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
 
 
-from Telegram.modules.language import gs
+from Exon.modules.language import gs
 
 
 def get_help(chat):
