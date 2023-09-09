@@ -18,7 +18,7 @@
 import html
 import logging
 from typing import List, Optional
-from telegram import Message, Chat, Update, User, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Message, Chat, Update, Bot, User, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler, Filters, MessageHandler, RegexHandler, run_async
 from telegram.ext.callbackcontext import CallbackContext
