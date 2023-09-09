@@ -201,14 +201,6 @@ blacklist_help: |
    - /unblacklist `<triggers>`: Remove triggers from blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
    - /blacklistmode `<off/del/warn/ban/kick/mute/tban/tmute>`: Action to perform when someone sends blacklisted words.
 
-
-cinfo_help: |
-   *User commands:*
-   - /cinfo `<chat ID/username>`: Fetch info about the chat. 
-   - /uinfo: Fetch user info.
-   - /info: Same as /uinfo
-
-
 cleaner_help: |
    The blue text cleaner removes fake commands not recognized by this bot.
    
@@ -547,6 +539,10 @@ userinfo_help: |
       - /bio: Will get your or another user's bio. This cannot be set by yourself.
       - /setme `<text>`: Will set your info.
       - /me: Will get your or another user's info.
+      - /cinfo `<chat ID/username>`: Fetch info about the chat. 
+      - /uinfo: Fetch user info.
+      - /info: Same as /uinfo
+
 
 warns_help: |
    *Admin commands:*
