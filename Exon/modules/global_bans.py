@@ -617,21 +617,6 @@ dispatcher.add_handler(UNGBAN_HANDLER)
 dispatcher.add_handler(GBAN_LIST)
 dispatcher.add_handler(GBAN_STATUS)
 
-__mod_name__ = "A-Spam"
-
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "antispam_help")
-
-
-# """
-
 
 __handlers__ = [GBAN_HANDLER, UNGBAN_HANDLER, GBAN_LIST, GBAN_STATUS]
 
