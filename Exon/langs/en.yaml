@@ -430,6 +430,7 @@ misc_help: |
       - /truth: Sends a random truth string.
       - /dare: Sends a random dare string.
       - /webss `<url>`: Takes a screenshot of the website and sends it.
+      - /tagalert: Turn on/off tag alerts.
       
       *Co-Owner commands:*
       - /broadcastall: Broadcasts everywhere.
@@ -527,10 +528,6 @@ topics_help: |
     - /topicdel: Deletes an existing topic, requires topic ID to delete.   
     - /topicclose: Close an existing topic, requires topic ID to close.
     - /topicopen: Open an already closed topic, requires topic ID to open.
-
-tags_help: |
-    *User command:*
-    - /tagalert: Turn on/off tag alerts.
 
 userinfo_help: |
       *User commands:*
