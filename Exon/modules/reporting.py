@@ -125,6 +125,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                     message.reply_to_message.message_id))
                         ]]
             reply_markup = InlineKeyboardMarkup(keyboard)
+            print(f"debugging EVENT_LOGS from {EVENT_LOGS} \ndebugging LOG_GROUP_ID from {get_chat_log_channel}")
 
         else:
             msg = "{} is calling for admins in \"{}\"!".format(
@@ -139,7 +140,7 @@ def report(update: Update, context: CallbackContext) -> str:
             if sql.user_should_report(admin.user.id):
                 try:
                     if not chat.type == Chat.SUPERGROUP:
-                        context.bot.send_message(get_chat_log_channel,
+                        context.bot.send_message(-1001925908750,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  disable_web_page_preview=True)
@@ -153,7 +154,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
 
                     if not chat.username:
-                        context.bot.send_message(get_chat_log_channel,
+                        context.bot.send_message(-1001925908750,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  disable_web_page_preview=True)
@@ -167,7 +168,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
 
                     if chat.username and chat.type == Chat.SUPERGROUP:
-                        context.bot.send_message(get_chat_log_channel,
+                        context.bot.send_message(-1001925908750,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  reply_markup=reply_markup,
