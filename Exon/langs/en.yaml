@@ -56,16 +56,6 @@ kingAbishnoi_help: |
 akboss_help: |
     *ANTI-SERVICE HELP*
 
-
-achannel_help: | 
-    Tired of Telegram stupidity? Here you go:
-    
-    *Available commands:*
-    - /antichannel `<on/off>`: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves.
-    - /antilinkedchan `<on/off>`: Automatically delete linked channel posts from chatroom.
-    - /antichannelpin `<on/off>`: Automatically unpin linked channel posts from chatroom.
-
-
 admin_help: |
    *User Commands*:
    - /admins: list of admins in the chat.
@@ -102,17 +92,30 @@ afk_help: |
    - /afk `[media] [reason]`: Sets you as offline with media and reason.
 
 
-antiflood_help: |
+anti_help: |
    *Admin commands:*
-   - /antispam `<on/off/yes/no>`: Toggles antispam security. 
+   - /antispam `<on/off/yes/no>`: Toggles antispam security.
+   
    Anti-spam helps protect you and your chats by removing spam flooders as quickly as possible.
-
    Users can appeal gbans or report spammers at @SpamWatchSupport
 
    - /flood: Get the current flood settings
    - /setflood `<integer/'no'/'off'>`: Set the number of messages after which to take action on a user. set to '0' or 'off' to disable.
    - /setfloodmode `<action type>`: Choose which action to take on a user who has been flooding. Options: ban/kick/mute/tban/tmute
-
+   
+   *Admin commands:*
+   - /raid `<on/off> (Optional time)`: Enable/Disable raid mode. 
+   If no time is given it will default to 2 hours then turn off automatically
+   By enabling *Raid Mode* I will automatically kick every user that tries to join.
+   When the raid is done you can toggle back LockGroup and everything will be back to normal!
+   - /raidtime `<time>`: View or set default duration for raid mode, after that time from toggling raid mode will turn off automatically 
+   Default is 6 hours.
+   - /raidactiontime `<time>`: View or set default action duration for temp banned users, default is 1 hour.
+   
+    *Available commands:*
+    - /antichannel `<on/off>`: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves.
+    - /antilinkedchan `<on/off>`: Automatically delete linked channel posts from chatroom.
+    - /antichannelpin `<on/off>`: Automatically unpin linked channel posts from chatroom.
 
 approve_help: |
    Sometimes you might trust a user not to send unwanted content. Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
@@ -125,14 +128,6 @@ approve_help: |
    - /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
    - /approved: List all approved users.
    - /unapproveall: Unapprove *ALL* users in a chat. This cannot be undone.
-
-
-antispam_help: |
-   *Admin commands:*
-   - /antispam `<on/off/yes/no>`: Enable/disable antispam security.
-   Anti-spam helps protect you and your chats by removing spam flooders as quickly as possible.
-
-   Users can appeal gbans or report spammers at @SpamWatchSupport
 
 
 backup_help: |
@@ -635,20 +630,6 @@ sticker_blacklist_help: |
    
    Note: 
    - Sticker link can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message.
-
-raid_help: |
-   Have you ever had your group raided by spammers and bots?  
-   This module allows you to quickly stop the raiders.
-   By enabling *Raid Mode* I will automatically kick every user that tries to join.
-   When the raid is done you can toggle back LockGroup and everything will be back to normal!
-  
-   *Admin commands:*
-   - /raid `<on/off> (Optional time)`: Enable/Disable raid mode. 
-   If no time is given it will default to 2 hours then turn off automatically
-   Enabling raid mode will kick every user on joining the group.
-   - /raidtime `<time>`: View or set default duration for raid mode, after that time from toggling raid mode will turn off automatically 
-   Default is 6 hours.
-   - /raidactiontime `<time>`: View or set default action duration for temp banned users, default is 1 hour.
 
 zombies_help: |
    `Telegram API limit may intervene with this action. Handle with care.`
