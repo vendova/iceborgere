@@ -27,6 +27,7 @@ from config import Config
 from Exon.modules.helper_funcs.chat_status import user_not_admin, user_admin
 from Exon.modules.log_channel import loggable
 from Exon.modules.sql import reporting_sql as sql
+from Exon.modules.sql.log_channel_sql import get_chat_log_channel
 from Exon import dispatcher
 from Exon import EVENT_LOGS, LOGGER, dispatcher
 REPORT_GROUP = 12
@@ -138,7 +139,7 @@ def report(update: Update, context: CallbackContext) -> str:
             if sql.user_should_report(admin.user.id):
                 try:
                     if not chat.type == Chat.SUPERGROUP:
-                        context.bot.send_message(-1001867883635,
+                        context.bot.send_message(get_chat_log_channel,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  disable_web_page_preview=True)
@@ -152,7 +153,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
 
                     if not chat.username:
-                        context.bot.send_message(-1001867883635,
+                        context.bot.send_message(get_chat_log_channel,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  disable_web_page_preview=True)
@@ -166,7 +167,7 @@ def report(update: Update, context: CallbackContext) -> str:
                                 message.forward(admin.user.id)
 
                     if chat.username and chat.type == Chat.SUPERGROUP:
-                        context.bot.send_message(-1001867883635,
+                        context.bot.send_message(get_chat_log_channel,
                                                  msg + link,
                                                  parse_mode=ParseMode.HTML,
                                                  reply_markup=reply_markup,
