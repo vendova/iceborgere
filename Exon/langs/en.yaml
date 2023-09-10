@@ -21,7 +21,7 @@ pm_start_text: |
    Hit /help to find out more about how to use me to my full potential.
 
       
-grp_start_text: "Greetings! \nJoin @WerewolfNetworks to know more about me."
+grp_start_text: "Greetings! \nJoin @WerewolfNetworks to know more about me.\nClick /help to explore."
 
 
 pm_help_text: |
