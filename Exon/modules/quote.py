@@ -57,7 +57,7 @@ def isArgInt(message: Message) -> list:
 
 
 @pbot.on_message(
-    filters.command("q", prefix=!)
+    filters.command("q")
     & ~filters.forwarded
     & ~filters.via_bot
 )
