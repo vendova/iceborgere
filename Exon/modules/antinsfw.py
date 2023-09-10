@@ -26,7 +26,8 @@ from os import remove
 
 from pyrogram import filters
 
-from Exon import BOT_USERNAME, DRAGONS, arq, pgram
+from Exon import BOT_USERNAME, DRAGONS, arq
+from Exon import Abishnoi as pbot
 from Exon.modules.mongo.nsfw_mongo import is_nsfw_on, nsfw_off, nsfw_on
 from Exon.utils.errors import capture_err
 from Exon.utils.permissions import adminsOnly
@@ -65,7 +66,7 @@ async def get_file_id_from_message(message):
     return file_id
 
 
-@pgram.on_message(
+@pbot.on_message(
     (
         filters.document
         | filters.photo
@@ -85,7 +86,7 @@ async def detect_nsfw(_, message):
     file_id = await get_file_id_from_message(message)
     if not file_id:
         return
-    file = await pgram.download_media(file_id)
+    file = await pbot.download_media(file_id)
     try:
         results = await arq.nsfw_scan(file=file)
     except Exception:
@@ -118,7 +119,7 @@ async def detect_nsfw(_, message):
     )
 
 
-@pgram.on_message(filters.command(["pscan", f"pscan@{BOT_USERNAME}"]))
+@pbot.on_message(filters.command(["pscan", f"pscan@{BOT_USERNAME}"]))
 @capture_err
 async def nsfw_scan_command(_, message):
     if not message.reply_to_message:
@@ -142,7 +143,7 @@ async def nsfw_scan_command(_, message):
     file_id = await get_file_id_from_message(reply)
     if not file_id:
         return await m.edit("sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ ʜᴀᴘᴘᴇɴᴇᴅ.")
-    file = await pgram.download_media(file_id)
+    file = await pbot.download_media(file_id)
     try:
         results = await arq.nsfw_scan(file=file)
     except Exception:
@@ -163,7 +164,7 @@ async def nsfw_scan_command(_, message):
     )
 
 
-@pgram.on_message(
+@pbot.on_message(
     filters.command(["antiporn", f"antiporn@{BOT_USERNAME}"]) & ~filters.private
 )
 @adminsOnly("can_change_info")
