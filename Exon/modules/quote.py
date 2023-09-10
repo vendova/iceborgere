@@ -25,10 +25,11 @@ SOFTWARE.
 from io import BytesIO
 from traceback import format_exc
 
-from pyrogram import Filters
+from pyrogram import filters
 from pyrogram.types import Message
 
-from Exon import arq, pgram
+from Exon import arq
+from Exon import Abishnoi as pbot
 from Exon.utils.errors import capture_err
 
 
@@ -55,7 +56,7 @@ def isArgInt(message: Message) -> list:
         return [False, 0]
 
 
-@pgram.on_message(filters.command("q"))
+@pbot.on_message(filters.command("q"))
 @capture_err
 async def quotly_func(client, message: Message):
     if not message.reply_to_message:
