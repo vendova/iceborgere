@@ -28,7 +28,7 @@ from pyrogram import filters
 
 from Exon import BOT_USERNAME, DRAGONS, arq
 from Exon import Abishnoi as pbot
-from Exon.modules.mongo.nsfw_mongo import is_nsfw_on, nsfw_off, nsfw_on
+from Exon.utils.mongo import is_nsfw_on, nsfw_off, nsfw_on
 from Exon.utils.errors import capture_err
 from Exon.utils.permissions import adminsOnly
 
