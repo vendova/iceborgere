@@ -268,7 +268,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome yourself
             elif new_mem.id == bot.id:
                 update.effective_message.reply_text(
-                    f"Thanks for adding me! \n\nGet updated through @werewolfnetworks.",
+                    f"Thanks for adding me! \nGet updated through @werewolfnetworks.",
                     reply_to_message_id=reply,
                 )
                 continue
