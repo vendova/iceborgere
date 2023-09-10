@@ -790,7 +790,7 @@ from Exon.modules.language import gs
 
 def get_help(chat): 
 
-    return gs(chat, "anti_help") 
+    return gs(chat, "antiflood_help") 
 
   
 
