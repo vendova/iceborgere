@@ -134,7 +134,7 @@ approve_help: |
 backup_help: |
     *Admin commands:* 
     - /import: Reply to a group backup file to import as much as possible, making the transfer super simple! Note that files/photos can't be imported due to telegram restrictions.
-    - /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons)
+    - /export: Export group data, which will be exported are: notes (documents, images, music, video, audio, voice, text, text buttons)
 
 
 bans_help: |
@@ -513,13 +513,6 @@ rcmds_help: |
    - /rkick `user group`: Remote kick.
    - /rmute `user group`: Remote mute.
    -/runmute `user group`: Remote un-mute.
-
-rules_help: | 
-  - /rules: Get the rules for this chat.
-
-  *Admin commands:*
-  - /setrules `<rules>`: Set rules for this chat.
-  - /clearrules: Clear the rules for this chat.
 
 topics_help: |
     Telegram introduced new way of managing your chat called topics(forums). 
