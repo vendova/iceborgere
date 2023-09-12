@@ -71,7 +71,6 @@ from Exon.modules.helper_funcs.string_handling import extract_time
 from Exon.modules.log_channel import gloggable, loggable
 
 # Get information about the user's membership in the chat
-member = chat.get_chat_member(user_id)
 
 # @Exoncmd(command=["ban", "sban", "dban"], pass_args=True)
 @connection_status
@@ -473,6 +472,7 @@ def unban(update: Update, context: CallbackContext) -> Optional[str]:
     message = update.effective_message
     user = update.effective_user
     chat = update.effective_chat
+    member = chat.get_chat_member(user_id)
     log_message = ""
     bot, args = context.bot, context.args
     if message.reply_to_message and message.reply_to_message.sender_chat:
