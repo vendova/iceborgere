@@ -114,9 +114,6 @@ antiflood_help: |
    - /antichannel `<on/off>`: Bans and deletes anyone who tries to talk as a channel and forces them to talk as themselves.
    - /antilinkedchan `<on/off>`: Automatically delete linked channel posts from chatroom.
    - /antichannelpin `<on/off>`: Automatically unpin linked channel posts from chatroom.
-   
-   - /antiporn `<on/off>` : `Enabled Anti-NSFW` *Anti-porn* system. Bot will delete messages containing inappropriate content` [ᴅᴇғᴇᴀᴛ ᴏɴ]
-   - /pscan : `Reply to an image/Document/Sticker/Animation to scan it`
 
 approve_help: |
    Sometimes you might trust a user not to send unwanted content. Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
