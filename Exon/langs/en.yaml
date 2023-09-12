@@ -541,10 +541,7 @@ warns_help: |
    - /warns `<userhandle>`: Get a user's number, and reason, of warns.
    - /warnlist: List of all current warning filters
    - /warn `<userhandle>`: Warn a user. After 3 warns, the user will be banned from the group. Can also be used as reply.
-   - /dwarn `<userhandle>`: Warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as reply.
    - /resetwarn `<userhandle>`: Reset the warnings for a user. Can also be used as reply.
-   - /addwarn `<keyword> <reply message>`: Set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user. 
-   - /nowarn `<keyword>`: Stop a warning filter
    - /warnlimit `<num>`: Set the warning limit.
    - /strongwarn `<on/yes/off/no>`: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 
