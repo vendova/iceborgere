@@ -70,6 +70,8 @@ from Exon.modules.helper_funcs.filters import CustomFilters
 from Exon.modules.helper_funcs.string_handling import extract_time
 from Exon.modules.log_channel import gloggable, loggable
 
+# Get information about the user's membership in the chat
+member = chat.get_chat_member(user_id)
 
 # @Exoncmd(command=["ban", "sban", "dban"], pass_args=True)
 @connection_status
@@ -509,12 +511,18 @@ def unban(update: Update, context: CallbackContext) -> Optional[str]:
         message.reply_text("Isn't this person already here??")
         return log_message
 
-    chat.unban_member(user_id)
-    message.reply_text(
-        f"Yep! Unbanned {mention_html(member.user.id, html.escape(member.user.first_name))} from {chat.title}\n"
-        f"Unbanned By: {mention_html(user.id, html.escape(user.first_name))}!",
-        parse_mode=ParseMode.HTML,
-    )
+    # Check if the user is banned
+    if member.status in ['kicked', 'restricted']:
+        # User is banned, so unban them
+        chat.unban_member(user_id)
+        message.reply_text(
+            f"Yep! Unbanned {mention_html(member.user.id, html.escape(member.user.first_name))} from {chat.title}\n"
+            f"Unbanned By: {mention_html(user.id, html.escape(user.first_name))}!",
+            parse_mode=ParseMode.HTML,
+        )
+    else:
+        # User is not banned
+        message.reply_text("This user is not banned from the chat.")
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
