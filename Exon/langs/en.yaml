@@ -202,7 +202,7 @@ blacklist_help: |
    *Admin commands:*
    - /addblacklist `<triggers>`: Add triggers to blacklist. Each line is considered one trigger, allowing multiple triggers to be added.
    - /unblacklist `<triggers>`: Remove triggers from blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-   - /blacklistmode `<off/del/warn/ban/kick/mute/tban/tmute>`: Action to perform when someone sends blacklisted words.
+   - /blacklistmode `<off/del/ban/kick/mute/tban/tmute>`: Action to perform when someone sends blacklisted words.
 
 cleaner_help: | 
    - /cleanblue `<on/off/yes/no>`: Clean commands after sending.
