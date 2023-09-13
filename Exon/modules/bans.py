@@ -472,10 +472,11 @@ def unban(update: Update, context: CallbackContext) -> Optional[str]:
     message = update.effective_message
     user = update.effective_user
     chat = update.effective_chat
-    member = chat.get_chat_member(user_id)
+    member = chat.get_member(user_id)
     log_message = ""
     bot, args = context.bot, context.args
-    if message.reply_to_message and message.reply_to_message.sender_chat:
+    if message.reply_to_messag
+    e and message.reply_to_message.sender_chat:
         r = bot.unban_chat_sender_chat(
             chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id
         )
