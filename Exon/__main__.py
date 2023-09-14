@@ -416,23 +416,13 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            "Choose an option for getting HELP.",
+            '<a href="https://t.me/{}?start=help" >Commands Explanation</a>',
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(
-                            text="Open in private",
-                            url="https://t.me/{}?start=help".format(
-                                context.bot.username
-                            ),
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="Open here",
-                            callback_data="help_back",
-                        )
-                    ],
+                    InlineKeyboardButton(
+                        text="Open here",
+                        callback_data="help_back",
+                    )
                 ]
             ),
         )
