@@ -272,7 +272,7 @@ def wiki(update, context):
 
 @Exoncmd(command="ud")
 @typing_action
-def ud(update, context):
+async def ud(update, context):
     msg = update.effective_message
     args = context.args
     text = " ".join(args).lower()
