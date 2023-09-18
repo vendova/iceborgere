@@ -25,7 +25,7 @@ from Exon.modules.helper_funcs.extraction import (
 )
 from Exon.modules.log_channel import loggable
 
-def inline(update, context):
+def inline(update: Update, context: CallbackContext):
     query = update.inline_query.query
     results = [
         InlineQueryResultArticle(
