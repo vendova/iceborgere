@@ -25,7 +25,7 @@ from Exon.modules.helper_funcs.extraction import (
 )
 from Exon.modules.log_channel import loggable
 
-def inline(update: Update, context: CallbackContext):
+async def inline(update: Update, context: CallbackContext):
     query = update.inline_query.query
     results = [
         InlineQueryResultArticle(
@@ -34,7 +34,7 @@ def inline(update: Update, context: CallbackContext):
             input_message_content=InputTextMessageContent("This is an example of an inline message."),
         )
     ]
-    update.inline_query.answer(results)
+    await update.inline_query.answer(results)
 
 @bot_admin
 @user_admin
