@@ -416,13 +416,23 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            '<a href="https://t.me/{}?start=help" >Commands Explanation</a>',
+            "Choose an option for getting HELP.",
             reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton(
-                        text="Open here",
-                        callback_data="help_back",
-                    )
+                    [
+                        InlineKeyboardButton(
+                            text="Open in private",
+                            url="https://t.me/{}?start=help".format(
+                                context.bot.username
+                            ),
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Open here",
+                            callback_data="help_back",
+                        )
+                    ],
                 ]
             ),
         )
@@ -669,10 +679,7 @@ def migrate_chats(update: Update, context: CallbackContext):
     raise DispatcherHandlerStop
 
 
-async def main():
-    # call the ud coroutine using async with
-    async with bot:
-        await ud(update, context)
+def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendAnimation(
@@ -708,9 +715,6 @@ async def main():
         telethn.run_until_disconnected()
 
     updater.idle()
-
-async with asyncio:
-    await main()
 
 
 if __name__ == "__main__":
