@@ -709,6 +709,9 @@ async def main():
 
     updater.idle()
 
+async with asyncio:
+    await main()
+
 
 if __name__ == "__main__":
     log.info("[ᴇxᴏɴ] →  sᴜᴄᴄᴇssғᴜʟʟʏ ʟᴏᴀᴅᴇᴅ ᴍᴏᴅᴜʟᴇs: " + str(ALL_MODULES))
