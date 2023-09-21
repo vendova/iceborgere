@@ -669,7 +669,7 @@ def migrate_chats(update: Update, context: CallbackContext):
     raise DispatcherHandlerStop
 
 
-def main():
+async def main():
     # call the ud coroutine using async with
     async with bot:
         await ud(update, context)
