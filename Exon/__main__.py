@@ -670,6 +670,9 @@ def migrate_chats(update: Update, context: CallbackContext):
 
 
 def main():
+    # call the ud coroutine using async with
+    async with bot:
+        await ud(update, context)
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendAnimation(
