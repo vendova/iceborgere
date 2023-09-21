@@ -29,7 +29,6 @@ SOFTWARE.
 
 import datetime
 import os
-import asyncio
 import platform
 import random
 import re
@@ -272,32 +271,26 @@ def wiki(update, context):
 
 @Exoncmd(command="ud")
 @typing_action
-async def ud(update, context):
+def ud(update, context):
     msg = update.effective_message
     args = context.args
     text = " ".join(args).lower()
     if not text:
         msg.reply_text("Please enter keywords to search on ud!")
         return
-    if text == "Vladmir":
-        send = msg.reply_text(
-            "Vladmir is my owner so if you search him on urban dictionary you can't find the meaning because he is my husband and only me who know what's the meaning of Vladmir 🤗!"
+    if text == "Arya":
+        msg.reply_text(
+            "Arya is my owner so if you search him on urban dictionary you can't find the meaning because he is my husband and only me who know what's the meaning of Arya!"
         )
-        await asyncio.sleep(36)
-        send.delete()
         return
     try:
         results = get(f"http://api.urbandictionary.com/v0/define?term={text}").json()
         reply_text = f'Word: {text}\n\nDefinition: \n{results["list"][0]["definition"]}'
         reply_text += f'\n\nExample: \n{results["list"][0]["example"]}'
-        await asyncio.sleep(36)
-        reply_text.delete()
     except IndexError:
         reply_text = (
             f"Word: {text}\n\nResults: Sorry could not find any matching results!"
         )
-        await asyncio.sleep(36)
-        reply_text.delete()
     ignore_chars = "[]"
     reply = reply_text
     for chars in ignore_chars:
@@ -306,9 +299,8 @@ async def ud(update, context):
         reply = reply[:4096]  # max msg lenth of tg.
     try:
         msg.reply_text(reply)
-    except BadRequest:
-        msg.reply_text("Error! Failed to send message.")
-
+    except BadRequest as err:
+        msg.reply_text(f"Error! {err.message}")
 
 
 file_help = os.path.basename(__file__)
