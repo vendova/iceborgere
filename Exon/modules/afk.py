@@ -43,6 +43,16 @@ async def active_afk(_, message: Message):
     if message.sender_chat:
         return
     user_id = message.from_user.id
+    if message.text.lower().startswith("brb"):
+        details = {
+            "type": "text",
+            "time": time.time(),
+            "data": None,
+            "reason": None,
+        }
+        await add_afk(user_id, details)
+        await message.reply_text("You have been marked as BRB.")
+        return
     verifier, reasondb = await is_afk(user_id)
     if verifier:
         await remove_afk(user_id)
