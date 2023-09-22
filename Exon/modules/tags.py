@@ -61,7 +61,7 @@ def get_info(id):
     return nightmod.find_one({"id": id})
 
 
-@AsuX.on_message(filters.command(["tagalert", "afk"]))
+@AsuX.on_message(filters.command("tagalert"))
 async def locks_dfunc(_, message):
     lol = await message.reply("__who has username 🔉❓...")
     if len(message.command) != 2:
