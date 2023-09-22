@@ -508,8 +508,8 @@ def flood(update, context):
 
         else: 
 
-            text = msg.reply_text("I'm not enforcing any flood control here!") 
-
+            text = msg.reply_text("Flood control: ❌ OFF !") 
+/id
     elif conn: 
 
         text = msg.reply_text( 
@@ -637,7 +637,7 @@ def set_flood_mode(update, context):
                 send_message(update.effective_message, teks, parse_mode="markdown") 
 
                 return 
-
+F
             settypeflood = "Tmute for {}".format(args[1]) 
 
             sql.set_flood_strength(chat_id, 5, str(args[1])) 
