@@ -146,7 +146,7 @@ async def purge(c: Abishnoi, m: Message):
 
         return 
 
-    await m.reply_text("Reply to a message to start purge !") 
+    await m.reply_text("⚠️ No messages selected") 
 
     return 
 
